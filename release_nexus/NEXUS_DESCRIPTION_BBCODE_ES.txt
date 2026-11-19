@@ -22,9 +22,9 @@ Una IA de conserjería táctica fabricada en 2022 por Zetatech —pirateada just
 [size=4][b]Aspectos Técnicos Destacados[/b][/size]
 [list]
 [*]Proyección holográfica superior izquierda persistente ([i]ZETATECH 2022 // KIROSHI[/i]) durante conversaciones finales e intervenciones tácticas sin bloquear movimiento, escáner, armas ni ciberware.
-[*]Doblaje completo en español e inglés en los 6 episodios (`144` líneas de estudio por idioma + `5` SFX), con voces propias para V femenina/masculina, el sargento CHISPA y cada jefe de escuadra, más subtítulos completos ES/EN.
+[*]Doblaje completo en español e inglés en los 6 episodios ([font=Courier New]144[/font] líneas de estudio por idioma + [font=Courier New]5[/font] SFX), con voces propias para V femenina/masculina, el sargento CHISPA y cada jefe de escuadra, más subtítulos completos ES/EN.
 [*]Compatible al 100 % con Juego Base 2.x (sin dependencias cerradas de terceros ni DLC obligatorio) y seguro durante el Prólogo / Creación de Personaje.
-[*]Totalmente responsive tras la revisión táctica: puedes activar interacciones `[F]` en pleno combate sin esperar a que terminen los comentarios de campo y el menú de diálogo (incluida la opción amarilla final) responde de inmediato.
+[*]Totalmente responsive tras la revisión táctica: puedes activar interacciones [font=Courier New][F][/font] en pleno combate sin esperar a que terminen los comentarios de campo y el menú de diálogo (incluida la opción amarilla final) responde de inmediato.
 [/list]
 
 [size=4][b]Permisos Abiertos y Créditos[/b][/size]

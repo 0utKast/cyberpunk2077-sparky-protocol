@@ -27,6 +27,7 @@ REPO_DIR = WORKSPACE_ROOT / "sparky_protocol"
 
 GITHUB_REPO_URL = "https://github.com/0utKast/cyberpunk2077-sparky-protocol"
 YOUTUBE_TRAILER_URL = "https://youtu.be/9MXEEu3NCcc"
+NEXUS_MOD_URL = "https://www.nexusmods.com/cyberpunk2077/mods/38982"
 
 
 def _copy_clean_dir(src: Path, dst: Path) -> int:
@@ -120,7 +121,7 @@ def _write_credits(repo_dir: Path) -> None:
 
 | Component / Componente | Author / Autor Original | License / Permisos | Link / Referencia |
 | :--- | :--- | :--- | :--- |
-| **SPARKY / C.H.I.S.P.A. Modular Engine, Episodes 0–5, Custom Iconic Weapons & CR2W Templates** | **OutKast (`0utKast`)** | **MIT License (100% Open Permissions)** | {GITHUB_REPO_URL} |
+| **SPARKY / C.H.I.S.P.A. Modular Engine, Episodes 0–5, Custom Iconic Weapons & CR2W Templates** | **OutKast (`0utKast`)** | **MIT License (100% Open Permissions)** | [GitHub]({GITHUB_REPO_URL}) · [Nexus Mods #38982]({NEXUS_MOD_URL}) |
 | **WolvenKit & WolvenKit CLI** | WolvenKit Team & REDModding Community | Open Source | https://github.com/WolvenKit/WolvenKit |
 | **RED4ext** | WopsS & Contributors | Open Source | https://github.com/WopsS/RED4ext |
 | **ArchiveXL / TweakXL / Codeware** | psiberx | MIT / Open Source | https://github.com/psiberx |
@@ -138,6 +139,7 @@ def _write_readme(repo_dir: Path) -> None:
 ### *Night City Survival Guide* — Voiced Kiroshi AI Companion (`144` EN & `144` ES Studio Lines, Live Holo-Feed), `6` Episodic Tactical Quests (`Ep. 0–5`), `7` Custom Iconic Weapons, and `3` Quest-Yellow RPG Endings
 
 [![License: MIT & Open Permissions](https://img.shields.io/badge/License-MIT%20%28100%25%20Open%20Permissions%29-brightgreen.svg)](LICENSE)
+[![Nexus Mods #38982](https://img.shields.io/badge/Nexus%20Mods-%2338982-da8e35.svg)]({NEXUS_MOD_URL})
 [![Official Trailer](https://img.shields.io/badge/YouTube-Official%20Trailer-ff0000.svg)]({YOUTUBE_TRAILER_URL})
 [![Release v1.4.0](https://img.shields.io/badge/Release-v1.4.0%20Season%201%20%28EN%20%26%20ES%29-fcee0a.svg)]({GITHUB_REPO_URL}/releases)
 [![Cyberpunk 2077 2.x](https://img.shields.io/badge/Cyberpunk%202077-2.x%20Base%20Game%20Compatible-00f0ff.svg)](#universal-compatibility)
@@ -146,6 +148,7 @@ def _write_readme(repo_dir: Path) -> None:
 ![SPARKY Protocol Header Banner](media/00_HEADER_NEXUS_1920x1080_EN.jpg)
 
 > **🌍 Navigation & Direct Downloads / Navegación y Descarga Directa:**
+> - 🧩 **[Nexus Mods Page (`cyberpunk2077/mods/38982`)]({NEXUS_MOD_URL})**
 > - 🎬 **[Watch Official 3-Minute Trailer on YouTube / Ver Tráiler Oficial en YouTube (`youtu.be/9MXEEu3NCcc`)]({YOUTUBE_TRAILER_URL})**
 > - 📦 **[Download Release `v1.4.0` on GitHub (`SparkyProtocol_EN_v1.4.0.zip` & `ChispaNC_v1.4.0.zip`)]({GITHUB_REPO_URL}/releases/tag/v1.4.0)**
 >   - 🇺🇸 **`SparkyProtocol_EN_v1.4.0.zip`** — *100% Pure English Standalone Edition (Vortex / MO2 / Manual)*
@@ -207,7 +210,7 @@ Sabotaged right before the 2022 DataKrash into a foul-mouthed, raspy veteran dri
 - **Required Open-Source Frameworks** *(install separately; never bundled inside mod zips)*:
   [RED4ext](https://github.com/WopsS/RED4ext), [ArchiveXL](https://github.com/psiberx/cp2077-archive-xl), [TweakXL](https://github.com/psiberx/cp2077-tweak-xl), [Codeware](https://github.com/psiberx/cp2077-codeware), [redscript](https://github.com/jac3km4/redscript), [Audioware](https://github.com/cyb3rpsych0s1s/audioware), and [Cyber Engine Tweaks](https://github.com/maximegmd/CyberEngineTweaks).
 - **Manual / Vortex / MO2 Installation:**
-  1. Choose **one** edition from [GitHub Releases (`v1.4.0`)]({GITHUB_REPO_URL}/releases/tag/v1.4.0):
+  1. Choose **one** edition from [Nexus Mods #38982]({NEXUS_MOD_URL}) or [GitHub Releases (`v1.4.0`)]({GITHUB_REPO_URL}/releases/tag/v1.4.0):
      - **`SparkyProtocol_EN_v1.4.0.zip`** — Standalone 100% English edition (displays English subtitles/text and plays English voiceovers across all game UI languages).
      - **`ChispaNC_v1.4.0.zip`** — Bilingual Spanish/English edition tailored for Spanish (`es-es` / `es-mx`) or matching EN/ES game setups.
   2. Install via **Vortex** / **Mod Organizer 2**, or extract directly into your `Cyberpunk 2077` root folder. *(Never install both editions simultaneously.)*
@@ -259,7 +262,7 @@ Una IA táctica de Zetatech de 2022 —saboteada antes del DataKrash con caráct
 - **Ep. 5 (*Más Allá del Muro Negro* — Coastview, Pacifica):** Asalto al nodo criogénico de los Hijos del Vudú, purga de NetWatch, Sector Maestro #05 (`+5.000 €$` + pistola Tech *«Cortafuegos del 22»*) y **3 finales reales en amarillo** (*Socio Autónomo v1.0*, *Filtración N54* o *Protocolo Armero* con el revólver *«Última Palabra de Sargento»*).
 
 ## 3. Instalación Rápida (Español)
-1. Descarga **`ChispaNC_v1.4.0.zip`** desde **[GitHub Releases (`v1.4.0`)]({GITHUB_REPO_URL}/releases/tag/v1.4.0)**.
+1. Descarga **`ChispaNC_v1.4.0.zip`** desde **[Nexus Mods #38982]({NEXUS_MOD_URL})** o desde **[GitHub Releases (`v1.4.0`)]({GITHUB_REPO_URL}/releases/tag/v1.4.0)**.
 2. Instala primero los frameworks base (*RED4ext*, *ArchiveXL*, *TweakXL*, *Codeware*, *redscript*, *Audioware*, *Cyber Engine Tweaks*) y extrae el `.zip` en la carpeta raíz de **Cyberpunk 2077** (o mediante **Vortex** / **MO2**). *(No instales simultáneamente la edición inglesa `SparkyProtocol_EN` y la bilingüe `ChispaNC`).*
 """
     (repo_dir / "README.md").write_text(content, encoding="utf-8")

@@ -12,7 +12,7 @@
 
 | Component / Componente | Author / Autor Original | License / Permisos | Link / Referencia |
 | :--- | :--- | :--- | :--- |
-| **SPARKY / C.H.I.S.P.A. Modular Engine, Episodes 0–5, Custom Iconic Weapons & CR2W Templates** | **OutKast (`0utKast`)** | **MIT License (100% Open Permissions)** | https://github.com/0utKast/cyberpunk2077-sparky-protocol |
+| **SPARKY / C.H.I.S.P.A. Modular Engine, Episodes 0–5, Custom Iconic Weapons & CR2W Templates** | **OutKast (`0utKast`)** | **MIT License (100% Open Permissions)** | [GitHub](https://github.com/0utKast/cyberpunk2077-sparky-protocol) · [Nexus Mods #38982](https://www.nexusmods.com/cyberpunk2077/mods/38982) |
 | **WolvenKit & WolvenKit CLI** | WolvenKit Team & REDModding Community | Open Source | https://github.com/WolvenKit/WolvenKit |
 | **RED4ext** | WopsS & Contributors | Open Source | https://github.com/WopsS/RED4ext |
 | **ArchiveXL / TweakXL / Codeware** | psiberx | MIT / Open Source | https://github.com/psiberx |
