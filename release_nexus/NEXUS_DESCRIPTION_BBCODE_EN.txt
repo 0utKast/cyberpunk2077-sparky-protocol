@@ -1,5 +1,5 @@
 [center][size=6][b]SPARKY PROTOCOL — NIGHT CITY SURVIVAL GUIDE[/b][/size]
-[size=4][b]v1.4.0 Complete Season 1 (Standalone English & Spanish Editions) • Voiced Kiroshi AI Companion[/b][/size]
+[size=4][b]v1.4.1 Complete Season 1 (Standalone English & Spanish Editions) • Voiced Kiroshi AI Companion[/b][/size]
 [size=3][i]6 Episodic Street Quests Across Watson, Arroyo & Pacifica (Ep. 0–5) • 144 Studio Voice Lines Per Language + DSP Radio Filter • Persistent Kiroshi Holo-Feed • Chained Cams, Subverted Turrets, Smart-Link & Power Ricochet Telemetry • 7 Custom Iconic Weapons & 3 RPG Endings • Base Game 2.x Compatible (0 DLC) • 100% Open Permissions[/i][/size]
 [size=3][b]Official Trailer (YouTube):[/b] [url=https://youtu.be/9MXEEu3NCcc]youtu.be/9MXEEu3NCcc[/url]  •  [b]GitHub Source & Releases (MIT / Open Permissions):[/b] [url=https://github.com/0utKast/cyberpunk2077-sparky-protocol]github.com/0utKast/cyberpunk2077-sparky-protocol[/url][/size]
 
@@ -14,7 +14,17 @@ No boring VR tutorial rooms: master scanning, chained surveillance cameras, Ping
 
 [line]
 
-[size=5][b]SEASON 1 CAMPAIGN (EPISODES 0–5, v1.4.0)[/b][/size]
+[size=5][b]WHEN DOES THE CAMPAIGN ACTIVATE? (STORY TRIGGERS & COMPATIBILITY)[/b][/size]
+[list]
+[*][b]New Game — Episodes 0 to 3 (Watson Arc):[/b] Completely dormant during Character Creation, Lifepath intros, and [i]The Rescue[/i]. [b]Episode 0[/b] activates in [i]The Ripperdoc[/i] right after Viktor Vektor finishes installing your Kiroshi Optics (as soon as you step out of Vik's chair into open free-roam gameplay with no other phone call active). Because Episodes 0–3 all take place inside [b]Watson[/b], you can play all four [b]before [i]The Heist[/i][/b] during the Watson lockdown or anytime later.[/*]
+[*][b]Episodes 4 & 5 (Heywood & Pacifica Arc — Post-Heist):[/b] Automatically checks whether Watson's police lockdown has lifted. If you finish Episode 3 before [i]The Heist[/i], S.P.A.R.K.Y. waits without placing unreachable markers outside the police cordon and calls you for Episode 4 as soon as Act 2 opens up Night City.[/*]
+[*][b]Existing Mid-Game or Endgame Saves:[/b] 100% safe to install mid-playthrough! Once you load into normal free-roam gameplay (outside cutscenes, menus, or other holocalls), S.P.A.R.K.Y. rings your holo within ~4 seconds to start Episode 0, and all 6 episodes chain seamlessly.[/*]
+[*][b]Zero Cyberware or Cosmetic Conflicts:[/b] Uses [b]zero[/b] Ripperdoc cyberware slots (Optics, Face, Cyberdeck/OS, Hands) and never modifies eye/face meshes—100% compatible with custom eyes/face mods, cyberware overhauls, and AI cyberdeck mods.[/*]
+[/list]
+
+[line]
+
+[size=5][b]SEASON 1 CAMPAIGN (EPISODES 0–5, v1.4.1)[/b][/size]
 [list]
 [*][b]Episode 0 — «Not Your Office Paperclip» (Little China, behind Megabuilding H10):[/b] Scan street scavs with Kiroshi [font=Courier New][TAB][/font], trigger live tactical reactions, remotely overload an industrial capacitor bank ([font=Courier New][F][/font]) or clear them out guns blazing, link S.P.A.R.K.Y. v0.98b from a titanium Zetatech terminal, and unlock [font=Courier New]1,500 E$[/font], Iconic pistol [i]Executive Courtesy[/i] ([font=Courier New]Lexington[/font]), and portable lore on Richard Night and Night City's Megabuildings.[/*]
 [*][b]Episode 1 — «Ghosts in the Camera» (Kabuki Creek Promenade, Watson):[/b] Follow SPARKY's ping to a Scavenger cell led by netrunner Kostya Morozov. Sync a starter Ping daemon, hijack [i]Cam-01[/i] and jump along the live camera chain to [i]Cam-02[/i], Ping targets through cover, detonate their explosive Entropy server (or overload the red RABIDS relay bank with [font=Courier New][F][/font] without a cyberdeck), and recover Memory Sector #01 for [font=Courier New]2,200 E$[/font], Tier-2 quickhacks, Iconic SMG [i]Phantom Frequency[/i], Codex Vol. 1, and portable Kiroshi dialogue on Rache Bartmoss, RABIDS / the 2022 DataKrash, and NetWatch's Blackwall.[/*]
@@ -52,10 +62,10 @@ No boring VR tutorial rooms: master scanning, chained surveillance cameras, Ping
 [b]Installation Steps:[/b]
 [list=1]
 [*]In the [b]Files[/b] tab, download [b]ONLY ONE[/b] standalone Main File matching your preferred language (never install both editions at the same time):
-• [font=Courier New]SPARKY Protocol - English Edition[/font] ([font=Courier New]SparkyProtocol_EN_v1.4.0.zip[/font]) — 100% Pure English edition (English voices and subtitles across all game UI languages).
+• [font=Courier New]SPARKY Protocol - English Edition[/font] ([font=Courier New]SparkyProtocol_EN_v1.4.1.zip[/font]) — 100% Pure English edition (English voices and universal 19-language subtitle mapping across all game UI languages).
 • [font=Courier New]Protocolo CHISPA - Spanish Edition[/font] ([font=Courier New]ChispaNC_v1.4.0.zip[/font]) — Edición Autónoma en Español / Bilingüe.[/*]
 [*]Install via [b]Vortex[/b] or [b]Mod Organizer 2[/b], or extract the contents cleanly into your [font=Courier New]Cyberpunk 2077[/font] root installation directory.[/*]
-[*]Launch the game (safe on existing saves or after starting a New Game / clearing Watson lockdown for Ep. 4–5): S.P.A.R.K.Y. pings your Kiroshi optics automatically once in open Night City gameplay around Little China / H10.[/*]
+[*]Launch the game (safe on existing saves or on a New Game right after Viktor installs your Kiroshi Optics in [i]The Ripperdoc[/i]; Ep. 4–5 unlock once Watson's lockdown lifts): S.P.A.R.K.Y. rings your holo automatically within ~4 seconds of open free-roam gameplay.[/*]
 [/list]
 
 [line]
@@ -66,6 +76,14 @@ No boring VR tutorial rooms: master scanning, chained surveillance cameras, Ping
 
 [size=4][b]¿Qué es Protocolo C.H.I.S.P.A.?[/b][/size]
 Una IA de conserjería táctica fabricada en 2022 por Zetatech —pirateada justo antes del DataKrash con carácter de sargento chusquero veterano y cero censura corporativa— se acopla a tus ópticas Kiroshi y guía a V a lo largo de una campaña completa de 6 episodios por [b]Watson[/b], [b]Arroyo (Heywood)[/b] y [b]Pacifica[/b]. Nada de salas virtuales aburridas: domina el escáner Kiroshi, cámaras encadenadas, Ping, sobrecarga de subredes, sabotaje de torretas, perforación Tech, desvío de armas Smart, rebotes balísticos Power e historia real de Night City mediante combate vivo, telemetría reactiva y equipo icónico único.
+
+[size=4][b]¿Cuándo se activa la campaña y compatibilidad con ciberware?[/b][/size]
+[list]
+[*][b]Nueva Partida — Episodios 0 al 3 (Arco de Watson):[/b] Permanece inactivo en Creación de Personaje, prólogos de trasfondo y [i]El Rescate[/i]. El [b]Episodio 0[/b] se activa en [i]El Matasanos[/i] justo al levantarte de la silla de Viktor Vektor tras instalarte tus ópticas Kiroshi (en exploración libre y sin otra llamada activa). Al transcurrir íntegros en [b]Watson[/b], los Episodios 0–3 pueden jugarse [b]antes de [i]El Golpe[/i][/b] o en cualquier momento posterior.[/*]
+[*][b]Episodios 4 y 5 (Arroyo y Pacifica — Post-Golpe):[/b] Comprueba automáticamente si se ha levantado el bloqueo policial de Watson; si completas el Episodio 3 antes de [i]El Golpe[/i], C.H.I.S.P.A. espera sin poner marcadores inaccesibles y te llama en cuanto se abre Night City en el Acto 2.[/*]
+[*][b]Partidas ya empezadas (Acto 1, Acto 2 o Endgame):[/b] 100 % seguro de instalar a mitad de partida; a los ~4 segundos de estar en exploración libre sonará tu holoteléfono para iniciar el Episodio 0.[/*]
+[*][b]Cero conflictos estéticos o de implantes:[/b] No ocupa ninguna ranura de matasanos (óptica, rostro, cyberdeck ni manos) ni modifica mallas o texturas de V.[/*]
+[/list]
 
 [size=4][b]Campaña Incluida en Español (v1.4.0 — Episodios 0–5)[/b][/size]
 [list]
