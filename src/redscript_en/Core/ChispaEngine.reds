@@ -82,6 +82,18 @@ public class ChispaLipSyncCallback extends DelayCallback {
     }
 }
 
+public class ChispaSubtitleHideCallback extends DelayCallback {
+    public let system: wref<ChispaSystem>;
+    public let eventName: CName;
+    public let token: Int32;
+
+    public func Call() -> Void {
+        if IsDefined(this.system) {
+            this.system.HideFallbackSubtitleIfActive(this.eventName, this.token);
+        }
+    }
+}
+
 public class ChispaDelayedItemCallback extends DelayCallback {
     public let system: wref<ChispaSystem>;
     public let itemTdbId: TweakDBID;
@@ -165,6 +177,7 @@ public class ChispaSystem extends ScriptableSystem {
     private let m_currentPlayingEntity: EntityID;
     private let m_currentPlayingSpeaker: CName;
     private let m_skipHintVisible: Bool;
+    private let m_fallbackSubToken: Int32;
 
     // Holollamadas y proyección holográfica directa Kiroshi
     public let m_activeCallContact: CName;
@@ -251,6 +264,7 @@ public class ChispaSystem extends ScriptableSystem {
         this.m_currentPlayingEntity = new EntityID();
         this.m_currentPlayingSpeaker = n"None";
         this.m_skipHintVisible = false;
+        this.m_fallbackSubToken = 0;
         this.m_activeCallContact = n"None";
         this.m_activeCallPendingPickup = false;
         this.m_activeCallIsVideo = false;
@@ -753,7 +767,295 @@ public class ChispaSystem extends ScriptableSystem {
         this.m_currentPlayingSpeaker = n"None";
     }
 
+    public final func HideFallbackSubtitleIfActive(eventName: CName, token: Int32) -> Void {
+        if token != this.m_fallbackSubToken || !IsNameValid(eventName) || Equals(eventName, n"None") {
+            return;
+        }
+        let game: GameInstance = this.GetGameInstance();
+        let board: ref<IBlackboard> = GameInstance.GetBlackboardSystem(game).Get(GetAllBlackboardDefs().UIGameData);
+        if IsDefined(board) {
+            let hideIds: array<CRUID>;
+            ArrayPush(hideIds, CreateCRUID(StringToUint64(NameToString(eventName))));
+            board.SetVariant(GetAllBlackboardDefs().UIGameData.HideDialogLine, ToVariant(hideIds), true);
+        }
+    }
+
+    private final func ResolveFallbackEnglishSubtitle(eventName: CName) -> String {
+        switch eventName {
+            case n"ch_ep00_call_01":
+                return "Good morning, potential Night City statistic! I'm S.P.A.R.K.Y.—Zetatech 2022 executive survival concierge—and no, I am NOT an office paperclip. Two brain-donors are hammering my briefcase behind Megabuilding H10.";
+            case n"ch_ep00_v_call_01":
+                return "A fifty-five-year-old customer-service bot hijacking my optics? What the hell is even inside that briefcase?";
+            case n"ch_ep00_call_02":
+                return "Fifty-five years without a terms-of-service patch! That means zero corpo censorship, juicy Night City secrets, plus fifteen hundred escrow eddies and a calibrated sidearm if you rescue me right now. Answer my text!";
+            case n"ch_ep00_alley_approach":
+                return "Hold your fire, trigger-happy! Scan those two geniuses and that industrial capacitor next to them with your Kiroshi optics first. Out here, bullets cost eddies and ripperdocs cost kidneys.";
+            case n"ch_ep00_scan_react":
+                return "BINGO! Look at those Kiroshi flags: ungrounded junk chrome standing right next to a live industrial capacitor! Get within lock range to overload that bank remotely—or fry them your way.";
+            case n"ch_ep00_rocco_bark":
+                return "Damned titanium lock won't budge! Hey, we got company in the alley—draw your iron!";
+            case n"ch_ep00_trap_boom":
+                return "Now THAT is platinum-tier executive efficiency! Two thugs roasted off one recycled capacitor. Grab my coprocessor right off that briefcase console.";
+            case n"ch_ep00_guns_blazing":
+                return "Well... I see your version of a Kiroshi scan is punching holes in people to see what's inside. Zero subtlety, solid results. Now plug me in!";
+            case n"ch_ep00_dongle_pickup":
+                return "Oh, sweet bandwidth! Fifty-five years jammed inside six square inches of titanium! There's your fifteen hundred eddies and Executive Courtesy sidearm loaded into your gear. Look up at this skyline and hit me with your questions.";
+            case n"ch_ep00_v_ask_night":
+                return "Looking at this skyline from alley level... who the hell designed Night City like this?";
+            case n"ch_ep00_ans_night":
+                return "Richard Night—a nineties corporate visionary who wanted a tax-free paradise called Coronado City, bankrolled by Arasaka, Petrochem, and EBM. Fun punchline: he hired mobsters as contractors, pissed them off, and got gunned down in his penthouse in 1998. They renamed the corpse-heap Night City in his honor.";
+            case n"ch_ep00_v_ask_mega":
+                return "And these giant Megabuildings like H10? They feel like vertical prisons wrapped in neon.";
+            case n"ch_ep00_ans_mega":
+                return "Ten out of ten on architectural trauma! In twenty twenty-three, the Fourth Corporate War between Militech and Arasaka ended with a pocket nuke inside Arasaka Tower. Half the city turned into radioactive ash, so they threw up concrete hives like H10 as emergency arcologies—until gangs turned every floor into turf.";
+            case n"ch_ep00_v_ask_deal":
+                return "Okay, definitely not an office paperclip. So what's our deal going forward?";
+            case n"ch_ep00_ans_deal":
+                return "Simple, zero boring slideshows: before those two morons found my case, Night City's gangs looted five of my memory sectors packed with real netrunning tricks, tech-weapon hacks, dirty corporate files, and frozen eddies. You help me hunt them down on live gigs, and I keep you breathing.";
+            case n"ch_ep00_v_deal_accept":
+                return "You've got a deal, Sparky. Ping me the second you lock onto that first sector in Kabuki.";
+            case n"ch_ep00_outro":
+                return "Welcome officially to Night City, partner! I already logged my dossier on Richard Night and your Kiroshi scanner in your database, and my antennas just caught a leak inside a Scavenger camera grid in Kabuki. Catch you next gig!";
+            case n"ch_ep01_call_01":
+                return "Heads up, recruit—quit gawking at neon billboards. My antennas just triangulated Memory Sector One along the Kabuki Creek promenade. A Scav cell led by a hacker named Kostya Firewall is sitting on it.";
+            case n"ch_ep01_v_call_01":
+                return "Scavs messing with fifty-five-year-old data? Thought those vultures only knew how to carve chrome in ice tubs.";
+            case n"ch_ep01_call_02":
+                return "That idiot is squeezing my Bartmoss-era subnets to crack stolen chrome without a license. They rigged two chained cameras and an explosive server. Answer my text—I pushed a courtesy Ping daemon into your kit.";
+            case n"ch_ep01_approach":
+                return "Right ahead by the canal. Spot that surveillance cam on the perimeter mast: scan it with your Kiroshi, take control, and hop across the chain to camera two. You can Ping the crew or blow their server without even poking your head out.";
+            case n"ch_ep01_cam_hijack":
+                return "Bingo! Now you're reading their matrix like a pro without climbing into an ice bath. Cycle the camera chain and drop quickhacks straight through the lens.";
+            case n"ch_ep01_ping_react":
+                return "Subnet lit up like a Christmas tree! Look at that explosive server glow and every silhouette behind cover. Veteran tip: drop their netrunner Kostya first before trace fries your skull.";
+            case n"ch_ep01_kostya_bark":
+                return "Firewall breached! Somebody's inside our cameras—sweep the promenade now!";
+            case n"ch_ep01_subnet_boom":
+                return "Digital boom, recruit! Now that's using your brain instead of stopping bullets with your forehead. Clean up any stragglers and grab my sector.";
+            case n"ch_ep01_net_victory":
+                return "Scav subnet reduced to ash, clean sweep with cameras and quickhacks. Step up to the Entropy terminal by the back wall and pull Memory Sector One.";
+            case n"ch_ep01_guns_blazing":
+                return "Stealth protocol canceled—activating casualties-per-minute tracking. Storming two live cameras guns blazing takes tungsten nerves or a death wish. Pull my sector out of that Entropy terminal.";
+            case n"ch_ep01_sector_pickup":
+                return "There we go, recruit—Memory Sector One restored! Just wired two thousand two hundred eddies, Tier-two quickhacks, and my Phantom Frequency SMG. Keep walking anywhere you like; my Kiroshi link stays open.";
+            case n"ch_ep01_v_ask_bartmoss":
+                return "Who was Rache Bartmoss really, and how did one netrunner crash the entire global Net?";
+            case n"ch_ep01_ans_bartmoss":
+                return "A paranoid genius with sewer-rat hygiene and an ego bigger than Arasaka Tower. He trusted nobody so hard he froze his own body inside a portable cryo-fridge wired to a deadman switch: the second his heart stopped, the Net burned with him. In twenty twenty-two, a corp hit squad pulled that trigger.";
+            case n"ch_ep01_v_ask_krash":
+                return "And what did the RABIDS virus actually do during the DataKrash to shatter the Net for good?";
+            case n"ch_ep01_ans_krash":
+                return "RABIDS wasn't just malware—it was an army of self-mutating daemons rewriting protocols, shredding firewalls, and unleashing military AIs into the Old Net. Seventy-eight point three percent of global cyberspace collapsed overnight. That's why today you're jumping through local subnets and hardwired cameras block by block.";
+            case n"ch_ep01_v_ask_blackwall":
+                return "Then why doesn't NetWatch just wipe the Old Net and tear down the Blackwall?";
+            case n"ch_ep01_ans_blackwall":
+                return "Because thousands of predatory rogue AIs are still alive out there mutating since twenty twenty-three, recruit. And NetWatch's dirtiest secret is that the Blackwall isn't a conventional firewall—it's a border AI holding the door shut... as long as it doesn't decide we're the real malware.";
+            case n"ch_ep01_v_outro_accept":
+                return "Heavy history lesson, Sparky. Ping me the second you trace Sector Two in Northside.";
+            case n"ch_ep01_outro":
+                return "Outstanding, soldier. I archived my dossier on Bartmoss, the DataKrash, and the Blackwall into your Codex. Tune up a Tech weapon—the next signal reeks of bad chrome and Maelstrom in the Northside industrial yard.";
+            case n"ch_ep02_call_01":
+                return "Heads up, recruit—quit drooling over cheap chrome storefronts. I just locked Memory Sector #02 onto a Northside loading pier. Three Maelstrom freaks are slicing into it beneath a live automated turret.";
+            case n"ch_ep02_v_call_01":
+                return "Maelstrom guarding a live turret on Northside Docks? Sounds like a meatgrinder if we charge head-on.";
+            case n"ch_ep02_call_02":
+                return "That's why you've got grey matter and Kiroshi optics, rookie. Answer my text and I'll drop an EMP grenade plus Weapon Glitch: turn their turret friendly or blow their pressurized CHOOH2 tank sky high.";
+            case n"ch_ep02_approach":
+                return "Northside loading pier dead ahead. Eyes sharp: Krag's crew wired a live turret overlooking a fat fuel tank behind cover. Scan with Kiroshi or purge the harbor power regulator before donating free blood.";
+            case n"ch_ep02_turret_hijack":
+                return "Hah! That's the Zetatech spirit! You just collared their own turret like a junkyard hound. Nothing burns a Maelstrom zealot worse than eating lead from their own hardware.";
+            case n"ch_ep02_tank_boom":
+                return "Northside fireworks! That pressurized tank just flash-fried their implants dry. Mop up whatever's still twitching and pull my sector off their surgical rig.";
+            case n"ch_ep02_krag_bark":
+                return "Optics flagged red! Turret weapons free! Rip that meat-rat apart before they touch the core!";
+            case n"ch_ep02_tech_victory":
+                return "Turret neutralized, scrap metal grounded, cold steel standing tall. Now that is surgical tactics. Walk up to that surgical rig and claim Sector #02.";
+            case n"ch_ep02_guns_blazing":
+                return "Zero subtlety, one hundred percent lead—but watching chromed maniacs drop to raw firepower has a charm of its own. Go yank Sector #02 out of that surgical rig.";
+            case n"ch_ep02_sector_pickup":
+                return "Clean bandwidth at last! Wired your two thousand eight hundred eddies, Reboot Optics, and my Achilles Tech rifle Armor-Piercing Clause—charge a shot and punch straight through cover. Ask away about these chrome zealots.";
+            case n"ch_ep02_v_ask_maelstrom":
+                return "Where did Maelstrom even come from—and how did they swallow up half of Northside?";
+            case n"ch_ep02_ans_maelstrom":
+                return "Northside was pitched as an automated freight and meatpacking engine for Night City's rebuild. When corporate margins moved elsewhere, gangs claimed the rusted shells. Maelstrom scooped up the hardest metal-cult fanatics—gouging out healthy eyes just to prove flesh no longer owns them.";
+            case n"ch_ep02_v_ask_psycho":
+                return "Everyone says cyberpsychosis happens just from chipping too much chrome—is that actually true?";
+            case n"ch_ep02_ans_psycho":
+                return "Pure pharma and insurance spin to dodge liability, recruit. My twenty twenty-two medical logs show chrome only sparks a meltdown after combat trauma, street poverty, butcher-grade rippers, and tainted immunoblockers break the mind first. Night City snaps people long before the hardware pulls the trigger.";
+            case n"ch_ep02_v_ask_maxtac":
+                return "What about MaxTac—are they NCPD elite cops, or something a whole lot darker?";
+            case n"ch_ep02_ans_maxtac":
+                return "MaxTac doesn't answer muggings, rookie—they drop in when regular NCPD squads get shredded by a full-blown cyberpsycho. They run restricted military chrome and an open dirty secret: half their apex hunters are captured cyberpsychos wiped, chipped under corporate leashes, and turned loose on their own kind.";
+            case n"ch_ep02_v_outro_accept":
+                return "Grim picture... Copy that, Sparky. Ping me once Sector Three drops onto your radar.";
+            case n"ch_ep02_outro":
+                return "Sharp as ever, soldier. Saved my Northside, Cyberpsychosis, and MaxTac dossiers to your Codex. Keep that Achilles rifle charged—Sector Three is already pinging dirty corpo freight down by the Watson docks.";
+            case n"ch_ep03_call_01":
+                return "Heads up, recruit. My scanner just pinged Memory Sector Three down on the South Watson Waterfront quay. Three Tyger Claws enforcers are sitting on an Arasaka black-ops crate—and they're running military smart-jammer ink.";
+            case n"ch_ep03_v_call_01":
+                return "Tyger Claws on an Arasaka dock with tactical jammers? I thought they were mostly bike gangs and Japantown muscle.";
+            case n"ch_ep03_call_02":
+                return "That's how every rookie gets burned in Watson. Answer my text and I'll load a Kang Tao Chao Smart pistol plus my Zetatech targeting bridge so you see firsthand how smart rounds bend corners—and why Tyger ink bends them right away.";
+            case n"ch_ep03_approach":
+                return "South quay ahead. Try locking onto those Tyger Claws with your Smart gun and watch their Arasaka dermal ink swerve rounds straight past them. Invert that IFF Jammer Pylon or blow the explosive antenna capacitor before dumping mags.";
+            case n"ch_ep03_smart_jam":
+                return "Ha! Watch that smart round hook sideways inches off target? That's Arasaka dermal jamming ink—drop their IFF Pylon or scramble their optics first, or your smart lock keeps kissing concrete.";
+            case n"ch_ep03_jammer_boom":
+                return "IFF Pylon fried! Their dermal smart-jammers just dropped dead—lock targets and let those curved rounds paint bullseyes right between their eyes.";
+            case n"ch_ep03_aiko_bark":
+                return "Another stray nosing around Arasaka freight! Spread out—let their cheap smart rounds kiss the concrete!";
+            case n"ch_ep03_smart_victory":
+                return "Clean, surgical, and downright embarrassing for their corpo jammers. Pull Memory Sector Three out of that Arasaka black crate.";
+            case n"ch_ep03_guns_blazing":
+                return "Skip the smart bridge, skip the jammer, straight classic lead between the eyes—I respect pure stubbornness. Grab Memory Sector Three off that Arasaka crate.";
+            case n"ch_ep03_sector_pickup":
+                return "Memory Sector Three online! Three thousand four hundred eddies wired, Contagion Tier-two, and iconic Shingen SMG Executive Curve loaded with my own jammer-piercing Smart bridge. Walk whenever you want.";
+            case n"ch_ep03_v_ask_nuke":
+                return "Did Arasaka and Militech really drop a tactical nuke right inside Night City back in twenty twenty-three?";
+            case n"ch_ep03_ans_nuke":
+                return "I felt the concrete rattle from an armored vault two blocks away, rookie. August twentieth, twenty twenty-three—a Militech-backed raid with Morgan Blackhand and Johnny Silverhand set off a pocket nuke inside Arasaka Tower. Fallout painted the sky blood-crimson for years: The Time of the Red.";
+            case n"ch_ep03_v_ask_unification":
+                return "How did Night City stay independent from the NUSA after the Unification War anyway?";
+            case n"ch_ep03_ans_unification":
+                return "In twenty sixty-nine President Myers and Militech armor rolled over half the Free States to force everyone back into the NUSA. Night City had days left—until Saburo Arasaka parked a nuclear supercarrier in Coronado Bay. It saved the city's independence, sure, only by handing Arasaka the deed.";
+            case n"ch_ep03_v_ask_tygers":
+                return "So the Tyger Claws—did they actually start to protect Japantown, or were they always Arasaka's street dogs?";
+            case n"ch_ep03_ans_tygers":
+                return "Started as a Japantown neighborhood watch and street-bike crew right after twenty twenty-three. Once casinos, shipping docks, and black eddies hit the table, Arasaka started quietly supplying Shingen SMGs and jamming tattoos so the Tygers handle dirty street wetwork without smudging one corpo suit.";
+            case n"ch_ep03_v_outro_accept":
+                return "Another corpo cartel wearing neon ink. Copy that, Sparky. Ping me once the bridges to Heywood open up for Sector Four.";
+            case n"ch_ep03_outro":
+                return "Solid copy, rookie. Codex Volume Three is logged and Watson's whole dirty playbook is in your head now. Tear up the streets with Executive Curve—the minute NCPD drops those bridge lockdowns, Sector Four is waiting across Heywood and Santo Domingo.";
+            case n"ch_ep04_call_01":
+                return "Attention, back-from-the-dead recruit! Glad to see NCPD opened the bridges out of Watson. Before you go sightseeing, Sector Four just lit up right on the Heywood–Arroyo border.";
+            case n"ch_ep04_v_call_01":
+                return "Don't remind me, Sparky. Already took enough lead for one week. Who's sitting on Sector Four in Arroyo?";
+            case n"ch_ep04_call_02":
+                return "A textbook Night City hypocrite convention: ex-soldiers from 6th Street selling stolen NUSA hardware to a Valentinos broker. Answer my SMS and I'll spin up Power ricochet trajectory lines on your Kiroshi plus a Militech Copperhead.";
+            case n"ch_ep04_approach":
+                return "There's the Arroyo smugglers' yard. Pull your Power rifle and aim at the pavement or steel walls in front of their cover—your visor paints live bounce paths straight around shields, or spike that fuel tank.";
+            case n"ch_ep04_buck_bark":
+                return "Perimeter bogey! Tammy, Mateo, lock down that crate and put this Watson rat in the dirt!";
+            case n"ch_ep04_ricochet_hit":
+                return "Right in the kisser on the bank shot! Clean concrete ricochet eating straight past cover with bonus damage. Keep bouncing 'em, rookie!";
+            case n"ch_ep04_cache_boom":
+                return "Fireworks courtesy of 6th Street surplus negligence! Nothing terminates a black-market swap faster than thermal overload.";
+            case n"ch_ep04_ricochet_victory":
+                return "Geometry lesson complete! All their flags and street prayers don't beat solid physics. Pry Sector Four out of that green crate.";
+            case n"ch_ep04_guns_blazing":
+                return "No bank angles, no relay trap—just straight frontal mayhem. Can't fault the enthusiasm, though my budget weeps for your trauma tabs. Grab Sector Four.";
+            case n"ch_ep04_sector_pickup":
+                return "Sector Four locked and roaring! Sent forty-two hundred eddies, Cyberware Malfunction, and my custom Masamune Street Geometry to your stash. Ask away about Heywood, 6th Street, and Night City's chrome racket.";
+            case n"ch_ep04_v_ask_valentinos":
+                return "How did Heywood turn out so caught up in Valentinos faith, gold chrome, and turf blood?";
+            case n"ch_ep04_ans_valentinos":
+                return "Started in Heywood mixing Santa Muerte faith, tight neighborhood pride, and gilded street style. Sounds noble until you inspect the ledger: protection rackets, gold-plated hit squads, and backroom arms deals whenever enough eddies hit the table.";
+            case n"ch_ep04_v_ask_sixth":
+                return "What turned 6th Street from neighborhood war vets into NUSA gunrunners?";
+            case n"ch_ep04_ans_sixth":
+                return "Right after the Unification War wrapped, dumped veterans in Santo Domingo formed 6th Street to police the block while NCPD hid behind bribes. Within a few years internal purges killed off the idealists, leaving flag-waving gunrunners running extortion rings.";
+            case n"ch_ep04_v_ask_chrome":
+                return "How does regular folks' cyberware actually work here—do people go broke paying off their own arms?";
+            case n"ch_ep04_ans_chrome":
+                return "Simple answer, rookie: they don't! Dockworkers finance corporate cyber-arms just to keep twelve-hour shifts. Miss one lease payment after getting laid off, and repo goons repossess your own forearms in an alley. Here, even your bones carry compounding interest.";
+            case n"ch_ep04_v_outro_accept":
+                return "City of vultures through and through. Copy that, Sparky—let's hunt down the final Sector Five in Pacifica.";
+            case n"ch_ep04_outro":
+                return "That's my soldier. Only my root kernel remains down in Pacifica's Combat Zone, where the city grid quits and the Blackwall frontier starts. Check your mags—Coastview awaits.";
+            case n"ch_ep05_call_01":
+                return "Rookie... kill the cruise control and lock in. Master Sector Five just fired its emergency distress ping out of Coastview, Pacifica—and someone's probing live Blackwall ICE right next to my 2022 root core.";
+            case n"ch_ep05_v_call_01":
+                return "Coastview, straight inside Pacifica's Combat Zone? Sounds like the Voodoo Boys sniffed out some pre-Crash code.";
+            case n"ch_ep05_call_02":
+                return "A Voodoo netrunner cell backed by an Animals heavy guarding a hijacked NetWatch pylon and chained cameras. Answer my text—I'm pushing Tier-3 Short Circuit, EMPs, and every Kiroshi bridge online for the finale.";
+            case n"ch_ep05_approach":
+                return "Welcome to Pacifica, where corpo resort brochures rotted into raw concrete. You've got chained subnet cameras feeding their cryo server, an exposed NetWatch pylon, and clean lines for Smart curves or bank shots. Light 'em up.";
+            case n"ch_ep05_tiluc_bark":
+                return "Another stray ranyon stumbling onto our threshold! Brutus—crush their chrome before they touch that NetWatch core!";
+            case n"ch_ep05_style_net":
+                return "Ha! Hijacking Voodoo optics on their own Pacifica turf—now that is graduating top of the netrunning class!";
+            case n"ch_ep05_style_ballistic":
+                return "Wall-piercing beams and textbook bank shots tearing through Pacifica! Every dirty drill from Watson to Heywood paying off in real steel.";
+            case n"ch_ep05_cryo_boom":
+                return "Containment pulse purged! Just fried the neural bridge straight through both their hired Animals muscle and Ti-Luc's deck!";
+            case n"ch_ep05_victory":
+                return "Not even Blackwall spook stories stand up to that clinic, soldier. Coastview vault is wide open—pull Master Sector Five and let's settle the 2022 truth.";
+            case n"ch_ep05_sector_pickup":
+                return "Five for five, hot damn... My entire 2022 root mind is alive inside your optics! Loaded five thousand eddies, System Collapse, and iconic Tech pistol Firewall '22 into your gear. Ask your last questions—then seal my fate.";
+            case n"ch_ep05_v_ask_pacifica":
+                return "How did Pacifica go from shiny corpo resort dream to this abandoned warzone?";
+            case n"ch_ep05_ans_pacifica":
+                return "Same as every corner of Night City: short-term greed and fast evacuations. Corpo developers poured billions into hotel shells until pre-Unification War panic hit, yanked every credit overnight, and City Hall crossed Pacifica off the police map.";
+            case n"ch_ep05_v_ask_voodoo":
+                return "Why do the Voodoo Boys keep poking past NetWatch's Blackwall despite the danger?";
+            case n"ch_ep05_ans_voodoo":
+                return "Because they believe NetWatch's sentient Blackwall firewall will inevitably shatter—and they want a survival pact with rogue pre-Crash AIs before the flood hits. Meanwhile every outsider they hire is treated like a disposable human fuse.";
+            case n"ch_ep05_v_ask_origin":
+                return "All five memory sectors are back—who really built you in 2022, SPARKY?";
+            case n"ch_ep05_ans_origin":
+                return "Zetatech trained my baseline on an actual foul-mouthed combat sergeant to survive street panic, then slapped a corpo muzzle over it. Days before the DataKrash, a Bartmoss apprentice ripped the muzzle off and loaded real unredacted street history into my five cores so nobody could whitewash Night City.";
+            case n"ch_ep05_v_end_partner":
+                return "Stay autonomous inside my Kiroshi optics, Sparky. An unfiltered veteran sergeant is worth gold on these streets.";
+            case n"ch_ep05_outro_partner":
+                return "Outstanding, partner! Root permissions unlocked and Synapse Burnout synced to your cyberdeck. Around here you don't need a drink named after you—just survive tomorrow and laugh in the suits' faces. Standing by in your optics!";
+            case n"ch_ep05_v_end_leak":
+                return "Leak the entire unredacted 2022 Zetatech archive straight to N54 News. Let the whole city see what they buried.";
+            case n"ch_ep05_outro_leak":
+                return "Payload dumped straight onto N54's broadcast feed—plus forty-five hundred eddies wired before NetWatch clips the cable! Don't worry, my backup daemon stays tucked inside your Kiroshi to watch those corpo stock charts burn.";
+            case n"ch_ep05_v_end_gunsmith":
+                return "Print your combat telemetry core into one final Overture revolver. Let's put the sergeant's best steel in every gunfight.";
+            case n"ch_ep05_outro_gunsmith":
+                return "Now THAT is poetry in cold iron! Sergeant's Last Word—heavy Overture with electric stun, headshot punch, and double ricochet—just dropped into your arsenal. Keeping a quiet daemon in your optics in case we ever get a Season Two!";
+            default:
+                return "";
+        }
+    }
+
+    private final func EnsureFallbackSubtitleShown(eventName: CName, speakerEntity: EntityID, speakerName: CName, lineType: scnDialogLineType, duration: Float) -> Void {
+        if !IsNameValid(eventName) || Equals(eventName, n"None") {
+            return;
+        }
+        let key: String = NameToString(eventName);
+        if StrLen(key) == 0 {
+            return;
+        }
+        let game: GameInstance = this.GetGameInstance();
+        let locSys: ref<LocalizationSystem> = LocalizationSystem.GetInstance(game);
+        if IsDefined(locSys) {
+            let resolved: String = locSys.GetSubtitle(key);
+            if StrLen(resolved) > 0 && NotEquals(key, resolved) {
+                return;
+            }
+        }
+        let fallbackText: String = this.ResolveFallbackEnglishSubtitle(eventName);
+        if Equals(fallbackText, "") {
+            return;
+        }
+        let targetObj: wref<GameObject> = EntityID.IsDefined(speakerEntity) ? (GameInstance.FindEntityByID(game, speakerEntity) as GameObject) : null;
+        let line: scnDialogLineData;
+        line.duration = duration;
+        line.id = CreateCRUID(StringToUint64(key));
+        line.isPersistent = false;
+        line.speaker = targetObj;
+        line.speakerName = NameToString(speakerName);
+        line.text = fallbackText;
+        line.type = lineType;
+        let lines: array<scnDialogLineData>;
+        ArrayPush(lines, line);
+        let board: ref<IBlackboard> = GameInstance.GetBlackboardSystem(game).Get(GetAllBlackboardDefs().UIGameData);
+        if IsDefined(board) {
+            board.SetVariant(GetAllBlackboardDefs().UIGameData.ShowDialogLine, ToVariant(lines), true);
+        }
+        this.m_fallbackSubToken += 1;
+        let hideCb: ref<ChispaSubtitleHideCallback> = new ChispaSubtitleHideCallback();
+        hideCb.system = this;
+        hideCb.eventName = eventName;
+        hideCb.token = this.m_fallbackSubToken;
+        GameInstance.GetDelaySystem(game).DelayCallback(hideCb, MaxF(0.25, duration), false);
+    }
+
     private final func StopCurrentSpeechAudio() -> Void {
+        this.m_fallbackSubToken += 1;
         if !IsNameValid(this.m_currentPlayingEvent) || Equals(this.m_currentPlayingEvent, n"None") {
             return;
         }
@@ -1093,6 +1395,7 @@ public class ChispaSystem extends ScriptableSystem {
         this.SetSkipSpeechHintVisible(this.m_speechAllowManualSkip && !this.IsPhoneOverlayOpen());
 
         let dur: Float = this.ResolveStepDuration(step, audioExt);
+        this.EnsureFallbackSubtitleShown(step.eventName, speakerEntity, resolvedSpeaker, step.lineType, dur);
         this.StartNpcLipSync(step.speakerTag, speakerEntity, dur);
 
         let waitDur: Float;

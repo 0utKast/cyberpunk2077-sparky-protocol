@@ -50,7 +50,7 @@ ALL_CP2077_LOCALES: tuple[str, ...] = (
     "ua-ua",
 )
 
-AUDIOWARE_LOCALES: tuple[str, ...] = ("en-us", "es-es", "es-mx")
+AUDIOWARE_LOCALES: tuple[str, ...] = ALL_CP2077_LOCALES
 
 
 def _escape_redscript_string(text: str) -> str:
@@ -186,6 +186,140 @@ def _load_english_durations() -> dict[str, float]:
     return out
 
 
+def _build_english_subtitle_fallback_methods() -> str:
+    cases: list[str] = []
+    for line in DIALOGUE_LINES:
+        lid = line["id"]
+        sub_esc = _escape_redscript_string(line["en_sub"])
+        cases.append(f'            case n"{lid}":\n                return "{sub_esc}";')
+    cases_block = "\n".join(cases)
+    return (
+        "    public final func HideFallbackSubtitleIfActive(eventName: CName, token: Int32) -> Void {\n"
+        "        if token != this.m_fallbackSubToken || !IsNameValid(eventName) || Equals(eventName, n\"None\") {\n"
+        "            return;\n"
+        "        }\n"
+        "        let game: GameInstance = this.GetGameInstance();\n"
+        "        let board: ref<IBlackboard> = GameInstance.GetBlackboardSystem(game).Get(GetAllBlackboardDefs().UIGameData);\n"
+        "        if IsDefined(board) {\n"
+        "            let hideIds: array<CRUID>;\n"
+        "            ArrayPush(hideIds, CreateCRUID(StringToUint64(NameToString(eventName))));\n"
+        "            board.SetVariant(GetAllBlackboardDefs().UIGameData.HideDialogLine, ToVariant(hideIds), true);\n"
+        "        }\n"
+        "    }\n\n"
+        "    private final func ResolveFallbackEnglishSubtitle(eventName: CName) -> String {\n"
+        "        switch eventName {\n"
+        f"{cases_block}\n"
+        "            default:\n"
+        "                return \"\";\n"
+        "        }\n"
+        "    }\n\n"
+        "    private final func EnsureFallbackSubtitleShown(eventName: CName, speakerEntity: EntityID, speakerName: CName, lineType: scnDialogLineType, duration: Float) -> Void {\n"
+        "        if !IsNameValid(eventName) || Equals(eventName, n\"None\") {\n"
+        "            return;\n"
+        "        }\n"
+        "        let key: String = NameToString(eventName);\n"
+        "        if StrLen(key) == 0 {\n"
+        "            return;\n"
+        "        }\n"
+        "        let game: GameInstance = this.GetGameInstance();\n"
+        "        let locSys: ref<LocalizationSystem> = LocalizationSystem.GetInstance(game);\n"
+        "        if IsDefined(locSys) {\n"
+        "            let resolved: String = locSys.GetSubtitle(key);\n"
+        "            if StrLen(resolved) > 0 && NotEquals(key, resolved) {\n"
+        "                return;\n"
+        "            }\n"
+        "        }\n"
+        "        let fallbackText: String = this.ResolveFallbackEnglishSubtitle(eventName);\n"
+        "        if Equals(fallbackText, \"\") {\n"
+        "            return;\n"
+        "        }\n"
+        "        let targetObj: wref<GameObject> = EntityID.IsDefined(speakerEntity) ? (GameInstance.FindEntityByID(game, speakerEntity) as GameObject) : null;\n"
+        "        let line: scnDialogLineData;\n"
+        "        line.duration = duration;\n"
+        "        line.id = CreateCRUID(StringToUint64(key));\n"
+        "        line.isPersistent = false;\n"
+        "        line.speaker = targetObj;\n"
+        "        line.speakerName = NameToString(speakerName);\n"
+        "        line.text = fallbackText;\n"
+        "        line.type = lineType;\n"
+        "        let lines: array<scnDialogLineData>;\n"
+        "        ArrayPush(lines, line);\n"
+        "        let board: ref<IBlackboard> = GameInstance.GetBlackboardSystem(game).Get(GetAllBlackboardDefs().UIGameData);\n"
+        "        if IsDefined(board) {\n"
+        "            board.SetVariant(GetAllBlackboardDefs().UIGameData.ShowDialogLine, ToVariant(lines), true);\n"
+        "        }\n"
+        "        this.m_fallbackSubToken += 1;\n"
+        "        let hideCb: ref<ChispaSubtitleHideCallback> = new ChispaSubtitleHideCallback();\n"
+        "        hideCb.system = this;\n"
+        "        hideCb.eventName = eventName;\n"
+        "        hideCb.token = this.m_fallbackSubToken;\n"
+        "        GameInstance.GetDelaySystem(game).DelayCallback(hideCb, MaxF(0.25, duration), false);\n"
+        "    }"
+    )
+
+
+def _inject_english_subtitle_fallback(txt: str) -> str:
+    nl = "\r\n" if "\r\n" in txt else "\n"
+    norm = txt.replace("\r\n", "\n")
+    if "ChispaSubtitleHideCallback" in norm:
+        return txt
+    lip_anchor = (
+        "public class ChispaLipSyncCallback extends DelayCallback {\n"
+        "    public let system: wref<ChispaSystem>;\n"
+        "    public let token: Int32;\n\n"
+        "    public func Call() -> Void {\n"
+        "        if IsDefined(this.system) {\n"
+        "            this.system.OnLipSyncTick(this.token);\n"
+        "        }\n"
+        "    }\n"
+        "}"
+    )
+    sub_cb = (
+        "public class ChispaSubtitleHideCallback extends DelayCallback {\n"
+        "    public let system: wref<ChispaSystem>;\n"
+        "    public let eventName: CName;\n"
+        "    public let token: Int32;\n\n"
+        "    public func Call() -> Void {\n"
+        "        if IsDefined(this.system) {\n"
+        "            this.system.HideFallbackSubtitleIfActive(this.eventName, this.token);\n"
+        "        }\n"
+        "    }\n"
+        "}"
+    )
+    assert lip_anchor in norm
+    norm = norm.replace(lip_anchor, lip_anchor + "\n\n" + sub_cb, 1)
+    norm = norm.replace(
+        "    private let m_skipHintVisible: Bool;",
+        "    private let m_skipHintVisible: Bool;\n    private let m_fallbackSubToken: Int32;",
+        1,
+    )
+    norm = norm.replace(
+        "        this.m_skipHintVisible = false;",
+        "        this.m_skipHintVisible = false;\n        this.m_fallbackSubToken = 0;",
+        1,
+    )
+    norm = norm.replace(
+        "    private final func StopCurrentSpeechAudio() -> Void {\n        if !IsNameValid(this.m_currentPlayingEvent)",
+        "    private final func StopCurrentSpeechAudio() -> Void {\n        this.m_fallbackSubToken += 1;\n        if !IsNameValid(this.m_currentPlayingEvent)",
+        1,
+    )
+    clear_anchor = (
+        "    private final func ClearCurrentSpeechTracking() -> Void {\n"
+        "        this.m_currentPlayingEvent = n\"None\";\n"
+        "        this.m_currentPlayingEntity = new EntityID();\n"
+        "        this.m_currentPlayingSpeaker = n\"None\";\n"
+        "    }"
+    )
+    assert clear_anchor in norm
+    norm = norm.replace(clear_anchor, clear_anchor + "\n\n" + _build_english_subtitle_fallback_methods(), 1)
+    norm = norm.replace(
+        "        let dur: Float = this.ResolveStepDuration(step, audioExt);\n        this.StartNpcLipSync(",
+        "        let dur: Float = this.ResolveStepDuration(step, audioExt);\n        this.EnsureFallbackSubtitleShown(step.eventName, speakerEntity, resolvedSpeaker, step.lineType, dur);\n        this.StartNpcLipSync(",
+        1,
+    )
+    return norm.replace("\n", nl)
+
+
 def _transform_redscript_source(src_text: str, rel_posix: str, en_durations: dict[str, float]) -> str:
     txt = src_text
 
@@ -217,6 +351,8 @@ def _transform_redscript_source(src_text: str, rel_posix: str, en_durations: dic
         return f'MakeSpeechStep(n"{lid}", {speaker_tag}, {speaker_name}, {line_type}, {en_durations[lid]:.2f})'
 
     txt = speech_pattern.sub(_replace_speech_step, txt)
+    if rel_posix == "Core/ChispaEngine.reds":
+        txt = _inject_english_subtitle_fallback(txt)
     return txt
 
 

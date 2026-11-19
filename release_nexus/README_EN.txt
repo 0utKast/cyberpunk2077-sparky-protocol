@@ -1,4 +1,4 @@
-SPARKY Protocol - Night City Survival Guide (v1.4.0 — Complete Season 1: Episodes 0–5)
+SPARKY Protocol - Night City Survival Guide (v1.4.1 — Complete Season 1: Episodes 0–5)
 Author: 0utKast
 Compatibility: Cyberpunk 2077 2.x — Base Game Compatible (No Phantom Liberty required)
 Required Core Frameworks: RED4ext, ArchiveXL, TweakXL, Codeware, redscript, Audioware, Cyber Engine Tweaks
@@ -35,6 +35,9 @@ INCLUDED IN v1.4.0 (COMPLETE SEASON 1):
     2. [N54 Data Leak] (+4,500 E$ and Tier-3 Cyberware Malfunction exposing Zetatech's 2022 secrets).
     3. [Gunsmith Protocol] (+1,500 E$ and forging the iconic heavy revolver "Sergeant's Last Word" — electrified ricochet Overture prototype).
   - All 3 endings keep SPARKY's base daemon linked in V's Kiroshi and all 5 Codex volumes unlocked cleanly for future follow-ups.
+
+WHAT'S NEW IN v1.4.1:
+- Universal 19-language Audioware voice & subtitle locale mapping (en-us, es-es, es-mx, de-de, fr-fr, pl-pl, pt-br, it-it, ru-ru, jp-jp, kr-kr, zh-cn, zh-tw, cz-cz, hu-hu, tr-tr, ar-ar, th-th, ua-ua) plus automatic Redscript subtitle fallback so spoken dialogue subtitles appear out-of-the-box on every game subtitle language setup and make custom translations plug-and-play inside SparkyProtocol_EN.yaml.
 
 TECHNICAL HIGHLIGHTS:
 - Persistent top-left holographic video projection (`ZETATECH 2022 // KIROSHI`) across all Kiroshi-link final dialogues and tactical field interventions in Episodes 0–5—without restricting movement, cyberware, scanning, or weapon usage.
