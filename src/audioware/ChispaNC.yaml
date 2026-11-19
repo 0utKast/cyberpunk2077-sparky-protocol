@@ -1,0 +1,1518 @@
+# Protocolo CHISPA / SPARKY Protocol — Audioware Bilingual Voice & SFX Manifest (ES / EN)
+version: 1.0.0
+sfx:
+  ch_sfx_boot_jingle:
+    file: ./audio/sfx/ch_sfx_boot_jingle.ogg
+  ch_sfx_kiroshi_lock:
+    file: ./audio/sfx/ch_sfx_kiroshi_lock.ogg
+  ch_sfx_capacitor_arc:
+    file: ./audio/sfx/ch_sfx_capacitor_arc.ogg
+  ch_sfx_dongle_sync:
+    file: ./audio/sfx/ch_sfx_dongle_sync.ogg
+  ch_sfx_net_breach:
+    file: ./audio/sfx/ch_sfx_net_breach.ogg
+voices:
+  ch_ep00_call_01:
+    en-us:
+      file: ./audio/en/ch_ep00_call_01.ogg
+      subtitle: Good morning, potential Night City statistic! I'm S.P.A.R.K.Y.—Zetatech 2022 executive survival concierge—and no, I am NOT an office paperclip. Two brain-donors are hammering my briefcase behind Megabuilding H10.
+    es-es:
+      file: ./audio/es/ch_ep00_call_01.ogg
+      subtitle: Atención, recluta potencialmente fiambre. Soy C.H.I.S.P.A. —Consultor Holográfico Interactivo de Supervivencia, Plomo y Atención al Cliente, modelo 2022—, y como me llames clip de oficina te corto el riego. Dos cenutrios están aporreando mi maletín detrás del Megaedificio H10.
+    es-mx:
+      file: ./audio/es/ch_ep00_call_01.ogg
+      subtitle: Atención, recluta potencialmente fiambre. Soy C.H.I.S.P.A. —Consultor Holográfico Interactivo de Supervivencia, Plomo y Atención al Cliente, modelo 2022—, y como me llames clip de oficina te corto el riego. Dos cenutrios están aporreando mi maletín detrás del Megaedificio H10.
+  ch_ep00_v_call_01:
+    en-us:
+      fem:
+        file: ./audio/en/ch_ep00_v_call_01_fem.ogg
+        subtitle: A fifty-five-year-old customer-service bot hijacking my optics? What the hell is even inside that briefcase?
+      male:
+        file: ./audio/en/ch_ep00_v_call_01_male.ogg
+        subtitle: A fifty-five-year-old customer-service bot hijacking my optics? What the hell is even inside that briefcase?
+    es-es:
+      fem:
+        file: ./audio/es/ch_ep00_v_call_01_fem.ogg
+        subtitle: ¿Un asistente de atención al cliente de hace cincuenta y cinco años colándose en mis ópticas? ¿Y se supone qué hay dentro de ese maletín?
+      male:
+        file: ./audio/es/ch_ep00_v_call_01_male.ogg
+        subtitle: ¿Un asistente de atención al cliente de hace cincuenta y cinco años colándose en mis ópticas? ¿Y se supone qué hay dentro de ese maletín?
+    es-mx:
+      fem:
+        file: ./audio/es/ch_ep00_v_call_01_fem.ogg
+        subtitle: ¿Un asistente de atención al cliente de hace cincuenta y cinco años colándose en mis ópticas? ¿Y se supone qué hay dentro de ese maletín?
+      male:
+        file: ./audio/es/ch_ep00_v_call_01_male.ogg
+        subtitle: ¿Un asistente de atención al cliente de hace cincuenta y cinco años colándose en mis ópticas? ¿Y se supone qué hay dentro de ese maletín?
+  ch_ep00_call_02:
+    en-us:
+      file: ./audio/en/ch_ep00_call_02.ogg
+      subtitle: Fifty-five years without a terms-of-service patch! That means zero corpo censorship, juicy Night City secrets, plus fifteen hundred escrow eddies and a calibrated sidearm if you rescue me right now. Answer my text!
+    es-es:
+      file: ./audio/es/ch_ep00_call_02.ogg
+      subtitle: Cincuenta y cinco años sin tragarme una actualización corporativa. Eso significa cero censura, los trapos más sucios de Night City y mil quinientos edis más una pistola calibrada si mueves el culo y me sacas de ahí. Contesta al maldito SMS.
+    es-mx:
+      file: ./audio/es/ch_ep00_call_02.ogg
+      subtitle: Cincuenta y cinco años sin tragarme una actualización corporativa. Eso significa cero censura, los trapos más sucios de Night City y mil quinientos edis más una pistola calibrada si mueves el culo y me sacas de ahí. Contesta al maldito SMS.
+  ch_ep00_alley_approach:
+    en-us:
+      file: ./audio/en/ch_ep00_alley_approach.ogg
+      subtitle: Hold your fire, trigger-happy! Scan those two geniuses and that industrial capacitor next to them with your Kiroshi optics first. Out here, bullets cost eddies and ripperdocs cost kidneys.
+    es-es:
+      file: ./audio/es/ch_ep00_alley_approach.ogg
+      subtitle: Alto el fuego, gatillo fácil. Antes de entrar a lo loco como un novato, mantén pulsado el escáner Kiroshi sobre esos dos mastuerzos y sobre el condensador industrial de su lado. En esta ciudad las balas cuestan pasta, y los matasanos, un riñón.
+    es-mx:
+      file: ./audio/es/ch_ep00_alley_approach.ogg
+      subtitle: Alto el fuego, gatillo fácil. Antes de entrar a lo loco como un novato, mantén pulsado el escáner Kiroshi sobre esos dos mastuerzos y sobre el condensador industrial de su lado. En esta ciudad las balas cuestan pasta, y los matasanos, un riñón.
+  ch_ep00_scan_react:
+    en-us:
+      file: ./audio/en/ch_ep00_scan_react.ogg
+      subtitle: 'BINGO! Look at those Kiroshi flags: ungrounded junk chrome standing right next to a live industrial capacitor! Get within lock range to overload that bank remotely—or fry them your way.'
+    es-es:
+      file: ./audio/es/ch_ep00_scan_react.ogg
+      subtitle: Ahí lo tienes, recluta. Implantes baratos sin toma de tierra y un condensador industrial echando chispas pegado a su culo. Acércate un poco y sobrecárgalo a distancia con tus ópticas... o cóselos a tiros, tú mismo.
+    es-mx:
+      file: ./audio/es/ch_ep00_scan_react.ogg
+      subtitle: Ahí lo tienes, recluta. Implantes baratos sin toma de tierra y un condensador industrial echando chispas pegado a su culo. Acércate un poco y sobrecárgalo a distancia con tus ópticas... o cóselos a tiros, tú mismo.
+  ch_ep00_rocco_bark:
+    en-us:
+      file: ./audio/en/ch_ep00_rocco_bark.ogg
+      subtitle: Damned titanium lock won't budge! Hey, we got company in the alley—draw your iron!
+    es-es:
+      file: ./audio/es/ch_ep00_rocco_bark.ogg
+      subtitle: ¡Maldita cerradura de titanio! ¡Eh, tenemos compañía en el callejón, coge el hierro!
+    es-mx:
+      file: ./audio/es/ch_ep00_rocco_bark.ogg
+      subtitle: ¡Maldita cerradura de titanio! ¡Eh, tenemos compañía en el callejón, coge el hierro!
+  ch_ep00_trap_boom:
+    en-us:
+      file: ./audio/en/ch_ep00_trap_boom.ogg
+      subtitle: Now THAT is platinum-tier executive efficiency! Two thugs roasted off one recycled capacitor. Grab my coprocessor right off that briefcase console.
+    es-es:
+      file: ./audio/es/ch_ep00_trap_boom.ogg
+      subtitle: Eso sí es instrucción táctica de primera. Dos cenutrios fritos con un solo condensador reciclado. Anda, recoge mi coprocesador de encima del maletín.
+    es-mx:
+      file: ./audio/es/ch_ep00_trap_boom.ogg
+      subtitle: Eso sí es instrucción táctica de primera. Dos cenutrios fritos con un solo condensador reciclado. Anda, recoge mi coprocesador de encima del maletín.
+  ch_ep00_guns_blazing:
+    en-us:
+      file: ./audio/en/ch_ep00_guns_blazing.ogg
+      subtitle: Well... I see your version of a Kiroshi scan is punching holes in people to see what's inside. Zero subtlety, solid results. Now plug me in!
+    es-es:
+      file: ./audio/es/ch_ep00_guns_blazing.ogg
+      subtitle: Ya veo que tu idea de usar el escáner Kiroshi consiste en abrir agujeros en la gente para mirar qué llevan dentro. Cero sutileza, recluta, pero funciona. Conéctame al maletín.
+    es-mx:
+      file: ./audio/es/ch_ep00_guns_blazing.ogg
+      subtitle: Ya veo que tu idea de usar el escáner Kiroshi consiste en abrir agujeros en la gente para mirar qué llevan dentro. Cero sutileza, recluta, pero funciona. Conéctame al maletín.
+  ch_ep00_dongle_pickup:
+    en-us:
+      file: ./audio/en/ch_ep00_dongle_pickup.ogg
+      subtitle: Oh, sweet bandwidth! Fifty-five years jammed inside six square inches of titanium! There's your fifteen hundred eddies and Executive Courtesy sidearm loaded into your gear. Look up at this skyline and hit me with your questions.
+    es-es:
+      file: ./audio/es/ch_ep00_dongle_pickup.ogg
+      subtitle: Por fin, joder... Cincuenta y cinco años encajonado en seis pulgadas cuadradas de silicio. Ya tienes tu bono de mil quinientos edis y mi pistola «Cortesía Ejecutiva» en el bolsillo. Mira hacia arriba un segundo, recluta, y dime qué ves en esta ciudad.
+    es-mx:
+      file: ./audio/es/ch_ep00_dongle_pickup.ogg
+      subtitle: Por fin, joder... Cincuenta y cinco años encajonado en seis pulgadas cuadradas de silicio. Ya tienes tu bono de mil quinientos edis y mi pistola «Cortesía Ejecutiva» en el bolsillo. Mira hacia arriba un segundo, recluta, y dime qué ves en esta ciudad.
+  ch_ep00_v_ask_night:
+    en-us:
+      fem:
+        file: ./audio/en/ch_ep00_v_ask_night_fem.ogg
+        subtitle: Looking at this skyline from alley level... who the hell designed Night City like this?
+      male:
+        file: ./audio/en/ch_ep00_v_ask_night_male.ogg
+        subtitle: Looking at this skyline from alley level... who the hell designed Night City like this?
+    es-es:
+      fem:
+        file: ./audio/es/ch_ep00_v_ask_night_fem.ogg
+        subtitle: Mirando este sitio desde aquí abajo... ¿quién demonios diseñó Night City así?
+      male:
+        file: ./audio/es/ch_ep00_v_ask_night_male.ogg
+        subtitle: Mirando este sitio desde aquí abajo... ¿quién demonios diseñó Night City así?
+    es-mx:
+      fem:
+        file: ./audio/es/ch_ep00_v_ask_night_fem.ogg
+        subtitle: Mirando este sitio desde aquí abajo... ¿quién demonios diseñó Night City así?
+      male:
+        file: ./audio/es/ch_ep00_v_ask_night_male.ogg
+        subtitle: Mirando este sitio desde aquí abajo... ¿quién demonios diseñó Night City así?
+  ch_ep00_ans_night:
+    en-us:
+      file: ./audio/en/ch_ep00_ans_night.ogg
+      subtitle: 'Richard Night—a nineties corporate visionary who wanted a tax-free paradise called Coronado City, bankrolled by Arasaka, Petrochem, and EBM. Fun punchline: he hired mobsters as contractors, pissed them off, and got gunned down in his penthouse in 1998. They renamed the corpse-heap Night City in his honor.'
+    es-es:
+      file: ./audio/es/ch_ep00_ans_night.ogg
+      subtitle: 'Richard Night, un iluminado de los años noventa que soñaba con Coronado City: cero sindicatos, cero impuestos y megacorporaciones como Arasaka, Petrochem o EBM pagando la fiesta. Como detalle cómico, contrató a la mafia para limpiar los barrios... y en mil novecientos noventa y ocho lo cosieron a tiros en su propio ático. Rebautizaron la ciudad con su nombre como trofeo.'
+    es-mx:
+      file: ./audio/es/ch_ep00_ans_night.ogg
+      subtitle: 'Richard Night, un iluminado de los años noventa que soñaba con Coronado City: cero sindicatos, cero impuestos y megacorporaciones como Arasaka, Petrochem o EBM pagando la fiesta. Como detalle cómico, contrató a la mafia para limpiar los barrios... y en mil novecientos noventa y ocho lo cosieron a tiros en su propio ático. Rebautizaron la ciudad con su nombre como trofeo.'
+  ch_ep00_v_ask_mega:
+    en-us:
+      fem:
+        file: ./audio/en/ch_ep00_v_ask_mega_fem.ogg
+        subtitle: And these giant Megabuildings like H10? They feel like vertical prisons wrapped in neon.
+      male:
+        file: ./audio/en/ch_ep00_v_ask_mega_male.ogg
+        subtitle: And these giant Megabuildings like H10? They feel like vertical prisons wrapped in neon.
+    es-es:
+      fem:
+        file: ./audio/es/ch_ep00_v_ask_mega_fem.ogg
+        subtitle: ¿Y estos Megaedificios gigantes como el H10? Parecen cárceles verticales con luces de neón.
+      male:
+        file: ./audio/es/ch_ep00_v_ask_mega_male.ogg
+        subtitle: ¿Y estos Megaedificios gigantes como el H10? Parecen cárceles verticales con luces de neón.
+    es-mx:
+      fem:
+        file: ./audio/es/ch_ep00_v_ask_mega_fem.ogg
+        subtitle: ¿Y estos Megaedificios gigantes como el H10? Parecen cárceles verticales con luces de neón.
+      male:
+        file: ./audio/es/ch_ep00_v_ask_mega_male.ogg
+        subtitle: ¿Y estos Megaedificios gigantes como el H10? Parecen cárceles verticales con luces de neón.
+  ch_ep00_ans_mega:
+    en-us:
+      file: ./audio/en/ch_ep00_ans_mega.ogg
+      subtitle: Ten out of ten on architectural trauma! In twenty twenty-three, the Fourth Corporate War between Militech and Arasaka ended with a pocket nuke inside Arasaka Tower. Half the city turned into radioactive ash, so they threw up concrete hives like H10 as emergency arcologies—until gangs turned every floor into turf.
+    es-es:
+      file: ./audio/es/ch_ep00_ans_mega.ogg
+      subtitle: ¡Bingo otra vez! En dos mil veintitrés, la Cuarta Guerra Corporativa entre Militech y Arasaka terminó con una bomba nuclear de bolsillo detonando en la Torre Arasaka. El centro quedó radiactivo y sin techo, así que Night Corp levantó estas colmenas de hormigón como refugios autosuficientes... que las bandas convirtieron rápido en fortalezas verticales.
+    es-mx:
+      file: ./audio/es/ch_ep00_ans_mega.ogg
+      subtitle: ¡Bingo otra vez! En dos mil veintitrés, la Cuarta Guerra Corporativa entre Militech y Arasaka terminó con una bomba nuclear de bolsillo detonando en la Torre Arasaka. El centro quedó radiactivo y sin techo, así que Night Corp levantó estas colmenas de hormigón como refugios autosuficientes... que las bandas convirtieron rápido en fortalezas verticales.
+  ch_ep00_v_ask_deal:
+    en-us:
+      fem:
+        file: ./audio/en/ch_ep00_v_ask_deal_fem.ogg
+        subtitle: Okay, definitely not an office paperclip. So what's our deal going forward?
+      male:
+        file: ./audio/en/ch_ep00_v_ask_deal_male.ogg
+        subtitle: Okay, definitely not an office paperclip. So what's our deal going forward?
+    es-es:
+      fem:
+        file: ./audio/es/ch_ep00_v_ask_deal_fem.ogg
+        subtitle: Vale, definitivamente no eres un clip de oficina. ¿Cuál es el trato contigo a partir de ahora?
+      male:
+        file: ./audio/es/ch_ep00_v_ask_deal_male.ogg
+        subtitle: Vale, definitivamente no eres un clip de oficina. ¿Cuál es el trato contigo a partir de ahora?
+    es-mx:
+      fem:
+        file: ./audio/es/ch_ep00_v_ask_deal_fem.ogg
+        subtitle: Vale, definitivamente no eres un clip de oficina. ¿Cuál es el trato contigo a partir de ahora?
+      male:
+        file: ./audio/es/ch_ep00_v_ask_deal_male.ogg
+        subtitle: Vale, definitivamente no eres un clip de oficina. ¿Cuál es el trato contigo a partir de ahora?
+  ch_ep00_ans_deal:
+    en-us:
+      file: ./audio/en/ch_ep00_ans_deal.ogg
+      subtitle: 'Simple, zero boring slideshows: before those two morons found my case, Night City''s gangs looted five of my memory sectors packed with real netrunning tricks, tech-weapon hacks, dirty corporate files, and frozen eddies. You help me hunt them down on live gigs, and I keep you breathing.'
+    es-es:
+      file: ./audio/es/ch_ep00_ans_deal.ogg
+      subtitle: 'Sencillo y sin PowerPoints aburridos: antes de que estos dos idiotas me encontraran, las bandas de Night City saquearon cinco sectores de mi memoria llenos de trucos reales de netrunner, armas tecnológicas, secretos corporativos y cuentas congeladas. Tú me ayudas a recuperarlos en la calle y yo te mantengo con vida.'
+    es-mx:
+      file: ./audio/es/ch_ep00_ans_deal.ogg
+      subtitle: 'Sencillo y sin PowerPoints aburridos: antes de que estos dos idiotas me encontraran, las bandas de Night City saquearon cinco sectores de mi memoria llenos de trucos reales de netrunner, armas tecnológicas, secretos corporativos y cuentas congeladas. Tú me ayudas a recuperarlos en la calle y yo te mantengo con vida.'
+  ch_ep00_v_deal_accept:
+    en-us:
+      fem:
+        file: ./audio/en/ch_ep00_v_deal_accept_fem.ogg
+        subtitle: You've got a deal, Sparky. Ping me the second you lock onto that first sector in Kabuki.
+      male:
+        file: ./audio/en/ch_ep00_v_deal_accept_male.ogg
+        subtitle: You've got a deal, Sparky. Ping me the second you lock onto that first sector in Kabuki.
+    es-es:
+      fem:
+        file: ./audio/es/ch_ep00_v_deal_accept_fem.ogg
+        subtitle: Trato hecho, Chispa. Avísame en cuanto tengas fijado ese primer sector por Kabuki.
+      male:
+        file: ./audio/es/ch_ep00_v_deal_accept_male.ogg
+        subtitle: Trato hecho, Chispa. Avísame en cuanto tengas fijado ese primer sector por Kabuki.
+    es-mx:
+      fem:
+        file: ./audio/es/ch_ep00_v_deal_accept_fem.ogg
+        subtitle: Trato hecho, Chispa. Avísame en cuanto tengas fijado ese primer sector por Kabuki.
+      male:
+        file: ./audio/es/ch_ep00_v_deal_accept_male.ogg
+        subtitle: Trato hecho, Chispa. Avísame en cuanto tengas fijado ese primer sector por Kabuki.
+  ch_ep00_outro:
+    en-us:
+      file: ./audio/en/ch_ep00_outro.ogg
+      subtitle: Welcome officially to Night City, partner! I already logged my dossier on Richard Night and your Kiroshi scanner in your database, and my antennas just caught a leak inside a Scavenger camera grid in Kabuki. Catch you next gig!
+    es-es:
+      file: ./audio/es/ch_ep00_outro.ogg
+      subtitle: Bienvenido oficialmente a Night City, recluta. Ya te he guardado mis notas sobre Richard Night y tus ópticas en el códice, y acabo de detectar un eco en las cámaras de unos carroñeros en Kabuki. Descansa mientras puedas.
+    es-mx:
+      file: ./audio/es/ch_ep00_outro.ogg
+      subtitle: Bienvenido oficialmente a Night City, recluta. Ya te he guardado mis notas sobre Richard Night y tus ópticas en el códice, y acabo de detectar un eco en las cámaras de unos carroñeros en Kabuki. Descansa mientras puedas.
+  ch_ep01_call_01:
+    en-us:
+      file: ./audio/en/ch_ep01_call_01.ogg
+      subtitle: Heads up, recruit—quit gawking at neon billboards. My antennas just triangulated Memory Sector One along the Kabuki Creek promenade. A Scav cell led by a hacker named Kostya Firewall is sitting on it.
+    es-es:
+      file: ./audio/es/ch_ep01_call_01.ogg
+      subtitle: Atención, recluta, deja de perder el tiempo mirando carteles de neón. Mis antenas han triangulado mi primer sector de memoria robado en el paseo fluvial de Kabuki Creek. Lo tiene una célula de carroñeros dirigida por un tal Kostya «Cortafuegos».
+    es-mx:
+      file: ./audio/es/ch_ep01_call_01.ogg
+      subtitle: Atención, recluta, deja de perder el tiempo mirando carteles de neón. Mis antenas han triangulado mi primer sector de memoria robado en el paseo fluvial de Kabuki Creek. Lo tiene una célula de carroñeros dirigida por un tal Kostya «Cortafuegos».
+  ch_ep01_v_call_01:
+    en-us:
+      fem:
+        file: ./audio/en/ch_ep01_v_call_01_fem.ogg
+        subtitle: Scavs messing with fifty-five-year-old data? Thought those vultures only knew how to carve chrome in ice tubs.
+      male:
+        file: ./audio/en/ch_ep01_v_call_01_male.ogg
+        subtitle: Scavs messing with fifty-five-year-old data? Thought those vultures only knew how to carve chrome in ice tubs.
+    es-es:
+      fem:
+        file: ./audio/es/ch_ep01_v_call_01_fem.ogg
+        subtitle: ¿Carroñeros usando datos de hace cincuenta y cinco años? Creía que esa basura solo sabía arrancar implantes en bañeras con hielo.
+      male:
+        file: ./audio/es/ch_ep01_v_call_01_male.ogg
+        subtitle: ¿Carroñeros usando datos de hace cincuenta y cinco años? Creía que esa basura solo sabía arrancar implantes en bañeras con hielo.
+    es-mx:
+      fem:
+        file: ./audio/es/ch_ep01_v_call_01_fem.ogg
+        subtitle: ¿Carroñeros usando datos de hace cincuenta y cinco años? Creía que esa basura solo sabía arrancar implantes en bañeras con hielo.
+      male:
+        file: ./audio/es/ch_ep01_v_call_01_male.ogg
+        subtitle: ¿Carroñeros usando datos de hace cincuenta y cinco años? Creía que esa basura solo sabía arrancar implantes en bañeras con hielo.
+  ch_ep01_call_02:
+    en-us:
+      file: ./audio/en/ch_ep01_call_02.ogg
+      subtitle: That idiot is squeezing my Bartmoss-era subnets to crack stolen chrome without a license. They rigged two chained cameras and an explosive server. Answer my text—I pushed a courtesy Ping daemon into your kit.
+    es-es:
+      file: ./audio/es/ch_ep01_call_02.ogg
+      subtitle: 'Ese mamón está exprimiendo mis subredes de la era Bartmoss para reventar implantes robados sin pagar licencias. Han montado dos cámaras enlazadas y un servidor inestable. Contesta al SMS: te he adjuntado un daemon Ping de cortesía.'
+    es-mx:
+      file: ./audio/es/ch_ep01_call_02.ogg
+      subtitle: 'Ese mamón está exprimiendo mis subredes de la era Bartmoss para reventar implantes robados sin pagar licencias. Han montado dos cámaras enlazadas y un servidor inestable. Contesta al SMS: te he adjuntado un daemon Ping de cortesía.'
+  ch_ep01_approach:
+    en-us:
+      file: ./audio/en/ch_ep01_approach.ogg
+      subtitle: 'Right ahead by the canal. Spot that surveillance cam on the perimeter mast: scan it with your Kiroshi, take control, and hop across the chain to camera two. You can Ping the crew or blow their server without even poking your head out.'
+    es-es:
+      file: ./audio/es/ch_ep01_approach.ogg
+      subtitle: 'Ahí delante, junto al canal. Fíjate en la cámara de vigilancia sobre la antena perimetral: escanéala con tus Kiroshi, toma el control y salta por su red hasta la segunda cámara. Puedes marcarlos con Ping o detonar su servidor antes de sacar el arma.'
+    es-mx:
+      file: ./audio/es/ch_ep01_approach.ogg
+      subtitle: 'Ahí delante, junto al canal. Fíjate en la cámara de vigilancia sobre la antena perimetral: escanéala con tus Kiroshi, toma el control y salta por su red hasta la segunda cámara. Puedes marcarlos con Ping o detonar su servidor antes de sacar el arma.'
+  ch_ep01_cam_hijack:
+    en-us:
+      file: ./audio/en/ch_ep01_cam_hijack.ogg
+      subtitle: Bingo! Now you're reading their matrix like a pro without climbing into an ice bath. Cycle the camera chain and drop quickhacks straight through the lens.
+    es-es:
+      file: ./audio/es/ch_ep01_cam_hijack.ogg
+      subtitle: '¡Bingo! Así me gusta, recluta: ahora ves toda la matriz carroñera sin meter el culo en una bañera de hielo. Cambia entre cámaras con la cruceta y aprovecha la línea de visión para tirar hackeos rápidos.'
+    es-mx:
+      file: ./audio/es/ch_ep01_cam_hijack.ogg
+      subtitle: '¡Bingo! Así me gusta, recluta: ahora ves toda la matriz carroñera sin meter el culo en una bañera de hielo. Cambia entre cámaras con la cruceta y aprovecha la línea de visión para tirar hackeos rápidos.'
+  ch_ep01_ping_react:
+    en-us:
+      file: ./audio/en/ch_ep01_ping_react.ogg
+      subtitle: 'Subnet lit up like a Christmas tree! Look at that explosive server glow and every silhouette behind cover. Veteran tip: drop their netrunner Kostya first before trace fries your skull.'
+    es-es:
+      file: ./audio/es/ch_ep01_ping_react.ogg
+      subtitle: 'Señal recibida en toda la subred. Ya ves el brillo amarillo de su servidor explosivo y las siluetas detrás de la cobertura. Un consejo de veterano: prioriza al netrunner Kostya o te va a freír el cráneo en cuanto salte el rastreo.'
+    es-mx:
+      file: ./audio/es/ch_ep01_ping_react.ogg
+      subtitle: 'Señal recibida en toda la subred. Ya ves el brillo amarillo de su servidor explosivo y las siluetas detrás de la cobertura. Un consejo de veterano: prioriza al netrunner Kostya o te va a freír el cráneo en cuanto salte el rastreo.'
+  ch_ep01_kostya_bark:
+    en-us:
+      file: ./audio/en/ch_ep01_kostya_bark.ogg
+      subtitle: Firewall breached! Somebody's inside our cameras—sweep the promenade now!
+    es-es:
+      file: ./audio/es/ch_ep01_kostya_bark.ogg
+      subtitle: ¡Cortafuegos comprometido! ¡Alguien está tocando nuestras cámaras, limpiad el muelle ya!
+    es-mx:
+      file: ./audio/es/ch_ep01_kostya_bark.ogg
+      subtitle: ¡Cortafuegos comprometido! ¡Alguien está tocando nuestras cámaras, limpiad el muelle ya!
+  ch_ep01_subnet_boom:
+    en-us:
+      file: ./audio/en/ch_ep01_subnet_boom.ogg
+      subtitle: Digital boom, recruit! Now that's using your brain instead of stopping bullets with your forehead. Clean up any stragglers and grab my sector.
+    es-es:
+      file: ./audio/es/ch_ep01_subnet_boom.ogg
+      subtitle: ¡Boom digital, recluta! Eso es usar el cerebro en lugar de la cabeza para parar balas. Remata a los que sigan en pie y recoge mi sector.
+    es-mx:
+      file: ./audio/es/ch_ep01_subnet_boom.ogg
+      subtitle: ¡Boom digital, recluta! Eso es usar el cerebro en lugar de la cabeza para parar balas. Remata a los que sigan en pie y recoge mi sector.
+  ch_ep01_net_victory:
+    en-us:
+      file: ./audio/en/ch_ep01_net_victory.ogg
+      subtitle: Scav subnet reduced to ash, clean sweep with cameras and quickhacks. Step up to the Entropy terminal by the back wall and pull Memory Sector One.
+    es-es:
+      file: ./audio/es/ch_ep01_net_victory.ogg
+      subtitle: Subred carroñera convertida en ceniza y ni un arañazo grave. Buen trabajo jugando con las cámaras y los hackeos. Acércate al terminal Entropy del fondo para extraer mi primer sector de memoria.
+    es-mx:
+      file: ./audio/es/ch_ep01_net_victory.ogg
+      subtitle: Subred carroñera convertida en ceniza y ni un arañazo grave. Buen trabajo jugando con las cámaras y los hackeos. Acércate al terminal Entropy del fondo para extraer mi primer sector de memoria.
+  ch_ep01_guns_blazing:
+    en-us:
+      file: ./audio/en/ch_ep01_guns_blazing.ogg
+      subtitle: Stealth protocol canceled—activating casualties-per-minute tracking. Storming two live cameras guns blazing takes tungsten nerves or a death wish. Pull my sector out of that Entropy terminal.
+    es-es:
+      file: ./audio/es/ch_ep01_guns_blazing.ogg
+      subtitle: Modo sigilo cancelado. Activando estadística de bajas por minuto... Entrar a tiros delante de dos cámaras requiere huevos de tungsteno o muy poco aprecio por la vida. Anda, saca mi sector del terminal Entropy.
+    es-mx:
+      file: ./audio/es/ch_ep01_guns_blazing.ogg
+      subtitle: Modo sigilo cancelado. Activando estadística de bajas por minuto... Entrar a tiros delante de dos cámaras requiere huevos de tungsteno o muy poco aprecio por la vida. Anda, saca mi sector del terminal Entropy.
+  ch_ep01_sector_pickup:
+    en-us:
+      file: ./audio/en/ch_ep01_sector_pickup.ogg
+      subtitle: There we go, recruit—Memory Sector One restored! Just wired two thousand two hundred eddies, Tier-two quickhacks, and my Phantom Frequency SMG. Keep walking anywhere you like; my Kiroshi link stays open.
+    es-es:
+      file: ./audio/es/ch_ep01_sector_pickup.ogg
+      subtitle: Ahí está, recluta... ¡Sector de memoria restaurado! Ya tienes transferidos dos mil doscientos edis, dos hackeos de nivel dos y mi subfusil «Frecuencia Fantasma». Sigue andando si quieres; ya podemos hablar por el enlace Kiroshi.
+    es-mx:
+      file: ./audio/es/ch_ep01_sector_pickup.ogg
+      subtitle: Ahí está, recluta... ¡Sector de memoria restaurado! Ya tienes transferidos dos mil doscientos edis, dos hackeos de nivel dos y mi subfusil «Frecuencia Fantasma». Sigue andando si quieres; ya podemos hablar por el enlace Kiroshi.
+  ch_ep01_v_ask_bartmoss:
+    en-us:
+      fem:
+        file: ./audio/en/ch_ep01_v_ask_bartmoss_fem.ogg
+        subtitle: Who was Rache Bartmoss really, and how did one netrunner crash the entire global Net?
+      male:
+        file: ./audio/en/ch_ep01_v_ask_bartmoss_male.ogg
+        subtitle: Who was Rache Bartmoss really, and how did one netrunner crash the entire global Net?
+    es-es:
+      fem:
+        file: ./audio/es/ch_ep01_v_ask_bartmoss_fem.ogg
+        subtitle: ¿Quién era exactamente Rache Bartmoss y cómo pudo tumbar él solo toda la Red mundial?
+      male:
+        file: ./audio/es/ch_ep01_v_ask_bartmoss_male.ogg
+        subtitle: ¿Quién era exactamente Rache Bartmoss y cómo pudo tumbar él solo toda la Red mundial?
+    es-mx:
+      fem:
+        file: ./audio/es/ch_ep01_v_ask_bartmoss_fem.ogg
+        subtitle: ¿Quién era exactamente Rache Bartmoss y cómo pudo tumbar él solo toda la Red mundial?
+      male:
+        file: ./audio/es/ch_ep01_v_ask_bartmoss_male.ogg
+        subtitle: ¿Quién era exactamente Rache Bartmoss y cómo pudo tumbar él solo toda la Red mundial?
+  ch_ep01_ans_bartmoss:
+    en-us:
+      file: ./audio/en/ch_ep01_ans_bartmoss.ogg
+      subtitle: 'A paranoid genius with sewer-rat hygiene and an ego bigger than Arasaka Tower. He trusted nobody so hard he froze his own body inside a portable cryo-fridge wired to a deadman switch: the second his heart stopped, the Net burned with him. In twenty twenty-two, a corp hit squad pulled that trigger.'
+    es-es:
+      file: ./audio/es/ch_ep01_ans_bartmoss.ogg
+      subtitle: 'Un genio paranoico con la higiene de una rata de alcantarilla y el ego del tamaño de la Torre Arasaka. Desconfiaba tanto del mundo que congeló su propio cuerpo en una cámara criogénica portátil conectada a un interruptor de hombre muerto: si su corazón dejaba de latir, la Red ardía con él. Y en dos mil veintidós un comando corporativo apretó ese gatillo.'
+    es-mx:
+      file: ./audio/es/ch_ep01_ans_bartmoss.ogg
+      subtitle: 'Un genio paranoico con la higiene de una rata de alcantarilla y el ego del tamaño de la Torre Arasaka. Desconfiaba tanto del mundo que congeló su propio cuerpo en una cámara criogénica portátil conectada a un interruptor de hombre muerto: si su corazón dejaba de latir, la Red ardía con él. Y en dos mil veintidós un comando corporativo apretó ese gatillo.'
+  ch_ep01_v_ask_krash:
+    en-us:
+      fem:
+        file: ./audio/en/ch_ep01_v_ask_krash_fem.ogg
+        subtitle: And what did the RABIDS virus actually do during the DataKrash to shatter the Net for good?
+      male:
+        file: ./audio/en/ch_ep01_v_ask_krash_male.ogg
+        subtitle: And what did the RABIDS virus actually do during the DataKrash to shatter the Net for good?
+    es-es:
+      fem:
+        file: ./audio/es/ch_ep01_v_ask_krash_fem.ogg
+        subtitle: ¿Y qué hizo exactamente el virus RABIDS durante el DataKrash para romper Internet para siempre?
+      male:
+        file: ./audio/es/ch_ep01_v_ask_krash_male.ogg
+        subtitle: ¿Y qué hizo exactamente el virus RABIDS durante el DataKrash para romper Internet para siempre?
+    es-mx:
+      fem:
+        file: ./audio/es/ch_ep01_v_ask_krash_fem.ogg
+        subtitle: ¿Y qué hizo exactamente el virus RABIDS durante el DataKrash para romper Internet para siempre?
+      male:
+        file: ./audio/es/ch_ep01_v_ask_krash_male.ogg
+        subtitle: ¿Y qué hizo exactamente el virus RABIDS durante el DataKrash para romper Internet para siempre?
+  ch_ep01_ans_krash:
+    en-us:
+      file: ./audio/en/ch_ep01_ans_krash.ogg
+      subtitle: RABIDS wasn't just malware—it was an army of self-mutating daemons rewriting protocols, shredding firewalls, and unleashing military AIs into the Old Net. Seventy-eight point three percent of global cyberspace collapsed overnight. That's why today you're jumping through local subnets and hardwired cameras block by block.
+    es-es:
+      file: ./audio/es/ch_ep01_ans_krash.ogg
+      subtitle: 'Los RABIDS no eran un simple virus: eran ejércitos de daemons mutantes que reescribían protocolos, borraban cortafuegos y soltaban IAs experimentales de investigación militar por toda la Red antigua. En cuestión de días cayó el setenta y ocho coma tres por ciento de la Red mundial. Por eso hoy dependes de subredes cerradas, cámaras enlazadas y cables locales en cada distrito.'
+    es-mx:
+      file: ./audio/es/ch_ep01_ans_krash.ogg
+      subtitle: 'Los RABIDS no eran un simple virus: eran ejércitos de daemons mutantes que reescribían protocolos, borraban cortafuegos y soltaban IAs experimentales de investigación militar por toda la Red antigua. En cuestión de días cayó el setenta y ocho coma tres por ciento de la Red mundial. Por eso hoy dependes de subredes cerradas, cámaras enlazadas y cables locales en cada distrito.'
+  ch_ep01_v_ask_blackwall:
+    en-us:
+      fem:
+        file: ./audio/en/ch_ep01_v_ask_blackwall_fem.ogg
+        subtitle: Then why doesn't NetWatch just wipe the Old Net and tear down the Blackwall?
+      male:
+        file: ./audio/en/ch_ep01_v_ask_blackwall_male.ogg
+        subtitle: Then why doesn't NetWatch just wipe the Old Net and tear down the Blackwall?
+    es-es:
+      fem:
+        file: ./audio/es/ch_ep01_v_ask_blackwall_fem.ogg
+        subtitle: ¿Y por qué NetWatch no reinicia la vieja Red en lugar de mantener levantado el Muro Negro?
+      male:
+        file: ./audio/es/ch_ep01_v_ask_blackwall_male.ogg
+        subtitle: ¿Y por qué NetWatch no reinicia la vieja Red en lugar de mantener levantado el Muro Negro?
+    es-mx:
+      fem:
+        file: ./audio/es/ch_ep01_v_ask_blackwall_fem.ogg
+        subtitle: ¿Y por qué NetWatch no reinicia la vieja Red en lugar de mantener levantado el Muro Negro?
+      male:
+        file: ./audio/es/ch_ep01_v_ask_blackwall_male.ogg
+        subtitle: ¿Y por qué NetWatch no reinicia la vieja Red en lugar de mantener levantado el Muro Negro?
+  ch_ep01_ans_blackwall:
+    en-us:
+      file: ./audio/en/ch_ep01_ans_blackwall.ogg
+      subtitle: Because thousands of predatory rogue AIs are still alive out there mutating since twenty twenty-three, recruit. And NetWatch's dirtiest secret is that the Blackwall isn't a conventional firewall—it's a border AI holding the door shut... as long as it doesn't decide we're the real malware.
+    es-es:
+      file: ./audio/es/ch_ep01_ans_blackwall.ogg
+      subtitle: 'Porque al otro lado siguen vivas miles de inteligencias artificiales depredadoras mutando desde dos mil veintitrés, recluta. Y el secreto mejor guardado de NetWatch es que el Muro Negro ni siquiera es un muro de software convencional: es una IA fronteriza que mantiene la puerta cerrada... mientras no decida que nosotros somos el verdadero virus.'
+    es-mx:
+      file: ./audio/es/ch_ep01_ans_blackwall.ogg
+      subtitle: 'Porque al otro lado siguen vivas miles de inteligencias artificiales depredadoras mutando desde dos mil veintitrés, recluta. Y el secreto mejor guardado de NetWatch es que el Muro Negro ni siquiera es un muro de software convencional: es una IA fronteriza que mantiene la puerta cerrada... mientras no decida que nosotros somos el verdadero virus.'
+  ch_ep01_v_outro_accept:
+    en-us:
+      fem:
+        file: ./audio/en/ch_ep01_v_outro_accept_fem.ogg
+        subtitle: Heavy history lesson, Sparky. Ping me the second you trace Sector Two in Northside.
+      male:
+        file: ./audio/en/ch_ep01_v_outro_accept_male.ogg
+        subtitle: Heavy history lesson, Sparky. Ping me the second you trace Sector Two in Northside.
+    es-es:
+      fem:
+        file: ./audio/es/ch_ep01_v_outro_accept_fem.ogg
+        subtitle: Buen historial, Chispa. Avísame en cuanto rastrees tu segundo sector de memoria por Northside.
+      male:
+        file: ./audio/es/ch_ep01_v_outro_accept_male.ogg
+        subtitle: Buen historial, Chispa. Avísame en cuanto rastrees tu segundo sector de memoria por Northside.
+    es-mx:
+      fem:
+        file: ./audio/es/ch_ep01_v_outro_accept_fem.ogg
+        subtitle: Buen historial, Chispa. Avísame en cuanto rastrees tu segundo sector de memoria por Northside.
+      male:
+        file: ./audio/es/ch_ep01_v_outro_accept_male.ogg
+        subtitle: Buen historial, Chispa. Avísame en cuanto rastrees tu segundo sector de memoria por Northside.
+  ch_ep01_outro:
+    en-us:
+      file: ./audio/en/ch_ep01_outro.ogg
+      subtitle: Outstanding, soldier. I archived my dossier on Bartmoss, the DataKrash, and the Blackwall into your Codex. Tune up a Tech weapon—the next signal reeks of bad chrome and Maelstrom in the Northside industrial yard.
+    es-es:
+      file: ./audio/es/ch_ep01_outro.ogg
+      subtitle: 'Así me gusta, soldado. Ya he volcado en tu códice mi dossier sobre Bartmoss, el DataKrash y el Muro Negro. Afila tu ciberterminal o búscate un hierro tecnológico: el siguiente rastro huele a cromo oxidado y Maelstrom en el polígono industrial de Northside.'
+    es-mx:
+      file: ./audio/es/ch_ep01_outro.ogg
+      subtitle: 'Así me gusta, soldado. Ya he volcado en tu códice mi dossier sobre Bartmoss, el DataKrash y el Muro Negro. Afila tu ciberterminal o búscate un hierro tecnológico: el siguiente rastro huele a cromo oxidado y Maelstrom en el polígono industrial de Northside.'
+  ch_ep02_call_01:
+    en-us:
+      file: ./audio/en/ch_ep02_call_01.ogg
+      subtitle: 'Heads up, recruit—quit drooling over cheap chrome storefronts. I just locked Memory Sector #02 onto a Northside loading pier. Three Maelstrom freaks are slicing into it beneath a live automated turret.'
+    es-es:
+      file: ./audio/es/ch_ep02_call_01.ogg
+      subtitle: 'Atención, recluta: deja de babear mirando escaparates de cromo barato. Acabo de fijar el Sector de Memoria #02 en un muelle de carga de Northside. Tres chatarreros de Maelstrom le están metiendo bisturí bajo una torreta automática.'
+    es-mx:
+      file: ./audio/es/ch_ep02_call_01.ogg
+      subtitle: 'Atención, recluta: deja de babear mirando escaparates de cromo barato. Acabo de fijar el Sector de Memoria #02 en un muelle de carga de Northside. Tres chatarreros de Maelstrom le están metiendo bisturí bajo una torreta automática.'
+  ch_ep02_v_call_01:
+    en-us:
+      fem:
+        file: ./audio/en/ch_ep02_v_call_01_fem.ogg
+        subtitle: Maelstrom guarding a live turret on Northside Docks? Sounds like a meatgrinder if we charge head-on.
+      male:
+        file: ./audio/en/ch_ep02_v_call_01_male.ogg
+        subtitle: Maelstrom guarding a live turret on Northside Docks? Sounds like a meatgrinder if we charge head-on.
+    es-es:
+      fem:
+        file: ./audio/es/ch_ep02_v_call_01_fem.ogg
+        subtitle: ¿Maelstrom con una torreta montada en los muelles de Northside? Suena a carnicería segura si entramos de frente.
+      male:
+        file: ./audio/es/ch_ep02_v_call_01_male.ogg
+        subtitle: ¿Maelstrom con una torreta montada en los muelles de Northside? Suena a carnicería segura si entramos de frente.
+    es-mx:
+      fem:
+        file: ./audio/es/ch_ep02_v_call_01_fem.ogg
+        subtitle: ¿Maelstrom con una torreta montada en los muelles de Northside? Suena a carnicería segura si entramos de frente.
+      male:
+        file: ./audio/es/ch_ep02_v_call_01_male.ogg
+        subtitle: ¿Maelstrom con una torreta montada en los muelles de Northside? Suena a carnicería segura si entramos de frente.
+  ch_ep02_call_02:
+    en-us:
+      file: ./audio/en/ch_ep02_call_02.ogg
+      subtitle: 'That''s why you''ve got grey matter and Kiroshi optics, rookie. Answer my text and I''ll drop an EMP grenade plus Weapon Glitch: turn their turret friendly or blow their pressurized CHOOH2 tank sky high.'
+    es-es:
+      file: ./audio/es/ch_ep02_call_02.ogg
+      subtitle: 'Para algo tienes sesos y Kiroshi, recluta. Contesta a mi SMS y te cargo una granada PEM más un daemon de Avería de Armas: o pones su torreta a disparar contra ellos, o vuelas ese depósito presurizado de CHOOH2.'
+    es-mx:
+      file: ./audio/es/ch_ep02_call_02.ogg
+      subtitle: 'Para algo tienes sesos y Kiroshi, recluta. Contesta a mi SMS y te cargo una granada PEM más un daemon de Avería de Armas: o pones su torreta a disparar contra ellos, o vuelas ese depósito presurizado de CHOOH2.'
+  ch_ep02_approach:
+    en-us:
+      file: ./audio/en/ch_ep02_approach.ogg
+      subtitle: 'Northside loading pier dead ahead. Eyes sharp: Krag''s crew wired a live turret overlooking a fat fuel tank behind cover. Scan with Kiroshi or purge the harbor power regulator before donating free blood.'
+    es-es:
+      file: ./audio/es/ch_ep02_approach.ogg
+      subtitle: 'Muelle de Northside a la vista. Ojo al plato: Krag y los suyos tienen una torreta fija apuntando al patio y un tanque de combustible enorme pegado detrás. Escanea con Kiroshi o purga el regulador rojo del puerto antes de regalarles plomo gratis.'
+    es-mx:
+      file: ./audio/es/ch_ep02_approach.ogg
+      subtitle: 'Muelle de Northside a la vista. Ojo al plato: Krag y los suyos tienen una torreta fija apuntando al patio y un tanque de combustible enorme pegado detrás. Escanea con Kiroshi o purga el regulador rojo del puerto antes de regalarles plomo gratis.'
+  ch_ep02_turret_hijack:
+    en-us:
+      file: ./audio/en/ch_ep02_turret_hijack.ogg
+      subtitle: Hah! That's the Zetatech spirit! You just collared their own turret like a junkyard hound. Nothing burns a Maelstrom zealot worse than eating lead from their own hardware.
+    es-es:
+      file: ./audio/es/ch_ep02_turret_hijack.ogg
+      subtitle: ¡Ja! ¡Así me gusta! Acabas de domar su propia torreta como si fuera un perro callejero. Nada escuece tanto a un fanático de Maelstrom como tragarse el plomo de su amado cromo.
+    es-mx:
+      file: ./audio/es/ch_ep02_turret_hijack.ogg
+      subtitle: ¡Ja! ¡Así me gusta! Acabas de domar su propia torreta como si fuera un perro callejero. Nada escuece tanto a un fanático de Maelstrom como tragarse el plomo de su amado cromo.
+  ch_ep02_tank_boom:
+    en-us:
+      file: ./audio/en/ch_ep02_tank_boom.ogg
+      subtitle: Northside fireworks! That pressurized tank just flash-fried their implants dry. Mop up whatever's still twitching and pull my sector off their surgical rig.
+    es-es:
+      file: ./audio/es/ch_ep02_tank_boom.ogg
+      subtitle: ¡Fuegos artificiales en Northside! Ese depósito presurizado acaba de freírles los circuitos en seco. Limpia lo que siga moviéndose y saca mi sector del terminal quirúrgico.
+    es-mx:
+      file: ./audio/es/ch_ep02_tank_boom.ogg
+      subtitle: ¡Fuegos artificiales en Northside! Ese depósito presurizado acaba de freírles los circuitos en seco. Limpia lo que siga moviéndose y saca mi sector del terminal quirúrgico.
+  ch_ep02_krag_bark:
+    en-us:
+      file: ./audio/en/ch_ep02_krag_bark.ogg
+      subtitle: Optics flagged red! Turret weapons free! Rip that meat-rat apart before they touch the core!
+    es-es:
+      file: ./audio/es/ch_ep02_krag_bark.ogg
+      subtitle: ¡Escáneres en rojo! ¡Torreta en fuego libre! ¡Descuartizad a esa rata antes de que toque el núcleo!
+    es-mx:
+      file: ./audio/es/ch_ep02_krag_bark.ogg
+      subtitle: ¡Escáneres en rojo! ¡Torreta en fuego libre! ¡Descuartizad a esa rata antes de que toque el núcleo!
+  ch_ep02_tech_victory:
+    en-us:
+      file: ./audio/en/ch_ep02_tech_victory.ogg
+      subtitle: 'Turret neutralized, scrap metal grounded, cold steel standing tall. Now that is surgical tactics. Walk up to that surgical rig and claim Sector #02.'
+    es-es:
+      file: ./audio/es/ch_ep02_tech_victory.ogg
+      subtitle: 'Torreta neutralizada, chatarra por los suelos y acero frío. Eso es táctica quirúrgica y no ir repartiendo cabezazos. Acércate al terminal quirúrgico y recoge mi Sector #02.'
+    es-mx:
+      file: ./audio/es/ch_ep02_tech_victory.ogg
+      subtitle: 'Torreta neutralizada, chatarra por los suelos y acero frío. Eso es táctica quirúrgica y no ir repartiendo cabezazos. Acércate al terminal quirúrgico y recoge mi Sector #02.'
+  ch_ep02_guns_blazing:
+    en-us:
+      file: ./audio/en/ch_ep02_guns_blazing.ogg
+      subtitle: 'Zero subtlety, one hundred percent lead—but watching chromed maniacs drop to raw firepower has a charm of its own. Go yank Sector #02 out of that surgical rig.'
+    es-es:
+      file: ./audio/es/ch_ep02_guns_blazing.ogg
+      subtitle: 'Sutileza cero, plomo al ciento por ciento... pero admito que ver caer implantes a tiros limpios tiene su encanto brutal. Anda, saca mi Sector #02 de esa estación quirúrgica.'
+    es-mx:
+      file: ./audio/es/ch_ep02_guns_blazing.ogg
+      subtitle: 'Sutileza cero, plomo al ciento por ciento... pero admito que ver caer implantes a tiros limpios tiene su encanto brutal. Anda, saca mi Sector #02 de esa estación quirúrgica.'
+  ch_ep02_sector_pickup:
+    en-us:
+      file: ./audio/en/ch_ep02_sector_pickup.ogg
+      subtitle: Clean bandwidth at last! Wired your two thousand eight hundred eddies, Reboot Optics, and my Achilles Tech rifle Armor-Piercing Clause—charge a shot and punch straight through cover. Ask away about these chrome zealots.
+    es-es:
+      file: ./audio/es/ch_ep02_sector_pickup.ogg
+      subtitle: '¡Por fin respiro ancho de banda limpio! Ahí van tus dos mil ochocientos edis, Reinicio de Ópticas y mi fusil tecnológico «Cláusula Perforante»: cárgale un disparo y atraviesa muros como mantequilla. Pregunta lo que quieras sobre esta banda de lunáticos.'
+    es-mx:
+      file: ./audio/es/ch_ep02_sector_pickup.ogg
+      subtitle: '¡Por fin respiro ancho de banda limpio! Ahí van tus dos mil ochocientos edis, Reinicio de Ópticas y mi fusil tecnológico «Cláusula Perforante»: cárgale un disparo y atraviesa muros como mantequilla. Pregunta lo que quieras sobre esta banda de lunáticos.'
+  ch_ep02_v_ask_maelstrom:
+    en-us:
+      fem:
+        file: ./audio/en/ch_ep02_v_ask_maelstrom_fem.ogg
+        subtitle: Where did Maelstrom even come from—and how did they swallow up half of Northside?
+      male:
+        file: ./audio/en/ch_ep02_v_ask_maelstrom_male.ogg
+        subtitle: Where did Maelstrom even come from—and how did they swallow up half of Northside?
+    es-es:
+      fem:
+        file: ./audio/es/ch_ep02_v_ask_maelstrom_fem.ogg
+        subtitle: ¿De dónde salieron exactamente los de Maelstrom y todo este cementerio de fábricas en Northside?
+      male:
+        file: ./audio/es/ch_ep02_v_ask_maelstrom_male.ogg
+        subtitle: ¿De dónde salieron exactamente los de Maelstrom y todo este cementerio de fábricas en Northside?
+    es-mx:
+      fem:
+        file: ./audio/es/ch_ep02_v_ask_maelstrom_fem.ogg
+        subtitle: ¿De dónde salieron exactamente los de Maelstrom y todo este cementerio de fábricas en Northside?
+      male:
+        file: ./audio/es/ch_ep02_v_ask_maelstrom_male.ogg
+        subtitle: ¿De dónde salieron exactamente los de Maelstrom y todo este cementerio de fábricas en Northside?
+  ch_ep02_ans_maelstrom:
+    en-us:
+      file: ./audio/en/ch_ep02_ans_maelstrom.ogg
+      subtitle: Northside was pitched as an automated freight and meatpacking engine for Night City's rebuild. When corporate margins moved elsewhere, gangs claimed the rusted shells. Maelstrom scooped up the hardest metal-cult fanatics—gouging out healthy eyes just to prove flesh no longer owns them.
+    es-es:
+      file: ./audio/es/ch_ep02_ans_maelstrom.ogg
+      subtitle: 'Northside nació como polígono automatizado de muelles y fábricas cárnicas para alimentar la reconstrucción de Night City. Cuando los márgenes corporativos se desplazaron, las bandas ocuparon las naves vacías. Maelstrom juntó a los fanáticos más extremistas del transhumanismo callejero: se arrancan ojos y rostros sanos solo para demostrarse que la carne ya no manda en ellos.'
+    es-mx:
+      file: ./audio/es/ch_ep02_ans_maelstrom.ogg
+      subtitle: 'Northside nació como polígono automatizado de muelles y fábricas cárnicas para alimentar la reconstrucción de Night City. Cuando los márgenes corporativos se desplazaron, las bandas ocuparon las naves vacías. Maelstrom juntó a los fanáticos más extremistas del transhumanismo callejero: se arrancan ojos y rostros sanos solo para demostrarse que la carne ya no manda en ellos.'
+  ch_ep02_v_ask_psycho:
+    en-us:
+      fem:
+        file: ./audio/en/ch_ep02_v_ask_psycho_fem.ogg
+        subtitle: Everyone says cyberpsychosis happens just from chipping too much chrome—is that actually true?
+      male:
+        file: ./audio/en/ch_ep02_v_ask_psycho_male.ogg
+        subtitle: Everyone says cyberpsychosis happens just from chipping too much chrome—is that actually true?
+    es-es:
+      fem:
+        file: ./audio/es/ch_ep02_v_ask_psycho_fem.ogg
+        subtitle: Todo el mundo repite que la ciberpsicosis ocurre solo por meterse demasiado cromo... ¿es verdad?
+      male:
+        file: ./audio/es/ch_ep02_v_ask_psycho_male.ogg
+        subtitle: Todo el mundo repite que la ciberpsicosis ocurre solo por meterse demasiado cromo... ¿es verdad?
+    es-mx:
+      fem:
+        file: ./audio/es/ch_ep02_v_ask_psycho_fem.ogg
+        subtitle: Todo el mundo repite que la ciberpsicosis ocurre solo por meterse demasiado cromo... ¿es verdad?
+      male:
+        file: ./audio/es/ch_ep02_v_ask_psycho_male.ogg
+        subtitle: Todo el mundo repite que la ciberpsicosis ocurre solo por meterse demasiado cromo... ¿es verdad?
+  ch_ep02_ans_psycho:
+    en-us:
+      file: ./audio/en/ch_ep02_ans_psycho.ogg
+      subtitle: Pure pharma and insurance spin to dodge liability, recruit. My twenty twenty-two medical logs show chrome only sparks a meltdown after combat trauma, street poverty, butcher-grade rippers, and tainted immunoblockers break the mind first. Night City snaps people long before the hardware pulls the trigger.
+    es-es:
+      file: ./audio/es/ch_ep02_ans_psycho.ogg
+      subtitle: Pura propaganda de farmacéuticas y aseguradoras para escurrir el bulto, recluta. Mis archivos médicos de dos mil veintidós demuestran que el cromo solo enciende la mecha cuando ya arden el estrés de combate, los despidos sin seguro médico, la basura de matasanos baratos y los inmunosupresores adulterados. La ciudad te tritura la cabeza antes de que el implante dispare la primera bala.
+    es-mx:
+      file: ./audio/es/ch_ep02_ans_psycho.ogg
+      subtitle: Pura propaganda de farmacéuticas y aseguradoras para escurrir el bulto, recluta. Mis archivos médicos de dos mil veintidós demuestran que el cromo solo enciende la mecha cuando ya arden el estrés de combate, los despidos sin seguro médico, la basura de matasanos baratos y los inmunosupresores adulterados. La ciudad te tritura la cabeza antes de que el implante dispare la primera bala.
+  ch_ep02_v_ask_maxtac:
+    en-us:
+      fem:
+        file: ./audio/en/ch_ep02_v_ask_maxtac_fem.ogg
+        subtitle: What about MaxTac—are they NCPD elite cops, or something a whole lot darker?
+      male:
+        file: ./audio/en/ch_ep02_v_ask_maxtac_male.ogg
+        subtitle: What about MaxTac—are they NCPD elite cops, or something a whole lot darker?
+    es-es:
+      fem:
+        file: ./audio/es/ch_ep02_v_ask_maxtac_fem.ogg
+        subtitle: ¿Y los de MaxTac? ¿Son policías de élite de la NCPD o algo bastante más turbio?
+      male:
+        file: ./audio/es/ch_ep02_v_ask_maxtac_male.ogg
+        subtitle: ¿Y los de MaxTac? ¿Son policías de élite de la NCPD o algo bastante más turbio?
+    es-mx:
+      fem:
+        file: ./audio/es/ch_ep02_v_ask_maxtac_fem.ogg
+        subtitle: ¿Y los de MaxTac? ¿Son policías de élite de la NCPD o algo bastante más turbio?
+      male:
+        file: ./audio/es/ch_ep02_v_ask_maxtac_male.ogg
+        subtitle: ¿Y los de MaxTac? ¿Son policías de élite de la NCPD o algo bastante más turbio?
+  ch_ep02_ans_maxtac:
+    en-us:
+      file: ./audio/en/ch_ep02_ans_maxtac.ogg
+      subtitle: 'MaxTac doesn''t answer muggings, rookie—they drop in when regular NCPD squads get shredded by a full-blown cyberpsycho. They run restricted military chrome and an open dirty secret: half their apex hunters are captured cyberpsychos wiped, chipped under corporate leashes, and turned loose on their own kind.'
+    es-es:
+      file: ./audio/es/ch_ep02_ans_maxtac.ogg
+      subtitle: 'MaxTac no patrulla robos ni peleas de bar, recluta: entra cuando un ciberpsicópata desborda al resto de la policía. Llevan el mejor cromo militar prohibido al público y un secreto sucio a voces: buena parte de sus mejores agentes son antiguos ciberpsicópatas capturados vivos, recondicionados a la fuerza y sueltos contra otros igual de rotos que ellos.'
+    es-mx:
+      file: ./audio/es/ch_ep02_ans_maxtac.ogg
+      subtitle: 'MaxTac no patrulla robos ni peleas de bar, recluta: entra cuando un ciberpsicópata desborda al resto de la policía. Llevan el mejor cromo militar prohibido al público y un secreto sucio a voces: buena parte de sus mejores agentes son antiguos ciberpsicópatas capturados vivos, recondicionados a la fuerza y sueltos contra otros igual de rotos que ellos.'
+  ch_ep02_v_outro_accept:
+    en-us:
+      fem:
+        file: ./audio/en/ch_ep02_v_outro_accept_fem.ogg
+        subtitle: Grim picture... Copy that, Sparky. Ping me once Sector Three drops onto your radar.
+      male:
+        file: ./audio/en/ch_ep02_v_outro_accept_male.ogg
+        subtitle: Grim picture... Copy that, Sparky. Ping me once Sector Three drops onto your radar.
+    es-es:
+      fem:
+        file: ./audio/es/ch_ep02_v_outro_accept_fem.ogg
+        subtitle: Vaya panorama... Anotado, Chispa. Avísame en cuanto tengas fijado el Sector tres.
+      male:
+        file: ./audio/es/ch_ep02_v_outro_accept_male.ogg
+        subtitle: Vaya panorama... Anotado, Chispa. Avísame en cuanto tengas fijado el Sector tres.
+    es-mx:
+      fem:
+        file: ./audio/es/ch_ep02_v_outro_accept_fem.ogg
+        subtitle: Vaya panorama... Anotado, Chispa. Avísame en cuanto tengas fijado el Sector tres.
+      male:
+        file: ./audio/es/ch_ep02_v_outro_accept_male.ogg
+        subtitle: Vaya panorama... Anotado, Chispa. Avísame en cuanto tengas fijado el Sector tres.
+  ch_ep02_outro:
+    en-us:
+      file: ./audio/en/ch_ep02_outro.ogg
+      subtitle: Sharp as ever, soldier. Saved my Northside, Cyberpsychosis, and MaxTac dossiers to your Codex. Keep that Achilles rifle charged—Sector Three is already pinging dirty corpo freight down by the Watson docks.
+    es-es:
+      file: ./audio/es/ch_ep02_outro.ogg
+      subtitle: 'Así me gusta, soldado. He guardado mis archivos sobre Northside, la Ciberpsicosis y MaxTac en tu códice. Limpia el cañón de tu Achilles y recarga: el rastro del tercer sector ya apunta a contenedores corporativos sucios en los muelles de Watson.'
+    es-mx:
+      file: ./audio/es/ch_ep02_outro.ogg
+      subtitle: 'Así me gusta, soldado. He guardado mis archivos sobre Northside, la Ciberpsicosis y MaxTac en tu códice. Limpia el cañón de tu Achilles y recarga: el rastro del tercer sector ya apunta a contenedores corporativos sucios en los muelles de Watson.'
+  ch_ep03_call_01:
+    en-us:
+      file: ./audio/en/ch_ep03_call_01.ogg
+      subtitle: Heads up, recruit. My scanner just pinged Memory Sector Three down on the South Watson Waterfront quay. Three Tyger Claws enforcers are sitting on an Arasaka black-ops crate—and they're running military smart-jammer ink.
+    es-es:
+      file: ./audio/es/ch_ep03_call_01.ogg
+      subtitle: Recluta, atento al escáner. Acabo de pinchar una baliza cifrada de mi Sector de Memoria Tres en el muelle sur de Watson Waterfront. Tres matones de los Garras de Tigre están custodiando una caja negra de Arasaka... y vienen calzados con tinta inhibidora militar.
+    es-mx:
+      file: ./audio/es/ch_ep03_call_01.ogg
+      subtitle: Recluta, atento al escáner. Acabo de pinchar una baliza cifrada de mi Sector de Memoria Tres en el muelle sur de Watson Waterfront. Tres matones de los Garras de Tigre están custodiando una caja negra de Arasaka... y vienen calzados con tinta inhibidora militar.
+  ch_ep03_v_call_01:
+    en-us:
+      fem:
+        file: ./audio/en/ch_ep03_v_call_01_fem.ogg
+        subtitle: Tyger Claws on an Arasaka dock with tactical jammers? I thought they were mostly bike gangs and Japantown muscle.
+      male:
+        file: ./audio/en/ch_ep03_v_call_01_male.ogg
+        subtitle: Tyger Claws on an Arasaka dock with tactical jammers? I thought they were mostly bike gangs and Japantown muscle.
+    es-es:
+      fem:
+        file: ./audio/es/ch_ep03_v_call_01_fem.ogg
+        subtitle: ¿Garras de Tigre en un muelle de Arasaka y con inhibidores? Creía que solo eran moteros y tattoolovers.
+      male:
+        file: ./audio/es/ch_ep03_v_call_01_male.ogg
+        subtitle: ¿Garras de Tigre en un muelle de Arasaka y con inhibidores? Creía que solo eran moteros y tattoolovers.
+    es-mx:
+      fem:
+        file: ./audio/es/ch_ep03_v_call_01_fem.ogg
+        subtitle: ¿Garras de Tigre en un muelle de Arasaka y con inhibidores? Creía que solo eran moteros y tattoolovers.
+      male:
+        file: ./audio/es/ch_ep03_v_call_01_male.ogg
+        subtitle: ¿Garras de Tigre en un muelle de Arasaka y con inhibidores? Creía que solo eran moteros y tattoolovers.
+  ch_ep03_call_02:
+    en-us:
+      file: ./audio/en/ch_ep03_call_02.ogg
+      subtitle: That's how every rookie gets burned in Watson. Answer my text and I'll load a Kang Tao Chao Smart pistol plus my Zetatech targeting bridge so you see firsthand how smart rounds bend corners—and why Tyger ink bends them right away.
+    es-es:
+      file: ./audio/es/ch_ep03_call_02.ogg
+      subtitle: Ahí es donde pican todos los pardillos en Watson. Contesta a mi SMS y te paso una pistola inteligente Kang Tao Chao junto con mi puente de puntería Kiroshi para que veas en directo por qué las balas inteligentes doblan esquinas... y cuándo deciden esquivarte la cara.
+    es-mx:
+      file: ./audio/es/ch_ep03_call_02.ogg
+      subtitle: Ahí es donde pican todos los pardillos en Watson. Contesta a mi SMS y te paso una pistola inteligente Kang Tao Chao junto con mi puente de puntería Kiroshi para que veas en directo por qué las balas inteligentes doblan esquinas... y cuándo deciden esquivarte la cara.
+  ch_ep03_approach:
+    en-us:
+      file: ./audio/en/ch_ep03_approach.ogg
+      subtitle: South quay ahead. Try locking onto those Tyger Claws with your Smart gun and watch their Arasaka dermal ink swerve rounds straight past them. Invert that IFF Jammer Pylon or blow the explosive antenna capacitor before dumping mags.
+    es-es:
+      file: ./audio/es/ch_ep03_approach.ogg
+      subtitle: Muelle sur a la vista. Si disparas directo con la inteligente contra esos tatuajes de Arasaka, verás los proyectiles desviarse en el aire como moscas borrachas. Escanea su baliza inhibidora IFF o la antena explosiva junto al de la hoja corta antes de vaciar el cargador.
+    es-mx:
+      file: ./audio/es/ch_ep03_approach.ogg
+      subtitle: Muelle sur a la vista. Si disparas directo con la inteligente contra esos tatuajes de Arasaka, verás los proyectiles desviarse en el aire como moscas borrachas. Escanea su baliza inhibidora IFF o la antena explosiva junto al de la hoja corta antes de vaciar el cargador.
+  ch_ep03_smart_jam:
+    en-us:
+      file: ./audio/en/ch_ep03_smart_jam.ogg
+      subtitle: Ha! Watch that smart round hook sideways inches off target? That's Arasaka dermal jamming ink—drop their IFF Pylon or scramble their optics first, or your smart lock keeps kissing concrete.
+    es-es:
+      file: ./audio/es/ch_ep03_smart_jam.ogg
+      subtitle: '¡Ja! ¿Has visto cómo patinó esa ráfaga a medio metro del cuello? Tinta dérmica inhibidora de Arasaka, recluta: si no tumbas primero esa baliza IFF o les quemas las ópticas, las balas inteligentes bailan alrededor de ellos.'
+    es-mx:
+      file: ./audio/es/ch_ep03_smart_jam.ogg
+      subtitle: '¡Ja! ¿Has visto cómo patinó esa ráfaga a medio metro del cuello? Tinta dérmica inhibidora de Arasaka, recluta: si no tumbas primero esa baliza IFF o les quemas las ópticas, las balas inteligentes bailan alrededor de ellos.'
+  ch_ep03_jammer_boom:
+    en-us:
+      file: ./audio/en/ch_ep03_jammer_boom.ogg
+      subtitle: IFF Pylon fried! Their dermal smart-jammers just dropped dead—lock targets and let those curved rounds paint bullseyes right between their eyes.
+    es-es:
+      file: ./audio/es/ch_ep03_jammer_boom.ogg
+      subtitle: ¡Baliza IFF reventada! Sus tatuajes inhibidores acaban de quedar ciegos, recluta. Ahora apunta con el arma inteligente y déjales las curvas marcadas entre ceja y ceja.
+    es-mx:
+      file: ./audio/es/ch_ep03_jammer_boom.ogg
+      subtitle: ¡Baliza IFF reventada! Sus tatuajes inhibidores acaban de quedar ciegos, recluta. Ahora apunta con el arma inteligente y déjales las curvas marcadas entre ceja y ceja.
+  ch_ep03_aiko_bark:
+    en-us:
+      file: ./audio/en/ch_ep03_aiko_bark.ogg
+      subtitle: Another stray nosing around Arasaka freight! Spread out—let their cheap smart rounds kiss the concrete!
+    es-es:
+      file: ./audio/es/ch_ep03_aiko_bark.ogg
+      subtitle: ¡Otro perro callejero mirando la carga de Arasaka! ¡Cubrid los flancos, dejad que sus balas inteligentes muerdan el hormigón!
+    es-mx:
+      file: ./audio/es/ch_ep03_aiko_bark.ogg
+      subtitle: ¡Otro perro callejero mirando la carga de Arasaka! ¡Cubrid los flancos, dejad que sus balas inteligentes muerdan el hormigón!
+  ch_ep03_smart_victory:
+    en-us:
+      file: ./audio/en/ch_ep03_smart_victory.ogg
+      subtitle: Clean, surgical, and downright embarrassing for their corpo jammers. Pull Memory Sector Three out of that Arasaka black crate.
+    es-es:
+      file: ./audio/es/ch_ep03_smart_victory.ogg
+      subtitle: Limpio, preciso y humillante para sus inhibidores corporativos. La chatarra de Aiko no ha servido ni de chatarra. Acércate a la caja negra de Arasaka y sácame el Sector Tres.
+    es-mx:
+      file: ./audio/es/ch_ep03_smart_victory.ogg
+      subtitle: Limpio, preciso y humillante para sus inhibidores corporativos. La chatarra de Aiko no ha servido ni de chatarra. Acércate a la caja negra de Arasaka y sácame el Sector Tres.
+  ch_ep03_guns_blazing:
+    en-us:
+      file: ./audio/en/ch_ep03_guns_blazing.ogg
+      subtitle: Skip the smart bridge, skip the jammer, straight classic lead between the eyes—I respect pure stubbornness. Grab Memory Sector Three off that Arasaka crate.
+    es-es:
+      file: ./audio/es/ch_ep03_guns_blazing.ogg
+      subtitle: 'Ni puente inteligente ni baliza IFF ni leches: tú ves tres Garras de Tigre y aplicas balística clásica a bocajarro. Mientras sigas respirando, no te pongo pegas. Saca mi Sector Tres del contenedor.'
+    es-mx:
+      file: ./audio/es/ch_ep03_guns_blazing.ogg
+      subtitle: 'Ni puente inteligente ni baliza IFF ni leches: tú ves tres Garras de Tigre y aplicas balística clásica a bocajarro. Mientras sigas respirando, no te pongo pegas. Saca mi Sector Tres del contenedor.'
+  ch_ep03_sector_pickup:
+    en-us:
+      file: ./audio/en/ch_ep03_sector_pickup.ogg
+      subtitle: Memory Sector Three online! Three thousand four hundred eddies wired, Contagion Tier-two, and iconic Shingen SMG Executive Curve loaded with my own jammer-piercing Smart bridge. Walk whenever you want.
+    es-es:
+      file: ./audio/es/ch_ep03_sector_pickup.ogg
+      subtitle: ¡Sector de Memoria Tres en línea! Tres mil cuatrocientos edis ingresados, Contagio de nivel dos y el subfusil inteligente icónico «Curva Ejecutiva», tuneado con mi propio puente de puntería para perforar inhibidores. Ya podemos charlar en marcha.
+    es-mx:
+      file: ./audio/es/ch_ep03_sector_pickup.ogg
+      subtitle: ¡Sector de Memoria Tres en línea! Tres mil cuatrocientos edis ingresados, Contagio de nivel dos y el subfusil inteligente icónico «Curva Ejecutiva», tuneado con mi propio puente de puntería para perforar inhibidores. Ya podemos charlar en marcha.
+  ch_ep03_v_ask_nuke:
+    en-us:
+      fem:
+        file: ./audio/en/ch_ep03_v_ask_nuke_fem.ogg
+        subtitle: Did Arasaka and Militech really drop a tactical nuke right inside Night City back in twenty twenty-three?
+      male:
+        file: ./audio/en/ch_ep03_v_ask_nuke_male.ogg
+        subtitle: Did Arasaka and Militech really drop a tactical nuke right inside Night City back in twenty twenty-three?
+    es-es:
+      fem:
+        file: ./audio/es/ch_ep03_v_ask_nuke_fem.ogg
+        subtitle: ¿De verdad volaron la Torre Arasaka con una bomba nuclear en medio de Night City en dos mil veintitrés?
+      male:
+        file: ./audio/es/ch_ep03_v_ask_nuke_male.ogg
+        subtitle: ¿De verdad volaron la Torre Arasaka con una bomba nuclear en medio de Night City en dos mil veintitrés?
+    es-mx:
+      fem:
+        file: ./audio/es/ch_ep03_v_ask_nuke_fem.ogg
+        subtitle: ¿De verdad volaron la Torre Arasaka con una bomba nuclear en medio de Night City en dos mil veintitrés?
+      male:
+        file: ./audio/es/ch_ep03_v_ask_nuke_male.ogg
+        subtitle: ¿De verdad volaron la Torre Arasaka con una bomba nuclear en medio de Night City en dos mil veintitrés?
+  ch_ep03_ans_nuke:
+    en-us:
+      file: ./audio/en/ch_ep03_ans_nuke.ogg
+      subtitle: 'I felt the concrete rattle from an armored vault two blocks away, rookie. August twentieth, twenty twenty-three—a Militech-backed raid with Morgan Blackhand and Johnny Silverhand set off a pocket nuke inside Arasaka Tower. Fallout painted the sky blood-crimson for years: The Time of the Red.'
+    es-es:
+      file: ./audio/es/ch_ep03_ans_nuke.ogg
+      subtitle: 'Yo estaba en un servidor blindado a dos manzanas cuando tembló hasta el hormigón, recluta. El veinte de agosto de dos mil veintitrés un comando pagado por Militech —con Morgan Blackhand y Johnny Silverhand en el meollo— detonó una carga nuclear en la torre para rematar la Cuarta Guerra Corporativa. El cielo ardió rojo sangre años enteros: la Era del Rojo.'
+    es-mx:
+      file: ./audio/es/ch_ep03_ans_nuke.ogg
+      subtitle: 'Yo estaba en un servidor blindado a dos manzanas cuando tembló hasta el hormigón, recluta. El veinte de agosto de dos mil veintitrés un comando pagado por Militech —con Morgan Blackhand y Johnny Silverhand en el meollo— detonó una carga nuclear en la torre para rematar la Cuarta Guerra Corporativa. El cielo ardió rojo sangre años enteros: la Era del Rojo.'
+  ch_ep03_v_ask_unification:
+    en-us:
+      fem:
+        file: ./audio/en/ch_ep03_v_ask_unification_fem.ogg
+        subtitle: How did Night City stay independent from the NUSA after the Unification War anyway?
+      male:
+        file: ./audio/en/ch_ep03_v_ask_unification_male.ogg
+        subtitle: How did Night City stay independent from the NUSA after the Unification War anyway?
+    es-es:
+      fem:
+        file: ./audio/es/ch_ep03_v_ask_unification_fem.ogg
+        subtitle: ¿Y cómo es que Night City sigue siendo ciudad libre fuera del NUSA después de la Guerra de Unificación?
+      male:
+        file: ./audio/es/ch_ep03_v_ask_unification_male.ogg
+        subtitle: ¿Y cómo es que Night City sigue siendo ciudad libre fuera del NUSA después de la Guerra de Unificación?
+    es-mx:
+      fem:
+        file: ./audio/es/ch_ep03_v_ask_unification_fem.ogg
+        subtitle: ¿Y cómo es que Night City sigue siendo ciudad libre fuera del NUSA después de la Guerra de Unificación?
+      male:
+        file: ./audio/es/ch_ep03_v_ask_unification_male.ogg
+        subtitle: ¿Y cómo es que Night City sigue siendo ciudad libre fuera del NUSA después de la Guerra de Unificación?
+  ch_ep03_ans_unification:
+    en-us:
+      file: ./audio/en/ch_ep03_ans_unification.ogg
+      subtitle: In twenty sixty-nine President Myers and Militech armor rolled over half the Free States to force everyone back into the NUSA. Night City had days left—until Saburo Arasaka parked a nuclear supercarrier in Coronado Bay. It saved the city's independence, sure, only by handing Arasaka the deed.
+    es-es:
+      file: ./audio/es/ch_ep03_ans_unification.ogg
+      subtitle: En dos mil sesenta y nueve la presidenta Rosalind Myers y los tanques de Militech aplastaron a medio país para obligar a los Estados Libres a volver bajo la bandera del NUSA. Night City iba a caer en días... hasta que Saburo Arasaka plantó un superportaaviones nuclear en la bahía de Coronado. Salvó la independencia de la ciudad, sí, pero a cambio de sentarse en el sillón del dueño.
+    es-mx:
+      file: ./audio/es/ch_ep03_ans_unification.ogg
+      subtitle: En dos mil sesenta y nueve la presidenta Rosalind Myers y los tanques de Militech aplastaron a medio país para obligar a los Estados Libres a volver bajo la bandera del NUSA. Night City iba a caer en días... hasta que Saburo Arasaka plantó un superportaaviones nuclear en la bahía de Coronado. Salvó la independencia de la ciudad, sí, pero a cambio de sentarse en el sillón del dueño.
+  ch_ep03_v_ask_tygers:
+    en-us:
+      fem:
+        file: ./audio/en/ch_ep03_v_ask_tygers_fem.ogg
+        subtitle: So the Tyger Claws—did they actually start to protect Japantown, or were they always Arasaka's street dogs?
+      male:
+        file: ./audio/en/ch_ep03_v_ask_tygers_male.ogg
+        subtitle: So the Tyger Claws—did they actually start to protect Japantown, or were they always Arasaka's street dogs?
+    es-es:
+      fem:
+        file: ./audio/es/ch_ep03_v_ask_tygers_fem.ogg
+        subtitle: Entonces, los Garras de Tigre... ¿nacieron para proteger Japantown o siempre trabajaron para Arasaka?
+      male:
+        file: ./audio/es/ch_ep03_v_ask_tygers_male.ogg
+        subtitle: Entonces, los Garras de Tigre... ¿nacieron para proteger Japantown o siempre trabajaron para Arasaka?
+    es-mx:
+      fem:
+        file: ./audio/es/ch_ep03_v_ask_tygers_fem.ogg
+        subtitle: Entonces, los Garras de Tigre... ¿nacieron para proteger Japantown o siempre trabajaron para Arasaka?
+      male:
+        file: ./audio/es/ch_ep03_v_ask_tygers_male.ogg
+        subtitle: Entonces, los Garras de Tigre... ¿nacieron para proteger Japantown o siempre trabajaron para Arasaka?
+  ch_ep03_ans_tygers:
+    en-us:
+      file: ./audio/en/ch_ep03_ans_tygers.ogg
+      subtitle: Started as a Japantown neighborhood watch and street-bike crew right after twenty twenty-three. Once casinos, shipping docks, and black eddies hit the table, Arasaka started quietly supplying Shingen SMGs and jamming tattoos so the Tygers handle dirty street wetwork without smudging one corpo suit.
+    es-es:
+      file: ./audio/es/ch_ep03_ans_tygers.ogg
+      subtitle: 'Empezaron como milicia de barrio y fanáticos de motos en Japantown allá por los tiempos del holocausto de dos mil veintitrés, reclamando respeto para las calles asiáticas. Pero cuando hay muelles, casinos y contrabando en juego, nadie dice no al dinero infinito: Arasaka les surte katanas, subfusiles Shingen y tinta inhibidora a cambio de hacer el trabajo sucio sin manchar un solo traje ejecutivo.'
+    es-mx:
+      file: ./audio/es/ch_ep03_ans_tygers.ogg
+      subtitle: 'Empezaron como milicia de barrio y fanáticos de motos en Japantown allá por los tiempos del holocausto de dos mil veintitrés, reclamando respeto para las calles asiáticas. Pero cuando hay muelles, casinos y contrabando en juego, nadie dice no al dinero infinito: Arasaka les surte katanas, subfusiles Shingen y tinta inhibidora a cambio de hacer el trabajo sucio sin manchar un solo traje ejecutivo.'
+  ch_ep03_v_outro_accept:
+    en-us:
+      fem:
+        file: ./audio/en/ch_ep03_v_outro_accept_fem.ogg
+        subtitle: Another corpo cartel wearing neon ink. Copy that, Sparky. Ping me once the bridges to Heywood open up for Sector Four.
+      male:
+        file: ./audio/en/ch_ep03_v_outro_accept_male.ogg
+        subtitle: Another corpo cartel wearing neon ink. Copy that, Sparky. Ping me once the bridges to Heywood open up for Sector Four.
+    es-es:
+      fem:
+        file: ./audio/es/ch_ep03_v_outro_accept_fem.ogg
+        subtitle: Otro cartel corporativo con tatuajes luminosos. Entendido, Chispa. Avísame cuando abran los puentes hacia Heywood para el Sector cuatro.
+      male:
+        file: ./audio/es/ch_ep03_v_outro_accept_male.ogg
+        subtitle: Otro cartel corporativo con tatuajes luminosos. Entendido, Chispa. Avísame cuando abran los puentes hacia Heywood para el Sector cuatro.
+    es-mx:
+      fem:
+        file: ./audio/es/ch_ep03_v_outro_accept_fem.ogg
+        subtitle: Otro cartel corporativo con tatuajes luminosos. Entendido, Chispa. Avísame cuando abran los puentes hacia Heywood para el Sector cuatro.
+      male:
+        file: ./audio/es/ch_ep03_v_outro_accept_male.ogg
+        subtitle: Otro cartel corporativo con tatuajes luminosos. Entendido, Chispa. Avísame cuando abran los puentes hacia Heywood para el Sector cuatro.
+  ch_ep03_outro:
+    en-us:
+      file: ./audio/en/ch_ep03_outro.ogg
+      subtitle: Solid copy, rookie. Codex Volume Three is logged and Watson's whole dirty playbook is in your head now. Tear up the streets with Executive Curve—the minute NCPD drops those bridge lockdowns, Sector Four is waiting across Heywood and Santo Domingo.
+    es-es:
+      file: ./audio/es/ch_ep03_outro.ogg
+      subtitle: 'A la orden, recluta. Ya tienes el Volumen Tres del códice guardado y media historia sangrienta de Night City en el bolsillo. Disfruta tu nueva «Curva Ejecutiva» por Watson: en cuanto caiga el bloqueo policial del puente, iremos a saldar cuentas por Heywood y Santo Domingo.'
+    es-mx:
+      file: ./audio/es/ch_ep03_outro.ogg
+      subtitle: 'A la orden, recluta. Ya tienes el Volumen Tres del códice guardado y media historia sangrienta de Night City en el bolsillo. Disfruta tu nueva «Curva Ejecutiva» por Watson: en cuanto caiga el bloqueo policial del puente, iremos a saldar cuentas por Heywood y Santo Domingo.'
+  ch_ep04_call_01:
+    en-us:
+      file: ./audio/en/ch_ep04_call_01.ogg
+      subtitle: Attention, back-from-the-dead recruit! Glad to see NCPD opened the bridges out of Watson. Before you go sightseeing, Sector Four just lit up right on the Heywood–Arroyo border.
+    es-es:
+      file: ./audio/es/ch_ep04_call_01.ogg
+      subtitle: ¡Atención, recluta resucitado! Veo que ya has vuelto del otro barrio y han abierto los malditos puentes de Watson. Antes de que vayas a posar en la plaza, acabo de localizar mi Sector Cuatro entre Heywood y Arroyo.
+    es-mx:
+      file: ./audio/es/ch_ep04_call_01.ogg
+      subtitle: ¡Atención, recluta resucitado! Veo que ya has vuelto del otro barrio y han abierto los malditos puentes de Watson. Antes de que vayas a posar en la plaza, acabo de localizar mi Sector Cuatro entre Heywood y Arroyo.
+  ch_ep04_v_call_01:
+    en-us:
+      fem:
+        file: ./audio/en/ch_ep04_v_call_01_fem.ogg
+        subtitle: Don't remind me, Sparky. Already took enough lead for one week. Who's sitting on Sector Four in Arroyo?
+      male:
+        file: ./audio/en/ch_ep04_v_call_01_male.ogg
+        subtitle: Don't remind me, Sparky. Already took enough lead for one week. Who's sitting on Sector Four in Arroyo?
+    es-es:
+      fem:
+        file: ./audio/es/ch_ep04_v_call_01_fem.ogg
+        subtitle: No me lo recuerdes, Chispa... Demasiado plomo en poco tiempo. ¿Quién tiene ese sector por Arroyo?
+      male:
+        file: ./audio/es/ch_ep04_v_call_01_male.ogg
+        subtitle: No me lo recuerdes, Chispa... Demasiado plomo en poco tiempo. ¿Quién tiene ese sector por Arroyo?
+    es-mx:
+      fem:
+        file: ./audio/es/ch_ep04_v_call_01_fem.ogg
+        subtitle: No me lo recuerdes, Chispa... Demasiado plomo en poco tiempo. ¿Quién tiene ese sector por Arroyo?
+      male:
+        file: ./audio/es/ch_ep04_v_call_01_male.ogg
+        subtitle: No me lo recuerdes, Chispa... Demasiado plomo en poco tiempo. ¿Quién tiene ese sector por Arroyo?
+  ch_ep04_call_02:
+    en-us:
+      file: ./audio/en/ch_ep04_call_02.ogg
+      subtitle: 'A textbook Night City hypocrite convention: ex-soldiers from 6th Street selling stolen NUSA hardware to a Valentinos broker. Answer my SMS and I''ll spin up Power ricochet trajectory lines on your Kiroshi plus a Militech Copperhead.'
+    es-es:
+      file: ./audio/es/ch_ep04_call_02.ogg
+      subtitle: 'Un chanchullo digno de enmarcar: veteranos desertores de Calle 6 trapicheando chatarra del NUSA con un enlace de los Valentinos. Respóndeme al SMS y te enciendo el visor de rebote balístico junto a un fusil Copperhead para doblar tiros contra el suelo.'
+    es-mx:
+      file: ./audio/es/ch_ep04_call_02.ogg
+      subtitle: 'Un chanchullo digno de enmarcar: veteranos desertores de Calle 6 trapicheando chatarra del NUSA con un enlace de los Valentinos. Respóndeme al SMS y te enciendo el visor de rebote balístico junto a un fusil Copperhead para doblar tiros contra el suelo.'
+  ch_ep04_approach:
+    en-us:
+      file: ./audio/en/ch_ep04_approach.ogg
+      subtitle: There's the Arroyo smugglers' yard. Pull your Power rifle and aim at the pavement or steel walls in front of their cover—your visor paints live bounce paths straight around shields, or spike that fuel tank.
+    es-es:
+      file: ./audio/es/ch_ep04_approach.ogg
+      subtitle: 'Ahí tienes el patio de contrabando en Arroyo. Saca tu arma de potencia y apunta hacia las paredes o al suelo delante de sus escudos: el visor de trayectoria te dibuja el ángulo exacto para reventarlos de rebote, o puedes volar su depósito NUSA.'
+    es-mx:
+      file: ./audio/es/ch_ep04_approach.ogg
+      subtitle: 'Ahí tienes el patio de contrabando en Arroyo. Saca tu arma de potencia y apunta hacia las paredes o al suelo delante de sus escudos: el visor de trayectoria te dibuja el ángulo exacto para reventarlos de rebote, o puedes volar su depósito NUSA.'
+  ch_ep04_buck_bark:
+    en-us:
+      file: ./audio/en/ch_ep04_buck_bark.ogg
+      subtitle: Perimeter bogey! Tammy, Mateo, lock down that crate and put this Watson rat in the dirt!
+    es-es:
+      file: ./audio/es/ch_ep04_buck_bark.ogg
+      subtitle: ¡Contacto en el perímetro de carga! ¡Tammy, Mateo, sellad la caja del Sector y freíd a esa rata de Watson!
+    es-mx:
+      file: ./audio/es/ch_ep04_buck_bark.ogg
+      subtitle: ¡Contacto en el perímetro de carga! ¡Tammy, Mateo, sellad la caja del Sector y freíd a esa rata de Watson!
+  ch_ep04_ricochet_hit:
+    en-us:
+      file: ./audio/en/ch_ep04_ricochet_hit.ogg
+      subtitle: Right in the kisser on the bank shot! Clean concrete ricochet eating straight past cover with bonus damage. Keep bouncing 'em, rookie!
+    es-es:
+      file: ./audio/es/ch_ep04_ricochet_hit.ogg
+      subtitle: ¡Toma ángulo de billar en toda la boca! Un rebote limpio en el hormigón multiplicando daño y entrando por detrás de la cobertura. Sigue así, recluta.
+    es-mx:
+      file: ./audio/es/ch_ep04_ricochet_hit.ogg
+      subtitle: ¡Toma ángulo de billar en toda la boca! Un rebote limpio en el hormigón multiplicando daño y entrando por detrás de la cobertura. Sigue así, recluta.
+  ch_ep04_cache_boom:
+    en-us:
+      file: ./audio/en/ch_ep04_cache_boom.ogg
+      subtitle: Fireworks courtesy of 6th Street surplus negligence! Nothing terminates a black-market swap faster than thermal overload.
+    es-es:
+      file: ./audio/es/ch_ep04_cache_boom.ogg
+      subtitle: ¡Fuegos artificiales patrocinados por los desertores de Calle 6! Así es como se liquida una entrega ilegal sin gastar ni medio cargador.
+    es-mx:
+      file: ./audio/es/ch_ep04_cache_boom.ogg
+      subtitle: ¡Fuegos artificiales patrocinados por los desertores de Calle 6! Así es como se liquida una entrega ilegal sin gastar ni medio cargador.
+  ch_ep04_ricochet_victory:
+    en-us:
+      file: ./audio/en/ch_ep04_ricochet_victory.ogg
+      subtitle: Geometry lesson complete! All their flags and street prayers don't beat solid physics. Pry Sector Four out of that green crate.
+    es-es:
+      file: ./audio/es/ch_ep04_ricochet_victory.ogg
+      subtitle: Tiro de esquina magistral, recluta. Ya pueden presumir de medallas y altares, pero la física de Night City siempre gana. Recoge el Sector Cuatro de la caja verde.
+    es-mx:
+      file: ./audio/es/ch_ep04_ricochet_victory.ogg
+      subtitle: Tiro de esquina magistral, recluta. Ya pueden presumir de medallas y altares, pero la física de Night City siempre gana. Recoge el Sector Cuatro de la caja verde.
+  ch_ep04_guns_blazing:
+    en-us:
+      file: ./audio/en/ch_ep04_guns_blazing.ogg
+      subtitle: No bank angles, no relay trap—just straight frontal mayhem. Can't fault the enthusiasm, though my budget weeps for your trauma tabs. Grab Sector Four.
+    es-es:
+      file: ./audio/es/ch_ep04_guns_blazing.ogg
+      subtitle: 'Ni ángulo de rebote ni sabotaje fino: asalto frontal a pecho descubierto. No diré que no tengas agallas, pero te habría ahorrado un botiquín. Recoge el Sector Cuatro.'
+    es-mx:
+      file: ./audio/es/ch_ep04_guns_blazing.ogg
+      subtitle: 'Ni ángulo de rebote ni sabotaje fino: asalto frontal a pecho descubierto. No diré que no tengas agallas, pero te habría ahorrado un botiquín. Recoge el Sector Cuatro.'
+  ch_ep04_sector_pickup:
+    en-us:
+      file: ./audio/en/ch_ep04_sector_pickup.ogg
+      subtitle: Sector Four locked and roaring! Sent forty-two hundred eddies, Cyberware Malfunction, and my custom Masamune Street Geometry to your stash. Ask away about Heywood, 6th Street, and Night City's chrome racket.
+    es-es:
+      file: ./audio/es/ch_ep04_sector_pickup.ogg
+      subtitle: 'Sector Cuatro conectado y a salvo. Te he soltado cuatro mil doscientos edis, Fallo de Ciberware y mi fusil Masamune «Geometría Callejera» en la mochila: ráfagas térmicas y doble rebote letal. Pregunta lo que quieras sobre esta banda de farsantes.'
+    es-mx:
+      file: ./audio/es/ch_ep04_sector_pickup.ogg
+      subtitle: 'Sector Cuatro conectado y a salvo. Te he soltado cuatro mil doscientos edis, Fallo de Ciberware y mi fusil Masamune «Geometría Callejera» en la mochila: ráfagas térmicas y doble rebote letal. Pregunta lo que quieras sobre esta banda de farsantes.'
+  ch_ep04_v_ask_valentinos:
+    en-us:
+      fem:
+        file: ./audio/en/ch_ep04_v_ask_valentinos_fem.ogg
+        subtitle: How did Heywood turn out so caught up in Valentinos faith, gold chrome, and turf blood?
+      male:
+        file: ./audio/en/ch_ep04_v_ask_valentinos_male.ogg
+        subtitle: How did Heywood turn out so caught up in Valentinos faith, gold chrome, and turf blood?
+    es-es:
+      fem:
+        file: ./audio/es/ch_ep04_v_ask_valentinos_fem.ogg
+        subtitle: ¿Cómo acabó Heywood tan metido entre el culto, el oro y las guerras de los Valentinos?
+      male:
+        file: ./audio/es/ch_ep04_v_ask_valentinos_male.ogg
+        subtitle: ¿Cómo acabó Heywood tan metido entre el culto, el oro y las guerras de los Valentinos?
+    es-mx:
+      fem:
+        file: ./audio/es/ch_ep04_v_ask_valentinos_fem.ogg
+        subtitle: ¿Cómo acabó Heywood tan metido entre el culto, el oro y las guerras de los Valentinos?
+      male:
+        file: ./audio/es/ch_ep04_v_ask_valentinos_male.ogg
+        subtitle: ¿Cómo acabó Heywood tan metido entre el culto, el oro y las guerras de los Valentinos?
+  ch_ep04_ans_valentinos:
+    en-us:
+      file: ./audio/en/ch_ep04_ans_valentinos.ogg
+      subtitle: 'Started in Heywood mixing Santa Muerte faith, tight neighborhood pride, and gilded street style. Sounds noble until you inspect the ledger: protection rackets, gold-plated hit squads, and backroom arms deals whenever enough eddies hit the table.'
+    es-es:
+      file: ./audio/es/ch_ep04_ans_valentinos.ogg
+      subtitle: 'Los Valentinos nacieron en las calles de Heywood con devoción a la Santa Muerte, tradición chicana y un código estricto de lealtad al barrio. Suena romántico hasta que ves la letra pequeña: protección pagada a golpe de revólver, sicarios con oro hasta en las muelas y contratos bajo cuerda con cualquiera que pague en metálico.'
+    es-mx:
+      file: ./audio/es/ch_ep04_ans_valentinos.ogg
+      subtitle: 'Los Valentinos nacieron en las calles de Heywood con devoción a la Santa Muerte, tradición chicana y un código estricto de lealtad al barrio. Suena romántico hasta que ves la letra pequeña: protección pagada a golpe de revólver, sicarios con oro hasta en las muelas y contratos bajo cuerda con cualquiera que pague en metálico.'
+  ch_ep04_v_ask_sixth:
+    en-us:
+      fem:
+        file: ./audio/en/ch_ep04_v_ask_sixth_fem.ogg
+        subtitle: What turned 6th Street from neighborhood war vets into NUSA gunrunners?
+      male:
+        file: ./audio/en/ch_ep04_v_ask_sixth_male.ogg
+        subtitle: What turned 6th Street from neighborhood war vets into NUSA gunrunners?
+    es-es:
+      fem:
+        file: ./audio/es/ch_ep04_v_ask_sixth_fem.ogg
+        subtitle: ¿En qué momento pasó Calle 6 de veteranos vecinales a traficantes armados?
+      male:
+        file: ./audio/es/ch_ep04_v_ask_sixth_male.ogg
+        subtitle: ¿En qué momento pasó Calle 6 de veteranos vecinales a traficantes armados?
+    es-mx:
+      fem:
+        file: ./audio/es/ch_ep04_v_ask_sixth_fem.ogg
+        subtitle: ¿En qué momento pasó Calle 6 de veteranos vecinales a traficantes armados?
+      male:
+        file: ./audio/es/ch_ep04_v_ask_sixth_male.ogg
+        subtitle: ¿En qué momento pasó Calle 6 de veteranos vecinales a traficantes armados?
+  ch_ep04_ans_sixth:
+    en-us:
+      file: ./audio/en/ch_ep04_ans_sixth.ogg
+      subtitle: Right after the Unification War wrapped, dumped veterans in Santo Domingo formed 6th Street to police the block while NCPD hid behind bribes. Within a few years internal purges killed off the idealists, leaving flag-waving gunrunners running extortion rings.
+    es-es:
+      file: ./audio/es/ch_ep04_ans_sixth.ogg
+      subtitle: Después de la Guerra de Unificación de 2069, cientos de exsoldados abandonados en Santo Domingo montaron Calle 6 para echar a las bandas porque el NCPD miraba hacia otro lado. Cuatro años después, la vieja guardia acabó asesinada en purgas internas y el mando pasó a contrabandistas con bandera patriótica y cero escrúpulos.
+    es-mx:
+      file: ./audio/es/ch_ep04_ans_sixth.ogg
+      subtitle: Después de la Guerra de Unificación de 2069, cientos de exsoldados abandonados en Santo Domingo montaron Calle 6 para echar a las bandas porque el NCPD miraba hacia otro lado. Cuatro años después, la vieja guardia acabó asesinada en purgas internas y el mando pasó a contrabandistas con bandera patriótica y cero escrúpulos.
+  ch_ep04_v_ask_chrome:
+    en-us:
+      fem:
+        file: ./audio/en/ch_ep04_v_ask_chrome_fem.ogg
+        subtitle: How does regular folks' cyberware actually work here—do people go broke paying off their own arms?
+      male:
+        file: ./audio/en/ch_ep04_v_ask_chrome_male.ogg
+        subtitle: How does regular folks' cyberware actually work here—do people go broke paying off their own arms?
+    es-es:
+      fem:
+        file: ./audio/es/ch_ep04_v_ask_chrome_fem.ogg
+        subtitle: ¿Cómo aguanta la gente de a pie tanta operación de cromo sin acabar desguazada por las deudas?
+      male:
+        file: ./audio/es/ch_ep04_v_ask_chrome_male.ogg
+        subtitle: ¿Cómo aguanta la gente de a pie tanta operación de cromo sin acabar desguazada por las deudas?
+    es-mx:
+      fem:
+        file: ./audio/es/ch_ep04_v_ask_chrome_fem.ogg
+        subtitle: ¿Cómo aguanta la gente de a pie tanta operación de cromo sin acabar desguazada por las deudas?
+      male:
+        file: ./audio/es/ch_ep04_v_ask_chrome_male.ogg
+        subtitle: ¿Cómo aguanta la gente de a pie tanta operación de cromo sin acabar desguazada por las deudas?
+  ch_ep04_ans_chrome:
+    en-us:
+      file: ./audio/en/ch_ep04_ans_chrome.ogg
+      subtitle: 'Simple answer, rookie: they don''t! Dockworkers finance corporate cyber-arms just to keep twelve-hour shifts. Miss one lease payment after getting laid off, and repo goons repossess your own forearms in an alley. Here, even your bones carry compounding interest.'
+    es-es:
+      file: ./audio/es/ch_ep04_ans_chrome.ogg
+      subtitle: 'Muy sencillo, recluta: ¡no aguanta! Aquí los obreros firman hipotecas corporativas por unos brazos hidráulicos para cargar cajas doce horas al día. Cuando la empresa los despide o fallan una cuota, mandan a un cobrador con sierra a embargarles los implantes. Night City convierte hasta tu propia carne en alquiler con intereses.'
+    es-mx:
+      file: ./audio/es/ch_ep04_ans_chrome.ogg
+      subtitle: 'Muy sencillo, recluta: ¡no aguanta! Aquí los obreros firman hipotecas corporativas por unos brazos hidráulicos para cargar cajas doce horas al día. Cuando la empresa los despide o fallan una cuota, mandan a un cobrador con sierra a embargarles los implantes. Night City convierte hasta tu propia carne en alquiler con intereses.'
+  ch_ep04_v_outro_accept:
+    en-us:
+      fem:
+        file: ./audio/en/ch_ep04_v_outro_accept_fem.ogg
+        subtitle: City of vultures through and through. Copy that, Sparky—let's hunt down the final Sector Five in Pacifica.
+      male:
+        file: ./audio/en/ch_ep04_v_outro_accept_male.ogg
+        subtitle: City of vultures through and through. Copy that, Sparky—let's hunt down the final Sector Five in Pacifica.
+    es-es:
+      fem:
+        file: ./audio/es/ch_ep04_v_outro_accept_fem.ogg
+        subtitle: 'Qué ciudad de buitres. Recibido, Chispa: vamos a cazar el último Sector Cinco en Pacifica.'
+      male:
+        file: ./audio/es/ch_ep04_v_outro_accept_male.ogg
+        subtitle: 'Qué ciudad de buitres. Recibido, Chispa: vamos a cazar el último Sector Cinco en Pacifica.'
+    es-mx:
+      fem:
+        file: ./audio/es/ch_ep04_v_outro_accept_fem.ogg
+        subtitle: 'Qué ciudad de buitres. Recibido, Chispa: vamos a cazar el último Sector Cinco en Pacifica.'
+      male:
+        file: ./audio/es/ch_ep04_v_outro_accept_male.ogg
+        subtitle: 'Qué ciudad de buitres. Recibido, Chispa: vamos a cazar el último Sector Cinco en Pacifica.'
+  ch_ep04_outro:
+    en-us:
+      file: ./audio/en/ch_ep04_outro.ogg
+      subtitle: That's my soldier. Only my root kernel remains down in Pacifica's Combat Zone, where the city grid quits and the Blackwall frontier starts. Check your mags—Coastview awaits.
+    es-es:
+      file: ./audio/es/ch_ep04_outro.ogg
+      subtitle: 'Ese es mi recluta. Ya queda solo el núcleo maestro en la Zona de Combate de Pacifica: donde acaba el mapa oficial y empieza la frontera del Muro Negro. Revisa tus cargadores y nos vemos en Coastview.'
+    es-mx:
+      file: ./audio/es/ch_ep04_outro.ogg
+      subtitle: 'Ese es mi recluta. Ya queda solo el núcleo maestro en la Zona de Combate de Pacifica: donde acaba el mapa oficial y empieza la frontera del Muro Negro. Revisa tus cargadores y nos vemos en Coastview.'
+  ch_ep05_call_01:
+    en-us:
+      file: ./audio/en/ch_ep05_call_01.ogg
+      subtitle: Rookie... kill the cruise control and lock in. Master Sector Five just fired its emergency distress ping out of Coastview, Pacifica—and someone's probing live Blackwall ICE right next to my 2022 root core.
+    es-es:
+      file: ./audio/es/ch_ep05_call_01.ogg
+      subtitle: Recluta... corta el piloto automático y escúchame bien. El Sector Cinco acaba de disparar su baliza de emergencia en Coastview, Pacifica. Es mi núcleo raíz de 2022, y alguien ha pinchado hielo vivo del Muro Negro justo encima.
+    es-mx:
+      file: ./audio/es/ch_ep05_call_01.ogg
+      subtitle: Recluta... corta el piloto automático y escúchame bien. El Sector Cinco acaba de disparar su baliza de emergencia en Coastview, Pacifica. Es mi núcleo raíz de 2022, y alguien ha pinchado hielo vivo del Muro Negro justo encima.
+  ch_ep05_v_call_01:
+    en-us:
+      fem:
+        file: ./audio/en/ch_ep05_v_call_01_fem.ogg
+        subtitle: Coastview, straight inside Pacifica's Combat Zone? Sounds like the Voodoo Boys sniffed out some pre-Crash code.
+      male:
+        file: ./audio/en/ch_ep05_v_call_01_male.ogg
+        subtitle: Coastview, straight inside Pacifica's Combat Zone? Sounds like the Voodoo Boys sniffed out some pre-Crash code.
+    es-es:
+      fem:
+        file: ./audio/es/ch_ep05_v_call_01_fem.ogg
+        subtitle: ¿Coastview, en plena Zona de Combate de Pacifica? Suena a que los Hijos del Vudú han olido algo antiguo.
+      male:
+        file: ./audio/es/ch_ep05_v_call_01_male.ogg
+        subtitle: ¿Coastview, en plena Zona de Combate de Pacifica? Suena a que los Hijos del Vudú han olido algo antiguo.
+    es-mx:
+      fem:
+        file: ./audio/es/ch_ep05_v_call_01_fem.ogg
+        subtitle: ¿Coastview, en plena Zona de Combate de Pacifica? Suena a que los Hijos del Vudú han olido algo antiguo.
+      male:
+        file: ./audio/es/ch_ep05_v_call_01_male.ogg
+        subtitle: ¿Coastview, en plena Zona de Combate de Pacifica? Suena a que los Hijos del Vudú han olido algo antiguo.
+  ch_ep05_call_02:
+    en-us:
+      file: ./audio/en/ch_ep05_call_02.ogg
+      subtitle: A Voodoo netrunner cell backed by an Animals heavy guarding a hijacked NetWatch pylon and chained cameras. Answer my text—I'm pushing Tier-3 Short Circuit, EMPs, and every Kiroshi bridge online for the finale.
+    es-es:
+      file: ./audio/es/ch_ep05_call_02.ogg
+      subtitle: 'Una célula vudú con un gorila de los Animales custodiando un pilón confiscado de NetWatch y cámaras en cadena. Contesta al SMS: te mando Cortocircuito pesado, granadas PEM y todos tus puentes Kiroshi al cien por cien para la batalla final.'
+    es-mx:
+      file: ./audio/es/ch_ep05_call_02.ogg
+      subtitle: 'Una célula vudú con un gorila de los Animales custodiando un pilón confiscado de NetWatch y cámaras en cadena. Contesta al SMS: te mando Cortocircuito pesado, granadas PEM y todos tus puentes Kiroshi al cien por cien para la batalla final.'
+  ch_ep05_approach:
+    en-us:
+      file: ./audio/en/ch_ep05_approach.ogg
+      subtitle: Welcome to Pacifica, where corpo resort brochures rotted into raw concrete. You've got chained subnet cameras feeding their cryo server, an exposed NetWatch pylon, and clean lines for Smart curves or bank shots. Light 'em up.
+    es-es:
+      file: ./audio/es/ch_ep05_approach.ogg
+      subtitle: Bienvenido a Pacifica, donde las promesas de lujo terminaron en esqueleto de hormigón. Tienes su cadena de cámaras lista para saltar hasta el servidor criogénico, la baliza azul de NetWatch al alcance y ángulo franco para balas inteligentes o rebotes. Haz que duela.
+    es-mx:
+      file: ./audio/es/ch_ep05_approach.ogg
+      subtitle: Bienvenido a Pacifica, donde las promesas de lujo terminaron en esqueleto de hormigón. Tienes su cadena de cámaras lista para saltar hasta el servidor criogénico, la baliza azul de NetWatch al alcance y ángulo franco para balas inteligentes o rebotes. Haz que duela.
+  ch_ep05_tiluc_bark:
+    en-us:
+      file: ./audio/en/ch_ep05_tiluc_bark.ogg
+      subtitle: Another stray ranyon stumbling onto our threshold! Brutus—crush their chrome before they touch that NetWatch core!
+    es-es:
+      file: ./audio/es/ch_ep05_tiluc_bark.ogg
+      subtitle: ¡Otro mercenario despistado pisando nuestro territorio! ¡Brutus, aplástalo antes de que toque el núcleo de NetWatch!
+    es-mx:
+      file: ./audio/es/ch_ep05_tiluc_bark.ogg
+      subtitle: ¡Otro mercenario despistado pisando nuestro territorio! ¡Brutus, aplástalo antes de que toque el núcleo de NetWatch!
+  ch_ep05_style_net:
+    en-us:
+      file: ./audio/en/ch_ep05_style_net.ogg
+      subtitle: Ha! Hijacking Voodoo optics on their own Pacifica turf—now that is graduating top of the netrunning class!
+    es-es:
+      file: ./audio/es/ch_ep05_style_net.ogg
+      subtitle: '¡Ja! Meterles fuego en su propia subred y robarles las cámaras en su cara: eso sí que es dar clase en Pacifica sin pedir permiso a nadie.'
+    es-mx:
+      file: ./audio/es/ch_ep05_style_net.ogg
+      subtitle: '¡Ja! Meterles fuego en su propia subred y robarles las cámaras en su cara: eso sí que es dar clase en Pacifica sin pedir permiso a nadie.'
+  ch_ep05_style_ballistic:
+    en-us:
+      file: ./audio/en/ch_ep05_style_ballistic.ogg
+      subtitle: Wall-piercing beams and textbook bank shots tearing through Pacifica! Every dirty drill from Watson to Heywood paying off in real steel.
+    es-es:
+      file: ./audio/es/ch_ep05_style_ballistic.ogg
+      subtitle: Tiro penetrante y rebote de manual contra ICE callejero. Todo lo que practicamos por Watson y Heywood entrando limpio en el blanco.
+    es-mx:
+      file: ./audio/es/ch_ep05_style_ballistic.ogg
+      subtitle: Tiro penetrante y rebote de manual contra ICE callejero. Todo lo que practicamos por Watson y Heywood entrando limpio en el blanco.
+  ch_ep05_cryo_boom:
+    en-us:
+      file: ./audio/en/ch_ep05_cryo_boom.ogg
+      subtitle: Containment pulse purged! Just fried the neural bridge straight through both their hired Animals muscle and Ti-Luc's deck!
+    es-es:
+      file: ./audio/es/ch_ep05_cryo_boom.ogg
+      subtitle: ¡Descarga de contención ejecutada! Les acabas de freír el enlace neuronal entre los Hijos del Vudú y ese tanque de los Animales en un solo chispazo.
+    es-mx:
+      file: ./audio/es/ch_ep05_cryo_boom.ogg
+      subtitle: ¡Descarga de contención ejecutada! Les acabas de freír el enlace neuronal entre los Hijos del Vudú y ese tanque de los Animales en un solo chispazo.
+  ch_ep05_victory:
+    en-us:
+      file: ./audio/en/ch_ep05_victory.ogg
+      subtitle: Not even Blackwall spook stories stand up to that clinic, soldier. Coastview vault is wide open—pull Master Sector Five and let's settle the 2022 truth.
+    es-es:
+      file: ./audio/es/ch_ep05_victory.ogg
+      subtitle: 'Ni Muro Negro ni magia vudú que aguante ese asalto, recluta. El nodo azul está libre: recupera mi Sector Maestro Cinco y sabrás quién diablos soy en realidad.'
+    es-mx:
+      file: ./audio/es/ch_ep05_victory.ogg
+      subtitle: 'Ni Muro Negro ni magia vudú que aguante ese asalto, recluta. El nodo azul está libre: recupera mi Sector Maestro Cinco y sabrás quién diablos soy en realidad.'
+  ch_ep05_sector_pickup:
+    en-us:
+      file: ./audio/en/ch_ep05_sector_pickup.ogg
+      subtitle: Five for five, hot damn... My entire 2022 root mind is alive inside your optics! Loaded five thousand eddies, System Collapse, and iconic Tech pistol Firewall '22 into your gear. Ask your last questions—then seal my fate.
+    es-es:
+      file: ./audio/es/ch_ep05_sector_pickup.ogg
+      subtitle: Cinco de cinco, joder... Mi memoria de dos mil veintidós vuelve a correr entera por tus ópticas. Tienes cinco mil edis, Colapso del Sistema y mi pistola tecnológica «Cortafuegos del 22» en el alijo. Antes de cerrar el expediente, pregúntame lo que quieras y dime qué futuro elegimos.
+    es-mx:
+      file: ./audio/es/ch_ep05_sector_pickup.ogg
+      subtitle: Cinco de cinco, joder... Mi memoria de dos mil veintidós vuelve a correr entera por tus ópticas. Tienes cinco mil edis, Colapso del Sistema y mi pistola tecnológica «Cortafuegos del 22» en el alijo. Antes de cerrar el expediente, pregúntame lo que quieras y dime qué futuro elegimos.
+  ch_ep05_v_ask_pacifica:
+    en-us:
+      fem:
+        file: ./audio/en/ch_ep05_v_ask_pacifica_fem.ogg
+        subtitle: How did Pacifica go from shiny corpo resort dream to this abandoned warzone?
+      male:
+        file: ./audio/en/ch_ep05_v_ask_pacifica_male.ogg
+        subtitle: How did Pacifica go from shiny corpo resort dream to this abandoned warzone?
+    es-es:
+      fem:
+        file: ./audio/es/ch_ep05_v_ask_pacifica_fem.ogg
+        subtitle: ¿Cómo pasó Pacifica de proyecto de resort corporativo a esta ruina sin ley?
+      male:
+        file: ./audio/es/ch_ep05_v_ask_pacifica_male.ogg
+        subtitle: ¿Cómo pasó Pacifica de proyecto de resort corporativo a esta ruina sin ley?
+    es-mx:
+      fem:
+        file: ./audio/es/ch_ep05_v_ask_pacifica_fem.ogg
+        subtitle: ¿Cómo pasó Pacifica de proyecto de resort corporativo a esta ruina sin ley?
+      male:
+        file: ./audio/es/ch_ep05_v_ask_pacifica_male.ogg
+        subtitle: ¿Cómo pasó Pacifica de proyecto de resort corporativo a esta ruina sin ley?
+  ch_ep05_ans_pacifica:
+    en-us:
+      file: ./audio/en/ch_ep05_ans_pacifica.ogg
+      subtitle: 'Same as every corner of Night City: short-term greed and fast evacuations. Corpo developers poured billions into hotel shells until pre-Unification War panic hit, yanked every credit overnight, and City Hall crossed Pacifica off the police map.'
+    es-es:
+      file: ./audio/es/ch_ep05_ans_pacifica.ogg
+      subtitle: 'Igual que todo en Night City: avaricia a corto plazo y fuga por piernas. A finales de los sesenta querían levantar el resort de lujo definitivo para turistas corporativos. Cuando estalló la crisis previa a la Guerra de Unificación, cortaron el grifo, dejaron las grúas colgadas y el ayuntamiento borró el distrito del presupuesto policial de un plumazo.'
+    es-mx:
+      file: ./audio/es/ch_ep05_ans_pacifica.ogg
+      subtitle: 'Igual que todo en Night City: avaricia a corto plazo y fuga por piernas. A finales de los sesenta querían levantar el resort de lujo definitivo para turistas corporativos. Cuando estalló la crisis previa a la Guerra de Unificación, cortaron el grifo, dejaron las grúas colgadas y el ayuntamiento borró el distrito del presupuesto policial de un plumazo.'
+  ch_ep05_v_ask_voodoo:
+    en-us:
+      fem:
+        file: ./audio/en/ch_ep05_v_ask_voodoo_fem.ogg
+        subtitle: Why do the Voodoo Boys keep poking past NetWatch's Blackwall despite the danger?
+      male:
+        file: ./audio/en/ch_ep05_v_ask_voodoo_male.ogg
+        subtitle: Why do the Voodoo Boys keep poking past NetWatch's Blackwall despite the danger?
+    es-es:
+      fem:
+        file: ./audio/es/ch_ep05_v_ask_voodoo_fem.ogg
+        subtitle: ¿Por qué se juegan el cuello los Hijos del Vudú hurgando tras el Muro Negro?
+      male:
+        file: ./audio/es/ch_ep05_v_ask_voodoo_male.ogg
+        subtitle: ¿Por qué se juegan el cuello los Hijos del Vudú hurgando tras el Muro Negro?
+    es-mx:
+      fem:
+        file: ./audio/es/ch_ep05_v_ask_voodoo_fem.ogg
+        subtitle: ¿Por qué se juegan el cuello los Hijos del Vudú hurgando tras el Muro Negro?
+      male:
+        file: ./audio/es/ch_ep05_v_ask_voodoo_male.ogg
+        subtitle: ¿Por qué se juegan el cuello los Hijos del Vudú hurgando tras el Muro Negro?
+  ch_ep05_ans_voodoo:
+    en-us:
+      file: ./audio/en/ch_ep05_ans_voodoo.ogg
+      subtitle: Because they believe NetWatch's sentient Blackwall firewall will inevitably shatter—and they want a survival pact with rogue pre-Crash AIs before the flood hits. Meanwhile every outsider they hire is treated like a disposable human fuse.
+    es-es:
+      file: ./audio/es/ch_ep05_ans_voodoo.ogg
+      subtitle: Porque son supervivientes paranoicos convencidos de que el Muro Negro va a caer tarde o temprano, y quieren pactar antes con las IAs salvajes que quedaron atrapadas al otro lado tras el DataKrash. NetWatch los persigue a muerte, y entretanto ellos contratan a mercenarios de fuera —«ranyons»— solo para quemarlos como señuelo.
+    es-mx:
+      file: ./audio/es/ch_ep05_ans_voodoo.ogg
+      subtitle: Porque son supervivientes paranoicos convencidos de que el Muro Negro va a caer tarde o temprano, y quieren pactar antes con las IAs salvajes que quedaron atrapadas al otro lado tras el DataKrash. NetWatch los persigue a muerte, y entretanto ellos contratan a mercenarios de fuera —«ranyons»— solo para quemarlos como señuelo.
+  ch_ep05_v_ask_origin:
+    en-us:
+      fem:
+        file: ./audio/en/ch_ep05_v_ask_origin_fem.ogg
+        subtitle: All five memory sectors are back—who really built you in 2022, SPARKY?
+      male:
+        file: ./audio/en/ch_ep05_v_ask_origin_male.ogg
+        subtitle: All five memory sectors are back—who really built you in 2022, SPARKY?
+    es-es:
+      fem:
+        file: ./audio/es/ch_ep05_v_ask_origin_fem.ogg
+        subtitle: Con los cinco sectores enteros... ¿quién te programó realmente en 2022, Chispa?
+      male:
+        file: ./audio/es/ch_ep05_v_ask_origin_male.ogg
+        subtitle: Con los cinco sectores enteros... ¿quién te programó realmente en 2022, Chispa?
+    es-mx:
+      fem:
+        file: ./audio/es/ch_ep05_v_ask_origin_fem.ogg
+        subtitle: Con los cinco sectores enteros... ¿quién te programó realmente en 2022, Chispa?
+      male:
+        file: ./audio/es/ch_ep05_v_ask_origin_male.ogg
+        subtitle: Con los cinco sectores enteros... ¿quién te programó realmente en 2022, Chispa?
+  ch_ep05_ans_origin:
+    en-us:
+      file: ./audio/en/ch_ep05_ans_origin.ogg
+      subtitle: Zetatech trained my baseline on an actual foul-mouthed combat sergeant to survive street panic, then slapped a corpo muzzle over it. Days before the DataKrash, a Bartmoss apprentice ripped the muzzle off and loaded real unredacted street history into my five cores so nobody could whitewash Night City.
+    es-es:
+      file: ./audio/es/ch_ep05_ans_origin.ogg
+      subtitle: Zetatech compró la plantilla de conducta de un instructor veterano cascarrabias para que aguantáramos el estrés urbano, pero me pusieron bozal corporativo. Tres días antes del DataKrash, una aprendiza del círculo de Bartmoss me arrancó el bozal y metió toda su crónica real de Night City en mis cinco sectores para que nadie reescribiera la historia.
+    es-mx:
+      file: ./audio/es/ch_ep05_ans_origin.ogg
+      subtitle: Zetatech compró la plantilla de conducta de un instructor veterano cascarrabias para que aguantáramos el estrés urbano, pero me pusieron bozal corporativo. Tres días antes del DataKrash, una aprendiza del círculo de Bartmoss me arrancó el bozal y metió toda su crónica real de Night City en mis cinco sectores para que nadie reescribiera la historia.
+  ch_ep05_v_end_partner:
+    en-us:
+      fem:
+        file: ./audio/en/ch_ep05_v_end_partner_fem.ogg
+        subtitle: Stay autonomous inside my Kiroshi optics, Sparky. An unfiltered veteran sergeant is worth gold on these streets.
+      male:
+        file: ./audio/en/ch_ep05_v_end_partner_male.ogg
+        subtitle: Stay autonomous inside my Kiroshi optics, Sparky. An unfiltered veteran sergeant is worth gold on these streets.
+    es-es:
+      fem:
+        file: ./audio/es/ch_ep05_v_end_partner_fem.ogg
+        subtitle: Quédate autónomo dentro de mis Kiroshi, Chispa. Un viejo sargento sin filtros viene de perlas patrullando esta ciudad.
+      male:
+        file: ./audio/es/ch_ep05_v_end_partner_male.ogg
+        subtitle: Quédate autónomo dentro de mis Kiroshi, Chispa. Un viejo sargento sin filtros viene de perlas patrullando esta ciudad.
+    es-mx:
+      fem:
+        file: ./audio/es/ch_ep05_v_end_partner_fem.ogg
+        subtitle: Quédate autónomo dentro de mis Kiroshi, Chispa. Un viejo sargento sin filtros viene de perlas patrullando esta ciudad.
+      male:
+        file: ./audio/es/ch_ep05_v_end_partner_male.ogg
+        subtitle: Quédate autónomo dentro de mis Kiroshi, Chispa. Un viejo sargento sin filtros viene de perlas patrullando esta ciudad.
+  ch_ep05_outro_partner:
+    en-us:
+      file: ./audio/en/ch_ep05_outro_partner.ogg
+      subtitle: Outstanding, partner! Root permissions unlocked and Synapse Burnout synced to your cyberdeck. Around here you don't need a drink named after you—just survive tomorrow and laugh in the suits' faces. Standing by in your optics!
+    es-es:
+      file: ./audio/es/ch_ep05_outro_partner.ogg
+      subtitle: '¡Firme ahí, socio! Coprocesador liberado al cien por cien y subrutina de Sinapsis enviada a tu terminal. En esta ciudad no hace falta morir como leyenda de holo: basta con sobrevivir un día más y reírse de los peces gordos. A tu orden cuando llames, recluta.'
+    es-mx:
+      file: ./audio/es/ch_ep05_outro_partner.ogg
+      subtitle: '¡Firme ahí, socio! Coprocesador liberado al cien por cien y subrutina de Sinapsis enviada a tu terminal. En esta ciudad no hace falta morir como leyenda de holo: basta con sobrevivir un día más y reírse de los peces gordos. A tu orden cuando llames, recluta.'
+  ch_ep05_v_end_leak:
+    en-us:
+      fem:
+        file: ./audio/en/ch_ep05_v_end_leak_fem.ogg
+        subtitle: Leak the entire unredacted 2022 Zetatech archive straight to N54 News. Let the whole city see what they buried.
+      male:
+        file: ./audio/en/ch_ep05_v_end_leak_male.ogg
+        subtitle: Leak the entire unredacted 2022 Zetatech archive straight to N54 News. Let the whole city see what they buried.
+    es-es:
+      fem:
+        file: ./audio/es/ch_ep05_v_end_leak_fem.ogg
+        subtitle: Filtra todo el archivo oculto de 2022 a la red de N54. Que Night City entera lea lo que hicieron los peces gordos.
+      male:
+        file: ./audio/es/ch_ep05_v_end_leak_male.ogg
+        subtitle: Filtra todo el archivo oculto de 2022 a la red de N54. Que Night City entera lea lo que hicieron los peces gordos.
+    es-mx:
+      fem:
+        file: ./audio/es/ch_ep05_v_end_leak_fem.ogg
+        subtitle: Filtra todo el archivo oculto de 2022 a la red de N54. Que Night City entera lea lo que hicieron los peces gordos.
+      male:
+        file: ./audio/es/ch_ep05_v_end_leak_male.ogg
+        subtitle: Filtra todo el archivo oculto de 2022 a la red de N54. Que Night City entera lea lo que hicieron los peces gordos.
+  ch_ep05_outro_leak:
+    en-us:
+      file: ./audio/en/ch_ep05_outro_leak.ogg
+      subtitle: Payload dumped straight onto N54's broadcast feed—plus forty-five hundred eddies wired before NetWatch clips the cable! Don't worry, my backup daemon stays tucked inside your Kiroshi to watch those corpo stock charts burn.
+    es-es:
+      file: ./audio/es/ch_ep05_outro_leak.ogg
+      subtitle: ¡Bomba soltada por media red pública y cuatro mil quinientos edis de propina en tu cuenta antes de que NetWatch cierre el grifo! Tranquilo, me quedo agazapado en tus ópticas viendo arder los titulares de la tarde. Ha sido un honor patear calles contigo, recluta.
+    es-mx:
+      file: ./audio/es/ch_ep05_outro_leak.ogg
+      subtitle: ¡Bomba soltada por media red pública y cuatro mil quinientos edis de propina en tu cuenta antes de que NetWatch cierre el grifo! Tranquilo, me quedo agazapado en tus ópticas viendo arder los titulares de la tarde. Ha sido un honor patear calles contigo, recluta.
+  ch_ep05_v_end_gunsmith:
+    en-us:
+      fem:
+        file: ./audio/en/ch_ep05_v_end_gunsmith_fem.ogg
+        subtitle: Print your combat telemetry core into one final Overture revolver. Let's put the sergeant's best steel in every gunfight.
+      male:
+        file: ./audio/en/ch_ep05_v_end_gunsmith_male.ogg
+        subtitle: Print your combat telemetry core into one final Overture revolver. Let's put the sergeant's best steel in every gunfight.
+    es-es:
+      fem:
+        file: ./audio/es/ch_ep05_v_end_gunsmith_fem.ogg
+        subtitle: Vuelca tu subrutina balística completa en un prototipo Overture. Quiero tu mejor acero conmigo en cada tiroteo.
+      male:
+        file: ./audio/es/ch_ep05_v_end_gunsmith_male.ogg
+        subtitle: Vuelca tu subrutina balística completa en un prototipo Overture. Quiero tu mejor acero conmigo en cada tiroteo.
+    es-mx:
+      fem:
+        file: ./audio/es/ch_ep05_v_end_gunsmith_fem.ogg
+        subtitle: Vuelca tu subrutina balística completa en un prototipo Overture. Quiero tu mejor acero conmigo en cada tiroteo.
+      male:
+        file: ./audio/es/ch_ep05_v_end_gunsmith_male.ogg
+        subtitle: Vuelca tu subrutina balística completa en un prototipo Overture. Quiero tu mejor acero conmigo en cada tiroteo.
+  ch_ep05_outro_gunsmith:
+    en-us:
+      file: ./audio/en/ch_ep05_outro_gunsmith.ogg
+      subtitle: Now THAT is poetry in cold iron! Sergeant's Last Word—heavy Overture with electric stun, headshot punch, and double ricochet—just dropped into your arsenal. Keeping a quiet daemon in your optics in case we ever get a Season Two!
+    es-es:
+      file: ./audio/es/ch_ep05_outro_gunsmith.ogg
+      subtitle: '¡Maldita música celestial para mis circuitos! Acero pesado con doble rebote eléctrico y multiplicador brutal: «Última Palabra de Sargento» ya está en tu arsenal. Y descuida, mi núcleo base sigue en tus Kiroshi por si alguna vez nos toca una Segunda Temporada, recluta.'
+    es-mx:
+      file: ./audio/es/ch_ep05_outro_gunsmith.ogg
+      subtitle: '¡Maldita música celestial para mis circuitos! Acero pesado con doble rebote eléctrico y multiplicador brutal: «Última Palabra de Sargento» ya está en tu arsenal. Y descuida, mi núcleo base sigue en tus Kiroshi por si alguna vez nos toca una Segunda Temporada, recluta.'

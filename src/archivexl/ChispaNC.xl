@@ -1,0 +1,8 @@
+# Protocolo CHISPA / SPARKY Protocol — ArchiveXL Manifest
+journal:
+  - chispa_nc\journal\chispa_nc.journal
+localization:
+  onscreens:
+    en-us: chispa_nc\localization\en-us.json
+    es-es: chispa_nc\localization\es-es.json
+    es-mx: chispa_nc\localization\es-es.json

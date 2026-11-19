@@ -1,0 +1,23 @@
+# Credits, Licenses & Open Modding Policy / Créditos, Licencias y Política de Modding Abierto
+
+## 1. Open Modding Commitment / Compromiso de Modding Abierto (100% Open Permissions)
+**SPARKY Protocol — Night City Survival Guide / Protocolo C.H.I.S.P.A.** (both the **100% Pure English Standalone Edition** and the **Spanish / Bilingual Edition**) is released under the **MIT License** with **100% Open Modding Permissions**:
+- **Modification, Asset Use, Translation & Redistribution:** Explicitly **OPEN**. Any member of the community may inspect, study, modify, translate, port, integrate, or redistribute this mod, its Python CR2W/localization/audio builders, redscript modules, TweakXL records, and CET scripts freely, provided credit to the original author (`0utKast`) is included.
+- **100% Base Game Compatible (`2.x`, Zero Paid DLC Required):** Built strictly using vanilla `Cyberpunk 2077` 2.x assets plus open-source REDengine 4 extender frameworks. No *Phantom Liberty* (`ep1`) assets or paid third-party asset packs are required.
+- **100% Standalone (Zero Third-Party Content Dependencies):** Requires only standard open-source core frameworks (`RED4ext`, `ArchiveXL`, `TweakXL`, `Codeware`, `redscript`, `Audioware`, and `Cyber Engine Tweaks`), downloaded cleanly from their original authors without bundling their `.dll` binaries inside our mod archives.
+
+---
+
+## 2. Full Attribution Table / Tabla Completa de Reconocimiento y Autoría
+
+| Component / Componente | Author / Autor Original | License / Permisos | Link / Referencia |
+| :--- | :--- | :--- | :--- |
+| **SPARKY / C.H.I.S.P.A. Modular Engine, Episodes 0–5, Custom Iconic Weapons & CR2W Templates** | **OutKast (`0utKast`)** | **MIT License (100% Open Permissions)** | https://github.com/0utKast/cyberpunk2077-sparky-protocol |
+| **WolvenKit & WolvenKit CLI** | WolvenKit Team & REDModding Community | Open Source | https://github.com/WolvenKit/WolvenKit |
+| **RED4ext** | WopsS & Contributors | Open Source | https://github.com/WopsS/RED4ext |
+| **ArchiveXL / TweakXL / Codeware** | psiberx | MIT / Open Source | https://github.com/psiberx |
+| **redscript & redscript-cli** | jac3km4 | Open Source | https://github.com/jac3km4/redscript |
+| **Cyber Engine Tweaks (CET)** | yamashi, maximegmd & Contributors | MIT / Open Source | https://github.com/maximegmd/CyberEngineTweaks |
+| **Audioware** | cyb3rpsych0s1s / Roms1383 | Open Source | https://github.com/cyb3rpsych0s1s/audioware |
+| **Full Studio Voice Acting (`144` EN + `144` ES Lines + `5` SFX) & Trailer Music (`music_v2_5`)** | **Synthesized & DSP-Mastered by `0utKast`** via ElevenLabs & FFmpeg | **100% Open Redistribution in Mod** | https://elevenlabs.io/ |
+| **Base Game Engine & Universe** | CD Projekt RED (*Cyberpunk 2077* 2.x Base Game) | Official Base Game | https://www.cyberpunk.net/ |

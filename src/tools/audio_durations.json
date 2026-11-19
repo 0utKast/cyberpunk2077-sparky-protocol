@@ -1,0 +1,635 @@
+{
+  "sfx": {
+    "ch_sfx_boot_jingle": 2.48,
+    "ch_sfx_kiroshi_lock": 1.76,
+    "ch_sfx_capacitor_arc": 3.0,
+    "ch_sfx_dongle_sync": 2.48,
+    "ch_sfx_net_breach": 1.81
+  },
+  "voices": {
+    "ch_ep00_call_01": {
+      "en": 13.38,
+      "es": 18.76,
+      "max": 18.76
+    },
+    "ch_ep00_v_call_01": {
+      "en_fem": 7.68,
+      "es_fem": 7.57,
+      "en_male": 6.48,
+      "es_male": 7.83,
+      "max": 7.83
+    },
+    "ch_ep00_call_02": {
+      "en": 12.23,
+      "es": 16.51,
+      "max": 16.51
+    },
+    "ch_ep00_alley_approach": {
+      "en": 10.7,
+      "es": 17.31,
+      "max": 17.31
+    },
+    "ch_ep00_scan_react": {
+      "en": 9.96,
+      "es": 13.83,
+      "max": 13.83
+    },
+    "ch_ep00_rocco_bark": {
+      "en": 5.99,
+      "es": 5.37,
+      "max": 5.99
+    },
+    "ch_ep00_trap_boom": {
+      "en": 8.29,
+      "es": 9.94,
+      "max": 9.94
+    },
+    "ch_ep00_guns_blazing": {
+      "en": 7.74,
+      "es": 10.81,
+      "max": 10.81
+    },
+    "ch_ep00_dongle_pickup": {
+      "en": 12.42,
+      "es": 16.99,
+      "max": 16.99
+    },
+    "ch_ep00_v_ask_night": {
+      "en_fem": 4.88,
+      "es_fem": 4.72,
+      "en_male": 4.77,
+      "es_male": 4.89,
+      "max": 4.89
+    },
+    "ch_ep00_ans_night": {
+      "en": 19.14,
+      "es": 26.13,
+      "max": 26.13
+    },
+    "ch_ep00_v_ask_mega": {
+      "en_fem": 7.12,
+      "es_fem": 5.69,
+      "en_male": 5.68,
+      "es_male": 5.36,
+      "max": 7.12
+    },
+    "ch_ep00_ans_mega": {
+      "en": 19.11,
+      "es": 24.48,
+      "max": 24.48
+    },
+    "ch_ep00_v_ask_deal": {
+      "en_fem": 5.84,
+      "es_fem": 5.52,
+      "en_male": 5.84,
+      "es_male": 5.44,
+      "max": 5.84
+    },
+    "ch_ep00_ans_deal": {
+      "en": 16.52,
+      "es": 21.66,
+      "max": 21.66
+    },
+    "ch_ep00_v_deal_accept": {
+      "en_fem": 5.63,
+      "es_fem": 4.64,
+      "en_male": 5.02,
+      "es_male": 4.77,
+      "max": 5.63
+    },
+    "ch_ep00_outro": {
+      "en": 12.21,
+      "es": 13.61,
+      "max": 13.61
+    },
+    "ch_ep01_call_01": {
+      "es": 14.19,
+      "max": 14.19,
+      "en": 12.05
+    },
+    "ch_ep01_v_call_01": {
+      "es_fem": 6.9,
+      "es_male": 6.82,
+      "max": 7.54,
+      "en_fem": 7.54,
+      "en_male": 6.48
+    },
+    "ch_ep01_call_02": {
+      "es": 15.61,
+      "max": 15.61,
+      "en": 12.01
+    },
+    "ch_ep01_approach": {
+      "es": 15.43,
+      "max": 15.43,
+      "en": 11.83
+    },
+    "ch_ep01_cam_hijack": {
+      "es": 11.53,
+      "max": 11.53,
+      "en": 7.7
+    },
+    "ch_ep01_ping_react": {
+      "es": 15.36,
+      "max": 15.36,
+      "en": 10.34
+    },
+    "ch_ep01_kostya_bark": {
+      "es": 4.25,
+      "max": 4.25,
+      "en": 4.08
+    },
+    "ch_ep01_subnet_boom": {
+      "es": 8.34,
+      "max": 8.34,
+      "en": 6.99
+    },
+    "ch_ep01_net_victory": {
+      "es": 11.88,
+      "max": 11.88,
+      "en": 7.31
+    },
+    "ch_ep01_guns_blazing": {
+      "es": 13.55,
+      "max": 13.55,
+      "en": 10.54
+    },
+    "ch_ep01_sector_pickup": {
+      "es": 14.68,
+      "max": 14.68,
+      "en": 10.27
+    },
+    "ch_ep01_v_ask_bartmoss": {
+      "es_fem": 5.47,
+      "es_male": 5.04,
+      "max": 5.99,
+      "en_fem": 5.99,
+      "en_male": 5.68
+    },
+    "ch_ep01_ans_bartmoss": {
+      "es": 25.0,
+      "max": 25.0,
+      "en": 17.66
+    },
+    "ch_ep01_v_ask_krash": {
+      "es_fem": 5.42,
+      "es_male": 5.1,
+      "max": 5.42,
+      "en_fem": 5.27,
+      "en_male": 4.5
+    },
+    "ch_ep01_ans_krash": {
+      "es": 26.93,
+      "max": 26.93,
+      "en": 19.38
+    },
+    "ch_ep01_v_ask_blackwall": {
+      "es_fem": 5.2,
+      "es_male": 4.91,
+      "max": 5.2,
+      "en_fem": 4.52,
+      "en_male": 3.92
+    },
+    "ch_ep01_ans_blackwall": {
+      "es": 23.53,
+      "max": 23.53,
+      "en": 17.26
+    },
+    "ch_ep01_v_outro_accept": {
+      "es_fem": 5.08,
+      "es_male": 5.17,
+      "max": 5.66,
+      "en_fem": 5.66,
+      "en_male": 5.03
+    },
+    "ch_ep01_outro": {
+      "es": 16.96,
+      "max": 16.96,
+      "en": 10.73
+    },
+    "ch_ep02_call_01": {
+      "es": 13.66,
+      "max": 13.66,
+      "en": 10.19
+    },
+    "ch_ep02_v_call_01": {
+      "es_fem": 6.46,
+      "es_male": 6.54,
+      "max": 6.54,
+      "en_fem": 6.24,
+      "en_male": 5.85
+    },
+    "ch_ep02_call_02": {
+      "es": 16.34,
+      "max": 16.34,
+      "en": 11.58
+    },
+    "ch_ep02_approach": {
+      "es": 16.28,
+      "max": 16.28,
+      "en": 10.45
+    },
+    "ch_ep02_turret_hijack": {
+      "es": 10.86,
+      "max": 10.86,
+      "en": 8.79
+    },
+    "ch_ep02_tank_boom": {
+      "es": 11.07,
+      "max": 11.07,
+      "en": 7.86
+    },
+    "ch_ep02_krag_bark": {
+      "es": 3.77,
+      "max": 5.3,
+      "en": 5.3
+    },
+    "ch_ep02_tech_victory": {
+      "es": 11.66,
+      "max": 11.66,
+      "en": 8.24
+    },
+    "ch_ep02_guns_blazing": {
+      "es": 12.31,
+      "max": 12.31,
+      "en": 8.79
+    },
+    "ch_ep02_sector_pickup": {
+      "es": 18.06,
+      "max": 18.06,
+      "en": 11.76
+    },
+    "ch_ep02_v_ask_maelstrom": {
+      "es_fem": 5.32,
+      "es_male": 5.51,
+      "max": 5.51,
+      "en_fem": 4.88,
+      "en_male": 3.93
+    },
+    "ch_ep02_ans_maelstrom": {
+      "es": 24.3,
+      "max": 24.3,
+      "en": 16.77
+    },
+    "ch_ep02_v_ask_psycho": {
+      "es_fem": 5.69,
+      "es_male": 5.39,
+      "max": 6.12,
+      "en_fem": 6.12,
+      "en_male": 6.11
+    },
+    "ch_ep02_ans_psycho": {
+      "es": 24.83,
+      "max": 24.83,
+      "en": 17.4
+    },
+    "ch_ep02_v_ask_maxtac": {
+      "es_fem": 5.18,
+      "es_male": 5.45,
+      "max": 6.41,
+      "en_fem": 6.41,
+      "en_male": 5.39
+    },
+    "ch_ep02_ans_maxtac": {
+      "es": 25.35,
+      "max": 25.35,
+      "en": 18.18
+    },
+    "ch_ep02_v_outro_accept": {
+      "es_fem": 5.44,
+      "es_male": 5.44,
+      "max": 5.82,
+      "en_fem": 5.77,
+      "en_male": 5.82
+    },
+    "ch_ep02_outro": {
+      "es": 17.66,
+      "max": 17.66,
+      "en": 11.62
+    },
+    "ch_ep03_call_01": {
+      "es": 18.43,
+      "max": 18.43,
+      "en": 11.76
+    },
+    "ch_ep03_v_call_01": {
+      "es_fem": 6.19,
+      "es_male": 6.68,
+      "max": 7.82,
+      "en_fem": 7.82,
+      "en_male": 6.86
+    },
+    "ch_ep03_call_02": {
+      "es": 15.86,
+      "max": 15.86,
+      "en": 12.39
+    },
+    "ch_ep03_approach": {
+      "es": 19.51,
+      "max": 19.51,
+      "en": 14.27
+    },
+    "ch_ep03_smart_jam": {
+      "es": 15.73,
+      "max": 15.73,
+      "en": 10.64
+    },
+    "ch_ep03_jammer_boom": {
+      "es": 11.43,
+      "max": 11.43,
+      "en": 7.3
+    },
+    "ch_ep03_aiko_bark": {
+      "es": 6.63,
+      "max": 6.63,
+      "en": 6.44
+    },
+    "ch_ep03_smart_victory": {
+      "es": 12.36,
+      "max": 12.36,
+      "en": 7.16
+    },
+    "ch_ep03_guns_blazing": {
+      "es": 13.35,
+      "max": 13.35,
+      "en": 9.25
+    },
+    "ch_ep03_sector_pickup": {
+      "es": 16.78,
+      "max": 16.78,
+      "en": 11.48
+    },
+    "ch_ep03_v_ask_nuke": {
+      "es_fem": 5.34,
+      "es_male": 5.66,
+      "max": 6.07,
+      "en_fem": 6.07,
+      "en_male": 5.52
+    },
+    "ch_ep03_ans_nuke": {
+      "es": 22.9,
+      "max": 22.9,
+      "en": 16.86
+    },
+    "ch_ep03_v_ask_unification": {
+      "es_fem": 5.67,
+      "es_male": 5.56,
+      "max": 5.67,
+      "en_fem": 5.22,
+      "en_male": 4.49
+    },
+    "ch_ep03_ans_unification": {
+      "es": 24.88,
+      "max": 24.88,
+      "en": 18.63
+    },
+    "ch_ep03_v_ask_tygers": {
+      "es_fem": 6.24,
+      "es_male": 6.48,
+      "max": 7.36,
+      "en_fem": 7.36,
+      "en_male": 6.7
+    },
+    "ch_ep03_ans_tygers": {
+      "es": 25.85,
+      "max": 25.85,
+      "en": 18.21
+    },
+    "ch_ep03_v_outro_accept": {
+      "es_fem": 8.4,
+      "es_male": 8.12,
+      "max": 8.4,
+      "en_fem": 8.16,
+      "en_male": 7.5
+    },
+    "ch_ep03_outro": {
+      "es": 17.66,
+      "max": 17.66,
+      "en": 14.01
+    },
+    "ch_ep04_call_01": {
+      "es": 12.03,
+      "max": 12.03,
+      "en": 9.51
+    },
+    "ch_ep04_v_call_01": {
+      "es_fem": 5.94,
+      "es_male": 5.84,
+      "max": 6.32,
+      "en_fem": 6.32,
+      "en_male": 6.07
+    },
+    "ch_ep04_call_02": {
+      "es": 19.18,
+      "max": 19.18,
+      "en": 13.52
+    },
+    "ch_ep04_approach": {
+      "es": 14.48,
+      "max": 14.48,
+      "en": 10.46
+    },
+    "ch_ep04_buck_bark": {
+      "es": 6.02,
+      "max": 6.13,
+      "en": 6.13
+    },
+    "ch_ep04_ricochet_hit": {
+      "es": 10.17,
+      "max": 10.17,
+      "en": 6.51
+    },
+    "ch_ep04_cache_boom": {
+      "es": 8.11,
+      "max": 8.11,
+      "en": 6.94
+    },
+    "ch_ep04_ricochet_victory": {
+      "es": 10.13,
+      "max": 10.13,
+      "en": 6.8
+    },
+    "ch_ep04_guns_blazing": {
+      "es": 9.89,
+      "max": 9.89,
+      "en": 8.46
+    },
+    "ch_ep04_sector_pickup": {
+      "es": 17.01,
+      "max": 17.01,
+      "en": 11.95
+    },
+    "ch_ep04_v_ask_valentinos": {
+      "es_fem": 4.68,
+      "es_male": 4.81,
+      "max": 6.32,
+      "en_fem": 6.32,
+      "en_male": 5.43
+    },
+    "ch_ep04_ans_valentinos": {
+      "es": 19.51,
+      "max": 19.51,
+      "en": 12.63
+    },
+    "ch_ep04_v_ask_sixth": {
+      "es_fem": 4.41,
+      "es_male": 4.44,
+      "max": 5.5,
+      "en_fem": 5.5,
+      "en_male": 4.88
+    },
+    "ch_ep04_ans_sixth": {
+      "es": 22.23,
+      "max": 22.23,
+      "en": 15.12
+    },
+    "ch_ep04_v_ask_chrome": {
+      "es_fem": 4.81,
+      "es_male": 4.97,
+      "max": 5.5,
+      "en_fem": 5.4,
+      "en_male": 5.5
+    },
+    "ch_ep04_ans_chrome": {
+      "es": 21.44,
+      "max": 21.44,
+      "en": 13.26
+    },
+    "ch_ep04_v_outro_accept": {
+      "es_fem": 6.41,
+      "es_male": 5.98,
+      "max": 7.52,
+      "en_fem": 7.52,
+      "en_male": 6.88
+    },
+    "ch_ep04_outro": {
+      "es": 13.44,
+      "max": 13.44,
+      "en": 9.1
+    },
+    "ch_ep05_call_01": {
+      "es": 15.34,
+      "max": 15.34,
+      "en": 11.88
+    },
+    "ch_ep05_v_call_01": {
+      "es_fem": 6.23,
+      "es_male": 6.15,
+      "max": 8.01,
+      "en_fem": 8.01,
+      "en_male": 7.2
+    },
+    "ch_ep05_call_02": {
+      "es": 15.69,
+      "max": 15.69,
+      "en": 12.58
+    },
+    "ch_ep05_approach": {
+      "es": 18.03,
+      "max": 18.03,
+      "en": 12.48
+    },
+    "ch_ep05_tiluc_bark": {
+      "es": 5.51,
+      "max": 5.89,
+      "en": 5.89
+    },
+    "ch_ep05_style_net": {
+      "es": 8.24,
+      "max": 8.24,
+      "en": 6.49
+    },
+    "ch_ep05_style_ballistic": {
+      "es": 8.24,
+      "max": 8.24,
+      "en": 7.59
+    },
+    "ch_ep05_cryo_boom": {
+      "es": 9.21,
+      "max": 9.21,
+      "en": 6.06
+    },
+    "ch_ep05_victory": {
+      "es": 10.33,
+      "max": 10.33,
+      "en": 8.41
+    },
+    "ch_ep05_sector_pickup": {
+      "es": 17.81,
+      "max": 17.81,
+      "en": 13.06
+    },
+    "ch_ep05_v_ask_pacifica": {
+      "es_fem": 4.65,
+      "es_male": 4.07,
+      "max": 5.59,
+      "en_fem": 5.59,
+      "en_male": 4.45
+    },
+    "ch_ep05_ans_pacifica": {
+      "es": 21.73,
+      "max": 21.73,
+      "en": 14.18
+    },
+    "ch_ep05_v_ask_voodoo": {
+      "es_fem": 3.91,
+      "es_male": 3.93,
+      "max": 5.28,
+      "en_fem": 5.28,
+      "en_male": 4.17
+    },
+    "ch_ep05_ans_voodoo": {
+      "es": 20.56,
+      "max": 20.56,
+      "en": 13.77
+    },
+    "ch_ep05_v_ask_origin": {
+      "es_fem": 5.28,
+      "es_male": 5.32,
+      "max": 5.32,
+      "en_fem": 5.11,
+      "en_male": 4.74
+    },
+    "ch_ep05_ans_origin": {
+      "es": 20.71,
+      "max": 20.71,
+      "en": 16.55
+    },
+    "ch_ep05_v_end_partner": {
+      "es_fem": 7.76,
+      "es_male": 7.24,
+      "max": 7.76,
+      "en_fem": 7.04,
+      "en_male": 6.74
+    },
+    "ch_ep05_outro_partner": {
+      "es": 17.14,
+      "max": 17.14,
+      "en": 11.75
+    },
+    "ch_ep05_v_end_leak": {
+      "es_fem": 8.24,
+      "es_male": 8.04,
+      "max": 10.56,
+      "en_fem": 10.56,
+      "en_male": 7.56
+    },
+    "ch_ep05_outro_leak": {
+      "es": 15.78,
+      "max": 15.78,
+      "en": 12.76
+    },
+    "ch_ep05_v_end_gunsmith": {
+      "es_fem": 7.38,
+      "es_male": 6.39,
+      "max": 8.19,
+      "en_fem": 8.19,
+      "en_male": 7.37
+    },
+    "ch_ep05_outro_gunsmith": {
+      "es": 18.56,
+      "max": 18.56,
+      "en": 11.83
+    }
+  }
+}

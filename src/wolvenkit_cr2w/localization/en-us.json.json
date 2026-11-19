@@ -1,0 +1,2231 @@
+{
+  "Header": {
+    "WolvenKitVersion": "9.1.1",
+    "WKitJsonVersion": "0.0.9",
+    "GameVersion": 2310,
+    "ExportedDateTime": "2026-11-18T11:00:00.0000000Z",
+    "DataType": "CR2W",
+    "ArchiveFileName": "chispa_nc\\localization\\en-us.json"
+  },
+  "Data": {
+    "Version": 195,
+    "BuildVersion": 0,
+    "RootChunk": {
+      "$type": "JsonResource",
+      "cookingPlatform": "PLATFORM_PC",
+      "root": {
+        "HandleId": "0",
+        "Data": {
+          "$type": "localizationPersistenceOnScreenEntries",
+          "entries": [
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Rocco \"Crowbar\" Briggs",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_rocco_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Tino \"Sparky\" Cruz",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_tino_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "S.P.A.R.K.Y. v0.98b Coprocessor",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_item_dongle_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Pre-DataKrash Zetatech 2022 executive concierge coprocessor hijacked with Bartmoss-era sarcasm. Syncs directly to Kiroshi optics and holophone.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_item_dongle_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Executive Courtesy",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_lex_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "M-10AF Lexington tweaked by S.P.A.R.K.Y. from frozen Zetatech 2022 calibration tables for crisp electrical punch.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_lex_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "EXECUTIVE COURTESY: Deals +18 bonus Electrical damage, +12% Crit Chance, and 20% faster reload speed.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_lex_ability"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "WEAKNESS: Unshielded street optics (Electrical) // NOTE: Currently beating a 2022 Zetatech titanium lock with a wrench.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_rocco_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "WEAKNESS: Exposed junk-rig battery (Overload risk) // ENVIRONMENT: Standing right beside an unstable industrial capacitor!",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_tino_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SPARKY v0.98b",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_contact_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "ZETATECH CONCIERGE // NO-CLIP EDITION",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_conv_ep00_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Ticket #2022-NC opened! Two budget brain-donors are pounding my briefcase behind Megabuilding H10. Rescue my hardware and I'll wire your welcome bonus.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_ep00_hook"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Wait—are you seriously a customer-service bot from 2022?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_choice_century"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Send the H10 backlot coordinates and keep the eddies warm.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_choice_coords"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Wait—are you seriously a customer-service bot from 2022?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_v_century"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Technically an Executive Tactical Concierge with a tampered humor patch! Zero corporate censorship, maximum sarcasm. Grab my case behind H10 now!",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_reply_century"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Send the H10 backlot coordinates and keep the eddies warm.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_v_coords"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Pinged straight to your Kiroshi GPS—yellow line, impossible to miss. Tip: scan those geniuses and that sparking capacitor before wasting bullets.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_reply_coords"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Partnership logged! Keep Executive Courtesy oiled—I'm already sweeping Watson frequencies for my five stolen memory sectors. First stop: Kabuki.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_ep00_summary"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SPARKY Protocol: Welcome to Night City",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_quest_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Reply to SPARKY v0.98b's message on your holophone.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep00_01"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "A grizzled 2022 holographic drill sergeant hijacked your Kiroshi link, claiming two scavs are beating up his briefcase behind Megabuilding H10. Reply to his text message to lock the signal.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep00_01"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Head behind Megabuilding H10, scan the scavs with Kiroshi [TAB], and clear the backlot.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep00_02"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Locate the two scavs in the backlot behind Megabuilding H10. Use your Kiroshi scanner [TAB] to inspect them and look for any unstable electrical hazard nearby before engaging.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep00_02"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Extract and link the S.P.A.R.K.Y. v0.98b coprocessor from the Zetatech console.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep00_03"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "With Rocco and Tino neutralized, connect the Zetatech coprocessor waiting atop the armored briefcase console to claim your welcome payout.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep00_03"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Talk to SPARKY about Night City's origins and seal your street-guide deal.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep00_04"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SPARKY is linked cleanly to your Kiroshi optics. Ask him how Richard Night and the Corporate Wars shaped this vertical jungle, then confirm your partnership.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep00_04"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "You rescued S.P.A.R.K.Y. v0.98b behind Megabuilding H10, pocketed 1,500 eddies plus the iconic pistol Executive Courtesy, and teamed up to recover his five stolen memory sectors across Night City.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep00_done"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SPARKY STREET FILE // VOL. 0: RICHARD NIGHT & KIROSHI OPTICS",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_shard_ep00_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "MEMO 01 — KIROSHI OPTICS: Never pull a trigger blind. Hold [TAB] to check enemy weaknesses, NCPD bounties, and unstable industrial capacitors ready to short-circuit nearby thugs.\n\nMEMO 02 — NIGHT CITY (EST. 1994-1998): Industrialist Richard Night founded Coronado City on Del Coronado Bay as a tax-free corporate utopia backed by Arasaka, Petrochem, and EBM—financed with mob construction muscle. When he wouldn't bend enough, he was assassinated in his penthouse in 1998. They renamed the city after him and buried his utopia under neon.\n\nMEMO 03 — MEGABUILDINGS: After the 2023 Fourth Corporate War pocket nuke flattened City Center, emergency Megabuildings like H10 were pitched as self-contained arcologies. Decades later, gangs use them as vertical fortresses.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_shard_ep00_text"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SPARKY Ep. 0: H10 Backlot",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_mappin_ep00_alley"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SPARKY: Unstable Capacitor",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_mappin_ep00_cap"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SPARKY Ep. 0: Zetatech 2022 Terminal",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_mappin_ep00_console"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] Encrypted 2022 concierge signal locked — Check your holo",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep00_start"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] Capacitor overloaded! Arc blast jolted the scav crew",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep00_cap"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] S.P.A.R.K.Y. linked (+1,500 E$ & Executive Courtesy)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep00_claimed"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] Episode 0 complete — Wait for SPARKY's ping in Kabuki",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep00_done"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Industrial Capacitor Bank",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_cap_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Overload industrial capacitor [Kiroshi]",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_act_overload_cap"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Zetatech 2022 Tactical Terminal",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_console_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Connect S.P.A.R.K.Y. v0.98b coprocessor",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_act_claim_chispa"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "S.P.A.R.K.Y. v0.98b (Kiroshi Link)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_chispa_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Talk to SPARKY",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_act_talk_chispa"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Looking around this alley... who the hell built Night City like this?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep00_night"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "And these giant Megabuildings? Looks like a vertical prison.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep00_mega"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Okay, definitely not an office paperclip. What's the deal from here?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep00_deal"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Deal, SPARKY. Ping me once you lock onto your first sector in Kabuki.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep00_accept"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Skip line",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hint_skip_line"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SPARKY",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_speaker_chispa"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "V",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_speaker_v"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Rocco",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_speaker_rocco"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Kostya",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_speaker_kostya"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Kostya \"Firewall\" Morozov",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_kostya_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Vadik \"Saw\" Petrov",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_vadik_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Zina \"Scalpel\" Volkov",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_zina_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "ROLE: Scav Cell Netrunner // LINK: Wired into perimeter camera grid & RABIDS relay — Hijack Cam-01 to chain into Cam-02, Ping squad, or overload his rig.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_kostya_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "ROLE: Scav Rifler // WEAKNESS: Unshielded street cyberdeck link — Vulnerable to Short Circuit / Overheat or RABIDS relay surge.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_vadik_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "ROLE: Scav Blade Enforcer // WEAKNESS: Pirated optics — Reboot Optics or detonate the Entropy Server beside their perimeter.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_zina_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "S.P.A.R.K.Y. Memory Sector #01 (Bartmoss Era)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_item_sec01_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Recovered 2022 holographic data sector holding unredacted Bartmoss-era subnet forensics and daemon signatures.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_item_sec01_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Phantom Frequency",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_sara_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "M221 Saratoga SMG recalibrated by S.P.A.R.K.Y. with salvaged NetWatch harmonics for sharp electrical arcs.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_sara_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "PHANTOM FREQUENCY: Deals +22 bonus Electrical damage, +15% Crit Chance, and 22% faster reload speed.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_sara_ability"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "KABUKI SUBNET // SECTOR 01 ECHO",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_conv_ep01_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Recruit! Locked onto Memory Sector #01 along the Kabuki Creek promenade. Scavs wired it behind two chained cameras and an explosive Entropy server. Reply to sync the Ping daemon I loaded for you.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_ep01_hook"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "A 2022 data core humming inside a Scav camera subnet?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_choice_ep01_ghost"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Send the Kabuki coordinates. Let's pry your sector back.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_choice_ep01_scavs"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "A 2022 data core humming inside a Scav camera subnet?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_v_ep01_ghost"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Yup—their netrunner Kostya is scraping my old Bartmoss subnets to strip stolen chrome. Hijack Cam-01, hop to Cam-02, Ping the crew—or fry that red RABIDS relay bank.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_reply_ep01_ghost"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Send the Kabuki coordinates. Let's pry your sector back.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_v_ep01_scavs"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Route live on your GPS (yellow line). Ping daemon pushed to your stash—or, if you're running no deck, scan the red RABIDS relay to short out their whole grid.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_reply_ep01_scavs"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sector #01 online! Keep Phantom Frequency oiled—my next deep-packet echo points north toward Maelstrom workshops in Northside.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_ep01_summary"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SPARKY Protocol: Ghosts in the Camera",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_quest_ep01_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Reply to SPARKY's Kabuki subnet alert on your holophone.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep01_01"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SPARKY tracked his first stolen memory sector inside a Scavenger camera grid in Kabuki Creek. Reply to his SMS to upload a Ping quickhack and lock the GPS coordinates.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep01_01"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Infiltrate Kabuki Creek Promenade: hijack chained cameras, Ping or surge the subnet, and neutralize the Scavs.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep01_02"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Approach the southern promenade of Kabuki Creek. Scan with [TAB], take over Cam-01 to jump along the chain to Cam-02, Ping or quickhack the crew, detonate their Entropy server—or overload the red RABIDS relay node remotely.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep01_02"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Extract Memory Sector #01 from the glowing Entropy Terminal.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep01_03"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "With Kostya's scav crew down, pull S.P.A.R.K.Y. Memory Sector #01 from the glowing Entropy Terminal along the back wall to claim your payout and iconic SMG.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep01_03"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Talk with SPARKY about Rache Bartmoss, the DataKrash, and the Blackwall.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep01_04"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Memory Sector #01 is active over your portable Kiroshi link anywhere in Night City. Ask SPARKY about Rache Bartmoss, the RABIDS DataKrash, and NetWatch's Blackwall.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep01_04"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "You cracked the Kabuki Creek camera subnet, recovered S.P.A.R.K.Y. Memory Sector #01, earned 2,200 eddies plus Tier-2 quickhacks and the iconic SMG Phantom Frequency, and unpacked the history of the DataKrash.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep01_done"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SPARKY STREET FILE // VOL. 1: BARTMOSS, DATAKRASH & BLACKWALL",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_shard_ep01_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "MEMO 01 — CAMERAS, PING & TRACE: Never kick a door blind when there is glass in the ceiling. Hijack one camera, hop across the local subnet chain, drop Ping to light up every thug and explosive node through concrete, and prioritize enemy netrunners before trace completes.\n\nMEMO 02 — RACHE BARTMOSS & THE 2022 DATAKRASH: Legendary netrunner Rache Bartmoss hid his frozen body inside a cryo-fridge wired to a deadman's switch. When Arasaka finally tracked and killed him during the Fourth Corporate War in 2022, his RABIDS virus unleashed autonomous mutating daemons that corrupted 78.3% of the global Net overnight—shattering cyberspace into isolated local subnets.\n\nMEMO 03 — THE BLACKWALL: After the Net burned, NetWatch raised the Blackwall—less a firewall and more an artificial sentinel standing guard against rogue Old Net AIs clawing from the other side of cracked glass.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_shard_ep01_text"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SPARKY Ep. 1: Kabuki Creek Subnet",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_mappin_ep01_kabuki"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SPARKY Ep. 1: Entropy Terminal",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_mappin_ep01_terminal"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] Kabuki subnet echo locked — Check your holophone",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep01_start"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] Ping daemon synced! Route to Kabuki Creek active",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep01_ping_gift"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] RABIDS relay surged! Subnet feedback stunned Scavs",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep01_surge"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] Sector #01 synced (+2,200 E$, Quickhacks & Phantom Frequency)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep01_claimed"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] Episode 1 complete — Next lead: Maelstrom in Northside",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep01_done"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "KABUKI // RABIDS RELAY NODE",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_relay_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Inject RABIDS feedback surge [Kiroshi]",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_act_surge_relay"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "KABUKI // ENTROPY TERMINAL",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_ep01_term_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Extract Memory Sector #01 [S.P.A.R.K.Y.]",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_act_claim_sec01"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "S.P.A.R.K.Y. // SECTOR #01 (Kiroshi Link)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_ep01_talk_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Who was Rache Bartmoss really, and how did he crash the entire Net?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep01_bartmoss"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "What actually happened with the RABIDS virus and the 2022 DataKrash?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep01_krash"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Why doesn't anyone tear down NetWatch's Blackwall and reboot the Old Net?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep01_blackwall"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Got it, SPARKY. Ping me once you lock onto Sector #02 in Northside.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep01_accept"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "CAM-01 PERIMETER",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_cam_ep01_perim"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "CAM-02 RABIDS NODE",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_cam_ep01_server"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Krag",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_speaker_krag"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Krag \"Cobalt\" Hollis",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_krag_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Vex \"Redeye\" Kowalski",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_vex_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Lugnut",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_tuerca_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "ROLE: Maelstrom Chrome Ripper-Lead // LINK: Automated perimeter turret & CHOOH2 dock tank — Override turret attitude, hijack [TAB], or ignite the fuel tank behind cover.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_krag_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "ROLE: Maelstrom Rifleman // WEAKNESS: Unfiltered optical sensor suite — Vulnerable to Reboot Optics, EMP grenade stun, or CHOOH2 blast.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_vex_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "ROLE: Maelstrom Chrome Rusher // WEAKNESS: Exposed pneumatic actuators — Vulnerable to EMP shock, Weapon Glitch, or turret crossfire.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_tuerca_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "S.P.A.R.K.Y. Memory Sector #02 (Chrome Telemetry)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_item_sec02_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Recovered 2022 biometric and ballistic dossier indexing Maelstrom implant abuse, cyberpsychosis warning markers, and Militech Tech-weapon schematics.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_item_sec02_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Armor-Piercing Clause",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_ach_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Militech M-179E Achilles precision rifle re-wound by S.P.A.R.K.Y. with 2022 Zetatech capacitor coils for fast charge and wall-piercing electric bolts.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_ach_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "ARMOR-PIERCING CLAUSE: +26 Electrical damage, +16% Crit Chance, 24% faster Tech Charge Time, and 20% faster reload.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_ach_ability"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "NORTHSIDE DOCK // SECTOR 02 ECHO",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_conv_ep02_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Recruit! Sector #02 just pinged from a Maelstrom loading dock in Northside—guarded by three chrome-heads, an automated security turret, and a pressurized CHOOH2 tank. Reply so I can drop an EMP countermeasure and lock your route.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_ep02_hook"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Maelstrom? Those red-eyed borg fanatics tearing off their own faces?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_choice_ep02_cult"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Send the Northside dock pin and those EMP toys.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_choice_ep02_docks"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Maelstrom? Those red-eyed borg fanatics tearing off their own faces?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_v_ep02_cult"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "The very same. They're stripping my Sector #02 surgical firmware next to a live turret. Take over or flip that turret friendly, drop the EMP I pushed you, or purge the dock CHOOH2 regulator.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_reply_ep02_cult"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Send the Northside dock pin and those EMP toys.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_v_ep02_docks"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Yellow GPS line live to Northside Docks, plus EMP Grenade and Weapon Glitch uploaded. Tip: Tech weapons and quickhacks chew right through heavy Maelstrom plating.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_reply_ep02_docks"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sector #02 calibrated! Keep Armor-Piercing Clause charged—my scanner is already sniffing dirty corporate cargo signals south toward Arasaka Waterfront.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_ep02_summary"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SPARKY Protocol: More Chrome Than Meat",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_quest_ep02_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Reply to SPARKY's Northside dock alert on your holophone.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep02_01"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SPARKY traced Memory Sector #02 to a Maelstrom loading pier in Northside protected by an automated turret. Reply to his SMS to receive EMP countermeasures and lock the GPS coordinates.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep02_01"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Assault the Northside Maelstrom dock: subvert the turret or blow the CHOOH2 tank, and neutralize the crew.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep02_02"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Infiltrate the Northside pier. Scan with [TAB] to subvert or take control of the automated turret, detonate the pressurized CHOOH2 tank (or surge its power regulator remotely), and neutralize Krag's Maelstrom cell.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep02_02"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Recover Memory Sector #02 from Maelstrom's surgical console.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep02_03"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "With Maelstrom down and the turret silenced, pull S.P.A.R.K.Y. Memory Sector #02 from the surgical console on the pier to claim your eddies and Tech rifle.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep02_03"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Talk with SPARKY about Maelstrom, Cyberpsychosis, and MaxTac.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep02_04"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Memory Sector #02 is active over your portable Kiroshi link across Night City. Ask SPARKY about Maelstrom's chrome obsession, the truth behind Cyberpsychosis, and MaxTac's origins.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep02_04"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "You broke Maelstrom's turret perimeter at Northside Docks, extracted Memory Sector #02, earned 2,800 eddies plus Reboot Optics Lvl 2 and the iconic Tech rifle Armor-Piercing Clause, and learned the dark link between implants and MaxTac.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep02_done"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SPARKY STREET FILE // VOL. 2: TECH WEAPONS, CYBERPSYCHOSIS & MAXTAC",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_shard_ep02_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "MEMO 01 — TURRETS & TECH FIREPOWER: Automated turrets shred careless mercs in crossfire, yet crumble to Weapon Glitch, EMP blasts, Friendly Mode quickhacks, or pure Body rip-off. Meanwhile, charging a Tech rifle like Achilles fires magnetic projectiles straight through concrete cover.\n\nMEMO 02 — MAELSTROM & NORTHSIDE: After Night City rebuilt Northside's docks into an automated shipping jungle, Maelstrom carved out abandoned meatpacking plants and warehouses to worship metal over flesh—ripping out natural optics for multi-lens visors and high-voltage scrap chrome.\n\nMEMO 03 — CYBERPSYCHOSIS & MAXTAC: Megacorps sell cyberpsychosis as a simple hardware overload, hiding how chronic poverty, combat trauma, corporate black-budget drugs, and predatory ripperware push users over the edge. When anyone snaps, NCPD drops MaxTac: apex tactical executioners partly staffed by captured cyberpsychos rebuilt on corporate leashes.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_shard_ep02_text"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SPARKY Ep. 2: Northside Docks",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_mappin_ep02_northside"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SPARKY Ep. 2: Maelstrom Surgical Rig",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_mappin_ep02_rig"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] Northside chrome echo locked — Check your holophone",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep02_start"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] EMP Grenade & Weapon Glitch uploaded — Route to Northside active",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep02_gear"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] Maelstrom turret subverted! Automated crossfire disabled",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep02_turret"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] CHOOH2 regulator purged! Dock pressure tank detonated",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep02_purge"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] Sector #02 synced (+2,800 E$, Reboot Optics & Armor-Piercing Clause)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep02_claimed"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] Episode 2 complete — Keep your optics sharp in Watson",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep02_done"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "NORTHSIDE // CHOOH2 POWER REGULATOR",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_ep02_reg_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Purge CHOOH2 regulator & shut down turret [Kiroshi]",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_act_purge_reg"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "MAELSTROM // SURGICAL RIG",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_ep02_rig_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Extract Memory Sector #02 [S.P.A.R.K.Y.]",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_act_claim_sec02"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "S.P.A.R.K.Y. // SECTOR #02 (Kiroshi Link)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_ep02_talk_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "What's the real story behind Maelstrom and these Northside docks?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep02_maelstrom"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Is cyberpsychosis really just overloading a body with too much chrome?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep02_psycho"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Who are MaxTac really—elite NCPD cops, or corporate dogs on a leash?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep02_maxtac"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Crystal clear, SPARKY. Let me know when Sector #03 drops onto your scope.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep02_accept"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Aiko \"Kitsune\" Mori",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_aiko_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Kenji \"Ink\" Sato",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_kenji_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Ren \"Mirror\" Takahashi",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_ren_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Aiko",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_speaker_aiko"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "ROLE: Tyger Claws Cell Leader // CYBERWARE: Arasaka-synced dermal smart-jamming tattoos! Smart projectiles deflect unless you invert the IFF Pylon or overload the Antenna Capacitor.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_aiko_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "ROLE: Tyger Blade Enforcer // WEAKNESS: Exposed Arasaka explosive antenna capacitor right beside him — plus active dermal Smart-Link jammer.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_kenji_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "ROLE: Tyger Claws Rifler // CYBERWARE: Sub-dermal jamming ink — Vulnerable to Reboot Optics, Memory Wipe, ricochet angles, or shorting the IFF Pylon.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_ren_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "S.P.A.R.K.Y. Memory Sector #03 (Arasaka Red Files)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_item_sec03_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Recovered 2022–2070 holographic memory core containing unredacted Fourth Corporate War, Time of the Red, and Unification War dossiers.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_item_sec03_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Executive Curve",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_shin_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Shingen Smart SMG hijacked from an Arasaka dock crate and flashed with S.P.A.R.K.Y.'s Zetatech targeting bridge to pierce street smart-jammers.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_shin_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "EXECUTIVE CURVE: Includes built-in Zetatech Smart targeting bridge, +20 Electrical & +16 Chemical damage, +16% Crit Chance, +35% jammer-piercing Smart accuracy, 28% faster lock-on, and 20% faster reload.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_shin_ability"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "WATERFRONT PIER // SECTOR 03 ECHO",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_conv_ep03_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Recruit! Sector #03 just lit up inside an Arasaka black-cargo crate guarded by Tyger Claws on the South Watson Waterfront quay. Reply so I can flash a Smart-Link targeting bridge to your optics and ship you a Kang Tao Chao starter pistol.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_ep03_hook"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Wait—since when do Tyger Claws deflect Smart bullets?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_choice_ep03_claws"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Upload the Smart targeting bridge and send the waterfront pin.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_choice_ep03_quay"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Wait—since when do Tyger Claws deflect Smart bullets?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_v_ep03_claws"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Since Arasaka slipped military jamming ink under their skin! Wait till you fire a curved round and watch it swerve mid-air—or invert their yellow-red IFF Pylon first. Gear pushed to your inventory!",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_reply_ep03_claws"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Upload the Smart targeting bridge and send the waterfront pin.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_v_ep03_quay"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Yellow GPS line live to South Waterfront quay, plus a Kang Tao Chao Smart pistol, Memory Wipe daemon, and live Kiroshi Smart-Bridge calibrated in your hands. Watch those jamming tattoos!",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_reply_ep03_quay"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sector #03 locked in! Keep Executive Curve fed—once NCPD lifts the Watson blockade after The Heist, Sector #04 points across the bridges toward Heywood and Santo Domingo.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_ep03_summary"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SPARKY Protocol: Bullets That Bend Corners",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_quest_ep03_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Reply to SPARKY's South Waterfront dock alert on your holophone.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep03_01"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SPARKY traced Memory Sector #03 to an Arasaka black-ops cargo pallet on the South Watson Waterfront guarded by Tyger Claws. Reply to his SMS to equip a Kang Tao Chao Smart pistol and activate his optical Smart targeting bridge.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep03_01"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Neutralize the Tyger Claws cell at South Waterfront: invert their IFF Jammer Pylon, blow the antenna capacitor, or crush their jammer defense.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep03_02"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Approach the South Watson Waterfront quay. Test a Smart lock with [TAB]/Chao—if their dermal tattoos deflect your rounds, invert the IFF Jammer Pylon with [F]/Kiroshi or overload the Arasaka explosive antenna capacitor, then clear the squad.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep03_02"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Extract Memory Sector #03 from the Arasaka cargo crate.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep03_03"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "With Aiko's cell neutralized, pry S.P.A.R.K.Y. Memory Sector #03 from the Arasaka freight crate on the quay to claim your payout and iconic Smart SMG.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep03_03"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Talk with SPARKY about the 2023 Arasaka Nuke, Unification War, and the Tyger Claws.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep03_04"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Memory Sector #03 is linked cleanly across Night City. Ask SPARKY about the 2023 Arasaka Tower bombing, the 2069 Unification War, and Arasaka's shadow pact with the Tyger Claws.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep03_04"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "You cracked the Tyger Claws smart-jamming screen on the South Watson Waterfront, recovered Memory Sector #03, earned 3,400 eddies plus Contagion Lvl 2 and the iconic Shingen Smart SMG Executive Curve, and uncovered fifty years of corporate war history.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep03_done"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SPARKY STREET FILE // VOL. 3: SMART-LINKS, TIME OF THE RED & UNIFICATION WAR",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_shard_ep03_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "MEMO 01 — SMART GUNS VS. DERMAL JAMMERS: Smart firearms pair guided micro-gyro projectiles with a hand Smart-Link to arc around concrete cover. Wait until you meet Tyger Claws carrying military dermal tattoos: those inked transponders actively bend incoming Smart rounds wide unless you strip their jammer pylon, blind/wipe their optics, or bring an iconic targeting bypass.\n\nMEMO 02 — THE 2023 ARASAKA TOWER NUKE & TIME OF THE RED: During the Fourth Corporate War on August 20, 2023, a Militech strike team—including Morgan Blackhand and Johnny Silverhand—detonated a pocket nuclear charge inside Arasaka's Night City Tower. The fallout turned the sky blood-crimson for years ('The Time of the Red'), forged the City Center rubble heap, and left corpses buried under steel that corpses still deny.\n\nMEMO 03 — UNIFICATION WAR (2069–2070) & TYGER CLAWS: When NUSA President Rosalind Myers and Militech launched a blitz to force Free States back under Washington rule, Night City seemed doomed—until Saburo Arasaka sailed a supercarrier into Coronado Bay. Arasaka kept Night City formally independent... while wiring street muscle like the Tyger Claws with corporate weapons and smuggling corridors across Kabuki and Japantown.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_shard_ep03_text"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SPARKY Ep. 3: South Waterfront Quay",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_mappin_ep03_waterfront"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SPARKY Ep. 3: Arasaka Cargo Crate",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_mappin_ep03_rig"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] Arasaka waterfront echo locked — Check your holophone",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep03_start"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] Smart pistol Chao & Kiroshi Smart-Bridge online — Route active",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep03_gear"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] Tyger Claws IFF Jammer fried! Smart locks 100% lethal",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep03_jammer"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] Sector #03 synced (+3,400 E$, Contagion & Executive Curve)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep03_claimed"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] Episode 3 complete — Ready for post-Heist sectors",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep03_done"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "ARASAKA // IFF SMART-JAMMER PYLON",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_ep03_pylon_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Invert IFF jammer & spike capacitor [Kiroshi Smart-Bridge]",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_act_invert_pylon"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "ARASAKA // BLACK-OPS CARGO CRATE",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_ep03_rig_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Extract Memory Sector #03 [S.P.A.R.K.Y.]",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_act_claim_sec03"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "S.P.A.R.K.Y. // SECTOR #03 (Kiroshi Link)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_ep03_talk_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Did Arasaka and Militech really drop a nuke right inside Night City back in 2023?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep03_nuke"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "How did Night City end up independent from the NUSA after the Unification War?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep03_unification"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Where did the Tyger Claws start, and why is Arasaka handing them tactical hardware?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep03_tygers"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Copy that, SPARKY. Let me know once the bridges out of Watson reopen for Sector #04.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep03_accept"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "S.P.A.R.K.Y. Memory Sector #04 (Street Ballistics & 2070 Archive)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_item_sec04_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Heavy armored tactical memory core rescued from a NUSA surplus smuggling deal on the Heywood–Arroyo border. Restores 2040s–2077 chrome economy logs, Valentinos street history, and 6th Street defector files into S.P.A.R.K.Y. v0.98b.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_item_sec04_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Street Geometry",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_masa_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Custom Nowaki/Masamune burst assault rifle zeroed by S.P.A.R.K.Y. for corner-banked ricochet fire. Every third-surface bounce turns concrete alleys into lethal crossfire corridors.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_masa_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Ballistic Trajectory Suite: +22 Thermal Damage, +15% Crit Chance, +2 Ricochet Bounces, +50% Ricochet Chance, +35% Ricochet Damage, +20% Ricochet Crit Chance, and 20% faster reload.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_masa_ability"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sgt. Buck \"Stripes\" Miller",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_buck_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "NUSA 4th Corporate War / Unification War veteran turned 6th Street arms broker. High-end subcutaneous plating with an explosive NUSA ammo pallet linked nearby—and lousy ballistic cover awareness against bank shots.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_buck_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Cpl. Tammy \"Dogtag\" Brooks",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_tammy_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "6th Street perimeter sharpshooter hoarding stolen Militech copperheads and smart-det crates. Vulnerable around tight concrete angles if V bounces Power rounds off floor plates or walls.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_tammy_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Mateo \"Cuervo\" Salgado",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_mateo_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Heywood Valentinos liaison swapping pre-war chrome and ceremonial revolvers for NUSA heavy hardware. Fast draw with Overture, zero thermal shielding if the ammo reserve detonates.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_mateo_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "ARROYO BORDER // SECTOR 04 PING",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_conv_ep04_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Recruit! The Watson bridge blockade finally dropped and my sensors caught Sector #04 pinging in a smugglers' yard between Heywood and Arroyo—right inside a dirty swap between 6th Street and Valentinos. Reply and I'll calibrate live Power Ricochet paths on your Kiroshi and drop a Copperhead.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_ep04_hook"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Valentinos and 6th Street trading together? I thought they hated each other.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_choice_ep04_gangs"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Fire up the ballistic ricochet visor and send me the Arroyo pin.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_choice_ep04_coords"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Valentinos and 6th Street trading together? I thought they hated each other.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_v_ep04_gangs"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Street loyalty ends the second pre-war mil-grade hardware changes hands! Gear sent: Militech Copperhead Power rifle, two Frag grenades, boosters, and full Kiroshi Ricochet preview calibrated.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_reply_ep04_gangs"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Fire up the ballistic ricochet visor and send me the Arroyo pin.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_v_ep04_coords"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Ballistic trajectory bridge locked and yellow GPS active to the Arroyo smuggling yard. Check those ground-bounce angles before Buck opens up, or spike their ballistic relay!",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_reply_ep04_coords"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sector #04 is synced and Street Geometry is yours! Stay sharp—the last missing fragment just lit up deep inside Pacifica's Combat Zone near the Blackwall border.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_ep04_summary"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SPARKY Protocol: Honor, Scrap & Cardboard Patriots",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_quest_ep04_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Answer SPARKY's Arroyo border alert on your holophone.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep04_01"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "With Watson unlocked, SPARKY traced Memory Sector #04 to an illegal arms deal between 6th Street veterans and Valentinos enforcers in Arroyo. Reply to his SMS for a Copperhead Power rifle and Kiroshi ricochet preview.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep04_01"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Clear the smuggling yard in Arroyo: bank ricochet shots off cover, spike the ballistic relay, or blow their NUSA ammo tank.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep04_02"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Approach Buck Miller's smuggling cell in Arroyo. Aim with a Power weapon to preview bullet ricochets into cover, trigger their ballistic relay [F], or detonate the pressurized fuel/ammo drum before taking the Sector.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep04_02"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Extract Memory Sector #04 from the smuggler crate.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep04_03"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "With Buck, Tammy, and Mateo neutralized, claim Memory Sector #04 from the green military smuggling rig for 4,200 E$, Cyberware Malfunction Lvl 2, and iconic Masamune Street Geometry.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep04_03"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Talk with SPARKY about Valentinos, 6th Street, and Night City's chrome economy.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep04_04"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sector #04 is linked cleanly across Night City. Ask SPARKY about Heywood's Valentinos code, 6th Street's NUSA hypocrisy, and the brutal economics of Night City cyberware.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep04_04"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "You disrupted the 6th Street–Valentinos arms swap in Arroyo, recovered Memory Sector #04, claimed 4,200 eddies plus Cyberware Malfunction Lvl 2 and iconic rifle Street Geometry, and unlocked Pacifica's Blackwall lead.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep04_done"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SPARKY STREET FILE // VOL. 4: POWER RICOCHETS, HEYWOOD, 6TH STREET & CHROME DEBT",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_shard_ep04_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "MEMO 01 — POWER WEAPONS & BALLISTIC RICOCHET: Unlike Tech coils or Smart seekers, Power firearms reward sharp bank angles off concrete walls, pavement, and steel containers. Paired with a Ballistic Coprocessor optic preview, ricochets ignore frontal shields and strike targets crouching behind full cover with bonus damage and critical chance.\n\nMEMO 02 — HEYWOOD & THE VALENTINOS: Heywood raised its kids between cathedrals, Santa Muerte shrines, and flashy gold chrome. The Valentinos boast about honor, family, and neighborhood loyalty—and still charge protection tariffs, cut corporate backroom deals, and bury rivals with gold-plated guns.\n\nMEMO 03 — 6TH STREET & THE CHROME TRAP: Born from Unification War veterans who swore to defend Santo Domingo, 6th Street rotted fast into extortion, black-market NUSA arms trafficking, and brutal infighting. Meanwhile, half of Night City finances military cyberware on repo contracts: miss one monthly payment to an employer or loan shark and a back-alley ripper tears the chrome right back out of your ribs.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_shard_ep04_text"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SPARKY Ep. 4: Arroyo Smuggler Yard",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_mappin_ep04_border"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SPARKY Ep. 4: Border Arms Crate",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_mappin_ep04_rig"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] City bridges open — Sector #04 signal in Arroyo",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep04_start"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] Copperhead & Kiroshi Ricochet Bridge active — Route traced",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep04_gear"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] Ballistic relay & NUSA ammo tank detonated!",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep04_cache"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] Sector #04 synced (+4,200 E$, Cyberware Malfunction & Street Geometry)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep04_claimed"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] Episode 4 complete — Final trace locking onto Pacifica",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep04_done"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "6TH STREET // BALLISTIC TELEMETRY RELAY",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_ep04_relay_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Spike thermal relay into NUSA ammo tank [Kiroshi]",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_act_overload_ep04"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "BORDER SMUGGLER // ARROYO CRATE",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_ep04_rig_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Extract Memory Sector #04 [S.P.A.R.K.Y.]",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_act_claim_sec04"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "S.P.A.R.K.Y. // SECTOR #04 (Kiroshi Link)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_ep04_talk_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "How did Heywood turn out so caught up in Valentinos faith, gold chrome, and turf blood?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep04_valentinos"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "What turned 6th Street from neighborhood war vets into NUSA gunrunners?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep04_sixth"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "How does regular folks' cyberware actually work here—do people go broke paying off their own arms?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep04_chrome"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Copy that, SPARKY. Let's hunt down the final Sector #05 in Pacifica.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep04_accept"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "S.P.A.R.K.Y. Master Core Sector #05 (2022 Blackwall Kernel)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_item_sec05_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "S.P.A.R.K.Y.'s original 2022 Zetatech concierge kernel—carved apart by a Bartmoss decker days before the DataKrash and recovered from a Voodoo Boys / NetWatch proxy vault in Pacifica.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_item_sec05_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Firewall '22",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_ken_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Arasaka JKE-X2 Kenshin Tech pistol rebuilt with S.P.A.R.K.Y.'s liberated 2022 telemetry kernel. Punches dual electric-thermal beams straight through concrete while overclocking reload speed.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_ken_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "2022 Barrier Breaker: +26 Electric Damage, +20 Thermal Damage, +18% Crit Chance, 26% faster Tech charge, +25% Armor/Wall-Pierce Damage, and 22% faster reload.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_ken_ability"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sergeant's Last Word",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_over_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Malorian-inspired Overture heavy revolver infused with S.P.A.R.K.Y.'s peak combat subroutine—forged exclusively if V melts the drill sergeant's tactical instincts into iron.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_over_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Drill Sergeant Protocol: +32 Electric Damage, +20% Crit Chance, +35% Headshot Multiplier, +2 Ricochet Bounces, +40% Ricochet Damage, and 20% faster reload.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_over_ability"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "CAM-01 PACIFICA PERIMETER",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_cam_ep05_perim"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "CAM-02 BLACKWALL NODE",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_cam_ep05_server"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Ti-Luc \"Loa\" Desrosiers",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_tiluc_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Rogue Voodoo Boys netrunner cell boss harvesting pre-DataKrash corporate AIs near a NetWatch proxy pylon. Runs active Blackwall subnet cameras and an unstable cryogenic server bank.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_tiluc_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Mireille \"Shadow\" Jean-Baptiste",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_mireille_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Voodoo Boys ranged breach specialist equipped with Sidewinder Smart locks. Takes severe electrical splash if the cryogenic containment server or NetWatch pylon spikes.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_mireille_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Brutus \"Sledge\" Kowalski",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_brutus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Hired Animals chrome heavy acting as disposable perimeter muscle for the Voodoo Boys—just like Placide's usual play. Vulnerable to Short Circuit, Cyberware Malfunction, or flanking ricochets.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_brutus_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "COASTVIEW, PACIFICA // MASTER KERNEL 05",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_conv_ep05_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Recruit... stop everything. Sector #05—my original 2022 root memory—just screamed out of Coastview, Pacifica. A Voodoo Boys crew with rented Animals muscle is dissecting it beside a live NetWatch containment beacon. Reply for heavy EMP tools and full Kiroshi combat bridges.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_ep05_hook"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Voodoo Boys plus Animals muscle? Wait—I thought they treated outsiders as disposable.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_choice_ep05_voodoo"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Send the EMP payload, sync all Kiroshi bridges, and drop the Pacifica coordinates.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_choice_ep05_pacifica"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Voodoo Boys plus Animals muscle? Wait—I thought they treated outsiders as disposable.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_v_ep05_voodoo"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "They DO treat hired ranyons as disposable—that's why bringing down their containment pylon fries both squads! Gear shipped: EMP grenades, Tier-3 Short Circuit, and all Kiroshi combat links active.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_reply_ep05_voodoo"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Send the EMP payload, sync all Kiroshi bridges, and drop the Pacifica coordinates.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_v_ep05_pacifica"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Master route pinned to Coastview, Pacifica! Combine everything we drilled across Night City: chained cameras, EMP, Tech wall-piercing, Smart curve shots, or Power ricochets.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_reply_ep05_pacifica"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Season 1 Memory Array 100% restored! Check your Codex for the complete Zetatech 2022 Night City street file—and thanks for pulling this old sergeant out of a dark H10 alley.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_ep05_summary"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SPARKY Protocol: Beyond the Blackwall",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_quest_ep05_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Reply to SPARKY's final Pacifica alert on your holophone.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep05_01"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SPARKY's master 2022 memory core turned up in Coastview, Pacifica, flanked by Voodoo Boys netrunners and Animals mercenaries near a NetWatch beacon. Answer his text to deploy EMP tools and full Kiroshi bridges.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep05_01"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Neutralize the Voodoo Boys & Animals cell in Pacifica using any mastery style—netrunning, Tech pierce, ricochets, or containment purge.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep05_02"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Engage Ti-Luc's cell in Coastview, Pacifica. Hijack their chained CAM-01/CAM-02 subnet, purge the NetWatch containment pylon [F], blow the cryogenic server, or dismantle them with your full arsenal.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep05_02"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Recover Master Sector #05 from the Pacifica vault rig.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep05_03"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "With Coastview clear, link Master Sector #05 into S.P.A.R.K.Y. to claim 5,000 E$, System Collapse Lvl 3, iconic Tech pistol Firewall '22, and unlock SPARKY's full 2022 truth.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep05_03"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Seal S.P.A.R.K.Y.'s Season 1 fate across Pacifica's skyline.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep05_04"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "All five memory sectors are synced across Night City. Hear S.P.A.R.K.Y.'s true 2022 origin and choose his destiny: permanent Kiroshi partner, open N54 data leak, or custom iconic gunsmith fusion.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep05_04"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "You broke the Voodoo Boys & Animals blockade in Coastview, Pacifica, restored all five S.P.A.R.K.Y. memory sectors from 1998 to 2077, claimed iconic Tech pistol Firewall '22, and forged S.P.A.R.K.Y.'s final pact.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep05_done"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SPARKY STREET FILE // VOL. 5: PACIFICA, VOODOO BOYS & THE BLACKWALL FRONTIER",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_shard_ep05_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "MEMO 01 — PACIFICA'S CORPSE-RESORT RUINS: Built to be Night City's glittering luxury playground before corporate investors pulled out during the Unification War scare, Pacifica collapsed into skeleton towers, squatter markets, and NCPD abandonment. Coastview became an independent Combat Zone overnight.\n\nMEMO 02 — VOODOO BOYS, NETWATCH & THE BLACKWALL: Led by Haitian survivors after climate catastrophe drowned their homeland, the Voodoo Boys guard Pacifica behind lethal netrunning walls while probing past NetWatch's Blackwall—the sentient containment AI separating Night City's local nets from the rogue killers still swarming Rache Bartmoss's ruined 2022 Old Net. To them, outside edgerunners (ranyons) are merely paid fuses.\n\nMEMO 03 — PROJECT S.P.A.R.K.Y. (ZETATECH 2022 ARCHIVE): Manufactured in 2022 as 'Executive Concierge v0.98b' and secretly rewired by a Bartmoss apprentice with the personality engram of an actual Night City NCO instructor, SPARKY survived inside locked titanium hardware until V plugged in behind Megabuilding H10.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_shard_ep05_text"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SPARKY Ep. 5: Coastview Blackwall Node",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_mappin_ep05_pacifica"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SPARKY Ep. 5: Master Core Vault",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_mappin_ep05_rig"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] Master Kernel #05 screaming out of Coastview, Pacifica",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep05_start"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] EMP kit & all Kiroshi combat bridges synced — Route live",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep05_gear"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] Containment beacon & cryo-server purged across Coastview!",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep05_cryo"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] Master Sector #05 synced (+5,000 E$, System Collapse & Firewall '22)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep05_claimed"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY v1.0] Autonomous Kiroshi Partner active (+1,500 E$ & Synapse Burnout Lvl 3)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep05_end_partner"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY // N54] 2022 Corporate dirty archive leaked (+4,500 E$ & Cyberware Malfunction Lvl 3)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep05_end_leak"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY // ARMORY] Season 1 complete — Iconic revolver \"Sergeant's Last Word\" forged!",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep05_end_gunsmith"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "NETWATCH // PACIFICA CONTAINMENT PYLON",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_ep05_pylon_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Overload Blackwall containment pulse into Voodoo server [Kiroshi]",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_act_purge_ep05"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "COASTVIEW // MASTER KERNEL VAULT #05",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_ep05_rig_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Recover Master Memory Sector #05 [S.P.A.R.K.Y.]",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_act_claim_sec05"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "S.P.A.R.K.Y. // MASTER KERNEL 2022 (Kiroshi Link)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_ep05_talk_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "How did Pacifica go from shiny corpo resort dream to this abandoned warzone?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep05_pacifica"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Why do the Voodoo Boys keep poking past NetWatch's Blackwall despite the danger?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep05_voodoo"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "All five memory sectors are back—who really built you in 2022, SPARKY?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep05_origin"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[Partner v1.0] Keep full autonomy inside my Kiroshi—you're staying on active duty.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep05_end_partner"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[N54 Public Leak] Blast the unredacted 2022 corpo dirt to N54 News and cash in big.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep05_end_leak"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[Gunsmith Protocol] Print your combat instincts into one final iconic Overture prototype.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep05_end_gunsmith"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "S.P.A.R.K.Y. v0.98b",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_holo_telemetry_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "DRILL SERGEANT // UNFILTERED",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_holo_telemetry_sub"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] Watson bridges & Fast Travel unlocked for testing",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_dbg_unlock"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] Episode 1 activated — Check your holophone in Kabuki",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_dbg_ep01"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] Episode 2 activated — Check your holophone in Northside",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_dbg_ep02"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] Episode 3 activated — Check your holophone at South Waterfront",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_dbg_ep03"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] Episode 4 activated — Check your holophone post-lockdown",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_dbg_ep04"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[SPARKY] Episode 5 activated — Check your holophone bound for Pacifica",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_dbg_ep05"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

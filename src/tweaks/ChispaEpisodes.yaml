@@ -1,0 +1,180 @@
+# Protocolo CHISPA / SPARKY Protocol — TweakXL Episode NPCs (Base Game 2.x)
+
+# ---------------------------------------------------------------------------
+# Episodio 0 — Matones del solar trasero del Megaedificio H10 (Little China)
+# ReactionPresets.Civilian_Neutral permite escanear desde lejos sin combate instantáneo;
+# el script los vuelve hostiles al atacar, sobrecargar el condensador o acercarse demasiado.
+# ---------------------------------------------------------------------------
+
+Character.Chispa_Ep00_Rocco:
+  $base: Character.arr_scavenger_grunt2_ranged2_copperhead_ma
+  displayName: LocKey#ch_npc_rocco_name
+  fullDisplayName: LocKey#ch_npc_rocco_name
+  rarity: NPCRarity.Normal
+  reactionPreset: ReactionPresets.Civilian_Neutral
+  forceCanHaveGenericTalk: false
+  skipDisplayArchetype: true
+
+Character.Chispa_Ep00_Tino:
+  $base: Character.arr_scavenger_grunt1_ranged1_pulsar_ma
+  displayName: LocKey#ch_npc_tino_name
+  fullDisplayName: LocKey#ch_npc_tino_name
+  rarity: NPCRarity.Normal
+  reactionPreset: ReactionPresets.Civilian_Neutral
+  forceCanHaveGenericTalk: false
+  skipDisplayArchetype: true
+
+# ---------------------------------------------------------------------------
+# Episodio 1 — Célula Carroñera del Paseo Fluvial (Kabuki, Watson)
+# ---------------------------------------------------------------------------
+
+Character.Chispa_Ep01_Kostya:
+  $base: Character.arr_scavenger_grunt2_ranged2_copperhead_ma
+  displayName: LocKey#ch_npc_kostya_name
+  fullDisplayName: LocKey#ch_npc_kostya_name
+  rarity: NPCRarity.Officer
+  reactionPreset: ReactionPresets.Civilian_Neutral
+  forceCanHaveGenericTalk: false
+  skipDisplayArchetype: true
+
+Character.Chispa_Ep01_Vadik:
+  $base: Character.arr_scavenger_grunt1_ranged1_pulsar_ma
+  displayName: LocKey#ch_npc_vadik_name
+  fullDisplayName: LocKey#ch_npc_vadik_name
+  rarity: NPCRarity.Normal
+  reactionPreset: ReactionPresets.Civilian_Neutral
+  forceCanHaveGenericTalk: false
+  skipDisplayArchetype: true
+
+Character.Chispa_Ep01_Zina:
+  $base: Character.arr_scavenger_grunt2_melee2_knife_wa
+  displayName: LocKey#ch_npc_zina_name
+  fullDisplayName: LocKey#ch_npc_zina_name
+  rarity: NPCRarity.Normal
+  reactionPreset: ReactionPresets.Civilian_Neutral
+  forceCanHaveGenericTalk: false
+  skipDisplayArchetype: true
+
+# ---------------------------------------------------------------------------
+# Episodio 2 — Cuadrilla Maelstrom del Muelle de Northside (Watson)
+# ---------------------------------------------------------------------------
+
+Character.Chispa_Ep02_Krag:
+  $base: Character.nid_maelstrom_grunt2_ranged2_ajax_ma
+  displayName: LocKey#ch_npc_krag_name
+  fullDisplayName: LocKey#ch_npc_krag_name
+  rarity: NPCRarity.Officer
+  reactionPreset: ReactionPresets.Civilian_Neutral
+  forceCanHaveGenericTalk: false
+  skipDisplayArchetype: true
+
+Character.Chispa_Ep02_Vex:
+  $base: Character.nid_maelstrom_grunt2_ranged2_copperhead_wa
+  displayName: LocKey#ch_npc_vex_name
+  fullDisplayName: LocKey#ch_npc_vex_name
+  rarity: NPCRarity.Normal
+  reactionPreset: ReactionPresets.Civilian_Neutral
+  forceCanHaveGenericTalk: false
+  skipDisplayArchetype: true
+
+Character.Chispa_Ep02_Tuerca:
+  $base: Character.nid_maelstrom_grunt2_melee2_machete_ma
+  displayName: LocKey#ch_npc_tuerca_name
+  fullDisplayName: LocKey#ch_npc_tuerca_name
+  rarity: NPCRarity.Normal
+  reactionPreset: ReactionPresets.Civilian_Neutral
+  forceCanHaveGenericTalk: false
+  skipDisplayArchetype: true
+
+# ---------------------------------------------------------------------------
+# Episodio 3 — Célula Garra de Tigre / Arasaka del Muelle Sur (Watson Waterfront)
+# ---------------------------------------------------------------------------
+
+Character.Chispa_Ep03_Aiko:
+  $base: Character.kab_tyger_claws_biker2_ranged2_shingen_wa
+  displayName: LocKey#ch_npc_aiko_name
+  fullDisplayName: LocKey#ch_npc_aiko_name
+  rarity: NPCRarity.Officer
+  reactionPreset: ReactionPresets.Civilian_Neutral
+  forceCanHaveGenericTalk: false
+  skipDisplayArchetype: true
+
+Character.Chispa_Ep03_Kenji:
+  $base: Character.kab_tyger_claws_gangster1_melee1_knife_ma
+  displayName: LocKey#ch_npc_kenji_name
+  fullDisplayName: LocKey#ch_npc_kenji_name
+  rarity: NPCRarity.Normal
+  reactionPreset: ReactionPresets.Civilian_Neutral
+  forceCanHaveGenericTalk: false
+  skipDisplayArchetype: true
+
+Character.Chispa_Ep03_Ren:
+  $base: Character.kab_tyger_claws_gangster2_ranged2_sidewinder_wa
+  displayName: LocKey#ch_npc_ren_name
+  fullDisplayName: LocKey#ch_npc_ren_name
+  rarity: NPCRarity.Normal
+  reactionPreset: ReactionPresets.Civilian_Neutral
+  forceCanHaveGenericTalk: false
+  skipDisplayArchetype: true
+
+# ---------------------------------------------------------------------------
+# Episodio 4 — Célula de Contrabando Calle 6 / Valentinos (Frontera Arroyo / Heywood)
+# ---------------------------------------------------------------------------
+
+Character.Chispa_Ep04_Buck:
+  $base: Character.arr_sixthstreet_veteran3_ranged2_ajax_ma
+  displayName: LocKey#ch_npc_buck_name
+  fullDisplayName: LocKey#ch_npc_buck_name
+  rarity: NPCRarity.Officer
+  reactionPreset: ReactionPresets.Civilian_Neutral
+  forceCanHaveGenericTalk: false
+  skipDisplayArchetype: true
+
+Character.Chispa_Ep04_Tammy:
+  $base: Character.arr_sixthstreet_patrol2_ranged2_ajax_wa
+  displayName: LocKey#ch_npc_tammy_name
+  fullDisplayName: LocKey#ch_npc_tammy_name
+  rarity: NPCRarity.Normal
+  reactionPreset: ReactionPresets.Civilian_Neutral
+  forceCanHaveGenericTalk: false
+  skipDisplayArchetype: true
+
+Character.Chispa_Ep04_Mateo:
+  $base: Character.arr_valentinos_grunt2_ranged2_overture_ma
+  displayName: LocKey#ch_npc_mateo_name
+  fullDisplayName: LocKey#ch_npc_mateo_name
+  rarity: NPCRarity.Normal
+  reactionPreset: ReactionPresets.Civilian_Neutral
+  forceCanHaveGenericTalk: false
+  skipDisplayArchetype: true
+
+# ---------------------------------------------------------------------------
+# Episodio 5 — Célula Hijos del Vudú / Animales en el Muro Negro (Coastview, Pacifica)
+# ---------------------------------------------------------------------------
+
+Character.Chispa_Ep05_TiLuc:
+  $base: Character.cvi_voodooboys_grunt1_ranged2_saratoga_ma
+  displayName: LocKey#ch_npc_tiluc_name
+  fullDisplayName: LocKey#ch_npc_tiluc_name
+  rarity: NPCRarity.Officer
+  reactionPreset: ReactionPresets.Civilian_Neutral
+  forceCanHaveGenericTalk: false
+  skipDisplayArchetype: true
+
+Character.Chispa_Ep05_Mireille:
+  $base: Character.cvi_voodooboys_grunt1_ranged2_sidewinder_wa
+  displayName: LocKey#ch_npc_mireille_name
+  fullDisplayName: LocKey#ch_npc_mireille_name
+  rarity: NPCRarity.Normal
+  reactionPreset: ReactionPresets.Civilian_Neutral
+  forceCanHaveGenericTalk: false
+  skipDisplayArchetype: true
+
+Character.Chispa_Ep05_Brutus:
+  $base: Character.cvi_animals_grunt2_melee2_machete_mb
+  displayName: LocKey#ch_npc_brutus_name
+  fullDisplayName: LocKey#ch_npc_brutus_name
+  rarity: NPCRarity.Normal
+  reactionPreset: ReactionPresets.Civilian_Neutral
+  forceCanHaveGenericTalk: false
+  skipDisplayArchetype: true

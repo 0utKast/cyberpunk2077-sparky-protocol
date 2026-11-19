@@ -1,0 +1,24 @@
+# SPARKY Protocol (100% English Edition) — ArchiveXL Manifest
+journal:
+  - chispa_nc\journal\chispa_nc.journal
+localization:
+  onscreens:
+    en-us: chispa_nc\localization\en-us.json
+    es-es: chispa_nc\localization\en-us.json
+    es-mx: chispa_nc\localization\en-us.json
+    de-de: chispa_nc\localization\en-us.json
+    fr-fr: chispa_nc\localization\en-us.json
+    pl-pl: chispa_nc\localization\en-us.json
+    pt-br: chispa_nc\localization\en-us.json
+    it-it: chispa_nc\localization\en-us.json
+    ru-ru: chispa_nc\localization\en-us.json
+    jp-jp: chispa_nc\localization\en-us.json
+    kr-kr: chispa_nc\localization\en-us.json
+    zh-cn: chispa_nc\localization\en-us.json
+    zh-tw: chispa_nc\localization\en-us.json
+    cz-cz: chispa_nc\localization\en-us.json
+    hu-hu: chispa_nc\localization\en-us.json
+    tr-tr: chispa_nc\localization\en-us.json
+    ar-ar: chispa_nc\localization\en-us.json
+    th-th: chispa_nc\localization\en-us.json
+    ua-ua: chispa_nc\localization\en-us.json

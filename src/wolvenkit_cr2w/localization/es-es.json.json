@@ -1,0 +1,2231 @@
+{
+  "Header": {
+    "WolvenKitVersion": "9.1.1",
+    "WKitJsonVersion": "0.0.9",
+    "GameVersion": 2310,
+    "ExportedDateTime": "2026-11-18T11:00:00.0000000Z",
+    "DataType": "CR2W",
+    "ArchiveFileName": "chispa_nc\\localization\\es-es.json"
+  },
+  "Data": {
+    "Version": 195,
+    "BuildVersion": 0,
+    "RootChunk": {
+      "$type": "JsonResource",
+      "cookingPlatform": "PLATFORM_PC",
+      "root": {
+        "HandleId": "0",
+        "Data": {
+          "$type": "localizationPersistenceOnScreenEntries",
+          "entries": [
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Rocco «Palanca» Briggs",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_rocco_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Tino «Calambres» Cruz",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_tino_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Coprocesador C.H.I.S.P.A. v0.98b",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_item_dongle_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Coprocesador ejecutivo de conserjería Zetatech 2022 previo al DataKrash, saboteado con sarcasmo de la época de Bartmoss. Se enlaza a tus ópticas Kiroshi y holoteléfono.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_item_dongle_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Cortesía Ejecutiva",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_lex_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "M-10AF Lexington recalibrada por C.H.I.S.P.A. usando tablas ejecutivas de Zetatech de 2022 con descarga eléctrica adicional.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_lex_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "CORTESÍA EJECUTIVA: Inflige +18 de daño eléctrico adicional, +12 % de probabilidad de crítico y recarga un 20 % más rápida.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_lex_ability"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "DEBILIDAD: Ópticas callejeras sin blindaje (Daño Eléctrico) // NOTA: Intentando abrir titanio Zetatech de 2022 con una llave inglesa.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_rocco_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "DEBILIDAD: Batería barata sin toma de tierra // ENTORNO: ¡Justo al lado de un condensador industrial inestable listo para estallar!",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_tino_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "CHISPA v0.98b",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_contact_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "CONSERJERÍA ZETATECH // SIN CLIPS",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_conv_ep00_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¡Tique #2022-NC abierto! Dos cerebros de oferta están aporreando mi maletín detrás del Megaedificio H10. Sálvame y te transfiero tu bono de bienvenida.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_ep00_hook"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Espera... ¿en serio eres un bot de atención al cliente de 2022?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_choice_century"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Mándame las coordenadas del solar tras H10 y ve preparando esos edis.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_choice_coords"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Espera... ¿en serio eres un bot de atención al cliente de 2022?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_v_century"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¡Técnicamente un Instructor Táctico Ejecutivo con el filtro corporativo reventado! Cero censura y muy mala leche. ¡Mueve el culo detrás de H10 ya!",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_reply_century"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Mándame las coordenadas del solar tras H10 y ve preparando esos edis.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_v_coords"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Coordenadas enviadas a tu GPS Kiroshi: línea amarilla, imposible perderse. Consejo: escanéalos a ellos y al condensador antes de gastar balas.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_reply_coords"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¡Sociedad registrada! Cuida tu «Cortesía Ejecutiva»; ya rastreo frecuencias en Watson buscando mis cinco sectores perdidos. Próxima parada: Kabuki.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_ep00_summary"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Protocolo CHISPA: Bienvenido a Night City",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_quest_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Responde al mensaje de CHISPA v0.98b en tu holoteléfono.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep00_01"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Un veterano asistente holográfico de 2022 con modos de sargento chusquero ha interceptado tus ópticas Kiroshi: dos matones intentan reventar su maletín detrás del Megaedificio H10. Responde a su SMS para fijar la señal.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep00_01"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Ve al solar trasero del Megaedificio H10, escanea a los matones con [TAB] y despeja la zona.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep00_02"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Localiza a los dos matones en el solar trasero del Megaedificio H10. Usa el escáner Kiroshi [TAB] para inspeccionarlos y detectar trampas eléctricas antes de lanzarte.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep00_02"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Extrae y conecta el coprocesador C.H.I.S.P.A. v0.98b del maletín de Zetatech.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep00_03"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Con Rocco y Tino fuera de combate, conecta el coprocesador de Zetatech que brilla sobre el maletín blindado para cobrar tu recompensa inicial.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep00_03"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Habla con CHISPA sobre el origen de Night City y cierra vuestro trato.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep00_04"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "CHISPA ya está conectado a tu enlace Kiroshi. Pregúntale cómo Richard Night y las Guerras Corporativas levantaron esta jungla vertical y cierra vuestro acuerdo.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep00_04"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Rescataste a C.H.I.S.P.A. v0.98b tras el Megaedificio H10, cobraste 1.500 edis más la pistola icónica «Cortesía Ejecutiva» y sellaste un trato para recuperar sus cinco sectores perdidos por Night City.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep00_done"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "GUÍA CALLEJERA DE CHISPA // VOL. 0: RICHARD NIGHT Y TUS ÓPTICAS KIROSHI",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_shard_ep00_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "NOTA 01 — ÓPTICAS KIROSHI: Jamás dispares a ciegas. Mantén [TAB] para leer vulnerabilidades elementales, recompensas de la NCPD y condensadores listos para freír enemigos cerca.\n\nNOTA 02 — NIGHT CITY (1994-1998): El empresario Richard Night fundó Coronado City como paraíso libre de impuestos con Arasaka, Petrochem y EBM... y contratando a la mafia para limpiar solares. En 1998 lo asesinaron en su propio ático. Rebautizaron la ciudad con su apellido y repartieron los restos.\n\nNOTA 03 — MEGAEDIFICIOS: Tras el bombazo nuclear de bolsillo de 2023 en la Cuarta Guerra Corporativa, colmenas como el H10 nacieron como arcologías autosuficientes de emergencia. Hoy cada planta es una jungla de bandas.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_shard_ep00_text"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "CHISPA Ep. 0: Solar trasero H10",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_mappin_ep00_alley"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "CHISPA: Condensador inestable",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_mappin_ep00_cap"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "CHISPA Ep. 0: Terminal Zetatech 2022",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_mappin_ep00_console"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] Señal retro-2022 interceptada — Revisa tu holoteléfono",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep00_start"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] ¡Condensador sobrecargado! Descarga eléctrica ejecutada",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep00_cap"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] Coprocesador conectado (+1.500 €$ y «Cortesía Ejecutiva»)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep00_claimed"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] Episodio 0 completado — Atento al próximo aviso en Kabuki",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep00_done"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Condensador Industrial Inestable",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_cap_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sobrecargar condensador industrial [Kiroshi]",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_act_overload_cap"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Terminal Táctico Zetatech 2022",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_console_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Conectar coprocesador C.H.I.S.P.A. v0.98b",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_act_claim_chispa"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "C.H.I.S.P.A. v0.98b (Enlace Kiroshi)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_chispa_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Hablar con CHISPA",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_act_talk_chispa"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Mirando este sitio... ¿quién demonios diseñó Night City así?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep00_night"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¿Y estos Megaedificios gigantes? Parecen cárceles verticales.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep00_mega"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Vale, no eres un clip. ¿Cuál es el trato contigo a partir de ahora?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep00_deal"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Trato hecho, Chispa. Avísame cuando rastrees tu primer sector en Kabuki.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep00_accept"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Saltar línea",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hint_skip_line"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "CHISPA",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_speaker_chispa"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "V",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_speaker_v"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Rocco",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_speaker_rocco"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Kostya",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_speaker_kostya"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Kostya «Cortafuegos» Morozov",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_kostya_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Vadik «Sierra» Petrov",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_vadik_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Zina «Bisturí» Volkov",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_zina_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "ROL: Netrunner carroñero // ENLACE: Conectado a las cámaras y al repetidor RABIDS — Toma la Cámara 01 para encadenar con la 02, lanzar Ping o freír su terminal.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_kostya_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "ROL: Fusilero carroñero // DEBILIDAD: Enlace callejero sin cortafuegos — ¡Vulnerable a Cortocircuito / Sobrecalentar o descarga del repetidor RABIDS!",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_vadik_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "ROL: Miliciana de filo // DEBILIDAD: Ópticas pirateadas — ¡Reinicia sus ópticas o detona el servidor Entropy junto al perímetro!",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_zina_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sector de Memoria C.H.I.S.P.A. #01 (Era Bartmoss)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_item_sec01_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sector holográfico de 2022 recuperado con registros forenses de la era Bartmoss y firmas de daemons sin censura.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_item_sec01_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Frecuencia Fantasma",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_sara_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Subfusil M221 Saratoga recalibrado por C.H.I.S.P.A. con armónicos rescatados de NetWatch para arcos eléctricos rápidos.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_sara_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "FRECUENCIA FANTASMA: Inflige +22 de daño eléctrico adicional, +15 % de probabilidad de crítico y recarga un 22 % más rápida.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_sara_ability"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "SUBRED KABUKI // ECO DEL SECTOR 01",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_conv_ep01_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¡Recluta! He fijado mi Sector #01 en el paseo fluvial de Kabuki Creek. Unos carroñeros lo protegen tras dos cámaras enlazadas y un servidor Entropy explosivo. Contesta y te paso el daemon Ping.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_ep01_hook"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¿Un núcleo de 2022 zumbando dentro de cámaras de carroñeros?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_choice_ep01_ghost"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Mándame las coordenadas en Kabuki. Vamos a arrancárselo.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_choice_ep01_scavs"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¿Un núcleo de 2022 zumbando dentro de cámaras de carroñeros?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_v_ep01_ghost"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sí: su netrunner Kostya está exprimiendo mis subredes de la era Bartmoss para destripar cromo robado. Secuestra la Cámara 01, salta a la 02, tira Ping o revienta el repetidor rojo RABIDS.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_reply_ep01_ghost"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Mándame las coordenadas en Kabuki. Vamos a arrancárselo.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_v_ep01_scavs"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Ruta cargada en tu GPS (línea amarilla). Daemon Ping listo en tu inventario; y si no usas ciberterminal, escanea el repetidor rojo RABIDS para fundir toda su subred.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_reply_ep01_scavs"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¡Sector #01 sincronizado! Disfruta de «Frecuencia Fantasma»; el próximo barrido apunta al norte, hacia los talleres de Maelstrom en Northside.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_ep01_summary"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Protocolo CHISPA: Fantasmas en la Cámara",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_quest_ep01_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Responde al aviso de señal en Kabuki de CHISPA en tu holoteléfono.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep01_01"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "CHISPA ha localizado su primer sector robado dentro de una subred de cámaras carroñeras en Kabuki Creek. Responde a su SMS para recibir un hackeo Ping y fijar las coordenadas GPS.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep01_01"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Infíltrate en Kabuki Creek: toma las cámaras en cadena, lanza Ping o sobrecarga la subred y neutraliza a los carroñeros.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep01_02"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Acércate al paseo fluvial sur de Kabuki Creek. Usa [TAB] para tomar el control de la Cámara 01 y saltar en cadena a la Cámara 02, lanzar Ping o hackeos rápidos, detonar su servidor Entropy... o sobrecargar el nodo repetidor RABIDS a distancia.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep01_02"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Extrae el Sector de Memoria #01 del Terminal Entropy.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep01_03"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Con la célula de Kostya neutralizada, extrae el Sector #01 de C.H.I.S.P.A. del Terminal Entropy al fondo del paseo para cobrar tu paga y tu subfusil icónico.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep01_03"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Habla con CHISPA sobre Rache Bartmoss, el DataKrash y el Muro Negro.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep01_04"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "El Sector #01 ya está enlazado en tus ópticas Kiroshi estés donde estés de Night City. Pregunta a CHISPA por Rache Bartmoss, el virus RABIDS del DataKrash y el Muro Negro.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep01_04"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Crackeastes la subred de cámaras de Kabuki Creek, recuperaste el Sector de Memoria #01, obtuviste 2.200 edis junto a hackeos de nivel 2 y el subfusil icónico «Frecuencia Fantasma», y descubriste la verdad sobre el DataKrash.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep01_done"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "GUÍA CALLEJERA DE CHISPA // VOL. 1: BARTMOSS, DATAKRASH Y MURO NEGRO",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_shard_ep01_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "NOTA 01 — CÁMARAS, PING Y RASTREO: Nunca entres por la puerta si hay una lente en el poste. Secuestra una cámara, salta en cadena por la subred, lanza Ping para marcar objetivos y servidores explosivos tras los muros, y silencia al netrunner enemigo antes de que cierre el rastreo.\n\nNOTA 02 — RACHE BARTMOSS Y EL DATAKRASH (2022): El legendario netrunner Rache Bartmoss ocultó su cuerpo en una cámara criogénica conectada a un interruptor de hombre muerto. Cuando un ataque corporativo acabó con él en 2022, liberó el virus RABIDS: daemons mutantes que tumbaron el 78,3 % de la Red mundial en horas, obligando a la humanidad a fragmentar internet en subredes locales.\n\nNOTA 03 — EL MURO NEGRO: Para no extinguirse digitalmente, NetWatch levantó el Muro Negro: no es un simple cortafuegos, sino una IA fronteriza conteniendo al otro lado a las inteligencias artificiales salvajes de la Vieja Red.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_shard_ep01_text"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "CHISPA Ep. 1: Subred Kabuki Creek",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_mappin_ep01_kabuki"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "CHISPA Ep. 1: Terminal Entropy",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_mappin_ep01_terminal"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] Eco detectado en Kabuki — Revisa tu holoteléfono",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep01_start"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] ¡Daemon Ping instalado! Ruta a Kabuki Creek activa",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep01_ping_gift"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] ¡Sobrecarga RABIDS ejecutada! Retorno eléctrico en subred",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep01_surge"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] Sector #01 conectado (+2.200 €$, hackeos y «Frecuencia Fantasma»)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep01_claimed"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] Episodio 1 completado — Próxima pista en Northside",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep01_done"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "NODO REPETIDOR RABIDS",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_relay_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sobrecargar repetidor RABIDS [Kiroshi]",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_act_surge_relay"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "TERMINAL DE DATOS ENTROPY",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_ep01_term_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Extraer Sector de Memoria #01 [C.H.I.S.P.A.]",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_act_claim_sec01"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "C.H.I.S.P.A. // SECTOR #01 (Enlace Kiroshi)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_ep01_talk_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¿Quién fue Rache Bartmoss realmente y cómo tumbó toda la Red?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep01_bartmoss"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¿Qué pasó exactamente con el virus RABIDS y el DataKrash de 2022?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep01_krash"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¿Por qué nadie tumba el Muro Negro de NetWatch y recupera la vieja Red?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep01_blackwall"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Recibido, Chispa. Avísame cuando fijes el Sector #02 en Northside.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep01_accept"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "CAM-01 PERÍMETRO",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_cam_ep01_perim"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "CAM-02 NODO RABIDS",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_cam_ep01_server"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Krag",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_speaker_krag"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Krag «Cobalto» Hollis",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_krag_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Vex «Óptica Roja»",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_vex_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Tuerca",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_tuerca_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "ROL: Cabecilla Maelstrom de cromo // ENLACE: Torreta automática y depósito presurizado CHOOH2 — Pon la torreta en modo aliado, tómala con [TAB] o vuela el tanque.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_krag_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "ROL: Fusilera Maelstrom // DEBILIDAD: Ópticas sin filtro térmico — Vulnerable a Reinicio de Ópticas, granada PEM o explosión del depósito CHOOH2.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_vex_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "ROL: Asaltante Maelstrom con machete // DEBILIDAD: Actuadores hidráulicos expuestos — Vulnerable a granada PEM, Avería de Armas o fuego de su propia torreta.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_tuerca_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sector de Memoria C.H.I.S.P.A. #02 (Telemetría Cromada)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_item_sec02_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sector de 2022 recuperado con registros biométricos de abuso de implantes en Maelstrom, umbrales de ciberpsicosis y planos balísticos de precisión tecnológica.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_item_sec02_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Cláusula Perforante",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_ach_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Fusil de precisión tecnológico M-179E Achilles rebobinado por C.H.I.S.P.A. con condensadores Zetatech de 2022 para carga ultrarrápida y penetración eléctrica tras cobertura.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_ach_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "CLÁUSULA PERFORANTE: +26 de daño eléctrico, +16 % de probabilidad de crítico, carga tecnológica un 24 % más rápida y recarga un 20 % más veloz.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_ach_ability"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "MUELLE NORTHSIDE // ECO DEL SECTOR 02",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_conv_ep02_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¡Recluta! El Sector #02 acaba de saltar en un muelle Maelstrom de Northside: tres yonquis del cromo, una torreta automática y un tanque de CHOOH2 presurizado. Contesta y te paso contramedidas PEM más la ruta.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_ep02_hook"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¿Maelstrom? ¿Los fanáticos de ojos rojos que se arrancan la cara por cromo?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_choice_ep02_cult"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Mándame el marcador del muelle en Northside y esas contramedidas PEM.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_choice_ep02_docks"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¿Maelstrom? ¿Los fanáticos de ojos rojos que se arrancan la cara por cromo?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_v_ep02_cult"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Los mismos. Destripan mi Sector #02 bajo una torreta armada. Hackea la torreta como aliada, arráncala, lanza la granada PEM que te he cargado o purga el regulador CHOOH2 del muelle.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_reply_ep02_cult"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Mándame el marcador del muelle en Northside y esas contramedidas PEM.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_v_ep02_docks"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Ruta amarilla activa hasta los muelles de Northside, más granada PEM y daemon Avería de Armas en tu mochila. Consejo: lo eléctrico y tecnológico atraviesa su blindaje.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_reply_ep02_docks"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¡Sector #02 calibrado! Disfruta de «Cláusula Perforante»; mi antena ya huele contenedores sucios moviéndose cerca de los muelles corporativos en Watson.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_ep02_summary"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Protocolo CHISPA: Más Hierro que Carne",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_quest_ep02_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Responde al aviso de señal en Northside de CHISPA en tu holoteléfono.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep02_01"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "CHISPA ha rastreado el Sector de Memoria #02 hasta un muelle Maelstrom en Northside custodiado por una torreta automática. Responde a su SMS para equipar contramedidas PEM y fijar la ruta.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep02_01"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Asalta el muelle Maelstrom de Northside: sabotea la torreta o detona el depósito CHOOH2 y neutraliza a la banda.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep02_02"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Acércate al muelle industrial de Northside. Usa [TAB] para volver aliada o controlar la torreta, vuela el depósito CHOOH2 (o purga su regulador con [F]/Kiroshi) y derrota a la cuadrilla de Krag.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep02_02"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Extrae el Sector de Memoria #02 del terminal quirúrgico Maelstrom.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep02_03"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Con la cuadrilla fuera de combate, extrae el Sector #02 de C.H.I.S.P.A. del terminal quirúrgico sobre el muelle para cobrar tu pago y el fusil tecnológico icónico.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep02_03"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Habla con CHISPA sobre Maelstrom, la Ciberpsicosis y MaxTac.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep02_04"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "El Sector #02 ya está enlazado en tus ópticas Kiroshi por toda Night City. Pregunta a CHISPA por Maelstrom, la verdad sobre la Ciberpsicosis y la unidad MaxTac.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep02_04"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Desarticulaste la defensa de Maelstrom en los muelles de Northside, recuperaste el Sector #02, obtuviste 2.800 edis junto a Reinicio de Ópticas y el fusil tecnológico icónico «Cláusula Perforante», y descubriste la verdad tras la ciberpsicosis.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep02_done"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "GUÍA CALLEJERA DE CHISPA // VOL. 2: ARMAS TECNOLÓGICAS, CIBERPSICOSIS Y MAXTAC",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_shard_ep02_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "NOTA 01 — TORRETAS Y ARMAS TECNOLÓGICAS: Una torreta automática barre cualquier callejón si entras a lo loco, pero se desarma con Hackeo de Amistad, Avería de Armas, granadas PEM o arrancándola a mano. Y un fusil tecnológico cargado atraviesa coberturas enteras con proyectiles electromagnéticos.\n\nNOTA 02 — MAELSTROM Y NORTHSIDE: Levantado como corazón logístico de fábricas y muelles tras la reconstrucción, Northside acabó dominado por Maelstrom: antiguos exiliados de otras bandas transformados en un culto extremista al cromo que sustituye rostro y nervios por metal bruto.\n\nNOTA 03 — CIBERPSICOSIS Y MAXTAC: Las corporaciones reducen la ciberpsicosis a un fallo técnico para vender más implantes, ocultando que nace de la mezcla de trauma bélico, miseria, fármacos experimentales y cromo sin control. Cuando alguien rompe la correa, llega MaxTac: cazadores de élite nutridos en parte con antiguos ciberpsicópatas capturados y recondicionados.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_shard_ep02_text"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "CHISPA Ep. 2: Muelles de Northside",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_mappin_ep02_northside"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "CHISPA Ep. 2: Terminal Quirúrgico",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_mappin_ep02_rig"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] Señal cromada en Northside — Revisa tu holoteléfono",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep02_start"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] ¡Granada PEM y Avería de Armas cargadas! Ruta a Northside activa",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep02_gear"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] ¡Torreta Maelstrom saboteada! Defensa automática neutralizada",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep02_turret"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] ¡Regulador CHOOH2 purgado! Depósito presurizado detonado",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep02_purge"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] Sector #02 conectado (+2.800 €$, hackeo y «Cláusula Perforante»)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep02_claimed"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] Episodio 2 completado — Próximo barrido en camino",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep02_done"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "REGULADOR DE PRESIÓN CHOOH2",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_ep02_reg_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Purgar regulador CHOOH2 y tumbar torreta [Kiroshi]",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_act_purge_reg"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "ESTACIÓN QUIRÚRGICA MAELSTROM",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_ep02_rig_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Extraer Sector de Memoria #02 [C.H.I.S.P.A.]",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_act_claim_sec02"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "C.H.I.S.P.A. // SECTOR #02 (Enlace Kiroshi)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_ep02_talk_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¿De dónde salieron exactamente Maelstrom y este cementerio industrial de Northside?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep02_maelstrom"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¿La ciberpsicosis ocurre de verdad solo por pasarse metiendo demasiado cromo?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep02_psycho"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¿Quiénes son en realidad los de MaxTac? ¿Policías de élite o perros con correa?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep02_maxtac"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Anotado, Chispa. Avísame en cuanto tengas fijado el Sector #03.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep02_accept"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Aiko «Kitsune» Mori",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_aiko_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Kenji «Tinta» Sato",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_kenji_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Ren «Espejo» Takahashi",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_ren_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Aiko",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_speaker_aiko"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "ROL: Jefa de célula Garra de Tigre // CIBERWARE: ¡Tatuajes inhibidores sincronizados con Arasaka! Desvían balas inteligentes salvo que inviertas la baliza IFF o detones el condensador.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_aiko_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "ROL: Sicario de hoja corta // DEBILIDAD: ¡Justo junto al condensador explosivo de antena Arasaka y con inhibidor dérmico inteligente!",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_kenji_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "ROL: Tiradora Garra de Tigre // CIBERWARE: Tinta inhibidora dérmica — Vulnerable a reinicio de ópticas, borrado de memoria o caída de la baliza IFF.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_ren_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sector de Memoria C.H.I.S.P.A. #03 (Archivos del Rojo)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_item_sec03_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Núcleo holográfico recuperado (2022–2070) con informes sin censurar de la Cuarta Guerra Corporativa, la Era del Rojo y la Guerra de Unificación.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_item_sec03_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Curva Ejecutiva",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_shin_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Subfusil inteligente Shingen incautado en el muelle de Arasaka y flasheado con el puente de puntería Zetatech de C.H.I.S.P.A. para perforar inhibidores.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_shin_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "CURVA EJECUTIVA: Integra puente de puntería inteligente Zetatech, +20 de daño eléctrico y +16 químico, +16 % de probabilidad de crítico, +35 % de precisión inteligente perfora-inhibidores, fijado un 28 % más rápido y recarga un 20 % más veloz.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_shin_ability"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "MUELLE SUR // ECO DEL SECTOR 03",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_conv_ep03_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¡Recluta! El Sector #03 acaba de parpadear dentro de una caja negra de Arasaka en el muelle sur de Watson Waterfront, en manos de los Garras de Tigre. Responde y te activo el puente de puntería inteligente junto a una pistola Kang Tao Chao de prueba.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_ep03_hook"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Espera... ¿desde cuándo los Garras de Tigre desvían balas inteligentes?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_choice_ep03_claws"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sube el puente inteligente y mándame el marcador del muelle sur.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_choice_ep03_quay"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Espera... ¿desde cuándo los Garras de Tigre desvían balas inteligentes?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_v_ep03_claws"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¡Desde que Arasaka les inyectó tinta inhibidora militar bajo la piel! Pruébalo disparando y verás cómo esquivan las balas... o invierte primero su baliza IFF antes de soltar ráfagas. ¡Equipo enviado a tu inventario!",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_reply_ep03_claws"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sube el puente inteligente y mándame el marcador del muelle sur.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_v_ep03_quay"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Línea amarilla en marcha hasta el muelle sur de Watson, más pistola inteligente Kang Tao Chao, daemon Borrado de Memoria y puente Smart activo en tus manos. ¡Ojo con sus tatuajes inhibidores!",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_reply_ep03_quay"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¡Sector #03 sincronizado! Disfruta de «Curva Ejecutiva»; en cuanto se levanten los puentes de Watson hacia Heywood y Santo Domingo iremos a por el Sector #04.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_ep03_summary"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Protocolo CHISPA: Balas que Doblan Esquinas",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_quest_ep03_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Responde al aviso de señal en el muelle sur de CHISPA en tu holoteléfono.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep03_01"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "CHISPA ha fijado el Sector #03 en un alijo corporativo de Arasaka custodiado por los Garras de Tigre en el muelle sur de Watson. Responde a su SMS para recibir una pistola inteligente Kang Tao Chao y el puente de puntería Kiroshi.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep03_01"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Neutraliza a la célula Garra de Tigre en el muelle sur: invierte su baliza inhibidora IFF, detona la antena o abátelos.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep03_02"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Acércate al muelle sur de Watson Waterfront. Escanea con [TAB] o prueba tu arma inteligente: si sus tatuajes inhibidores desvían el tiro, invierte la baliza IFF con [F] o vuela la antena explosiva de Arasaka antes de rematar al escuadrón.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep03_02"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Extrae el Sector de Memoria #03 del contenedor corporativo de Arasaka.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep03_03"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Con la célula de Aiko fuera de combate, extrae el Sector #03 de C.H.I.S.P.A. de la caja de Arasaka en el muelle para cobrar tu paga y tu subfusil inteligente icónico.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep03_03"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Habla con CHISPA sobre la bomba nuclear de 2023, la Guerra de Unificación y los Garras de Tigre.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep03_04"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "El Sector #03 ya está sincronizado en tus ópticas Kiroshi por toda Night City. Pregunta a CHISPA por el atentado nuclear de 2023, la Guerra de Unificación de 2069 y el pacto oculto entre Arasaka y los Garras de Tigre.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep03_04"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Rompiste la pantalla inhibidora de los Garras de Tigre en el muelle sur de Watson, recuperaste el Sector #03, ganaste 3.400 edis junto a Contagio niv. 2 y el subfusil inteligente icónico «Curva Ejecutiva», y destapaste medio siglo de guerras corporativas.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep03_done"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "GUÍA CALLEJERA DE CHISPA // VOL. 3: BALAS INTELIGENTES, ERA DEL ROJO Y UNIFICACIÓN",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_shard_ep03_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "NOTA 01 — ARMAS INTELIGENTES E INHIBIDORES DÉRMICOS: Las armas inteligentes lanzan microproyectiles guiados conectados al Enlace Inteligente de tu palma para curvar el tiro tras cualquier esquina. Sin embargo, los tatuajes dérmicos de Arasaka que llevan los Garras de Tigre interfieren en la guiada y desvían las balas en el último metro salvo que inutilices su baliza IFF, reinicies sus ópticas o dispares con calibración icónica reforzada.\n\nNOTA 02 — LA BOMBA DE ARASAKA DE 2023 Y LA ERA DEL ROJO: El 20 de agosto de 2023, en plena Cuarta Guerra Corporativa entre Militech y Arasaka, un equipo de asalto con Morgan Blackhand y Johnny Silverhand voló la Torre Arasaka con un artefacto nuclear táctico. La ceniza radiactiva tiñó el cielo de escarlata durante años —la Era del Rojo—, borró el centro antiguo y enterró bajo escombros mil secretos que ninguna megaempresa admite todavía.\n\nNOTA 03 — GUERRA DE UNIFICACIÓN (2069–2070) Y GARRAS DE TIGRE: Cuando la presidenta Myers del NUSA y Militech invadieron los Estados Libres para reanexarlos a la fuerza, Night City salvó su independencia gracias a la llegada de un superportaaviones de Arasaka a la bahía. Desde entonces Arasaka domina la sombra financiera mientras usa a bandas como los Garras de Tigre —nacidos en Japantown y ligados al contrabando portuario— como brazo ejecutor negable.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_shard_ep03_text"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "CHISPA Ep. 3: Muelle Sur de Arasaka",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_mappin_ep03_waterfront"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "CHISPA Ep. 3: Alijo Corporativo",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_mappin_ep03_rig"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] Eco corporativo en el muelle sur — Revisa tu holoteléfono",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep03_start"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] ¡Pistola inteligente Chao y Puente Smart activos! Ruta trazada",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep03_gear"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] ¡Inhibidor Garra de Tigre frito! Balas inteligentes al 100 %",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep03_jammer"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] Sector #03 conectado (+3.400 €$, Contagio y «Curva Ejecutiva»)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep03_claimed"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] Episodio 3 completado — Campaña en Watson finalizada",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep03_done"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "BALIZA INHIBIDORA IFF ARASAKA",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_ep03_pylon_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Invertir baliza IFF y sobrecargar condensador [Kiroshi]",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_act_invert_pylon"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "CONTENEDOR NEGRO DE ARASAKA",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_ep03_rig_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Extraer Sector de Memoria #03 [C.H.I.S.P.A.]",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_act_claim_sec03"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "C.H.I.S.P.A. // SECTOR #03 (Enlace Kiroshi)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_ep03_talk_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¿De verdad volaron la Torre Arasaka con una bomba nuclear en medio de Night City en 2023?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep03_nuke"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¿Cómo acabó Night City fuera del NUSA tras la Guerra de Unificación?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep03_unification"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¿De dónde salieron los Garras de Tigre y por qué reciben cromo táctico de Arasaka?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep03_tygers"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Entendido, Chispa. Avísame cuando abran los puentes hacia Heywood para el Sector #04.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep03_accept"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sector de Memoria C.H.I.S.P.A. #04 (Balística y Archivo 2070)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_item_sec04_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Núcleo de memoria táctico rescatado de un trapicheo entre desertores de la Calle 6 y traficantes de Heywood. Restaura los archivos sobre Valentinos, Calle 6 y la economía del cromo en C.H.I.S.P.A. v0.98b.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_item_sec04_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Geometría Callejera",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_masa_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Fusil de asalto por ráfagas HJSH-18 Masamune recalibrado por C.H.I.S.P.A. para combate de rebote urbano. Convierte cualquier muro, contenedor o acera de Night City en una esquina letal.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_masa_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Óptica de Trayectoria Balística: +22 Daño Térmico, +15% Probabilidad Crítica, +2 Rebotes extra, +50% Probabilidad de Rebote, +35% Daño de Rebote, +20% Probabilidad Crítica al rebote y recarga un 20% más rápida.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_masa_ability"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sargento Buck «Barras» Miller",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_buck_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Veterano de la Guerra de Unificación reciclado en traficante de Calle 6. Lleva blindaje dérmico militar conectado a un depósito térmico cercano: un disparo de rebote o una sobrecarga al relé lo dejarán sin cobertura.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_buck_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Cabo Tammy «Chapa» Brooks",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_tammy_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Tiradora veterana de Calle 6 que vigila el intercambio en Arroyo. Vulnerable si usas el visor de trayectoria para hacer rebotar balas de potencia tras su cobertura.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_tammy_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Mateo «Cuervo» Salgado",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_mateo_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Enlace de los Valentinos en la frontera de Heywood intercambiando cromo antiguo y revólveres por chatarra del NUSA. Letal a media distancia con su Overture, pero sin blindaje contra explosivos.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_mateo_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "FRONTERA ARROYO // ECO DEL SECTOR 04",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_conv_ep04_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¡Recluta! Se acabó la cuarentena de Watson: acabo de cazar el Sector #04 entre Heywood y Santo Domingo, en mitad de un trapicheo entre los de Calle 6 y los Valentinos en Arroyo. Contesta para proyectar líneas de rebote balístico en tus Kiroshi y recibir un Copperhead.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_ep04_hook"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¿Valentinos y Calle 6 haciendo negocios juntos? Creía que no se podían ni ver.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_choice_ep04_gangs"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Activa el visor de rebote balístico y mándame las coordenadas de Arroyo.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_choice_ep04_coords"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¿Valentinos y Calle 6 haciendo negocios juntos? Creía que no se podían ni ver.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_v_ep04_gangs"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "El honor de barrio dura exactamente hasta que aparece un alijo militar con descuento. Equipo enviado: fusil de potencia Copperhead, dos granadas de fragmentación, curativos y visor de rebote Kiroshi activo.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_reply_ep04_gangs"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Activa el visor de rebote balístico y mándame las coordenadas de Arroyo.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_v_ep04_coords"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Puente balístico calibrado y ruta amarilla activa hasta el patio de Arroyo. Mira dónde rebotan los trazos en el suelo antes de disparar o sobrecarga su relé balístico.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_reply_ep04_coords"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¡Sector #04 en línea y «Geometría Callejera» en tu poder! Prepárate: el último fragmento de memoria acaba de emitir un eco brutal desde la Zona de Combate de Pacifica.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_ep04_summary"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Protocolo CHISPA: Honor, Chatarra y Patriotas de Cartón",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_quest_ep04_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Responde al aviso de frontera en Arroyo de CHISPA en tu holoteléfono.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep04_01"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Con Night City abierta tras El Golpe, CHISPA ha localizado el Sector #04 en un intercambio entre veteranos de Calle 6 y Valentinos en Arroyo. Contesta a su SMS para recibir un Copperhead y el visor de rebote.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep04_01"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Despeja el patio de Arroyo: castiga con rebotes de potencia, sobrecarga el relé balístico o vuela su depósito NUSA.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep04_02"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Acércate al patio del trapicheo en Arroyo. Apunta con un arma de potencia para ver las líneas de rebote contra el suelo o paredes, sobrecarga su relé con [F] o haz estallar el depósito NUSA.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep04_02"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Extrae el Sector de Memoria #04 del alijo de contrabando.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep04_03"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Con la célula neutralizada, recoge el Sector #04 de la caja verde de contrabando para cobrar 4.200 edis, Fallo de Ciberware niv. 2 y el fusil icónico «Geometría Callejera».",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep04_03"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Habla con CHISPA sobre los Valentinos, Calle 6 y el negocio sucio del cromo.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep04_04"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "El Sector #04 ya está sincronizado en tus Kiroshi por toda Night City. Pregunta a CHISPA por los Valentinos de Heywood, los patriotas de Calle 6 y el negocio del cromo.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep04_04"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Reventaste el intercambio entre Calle 6 y Valentinos en Arroyo, recuperaste el Sector #04, cobraste 4.200 edis junto a Fallo de Ciberware niv. 2 y «Geometría Callejera», y fijaste el rastro hacia Pacifica.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep04_done"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "GUÍA CALLEJERA DE CHISPA // VOL. 4: REBOTE BALÍSTICO, HEYWOOD, CALLE 6 Y ECONOMÍA DEL CROMO",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_shard_ep04_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "NOTA 01 — ARMAS DE POTENCIA Y REBOTE BALÍSTICO: Frente a la penetración tecnológica o las balas inteligentes guiadas, las armas de potencia sacan partido a la física pura: al apuntar con un coprocesador balístico ves la línea exacta de rebote en el suelo o las paredes para alcanzar a enemigos agachados tras cobertura con daño y crítico aumentados.\n\nNOTA 02 — HEYWOOD Y LOS VALENTINOS: Entre altares a la Santa Muerte, coches bajos y cromo dorado, los Valentinos presumen de código familiar mientras cobran mordidas, cierran pactos turbios y entierran a quien estorba.\n\nNOTA 03 — CALLE 6 Y LA DEUDA DEL CROMO: Nacidos como patrulla vecinal de excombatientes de la Guerra de Unificación en Santo Domingo, Calle 6 degeneró en traficantes de chatarra militar, extorsión y purgas internas. Y recuerda la regla de oro de Night City: casi nadie paga su cromo al contado; si te quedas sin edis o te echan del curro corporativo, tu implante pasa a embargo.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_shard_ep04_text"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "CHISPA Ep. 4: Patio de Contrabando (Arroyo)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_mappin_ep04_border"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "CHISPA Ep. 4: Alijo Fronterizo",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_mappin_ep04_rig"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] Puentes abiertos — Eco del Sector #04 en Arroyo",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep04_start"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] ¡Copperhead y visor de rebote activos! Ruta a Arroyo fijada",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep04_gear"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] ¡Relé balístico y depósito NUSA reventados!",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep04_cache"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] Sector #04 conectado (+4.200 €$, Fallo Ciberware y «Geometría Callejera»)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep04_claimed"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] Episodio 4 completado — Último rastro detectado en Pacifica",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep04_done"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "RELÉ BALÍSTICO // CALLE 6",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_ep04_relay_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sobrecargar relé hacia el depósito de munición NUSA [Kiroshi]",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_act_overload_ep04"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "ALIJO FRONTERIZO // ARROYO",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_ep04_rig_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Extraer Sector de Memoria #04 [C.H.I.S.P.A.]",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_act_claim_sec04"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "C.H.I.S.P.A. // SECTOR #04 (Enlace Kiroshi)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_ep04_talk_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¿Cómo acabó Heywood tan metido entre el culto, el oro y las guerras de los Valentinos?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep04_valentinos"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¿En qué momento pasó Calle 6 de veteranos vecinales a traficantes armados?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep04_sixth"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¿Cómo aguanta la gente de a pie tanta operación de cromo sin acabar desguazada por las deudas?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep04_chrome"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Recibido, Chispa. Vamos a cazar el último Sector #05 en Pacifica.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep04_accept"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sector Maestro C.H.I.S.P.A. #05 (Núcleo del Muro Negro 2022)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_item_sec05_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "El núcleo original de 2022 de C.H.I.S.P.A., amputado por un netrunner del círculo de Bartmoss justo antes del DataKrash y recuperado de los Hijos del Vudú en Pacifica.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_item_sec05_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Cortafuegos del 22",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_ken_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Pistola tecnológica Arasaka Kenshin reconstruida con los registros liberados de 2022 de C.H.I.S.P.A. Atraviesa cobertura sólida con descarga doble eléctrica y térmica.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_ken_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Ruptura del 22: +26 Daño Eléctrico, +20 Daño Térmico, +18% Probabilidad Crítica, carga tecnológica un 26% más rápida, +25% daño al atravesar muros y recarga un 22% más rápida.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_ken_ability"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Última Palabra de Sargento",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_over_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Revólver pesado Overture forjado a medida con la subrutina balística completa de C.H.I.S.P.A.: precisión quirúrgica a la cabeza, descarga eléctrica y doble rebote letal.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_over_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Protocolo Sargento Supremo: +32 Daño Eléctrico, +20% Probabilidad Crítica, +35% Multiplicador en Cabeza, +2 Rebotes extra, +40% Daño de Rebote y recarga un 20% más rápida.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_weapon_over_ability"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "CAM-01 PERÍMETRO PACIFICA",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_cam_ep05_perim"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "CAM-02 NODO MURO NEGRO",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_cam_ep05_server"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Ti-Luc «Loa» Desrosiers",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_tiluc_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Líder de célula de los Hijos del Vudú cosechando fragmentos de IA previos al DataKrash en Coastview. Opera dos cámaras en cadena y un servidor criogénico explosivo.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_tiluc_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Mireille «Sombra» Jean-Baptiste",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_mireille_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Especialista vudú armada con fusil inteligente Sidewinder. Muy vulnerable a la descarga en cadena si revientas el servidor criogénico o el pilón de NetWatch.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_mireille_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Brutus «Maza» Kowalski",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_npc_brutus_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Matón cromado de los Animales contratado como carne de cañón desechable por los Hijos del Vudú. Muy vulnerable a Cortocircuito o al sabotaje del pilón de contención.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_scan_brutus_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "COASTVIEW, PACIFICA // NÚCLEO MAESTRO 05",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_conv_ep05_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Recluta... detén lo que estés haciendo. Mi Sector #05 —el núcleo maestro original de 2022— acaba de lanzar un grito desde Coastview, en Pacifica. Los Hijos del Vudú y matones de los Animales lo están destripando junto a una baliza de NetWatch. Responde para activar todos los puentes Kiroshi y recibir granadas PEM.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_ep05_hook"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¿Hijos del Vudú usando matones de los Animales? Creía que los trataban como carne descartable.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_choice_ep05_voodoo"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Manda el equipo PEM, activa todos los puentes Kiroshi y dime dónde está el nodo en Pacifica.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_choice_ep05_pacifica"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¿Hijos del Vudú usando matones de los Animales? Creía que los trataban como carne descartable.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_v_ep05_voodoo"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Lo son, exacto: por eso si sobrecargas su baliza de NetWatch o el servidor criogénico, la descarga barre a ambos bandos. Enviado: granadas PEM, Cortocircuito niv. 3 y todos tus puentes Kiroshi al máximo.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_reply_ep05_voodoo"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Manda el equipo PEM, activa todos los puentes Kiroshi y dime dónde está el nodo en Pacifica.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_v_ep05_pacifica"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¡Ruta final trazada hacia Coastview, Pacifica! Ya sabes todo lo que hace falta en Night City: cámaras en cadena, PEM, penetración tecnológica, balas inteligentes o rebotes.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_reply_ep05_pacifica"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¡Memoria de Temporada 1 restaurada al 100 %! Ya tienes los cinco volúmenes del códice en tu diario... y gracias por no dejarme oxidado en aquel callejón trasero de Watson, recluta.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_sms_ep05_summary"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Protocolo CHISPA: Más Allá del Muro Negro",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_quest_ep05_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Responde al aviso final de CHISPA en Pacifica en tu holoteléfono.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep05_01"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "El Sector Maestro #05 de 2022 ha aparecido en Coastview (Pacifica) vigilado por los Hijos del Vudú y mercenarios de los Animales junto a un pilón de NetWatch. Responde al SMS para armarte.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep05_01"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Neutraliza a los Hijos del Vudú y Animales en Pacifica combinando netrunning, balística o la purga de contención.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep05_02"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Enfréntate a Ti-Luc en Coastview, Pacifica. Secuestra la cadena de cámaras CAM-01/CAM-02, purga la baliza de contención de NetWatch con [F], vuela su servidor o acaba con ellos combinando todo tu arsenal.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep05_02"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Recupera el Sector Maestro #05 del nodo de Pacifica.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep05_03"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Con Coastview despejado, extrae el Sector Maestro #05 del nodo azul para obtener 5.000 edis, Colapso del Sistema niv. 3, la pistola icónica «Cortafuegos del 22» y la verdad de 2022.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep05_03"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Decide el destino final de C.H.I.S.P.A. en la charla de cierre.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_obj_ep05_04"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Con los cinco sectores sincronizados, escucha la verdad sobre el origen de C.H.I.S.P.A. en 2022 y elige su destino final: socio permanente en tus Kiroshi, filtración abierta a N54 o fusión armera icónica.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep05_04"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Superaste la emboscada de los Hijos del Vudú y Animales en Coastview (Pacifica), restauraste los cinco sectores de memoria de C.H.I.S.P.A., obtuviste la pistola tecnológica icónica «Cortafuegos del 22» y sellaste el destino del viejo sargento holográfico.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_desc_ep05_done"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "GUÍA CALLEJERA DE CHISPA // VOL. 5: PACIFICA, HIJOS DEL VUDÚ Y LA FRONTERA DEL MURO NEGRO",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_shard_ep05_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "NOTA 01 — PACIFICA, EL PARAÍSO ABANDONADO: Proyectada como complejo de lujo corporativo y abandonada a medio construir cuando los inversores huyeron antes de la Guerra de Unificación, Pacifica se convirtió en Zona de Combate independiente sin presencia oficial del NCPD.\n\nNOTA 02 — HIJOS DEL VUDÚ, NETWATCH Y EL MURO NEGRO: Nacidos de la diáspora haitiana tras desastres climáticos, los Hijos del Vudú dominan Pacifica con ICE letal mientras buscan brechas tras el Muro Negro —el cortafuegos inteligente con el que NetWatch contiene a las IAs asesinas de la vieja Red infectada por Bartmoss en 2022—. Para ellos, cualquier mercenario externo es solo un fusible desechable.\n\nNOTA 03 — EXPEDIENTE C.H.I.S.P.A. v0.98b (ZETATECH 2022): Fabricado como asistente ejecutivo corporativo y reescrito días antes del DataKrash por un aprendiz de Bartmoss usando los modales de un sargento chusquero real de 2022, C.H.I.S.P.A. sobrevivió cincuenta y cinco años aislado hasta cruzarse con V tras H10.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_shard_ep05_text"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "CHISPA Ep. 5: Nodo Coastview (Pacifica)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_mappin_ep05_pacifica"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "CHISPA Ep. 5: Bóveda Sector Maestro #05",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_mappin_ep05_rig"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] ¡Núcleo Maestro #05 localizado en Coastview, Pacifica!",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep05_start"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] ¡Kit PEM y puentes Kiroshi completos activos! Ruta a Pacifica abierta",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep05_gear"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] ¡Baliza NetWatch y servidor criogénico purgados en Pacifica!",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep05_cryo"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] Sector Maestro #05 conectado (+5.000 €$, Colapso Sistema y «Cortafuegos del 22»)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep05_claimed"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA v1.0] Socio autónomo fijado en tus Kiroshi (+1.500 €$ y Sinapsis Calcinada Lvl 3)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep05_end_partner"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA // N54] ¡Archivo 2022 filtrado a N54! (+4.500 €$ y Fallo Ciberware Lvl 3)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep05_end_leak"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA // ARMERÍA] ¡Temporada 1 completada! Forjada «Última Palabra de Sargento»",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_ep05_end_gunsmith"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "BALIZA DE CONTENCIÓN // NETWATCH",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_ep05_pylon_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Purgar pulso de contención contra el servidor vudú [Kiroshi]",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_act_purge_ep05"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "NODO MAESTRO #05 // COASTVIEW",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_ep05_rig_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Recuperar Sector Maestro #05 [C.H.I.S.P.A.]",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_act_claim_sec05"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "C.H.I.S.P.A. // NÚCLEO MAESTRO 2022 (Enlace Kiroshi)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_hub_ep05_talk_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¿Cómo pasó Pacifica de proyecto de resort corporativo a esta ruina sin ley?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep05_pacifica"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "¿Por qué se juegan el cuello los Hijos del Vudú hurgando tras el Muro Negro?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep05_voodoo"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Con los cinco sectores enteros... ¿quién te programó realmente en 2022, Chispa?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep05_origin"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[Socio v1.0] Quédate autónomo en mis Kiroshi; seguimos patrullando juntos Night City.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep05_end_partner"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[Filtración N54] Filtra todo el archivo oculto de 2022 a la prensa libre y reparte el cheque.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep05_end_leak"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[Protocolo Armero] Vuelca tu subrutina balística en un último prototipo icónico Overture.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_choice_ep05_end_gunsmith"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "C.H.I.S.P.A. v0.98b",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_holo_telemetry_title"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "MODO SARGENTO // SIN FILTRO",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_holo_telemetry_sub"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] Puentes de Watson y Viaje Rápido desbloqueados para pruebas",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_dbg_unlock"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] Episodio 1 activado — Revisa tu holoteléfono en Kabuki",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_dbg_ep01"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] Episodio 2 activado — Revisa tu holoteléfono en Northside",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_dbg_ep02"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] Episodio 3 activado — Revisa tu holoteléfono en el muelle sur",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_dbg_ep03"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] Episodio 4 activado — Revisa tu holoteléfono tras el bloqueo",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_dbg_ep04"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "[CHISPA] Episodio 5 activado — Revisa tu holoteléfono rumbo a Pacifica",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "ch_banner_dbg_ep05"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

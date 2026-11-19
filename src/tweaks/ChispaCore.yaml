@@ -1,0 +1,483 @@
+# Protocolo CHISPA / SPARKY Protocol — TweakXL Core Definitions (Base Game 2.x)
+
+# ---------------------------------------------------------------------------
+# Marcador de Misión (Mapa del Mundo + Minimapa + 3D)
+# ---------------------------------------------------------------------------
+
+Mappins.ChispaQuestMappin:
+  $base: Mappins.QuestStaticMappinDefinition
+  showInWorld: true
+  showOnMap: true
+  showOnMinimap: true
+  visibilityRange: 100000.0
+  possibleVariants:
+    - Mappins.DefaultQuestVariant
+
+# ---------------------------------------------------------------------------
+# Coprocesador C.H.I.S.P.A. v0.98b & Arma Icónica de Bienvenida
+# ---------------------------------------------------------------------------
+
+Items.Chispa_CoreDongle:
+  $base: Items.q001_netrunner_software_shard
+  displayName: LocKey#ch_item_dongle_name
+  localizedDescription: LocKey#ch_item_dongle_desc
+  quality: Quality.Legendary
+  tags:
+    - !append-once Quest
+
+Items.ChispaLexingtonAbility:
+  $base: Items.IconicWeaponModAbilityBase
+  UIData:
+    $type: gamedataGameplayLogicPackageUIData_Record
+    localizedDescription: LocKey#ch_weapon_lex_ability
+
+Items.ChispaLexingtonIconicMod:
+  $base: Items.IconicWeaponModBase
+  OnAttach:
+    - Items.ChispaLexingtonAbility
+  statModifiers:
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.ElectricDamage
+      value: 18.0
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.CritChance
+      value: 12.0
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Multiplier
+      statType: BaseStats.ReloadTime
+      value: 0.80
+
+Items.Preset_Lexington_Chispa:
+  $base: Items.Preset_Lexington_Default
+  displayName: LocKey#ch_weapon_lex_name
+  localizedDescription: LocKey#ch_weapon_lex_desc
+  quality: Quality.Rare
+  tags:
+    - !append-once IconicWeapon
+  statModifiers:
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.IsItemIconic
+      value: 1.0
+  slotPartListPreset:
+    - !append-once
+      $type: gamedataSlotItemPartPreset_Record
+      slot: AttachmentSlots.IconicWeaponModLegendary
+      itemPartPreset: Items.ChispaLexingtonIconicMod
+
+# ---------------------------------------------------------------------------
+# Episodio 1 — Sector de Memoria #1 & Subfusil Icónico «Frecuencia Fantasma»
+# ---------------------------------------------------------------------------
+
+Items.Chispa_MemorySector01:
+  $base: Items.q001_netrunner_software_shard
+  displayName: LocKey#ch_item_sec01_name
+  localizedDescription: LocKey#ch_item_sec01_desc
+  quality: Quality.Legendary
+  tags:
+    - !append-once Quest
+
+Items.ChispaSaratogaAbility:
+  $base: Items.IconicWeaponModAbilityBase
+  UIData:
+    $type: gamedataGameplayLogicPackageUIData_Record
+    localizedDescription: LocKey#ch_weapon_sara_ability
+
+Items.ChispaSaratogaIconicMod:
+  $base: Items.IconicWeaponModBase
+  OnAttach:
+    - Items.ChispaSaratogaAbility
+  statModifiers:
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.ElectricDamage
+      value: 22.0
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.CritChance
+      value: 15.0
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Multiplier
+      statType: BaseStats.ReloadTime
+      value: 0.78
+
+Items.Preset_Saratoga_Chispa:
+  $base: Items.Preset_Saratoga_Default
+  displayName: LocKey#ch_weapon_sara_name
+  localizedDescription: LocKey#ch_weapon_sara_desc
+  quality: Quality.Rare
+  tags:
+    - !append-once IconicWeapon
+  statModifiers:
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.IsItemIconic
+      value: 1.0
+  slotPartListPreset:
+    - !append-once
+      $type: gamedataSlotItemPartPreset_Record
+      slot: AttachmentSlots.IconicWeaponModLegendary
+      itemPartPreset: Items.ChispaSaratogaIconicMod
+
+# ---------------------------------------------------------------------------
+# Episodio 2 — Sector de Memoria #2 & Fusil Tecnológico Icónico «Cláusula Perforante»
+# ---------------------------------------------------------------------------
+
+Items.Chispa_MemorySector02:
+  $base: Items.q001_netrunner_software_shard
+  displayName: LocKey#ch_item_sec02_name
+  localizedDescription: LocKey#ch_item_sec02_desc
+  quality: Quality.Legendary
+  tags:
+    - !append-once Quest
+
+Items.ChispaAchillesAbility:
+  $base: Items.IconicWeaponModAbilityBase
+  UIData:
+    $type: gamedataGameplayLogicPackageUIData_Record
+    localizedDescription: LocKey#ch_weapon_ach_ability
+
+Items.ChispaAchillesIconicMod:
+  $base: Items.IconicWeaponModBase
+  OnAttach:
+    - Items.ChispaAchillesAbility
+  statModifiers:
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.ElectricDamage
+      value: 26.0
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.CritChance
+      value: 16.0
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Multiplier
+      statType: BaseStats.ChargeTime
+      value: 0.76
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Multiplier
+      statType: BaseStats.ReloadTime
+      value: 0.80
+
+Items.Preset_Achilles_Chispa:
+  $base: Items.Preset_Achilles_Default
+  displayName: LocKey#ch_weapon_ach_name
+  localizedDescription: LocKey#ch_weapon_ach_desc
+  quality: Quality.Rare
+  tags:
+    - !append-once IconicWeapon
+  statModifiers:
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.IsItemIconic
+      value: 1.0
+  slotPartListPreset:
+    - !append-once
+      $type: gamedataSlotItemPartPreset_Record
+      slot: AttachmentSlots.IconicWeaponModLegendary
+      itemPartPreset: Items.ChispaAchillesIconicMod
+
+# ---------------------------------------------------------------------------
+# Episodio 3 — Sector de Memoria #3 & Subfusil Inteligente Icónico «Curva Ejecutiva»
+# ---------------------------------------------------------------------------
+
+Items.Chispa_MemorySector03:
+  $base: Items.q001_netrunner_software_shard
+  displayName: LocKey#ch_item_sec03_name
+  localizedDescription: LocKey#ch_item_sec03_desc
+  quality: Quality.Legendary
+  tags:
+    - !append-once Quest
+
+Items.ChispaShingenAbility:
+  $base: Items.IconicWeaponModAbilityBase
+  UIData:
+    $type: gamedataGameplayLogicPackageUIData_Record
+    localizedDescription: LocKey#ch_weapon_shin_ability
+
+Items.ChispaShingenIconicMod:
+  $base: Items.IconicWeaponModBase
+  OnAttach:
+    - Items.ChispaShingenAbility
+  statModifiers:
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.ElectricDamage
+      value: 20.0
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.ChemicalDamage
+      value: 16.0
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.CritChance
+      value: 16.0
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.SmartGunHitProbability
+      value: 0.35
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Multiplier
+      statType: BaseStats.SmartGunAdsTimeToLock
+      value: 0.72
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Multiplier
+      statType: BaseStats.SmartGunHipTimeToLock
+      value: 0.72
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Multiplier
+      statType: BaseStats.ReloadTime
+      value: 0.80
+
+Items.Preset_Shingen_Chispa:
+  $base: Items.Preset_Shingen_Default
+  displayName: LocKey#ch_weapon_shin_name
+  localizedDescription: LocKey#ch_weapon_shin_desc
+  quality: Quality.Rare
+  tags:
+    - !append-once IconicWeapon
+  statModifiers:
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.IsItemIconic
+      value: 1.0
+  slotPartListPreset:
+    - !append-once
+      $type: gamedataSlotItemPartPreset_Record
+      slot: AttachmentSlots.IconicWeaponModLegendary
+      itemPartPreset: Items.ChispaShingenIconicMod
+
+# ---------------------------------------------------------------------------
+# Episodio 4 — Sector de Memoria #4 & Fusil de Potencia Icónico «Geometría Callejera»
+# ---------------------------------------------------------------------------
+
+Items.Chispa_MemorySector04:
+  $base: Items.q001_netrunner_software_shard
+  displayName: LocKey#ch_item_sec04_name
+  localizedDescription: LocKey#ch_item_sec04_desc
+  quality: Quality.Legendary
+  tags:
+    - !append-once Quest
+
+Items.ChispaMasamuneAbility:
+  $base: Items.IconicWeaponModAbilityBase
+  UIData:
+    $type: gamedataGameplayLogicPackageUIData_Record
+    localizedDescription: LocKey#ch_weapon_masa_ability
+
+Items.ChispaMasamuneIconicMod:
+  $base: Items.IconicWeaponModBase
+  OnAttach:
+    - Items.ChispaMasamuneAbility
+  statModifiers:
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.ThermalDamage
+      value: 22.0
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.CritChance
+      value: 15.0
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.RicochetCount
+      value: 2.0
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.RicochetChance
+      value: 0.50
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.BonusRicochetDamage
+      value: 35.0
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.BonusRicochetCritChance
+      value: 20.0
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Multiplier
+      statType: BaseStats.ReloadTime
+      value: 0.80
+
+Items.Preset_Masamune_Chispa:
+  $base: Items.Preset_Masamune_Default
+  displayName: LocKey#ch_weapon_masa_name
+  localizedDescription: LocKey#ch_weapon_masa_desc
+  quality: Quality.Epic
+  tags:
+    - !append-once IconicWeapon
+  statModifiers:
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.IsItemIconic
+      value: 1.0
+  slotPartListPreset:
+    - !append-once
+      $type: gamedataSlotItemPartPreset_Record
+      slot: AttachmentSlots.IconicWeaponModLegendary
+      itemPartPreset: Items.ChispaMasamuneIconicMod
+
+# ---------------------------------------------------------------------------
+# Episodio 5 — Sector Maestro #5 & Prototipos Finales («Cortafuegos del 22» y «Última Palabra de Sargento»)
+# ---------------------------------------------------------------------------
+
+Items.Chispa_MemorySector05:
+  $base: Items.q001_netrunner_software_shard
+  displayName: LocKey#ch_item_sec05_name
+  localizedDescription: LocKey#ch_item_sec05_desc
+  quality: Quality.Legendary
+  tags:
+    - !append-once Quest
+
+Items.ChispaKenshinAbility:
+  $base: Items.IconicWeaponModAbilityBase
+  UIData:
+    $type: gamedataGameplayLogicPackageUIData_Record
+    localizedDescription: LocKey#ch_weapon_ken_ability
+
+Items.ChispaKenshinIconicMod:
+  $base: Items.IconicWeaponModBase
+  OnAttach:
+    - Items.ChispaKenshinAbility
+  statModifiers:
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.ElectricDamage
+      value: 26.0
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.ThermalDamage
+      value: 20.0
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.CritChance
+      value: 18.0
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Multiplier
+      statType: BaseStats.ChargeTime
+      value: 0.74
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.TechPierceDamageFactor
+      value: 0.25
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Multiplier
+      statType: BaseStats.ReloadTime
+      value: 0.78
+
+Items.Preset_Kenshin_Chispa:
+  $base: Items.Preset_Kenshin_Default
+  displayName: LocKey#ch_weapon_ken_name
+  localizedDescription: LocKey#ch_weapon_ken_desc
+  quality: Quality.Epic
+  tags:
+    - !append-once IconicWeapon
+  statModifiers:
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.IsItemIconic
+      value: 1.0
+  slotPartListPreset:
+    - !append-once
+      $type: gamedataSlotItemPartPreset_Record
+      slot: AttachmentSlots.IconicWeaponModLegendary
+      itemPartPreset: Items.ChispaKenshinIconicMod
+
+Items.ChispaOvertureAbility:
+  $base: Items.IconicWeaponModAbilityBase
+  UIData:
+    $type: gamedataGameplayLogicPackageUIData_Record
+    localizedDescription: LocKey#ch_weapon_over_ability
+
+Items.ChispaOvertureIconicMod:
+  $base: Items.IconicWeaponModBase
+  OnAttach:
+    - Items.ChispaOvertureAbility
+  statModifiers:
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.ElectricDamage
+      value: 32.0
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.CritChance
+      value: 20.0
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.HeadshotDamageMultiplier
+      value: 0.35
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.RicochetCount
+      value: 2.0
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.BonusRicochetDamage
+      value: 40.0
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Multiplier
+      statType: BaseStats.ReloadTime
+      value: 0.80
+
+Items.Preset_Overture_Chispa:
+  $base: Items.Preset_Overture_Default
+  displayName: LocKey#ch_weapon_over_name
+  localizedDescription: LocKey#ch_weapon_over_desc
+  quality: Quality.Epic
+  tags:
+    - !append-once IconicWeapon
+  statModifiers:
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.IsItemIconic
+      value: 1.0
+  slotPartListPreset:
+    - !append-once
+      $type: gamedataSlotItemPartPreset_Record
+      slot: AttachmentSlots.IconicWeaponModLegendary
+      itemPartPreset: Items.ChispaOvertureIconicMod
