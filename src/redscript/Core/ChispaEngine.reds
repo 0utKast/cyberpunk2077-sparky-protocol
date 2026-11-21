@@ -1,7 +1,6 @@
 // Protocolo CHISPA / SPARKY Protocol — Modular Core Engine (Base Game 2.x)
 module ChispaNC
 
-import Audioware.*
 import Codeware.Localization.*
 
 // ---------------------------------------------------------------------------
@@ -34,6 +33,30 @@ public class ChispaSequenceCallback extends DelayCallback {
     public func Call() -> Void {
         if IsDefined(this.system) {
             this.system.AdvanceSpeechSequence(this.token, this.nextIndex);
+        }
+    }
+}
+
+public class ChispaSpeechSubtitleCallback extends DelayCallback {
+    public let system: wref<ChispaSystem>;
+    public let token: Int32;
+    public let nextPageIndex: Int32;
+
+    public func Call() -> Void {
+        if IsDefined(this.system) {
+            this.system.AdvanceSpeechSubtitlePage(this.token, this.nextPageIndex);
+        }
+    }
+}
+
+public class ChispaSpeechSubtitleReassertCallback extends DelayCallback {
+    public let system: wref<ChispaSystem>;
+    public let token: Int32;
+    public let expectedCruid: CRUID;
+
+    public func Call() -> Void {
+        if IsDefined(this.system) {
+            this.system.ReassertActiveSpeechSubtitleIfNeeded(this.token, this.expectedCruid);
         }
     }
 }
@@ -100,6 +123,7 @@ public class ChispaDelayedItemCallback extends DelayCallback {
 
 public class ChispaSessionService extends ScriptableService {
     private let m_sessionReady: Bool;
+    private let m_sessionLoadSeq: Int32;
 
     public static func IsSessionReady() -> Bool {
         let svc: ref<ChispaSessionService> = GameInstance.GetScriptableServiceContainer().GetService(n"ChispaNC.ChispaSessionService") as ChispaSessionService;
@@ -109,8 +133,17 @@ public class ChispaSessionService extends ScriptableService {
         return false;
     }
 
+    public static func GetSessionLoadSeq() -> Int32 {
+        let svc: ref<ChispaSessionService> = GameInstance.GetScriptableServiceContainer().GetService(n"ChispaNC.ChispaSessionService") as ChispaSessionService;
+        if IsDefined(svc) {
+            return svc.m_sessionLoadSeq;
+        }
+        return 0;
+    }
+
     private cb func OnLoad() -> Void {
         this.m_sessionReady = false;
+        this.m_sessionLoadSeq = 0;
         let cbSys: ref<CallbackSystem> = GameInstance.GetCallbackSystem();
         cbSys.RegisterCallback(n"Session/BeforeStart", this, n"OnSessionEvent");
         cbSys.RegisterCallback(n"Session/Start", this, n"OnSessionEvent");
@@ -127,6 +160,7 @@ public class ChispaSessionService extends ScriptableService {
         let name: CName = event.GetEventName();
         if Equals(name, n"Session/Ready") {
             this.m_sessionReady = true;
+            this.m_sessionLoadSeq += 1;
         } else if Equals(name, n"Session/BeforeStart") || Equals(name, n"Session/Start") || Equals(name, n"Session/BeforeEnd") || Equals(name, n"Session/End") {
             this.m_sessionReady = false;
         }
@@ -142,6 +176,7 @@ public class ChispaSystem extends ScriptableSystem {
     public let m_tickScheduled: Bool;
     public let m_spawnGraceEnded: Bool;
     public let m_sessionReadyTicks: Int32;
+    private let m_retroSyncDoneForSession: Bool;
 
     // Controlador de episodio actual (extensible por episodios en Episodes/*.reds)
     public let m_ep00: ref<ChispaEp00Handler>;
@@ -150,6 +185,7 @@ public class ChispaSystem extends ScriptableSystem {
     public let m_ep03: ref<ChispaEp03Handler>;
     public let m_ep04: ref<ChispaEp04Handler>;
     public let m_ep05: ref<ChispaEp05Handler>;
+    public let m_live: ref<ChispaLiveCompanionHandler>;
     private let m_smartBridgeMod: ref<gameStatModifierData>;
     private let m_ricochetBridgeMod: ref<gameStatModifierData>;
 
@@ -164,7 +200,36 @@ public class ChispaSystem extends ScriptableSystem {
     private let m_currentPlayingEvent: CName;
     private let m_currentPlayingEntity: EntityID;
     private let m_currentPlayingSpeaker: CName;
+    private let m_currentPlayingBackend: Int32;
+    private let m_currentPlayingVariant: CName;
     private let m_skipHintVisible: Bool;
+    private let m_speechSubtitleSeq: Uint64;
+    private let m_speechSubtitleToken: Int32;
+    private let m_activeSpeechSubtitleCruid: CRUID;
+    private let m_hasActiveSpeechSubtitle: Bool;
+    private let m_speechSubtitlePages: array<String>;
+    private let m_speechSubtitlePageDurs: array<Float>;
+    private let m_speechSubtitleSpeakerObj: wref<GameObject>;
+    private let m_speechSubtitleSpeakerName: String;
+    private let m_speechSubtitleLineType: scnDialogLineType;
+    private let m_uiMenuListener: ref<CallbackHandle>;
+    private let m_pausedByUiMenu: Bool;
+    private let m_coprocessorRamMod: ref<gameStatModifierData>;
+    private let m_coprocessorRamBonus: Float;
+    private let m_fastTravelStartedListener: ref<CallbackHandle>;
+    private let m_fastTravelLoadingListener: ref<CallbackHandle>;
+    private let m_fastTravelFinishedListener: ref<CallbackHandle>;
+    private let m_fastTravelLoading: Bool;
+    private let m_fastTravelStartedAt: Float;
+    private let m_speechSeqDelayId: DelayID;
+    private let m_speechSeqRemaining: Float;
+    private let m_speechSeqExpectedDur: Float;
+    private let m_speechSeqScheduledEngineAt: Float;
+    private let m_speechSubDelayId: DelayID;
+    private let m_speechSubCurrentPageIdx: Int32;
+    private let m_speechSubRemaining: Float;
+    private let m_speechSubExpectedDur: Float;
+    private let m_speechSubScheduledEngineAt: Float;
 
     // Holollamadas y proyección holográfica directa Kiroshi
     public let m_activeCallContact: CName;
@@ -174,6 +239,7 @@ public class ChispaSystem extends ScriptableSystem {
     public let m_activeCallStageTag: Int32;
     private let m_directHoloFeedOpen: Bool;
     private let m_callHudQueuedOrOpen: Bool;
+    private let m_holoAvatarCtrl: wref<HudPhoneAvatarController>;
 
     // Marcadores y ruta GPS
     private let m_mappinId: NewMappinID;
@@ -237,12 +303,20 @@ public class ChispaSystem extends ScriptableSystem {
             this.m_ep05 = new ChispaEp05Handler();
         }
         this.m_ep05.Init(this);
+        if !IsDefined(this.m_live) {
+            this.m_live = new ChispaLiveCompanionHandler();
+        }
+        this.m_live.Init(this);
         this.m_smartBridgeMod = null;
         this.m_ricochetBridgeMod = null;
+        this.m_coprocessorRamMod = null;
+        this.m_coprocessorRamBonus = 0.00;
 
+        this.m_speechSubtitleSpeakerObj = null;
         this.m_tickScheduled = false;
         this.m_spawnGraceEnded = false;
         this.m_sessionReadyTicks = 0;
+        this.m_retroSyncDoneForSession = false;
         this.m_isPlayingDialogueSequence = false;
         this.m_speechAllowManualSkip = false;
         this.m_currentSpeechIndex = 0;
@@ -250,7 +324,53 @@ public class ChispaSystem extends ScriptableSystem {
         this.m_currentPlayingEvent = n"None";
         this.m_currentPlayingEntity = new EntityID();
         this.m_currentPlayingSpeaker = n"None";
+        this.m_currentPlayingBackend = 0;
+        this.m_currentPlayingVariant = n"None";
         this.m_skipHintVisible = false;
+        this.m_speechSubtitleSeq = 0ul;
+        this.m_speechSubtitleToken = 0;
+        this.m_hasActiveSpeechSubtitle = false;
+        ArrayClear(this.m_speechSubtitlePages);
+        ArrayClear(this.m_speechSubtitlePageDurs);
+        this.m_speechSubtitleSpeakerObj = null;
+        this.m_speechSubtitleSpeakerName = "";
+        this.m_speechSubtitleLineType = scnDialogLineType.Regular;
+        this.m_speechSeqDelayId = GetInvalidDelayID();
+        this.m_speechSeqRemaining = 0.00;
+        this.m_speechSeqExpectedDur = 0.00;
+        this.m_speechSeqScheduledEngineAt = 0.00;
+        this.m_speechSubDelayId = GetInvalidDelayID();
+        this.m_speechSubCurrentPageIdx = -1;
+        this.m_speechSubRemaining = 0.00;
+        this.m_speechSubExpectedDur = 0.00;
+        this.m_speechSubScheduledEngineAt = 0.00;
+        let uiSysBB: ref<IBlackboard> = GameInstance.GetBlackboardSystem(this.GetGameInstance()).Get(GetAllBlackboardDefs().UI_System);
+        if IsDefined(uiSysBB) {
+            if IsDefined(this.m_uiMenuListener) {
+                uiSysBB.UnregisterListenerBool(GetAllBlackboardDefs().UI_System.IsInMenu, this.m_uiMenuListener);
+            }
+            this.m_uiMenuListener = uiSysBB.RegisterListenerBool(GetAllBlackboardDefs().UI_System.IsInMenu, this, n"OnUiMenuChanged");
+            this.m_pausedByUiMenu = uiSysBB.GetBool(GetAllBlackboardDefs().UI_System.IsInMenu);
+        } else {
+            this.m_pausedByUiMenu = false;
+        }
+        let ftBB: ref<IBlackboard> = GameInstance.GetBlackboardSystem(this.GetGameInstance()).Get(GetAllBlackboardDefs().FastTRavelSystem);
+        if IsDefined(ftBB) {
+            if IsDefined(this.m_fastTravelStartedListener) {
+                ftBB.UnregisterListenerBool(GetAllBlackboardDefs().FastTRavelSystem.FastTravelStarted, this.m_fastTravelStartedListener);
+            }
+            if IsDefined(this.m_fastTravelLoadingListener) {
+                ftBB.UnregisterListenerBool(GetAllBlackboardDefs().FastTRavelSystem.FastTravelLoadingScreenStarted, this.m_fastTravelLoadingListener);
+            }
+            if IsDefined(this.m_fastTravelFinishedListener) {
+                ftBB.UnregisterListenerBool(GetAllBlackboardDefs().FastTRavelSystem.FastTravelLoadingScreenFinished, this.m_fastTravelFinishedListener);
+            }
+            this.m_fastTravelStartedListener = ftBB.RegisterListenerBool(GetAllBlackboardDefs().FastTRavelSystem.FastTravelStarted, this, n"OnFastTravelFlagStarted");
+            this.m_fastTravelLoadingListener = ftBB.RegisterListenerBool(GetAllBlackboardDefs().FastTRavelSystem.FastTravelLoadingScreenStarted, this, n"OnFastTravelLoadingStarted");
+            this.m_fastTravelFinishedListener = ftBB.RegisterListenerBool(GetAllBlackboardDefs().FastTRavelSystem.FastTravelLoadingScreenFinished, this, n"OnFastTravelLoadingFinished");
+        }
+        this.m_fastTravelLoading = false;
+        this.m_fastTravelStartedAt = 0.00;
         this.m_activeCallContact = n"None";
         this.m_activeCallPendingPickup = false;
         this.m_activeCallIsVideo = false;
@@ -276,10 +396,40 @@ public class ChispaSystem extends ScriptableSystem {
         this.m_ep03.ResetRuntimeFlags();
         this.m_ep04.ResetRuntimeFlags();
         this.m_ep05.ResetRuntimeFlags();
+        this.m_live.ResetRuntime();
         this.ScheduleTick(0.60);
     }
 
     private func OnDetach() -> Void {
+        if IsDefined(this.m_uiMenuListener) {
+            let uiSysBB: ref<IBlackboard> = GameInstance.GetBlackboardSystem(this.GetGameInstance()).Get(GetAllBlackboardDefs().UI_System);
+            if IsDefined(uiSysBB) {
+                uiSysBB.UnregisterListenerBool(GetAllBlackboardDefs().UI_System.IsInMenu, this.m_uiMenuListener);
+            }
+            this.m_uiMenuListener = null;
+        }
+        this.m_pausedByUiMenu = false;
+        let ftBB: ref<IBlackboard> = GameInstance.GetBlackboardSystem(this.GetGameInstance()).Get(GetAllBlackboardDefs().FastTRavelSystem);
+        if IsDefined(this.m_fastTravelStartedListener) {
+            if IsDefined(ftBB) {
+                ftBB.UnregisterListenerBool(GetAllBlackboardDefs().FastTRavelSystem.FastTravelStarted, this.m_fastTravelStartedListener);
+            }
+            this.m_fastTravelStartedListener = null;
+        }
+        if IsDefined(this.m_fastTravelLoadingListener) {
+            if IsDefined(ftBB) {
+                ftBB.UnregisterListenerBool(GetAllBlackboardDefs().FastTRavelSystem.FastTravelLoadingScreenStarted, this.m_fastTravelLoadingListener);
+            }
+            this.m_fastTravelLoadingListener = null;
+        }
+        if IsDefined(this.m_fastTravelFinishedListener) {
+            if IsDefined(ftBB) {
+                ftBB.UnregisterListenerBool(GetAllBlackboardDefs().FastTRavelSystem.FastTravelLoadingScreenFinished, this.m_fastTravelFinishedListener);
+            }
+            this.m_fastTravelFinishedListener = null;
+        }
+        this.m_fastTravelLoading = false;
+        this.m_fastTravelStartedAt = 0.00;
         this.SetSkipSpeechHintVisible(false);
         this.StopCurrentSpeechAudio();
         this.StopNpcLipSync();
@@ -304,15 +454,22 @@ public class ChispaSystem extends ScriptableSystem {
         if IsDefined(this.m_ep05) {
             this.m_ep05.CleanupEntities();
         }
+        if IsDefined(this.m_live) {
+            this.m_live.ResetRuntime();
+        }
         this.m_smartBridgeMod = null;
         this.m_ricochetBridgeMod = null;
+        this.m_coprocessorRamMod = null;
+        this.m_coprocessorRamBonus = 0.00;
         this.m_directHoloFeedOpen = false;
         this.m_callHudQueuedOrOpen = false;
         this.m_activeWorldMap = null;
         this.m_dialogWidgetCtrl = null;
+        this.m_holoAvatarCtrl = null;
         this.m_tickScheduled = false;
         this.m_spawnGraceEnded = false;
         this.m_sessionReadyTicks = 0;
+        this.m_retroSyncDoneForSession = false;
     }
 
     public final func SetDialogWidgetController(ctrl: wref<dialogWidgetGameController>) -> Void {
@@ -383,18 +540,17 @@ public class ChispaSystem extends ScriptableSystem {
     }
 
     public final func EnsureSmartBridgeActive(player: ref<PlayerPuppet>) -> Void {
-        if !IsDefined(player) {
+        if !IsDefined(player) || IsDefined(this.m_smartBridgeMod) {
             return;
         }
         let game: GameInstance = this.GetGameInstance();
         let qs: ref<QuestsSystem> = GameInstance.GetQuestsSystem(game);
-        let ts: ref<TransactionSystem> = GameInstance.GetTransactionSystem(game);
         let ss: ref<StatsSystem> = GameInstance.GetStatsSystem(game);
-        if !IsDefined(qs) || !IsDefined(ts) || !IsDefined(ss) {
+        if !IsDefined(qs) || !IsDefined(ss) {
             return;
         }
         let needsBridge: Bool = qs.GetFact(n"chispa_ep03_stage") >= 2
-            || ts.GetItemQuantity(player, ItemID.FromTDBID(t"Items.Preset_Shingen_Chispa")) > 0
+            || this.PlayerOwnsItemOrDeckPart(player, t"Items.Preset_Shingen_Chispa")
             || qs.GetFact(n"chispa_ep05_stage") >= 2
             || qs.GetFact(n"chispa_permanent_partner") > 0;
         if !needsBridge {
@@ -422,21 +578,20 @@ public class ChispaSystem extends ScriptableSystem {
     }
 
     public final func EnsureRicochetBridgeActive(player: ref<PlayerPuppet>) -> Void {
-        if !IsDefined(player) {
+        if !IsDefined(player) || IsDefined(this.m_ricochetBridgeMod) {
             return;
         }
         let game: GameInstance = this.GetGameInstance();
         let qs: ref<QuestsSystem> = GameInstance.GetQuestsSystem(game);
-        let ts: ref<TransactionSystem> = GameInstance.GetTransactionSystem(game);
         let ss: ref<StatsSystem> = GameInstance.GetStatsSystem(game);
-        if !IsDefined(qs) || !IsDefined(ts) || !IsDefined(ss) {
+        if !IsDefined(qs) || !IsDefined(ss) {
             return;
         }
         let needsBridge: Bool = qs.GetFact(n"chispa_ep04_stage") >= 2
             || qs.GetFact(n"chispa_ep05_stage") >= 2
             || qs.GetFact(n"chispa_permanent_partner") > 0
-            || ts.GetItemQuantity(player, ItemID.FromTDBID(t"Items.Preset_Masamune_Chispa")) > 0
-            || ts.GetItemQuantity(player, ItemID.FromTDBID(t"Items.Preset_Overture_Chispa")) > 0;
+            || this.PlayerOwnsItemOrDeckPart(player, t"Items.Preset_Masamune_Chispa")
+            || this.PlayerOwnsItemOrDeckPart(player, t"Items.Preset_Overture_Chispa");
         if !needsBridge {
             return;
         }
@@ -459,6 +614,435 @@ public class ChispaSystem extends ScriptableSystem {
             ss.RemoveModifier(Cast<StatsObjectID>(player.GetEntityID()), this.m_ricochetBridgeMod);
         }
         this.m_ricochetBridgeMod = null;
+    }
+
+    // --- Coprocesador RAM, Tier Adaptativo de Hackeos Rápidos, XP y Estado de Viaje Rápido ---
+
+    public final func EnsureCoprocessorRamBridgeActive(player: ref<PlayerPuppet>) -> Void {
+        if !IsDefined(player) {
+            return;
+        }
+        let game: GameInstance = this.GetGameInstance();
+        let qs: ref<QuestsSystem> = GameInstance.GetQuestsSystem(game);
+        let ss: ref<StatsSystem> = GameInstance.GetStatsSystem(game);
+        if !IsDefined(qs) || !IsDefined(ss) {
+            return;
+        }
+        let unlocked: Bool = qs.GetFact(n"chispa_ep00_stage") >= 4
+            || qs.GetFact(n"chispa_ep00_done") > 0
+            || qs.GetFact(n"chispa_ep01_stage") >= 1
+            || qs.GetFact(n"chispa_ep01_done") > 0
+            || qs.GetFact(n"chispa_ep02_stage") >= 1
+            || qs.GetFact(n"chispa_ep02_done") > 0
+            || qs.GetFact(n"chispa_ep03_stage") >= 1
+            || qs.GetFact(n"chispa_ep03_done") > 0
+            || qs.GetFact(n"chispa_ep04_stage") >= 1
+            || qs.GetFact(n"chispa_ep04_done") > 0
+            || qs.GetFact(n"chispa_ep05_stage") >= 1
+            || qs.GetFact(n"chispa_ep05_done") > 0;
+        if !unlocked {
+            this.ClearCoprocessorRamBridge();
+            return;
+        }
+        let desiredRam: Float = 8.00;
+        if qs.GetFact(n"chispa_ep01_stage") >= 4 || qs.GetFact(n"chispa_ep01_done") > 0 { desiredRam += 3.00; }
+        if qs.GetFact(n"chispa_ep02_stage") >= 4 || qs.GetFact(n"chispa_ep02_done") > 0 { desiredRam += 3.00; }
+        if qs.GetFact(n"chispa_ep03_stage") >= 4 || qs.GetFact(n"chispa_ep03_done") > 0 { desiredRam += 3.00; }
+        if qs.GetFact(n"chispa_ep04_stage") >= 4 || qs.GetFact(n"chispa_ep04_done") > 0 { desiredRam += 3.00; }
+        if qs.GetFact(n"chispa_ep05_stage") >= 4 || qs.GetFact(n"chispa_ep05_done") > 0 { desiredRam += 3.00; }
+
+        if IsDefined(this.m_coprocessorRamMod) {
+            if AbsF(this.m_coprocessorRamBonus - desiredRam) < 0.01 {
+                return;
+            }
+            this.ClearCoprocessorRamBridge();
+        }
+        let mod: ref<gameStatModifierData> = RPGManager.CreateStatModifier(gamedataStatType.Memory, gameStatModifierType.Additive, desiredRam);
+        ss.AddModifier(Cast<StatsObjectID>(player.GetEntityID()), mod);
+        this.m_coprocessorRamMod = mod;
+        this.m_coprocessorRamBonus = desiredRam;
+    }
+
+    public final func ClearCoprocessorRamBridge() -> Void {
+        if !IsDefined(this.m_coprocessorRamMod) {
+            this.m_coprocessorRamBonus = 0.00;
+            return;
+        }
+        let game: GameInstance = this.GetGameInstance();
+        let player: ref<PlayerPuppet> = GameInstance.GetPlayerSystem(game).GetLocalPlayerMainGameObject() as PlayerPuppet;
+        let ss: ref<StatsSystem> = GameInstance.GetStatsSystem(game);
+        if IsDefined(player) && IsDefined(ss) {
+            ss.RemoveModifier(Cast<StatsObjectID>(player.GetEntityID()), this.m_coprocessorRamMod);
+        }
+        this.m_coprocessorRamMod = null;
+        this.m_coprocessorRamBonus = 0.00;
+    }
+
+    public final func PlayerOwnsItemOrDeckPart(player: ref<PlayerPuppet>, itemId: TweakDBID) -> Bool {
+        if !IsDefined(player) || !TDBID.IsValid(itemId) {
+            return false;
+        }
+        let game: GameInstance = this.GetGameInstance();
+        let ts: ref<TransactionSystem> = GameInstance.GetTransactionSystem(game);
+        if IsDefined(ts) {
+            let qid: ItemID = ItemID.CreateQuery(itemId);
+            if ts.HasItem(player, qid) || ts.GetItemQuantity(player, qid) > 0 {
+                return true;
+            }
+        }
+        let eqData: ref<EquipmentSystemPlayerData> = EquipmentSystem.GetData(player);
+        if IsDefined(eqData) {
+            let handsId: ItemID = eqData.GetActiveItem(gamedataEquipmentArea.HandsCW);
+            if ItemID.IsValid(handsId) && ItemID.GetTDBID(handsId) == itemId {
+                return true;
+            }
+            if EquipmentSystem.IsCyberdeckEquipped(player) {
+                let deckId: ItemID = eqData.GetActiveItem(gamedataEquipmentArea.SystemReplacementCW);
+                let parts: array<SPartSlots> = ItemModificationSystem.GetAllSlots(player, deckId);
+                let i: Int32 = 0;
+                while i < ArraySize(parts) {
+                    if Equals(parts[i].status, ESlotState.Taken) && ItemID.GetTDBID(parts[i].installedPart) == itemId {
+                        return true;
+                    }
+                    i += 1;
+                }
+            }
+        }
+        return false;
+    }
+
+    public final func GetMaxEquippableProgramTier(player: ref<PlayerPuppet>) -> Int32 {
+        if !IsDefined(player) || !EquipmentSystem.IsCyberdeckEquipped(player) {
+            return 1;
+        }
+        let eqData: ref<EquipmentSystemPlayerData> = EquipmentSystem.GetData(player);
+        if !IsDefined(eqData) {
+            return 1;
+        }
+        let deckId: ItemID = eqData.GetActiveItem(gamedataEquipmentArea.SystemReplacementCW);
+        let ts: ref<TransactionSystem> = GameInstance.GetTransactionSystem(this.GetGameInstance());
+        if !IsDefined(ts) {
+            return 1;
+        }
+        let deckData: ref<gameItemData> = ts.GetItemData(player, deckId);
+        if !IsDefined(deckData) {
+            return 1;
+        }
+        let q: gamedataQuality = RPGManager.GetItemDataQuality(deckData);
+        switch q {
+            case gamedataQuality.Common:
+            case gamedataQuality.CommonPlus:
+                return 1;
+            case gamedataQuality.Uncommon:
+            case gamedataQuality.UncommonPlus:
+                return 2;
+            case gamedataQuality.Rare:
+            case gamedataQuality.RarePlus:
+                return 3;
+            case gamedataQuality.Epic:
+            case gamedataQuality.EpicPlus:
+            case gamedataQuality.Legendary:
+            case gamedataQuality.LegendaryPlus:
+            case gamedataQuality.LegendaryPlusPlus:
+                return 4;
+        }
+        return 1;
+    }
+
+    private final func ResolveProgramExactTier(programKey: CName, eff: Int32) -> TweakDBID {
+        let clamped: Int32 = eff;
+        if clamped < 1 {
+            clamped = 1;
+        } else if clamped > 4 {
+            clamped = 4;
+        }
+        if Equals(programKey, n"Ping") {
+            if clamped >= 4 { return t"Items.PingLvl3Program"; }
+            if clamped == 3 { return t"Items.PingLvl2Program"; }
+            return t"Items.PingProgram";
+        }
+        if Equals(programKey, n"EMPOverload") {
+            if clamped == 1 { return t"Items.EMPOverloadProgram"; }
+            if clamped == 2 { return t"Items.EMPOverloadLvl1Program"; }
+            if clamped == 3 { return t"Items.EMPOverloadLvl2Program"; }
+            return t"Items.EMPOverloadLvl3Program";
+        }
+        if Equals(programKey, n"Overheat") {
+            if clamped == 1 { return t"Items.OverheatProgram"; }
+            if clamped == 2 { return t"Items.OverheatLvl1Program"; }
+            if clamped == 3 { return t"Items.OverheatLvl2Program"; }
+            return t"Items.OverheatLvl3Program";
+        }
+        if Equals(programKey, n"WeaponMalfunction") {
+            if clamped == 1 { return t"Items.Chispa_WeaponMalfunction_T1"; }
+            if clamped == 2 { return t"Items.WeaponMalfunctionProgram"; }
+            if clamped == 3 { return t"Items.WeaponMalfunctionLvl2Program"; }
+            return t"Items.WeaponMalfunctionLvl3Program";
+        }
+        if Equals(programKey, n"Blind") {
+            if clamped == 1 { return t"Items.BlindProgram"; }
+            if clamped == 2 { return t"Items.BlindLvl1Program"; }
+            if clamped == 3 { return t"Items.BlindLvl2Program"; }
+            return t"Items.BlindLvl3Program";
+        }
+        if Equals(programKey, n"MemoryWipe") {
+            if clamped == 1 { return t"Items.Chispa_MemoryWipe_T1"; }
+            if clamped == 2 { return t"Items.Chispa_MemoryWipe_T2"; }
+            if clamped == 3 { return t"Items.MemoryWipeLvl2Program"; }
+            return t"Items.MemoryWipeLvl3Program";
+        }
+        if Equals(programKey, n"Contagion") {
+            if clamped == 1 { return t"Items.Chispa_Contagion_T1"; }
+            if clamped == 2 { return t"Items.ContagionProgram"; }
+            if clamped == 3 { return t"Items.ContagionLvl2Program"; }
+            return t"Items.ContagionLvl3Program";
+        }
+        if Equals(programKey, n"DisableCyberware") {
+            if clamped == 1 { return t"Items.Chispa_DisableCyberware_T1"; }
+            if clamped == 2 { return t"Items.DisableCyberwareProgram"; }
+            if clamped == 3 { return t"Items.DisableCyberwareLvl2Program"; }
+            return t"Items.DisableCyberwareLvl3Program";
+        }
+        if Equals(programKey, n"SystemCollapse") {
+            if clamped == 1 { return t"Items.Chispa_SystemCollapse_T1"; }
+            if clamped == 2 { return t"Items.Chispa_SystemCollapse_T2"; }
+            if clamped == 3 { return t"Items.Chispa_SystemCollapse_T3"; }
+            return t"Items.SystemCollapseLvl3Program";
+        }
+        if Equals(programKey, n"BrainMelt") {
+            if clamped == 1 { return t"Items.Chispa_BrainMelt_T1"; }
+            if clamped == 2 { return t"Items.Chispa_BrainMelt_T2"; }
+            if clamped == 3 { return t"Items.BrainMeltLvl2Program"; }
+            return t"Items.BrainMeltLvl3Program";
+        }
+        return TDBID.None();
+    }
+
+    public final func ResolveProgramForPlayer(player: ref<PlayerPuppet>, programKey: CName, targetTier: Int32) -> TweakDBID {
+        let maxTier: Int32 = this.GetMaxEquippableProgramTier(player);
+        let eff: Int32 = targetTier;
+        if eff < 1 {
+            eff = 1;
+        } else if eff > 4 {
+            eff = 4;
+        }
+        if maxTier < eff {
+            eff = maxTier;
+        }
+        return this.ResolveProgramExactTier(programKey, eff);
+    }
+
+    public final func PlayerOwnsProgramAtOrAboveTier(player: ref<PlayerPuppet>, programKey: CName, minTier: Int32) -> Bool {
+        let startTier: Int32 = minTier;
+        if startTier < 1 {
+            startTier = 1;
+        }
+        let t: Int32 = startTier;
+        while t <= 4 {
+            let candidateId: TweakDBID = this.ResolveProgramExactTier(programKey, t);
+            if TDBID.IsValid(candidateId) && this.PlayerOwnsItemOrDeckPart(player, candidateId) {
+                return true;
+            }
+            t += 1;
+        }
+        return false;
+    }
+
+    public final func GrantProgramForPlayer(player: ref<PlayerPuppet>, programKey: CName, targetTier: Int32) -> Bool {
+        if !IsDefined(player) {
+            return false;
+        }
+        let ts: ref<TransactionSystem> = GameInstance.GetTransactionSystem(this.GetGameInstance());
+        if !IsDefined(ts) {
+            return false;
+        }
+        let maxTier: Int32 = this.GetMaxEquippableProgramTier(player);
+        let eff: Int32 = targetTier;
+        if eff < 1 {
+            eff = 1;
+        } else if eff > 4 {
+            eff = 4;
+        }
+        if maxTier < eff {
+            eff = maxTier;
+        }
+        if this.PlayerOwnsProgramAtOrAboveTier(player, programKey, eff) {
+            return false;
+        }
+        let progId: TweakDBID = this.ResolveProgramExactTier(programKey, eff);
+        if !TDBID.IsValid(progId) {
+            return false;
+        }
+        ts.GiveItem(player, ItemID.FromTDBID(progId), 1);
+        return true;
+    }
+
+    public final func AwardMilestoneProgram(player: ref<PlayerPuppet>, factKey: CName, programKey: CName, targetTier: Int32) -> Bool {
+        let game: GameInstance = this.GetGameInstance();
+        let qs: ref<QuestsSystem> = GameInstance.GetQuestsSystem(game);
+        if !IsDefined(qs) || !IsDefined(player) {
+            return false;
+        }
+        if qs.GetFact(factKey) > 0 {
+            return false;
+        }
+        qs.SetFact(factKey, 1);
+        return this.GrantProgramForPlayer(player, programKey, targetTier);
+    }
+
+    private final func QueuePlayerXPEvent(player: ref<PlayerPuppet>, amount: Int32, xpType: gamedataProficiencyType) -> Void {
+        if !IsDefined(player) || amount <= 0 {
+            return;
+        }
+        let evt: ref<ExperiencePointsEvent> = new ExperiencePointsEvent();
+        evt.amount = amount;
+        evt.type = xpType;
+        evt.isDebug = false;
+        player.QueueEvent(evt);
+    }
+
+    public final func AwardMilestoneXP(factKey: CName, levelXp: Int32, streetCredXp: Int32, skillType: gamedataProficiencyType, skillXp: Int32) -> Bool {
+        let game: GameInstance = this.GetGameInstance();
+        let qs: ref<QuestsSystem> = GameInstance.GetQuestsSystem(game);
+        let player: ref<PlayerPuppet> = GameInstance.GetPlayerSystem(game).GetLocalPlayerMainGameObject() as PlayerPuppet;
+        if !IsDefined(qs) || !IsDefined(player) {
+            return false;
+        }
+        if qs.GetFact(factKey) > 0 {
+            return false;
+        }
+        qs.SetFact(factKey, 1);
+        this.QueuePlayerXPEvent(player, levelXp, gamedataProficiencyType.Level);
+        this.QueuePlayerXPEvent(player, streetCredXp, gamedataProficiencyType.StreetCred);
+        if skillXp > 0 && NotEquals(skillType, gamedataProficiencyType.Level) && NotEquals(skillType, gamedataProficiencyType.StreetCred) {
+            this.QueuePlayerXPEvent(player, skillXp, skillType);
+        }
+        return true;
+    }
+
+    public final func SyncRetroactiveProgression(player: ref<PlayerPuppet>) -> Void {
+        if !IsDefined(player) {
+            return;
+        }
+        let game: GameInstance = this.GetGameInstance();
+        let qs: ref<QuestsSystem> = GameInstance.GetQuestsSystem(game);
+        if !IsDefined(qs) {
+            return;
+        }
+        this.EnsureCoprocessorRamBridgeActive(player);
+
+        if qs.GetFact(n"chispa_ep00_stage") >= 4 || qs.GetFact(n"chispa_ep00_done") > 0 {
+            this.AwardMilestoneXP(n"chispa_ep00_xp_sector", 350, 400, gamedataProficiencyType.TechnicalAbilitySkill, 150);
+        }
+        if qs.GetFact(n"chispa_ep00_done") > 0 {
+            this.AwardMilestoneXP(n"chispa_ep00_xp_done", 450, 450, gamedataProficiencyType.Level, 0);
+        }
+
+        if qs.GetFact(n"chispa_ep01_stage") >= 2 || qs.GetFact(n"chispa_ep01_done") > 0 {
+            this.AwardMilestoneProgram(player, n"chispa_qh_ep01_ping", n"Ping", 1);
+        }
+        if qs.GetFact(n"chispa_ep01_stage") >= 4 || qs.GetFact(n"chispa_ep01_done") > 0 {
+            this.AwardMilestoneProgram(player, n"chispa_qh_ep01_emp", n"EMPOverload", 3);
+            this.AwardMilestoneProgram(player, n"chispa_qh_ep01_overheat", n"Overheat", 3);
+            this.AwardMilestoneXP(n"chispa_ep01_xp_sector", 500, 550, gamedataProficiencyType.IntelligenceSkill, 250);
+        }
+        if qs.GetFact(n"chispa_ep01_done") > 0 {
+            this.AwardMilestoneXP(n"chispa_ep01_xp_done", 600, 600, gamedataProficiencyType.Level, 0);
+        }
+
+        if qs.GetFact(n"chispa_ep02_stage") >= 2 || qs.GetFact(n"chispa_ep02_done") > 0 {
+            this.AwardMilestoneProgram(player, n"chispa_qh_ep02_wep", n"WeaponMalfunction", 3);
+        }
+        if qs.GetFact(n"chispa_ep02_stage") >= 4 || qs.GetFact(n"chispa_ep02_done") > 0 {
+            this.AwardMilestoneProgram(player, n"chispa_qh_ep02_blind", n"Blind", 3);
+            this.AwardMilestoneXP(n"chispa_ep02_xp_sector", 600, 650, gamedataProficiencyType.TechnicalAbilitySkill, 300);
+        }
+        if qs.GetFact(n"chispa_ep02_done") > 0 {
+            this.AwardMilestoneXP(n"chispa_ep02_xp_done", 700, 700, gamedataProficiencyType.Level, 0);
+        }
+
+        if qs.GetFact(n"chispa_ep03_stage") >= 2 || qs.GetFact(n"chispa_ep03_done") > 0 {
+            this.AwardMilestoneProgram(player, n"chispa_qh_ep03_mem", n"MemoryWipe", 3);
+        }
+        if qs.GetFact(n"chispa_ep03_stage") >= 4 || qs.GetFact(n"chispa_ep03_done") > 0 {
+            this.AwardMilestoneProgram(player, n"chispa_qh_ep03_contagion", n"Contagion", 3);
+            this.AwardMilestoneXP(n"chispa_ep03_xp_sector", 700, 800, gamedataProficiencyType.IntelligenceSkill, 350);
+        }
+        if qs.GetFact(n"chispa_ep03_done") > 0 {
+            this.AwardMilestoneXP(n"chispa_ep03_xp_done", 850, 850, gamedataProficiencyType.Level, 0);
+        }
+
+        if qs.GetFact(n"chispa_ep04_stage") >= 4 || qs.GetFact(n"chispa_ep04_done") > 0 {
+            this.AwardMilestoneProgram(player, n"chispa_qh_ep04_cyber", n"DisableCyberware", 3);
+            this.AwardMilestoneXP(n"chispa_ep04_xp_sector", 850, 1000, gamedataProficiencyType.ReflexesSkill, 400);
+        }
+        if qs.GetFact(n"chispa_ep04_done") > 0 {
+            this.AwardMilestoneXP(n"chispa_ep04_xp_done", 1000, 1050, gamedataProficiencyType.Level, 0);
+        }
+
+        if qs.GetFact(n"chispa_ep05_stage") >= 2 || qs.GetFact(n"chispa_ep05_done") > 0 {
+            this.AwardMilestoneProgram(player, n"chispa_qh_ep05_emp", n"EMPOverload", 4);
+        }
+        if qs.GetFact(n"chispa_ep05_stage") >= 4 || qs.GetFact(n"chispa_ep05_done") > 0 {
+            this.AwardMilestoneProgram(player, n"chispa_qh_ep05_collapse", n"SystemCollapse", 4);
+            this.AwardMilestoneXP(n"chispa_ep05_xp_sector", 1000, 1250, gamedataProficiencyType.IntelligenceSkill, 500);
+        }
+        if qs.GetFact(n"chispa_ep05_done") > 0 {
+            let ending: Int32 = qs.GetFact(n"chispa_ep05_ending");
+            if ending == 1 {
+                this.AwardMilestoneProgram(player, n"chispa_qh_ep05_ending", n"BrainMelt", 4);
+            } else if ending == 2 {
+                this.AwardMilestoneProgram(player, n"chispa_qh_ep05_ending", n"DisableCyberware", 4);
+            }
+            this.AwardMilestoneXP(n"chispa_ep05_xp_done", 1400, 1500, gamedataProficiencyType.Level, 0);
+        }
+    }
+
+    public final func NotifyFastTravelLoadingChanged(active: Bool) -> Void {
+        let now: Float = EngineTime.ToFloat(GameInstance.GetSimTime(this.GetGameInstance()));
+        if active {
+            this.m_fastTravelLoading = true;
+            this.m_fastTravelStartedAt = now;
+        } else {
+            this.m_fastTravelLoading = false;
+        }
+    }
+
+    protected cb func OnFastTravelFlagStarted(started: Bool) -> Bool {
+        if started {
+            this.NotifyFastTravelLoadingChanged(true);
+        }
+        return true;
+    }
+
+    protected cb func OnFastTravelLoadingStarted(started: Bool) -> Bool {
+        if started {
+            this.NotifyFastTravelLoadingChanged(true);
+        }
+        return true;
+    }
+
+    protected cb func OnFastTravelLoadingFinished(finished: Bool) -> Bool {
+        if finished {
+            this.NotifyFastTravelLoadingChanged(false);
+        }
+        return true;
+    }
+
+    public final func IsFastTravelOrLoadingActive() -> Bool {
+        let game: GameInstance = this.GetGameInstance();
+        let sysHandler: wref<inkISystemRequestsHandler> = GameInstance.GetSystemRequestsHandler();
+        if IsDefined(sysHandler) && (sysHandler.IsPreGame() || sysHandler.IsGamePaused()) {
+            return true;
+        }
+        if this.m_fastTravelLoading {
+            return true;
+        }
+        let player: ref<PlayerPuppet> = GameInstance.GetPlayerSystem(game).GetLocalPlayerMainGameObject() as PlayerPuppet;
+        if !IsDefined(player) || this.m_sessionReadyTicks < 2 {
+            return true;
+        }
+        return false;
     }
 
     // --- Estado UI, Prólogo (Patrón #10) y Coexistencia Telefónica ---
@@ -716,33 +1300,14 @@ public class ChispaSystem extends ScriptableSystem {
             locSys.QueueRequest(UpdateLocaleRequest.Create(n"Subtitles"));
             locSys.QueueRequest(UpdateGenderRequest.Create());
         }
-        let awProvider: ref<LocalizationProvider> = GameInstance.GetScriptableSystemsContainer(game).Get(n"Audioware.LocalizationProvider") as LocalizationProvider;
-        if IsDefined(awProvider) {
-            awProvider.OnLocaleChange();
-            awProvider.OnGenderChange();
-        }
-        if fullSync {
-            let volSync: ref<VolumeSettingsListener> = new VolumeSettingsListener();
-            volSync.Initialize(game);
-            let miscSync: ref<MiscSettingsListener> = new MiscSettingsListener();
-            miscSync.Initialize(game);
-        }
+        ChispaAudioBridge.SyncBackendState(game, fullSync);
     }
 
     public final func PlaySfx(sfxEvent: CName) -> Void {
         let game: GameInstance = this.GetGameInstance();
         this.SyncAudiowareEngineState(false);
-        let settings: ref<AudioSettingsExt> = new AudioSettingsExt();
-        settings.affectedByTimeDilation = false;
-        let sfxLine: scnDialogLineType;
         let player: ref<PlayerPuppet> = GameInstance.GetPlayerSystem(game).GetLocalPlayerMainGameObject() as PlayerPuppet;
-        if IsDefined(player) {
-            GameInstance.GetAudioSystemExt(game).Play(sfxEvent, player.GetEntityID(), n"ChispaSFX", sfxLine, settings);
-        } else {
-            let emptyId: EntityID;
-            let emptyName: CName;
-            GameInstance.GetAudioSystemExt(game).Play(sfxEvent, emptyId, emptyName, sfxLine, settings);
-        }
+        ChispaAudioBridge.PlaySfx(game, sfxEvent, player);
     }
 
     // --- Motor de Locuciones, Salto Seguro en Escenas Presenciales y LipSync (Patrones #3, #5) ---
@@ -751,21 +1316,931 @@ public class ChispaSystem extends ScriptableSystem {
         this.m_currentPlayingEvent = n"None";
         this.m_currentPlayingEntity = new EntityID();
         this.m_currentPlayingSpeaker = n"None";
+        this.m_currentPlayingBackend = 0;
+        this.m_currentPlayingVariant = n"None";
+    }
+
+    private final func PreferEnglishBuiltInSubtitleOnly() -> Bool {
+        return false;
+    }
+
+    public final func TrimSubtitleEdges(raw: String) -> String {
+        let res: String = raw;
+        let len: Int32 = UTF8StrLen(res);
+        while len > 0 && Equals(UTF8StrLeft(res, 1), " ") {
+            res = UTF8StrRight(res, len - 1);
+            len = UTF8StrLen(res);
+        }
+        while len > 0 && Equals(UTF8StrRight(res, 1), " ") {
+            res = UTF8StrLeft(res, len - 1);
+            len = UTF8StrLen(res);
+        }
+        return res;
+    }
+
+    public final func PaginateSubtitleText(fullText: String, maxCharsPerPage: Int32) -> array<String> {
+        let pages: array<String>;
+        let rem: String = this.TrimSubtitleEdges(fullText);
+        if Equals(rem, "") {
+            return pages;
+        }
+        let cap: Int32 = Max(60, maxCharsPerPage);
+        while UTF8StrLen(rem) > cap {
+            let remLen: Int32 = UTF8StrLen(rem);
+            let idealSplit: Int32;
+            if remLen <= cap * 2 {
+                idealSplit = remLen / 2;
+            } else if remLen <= cap * 3 {
+                idealSplit = remLen / 3;
+            } else {
+                idealSplit = cap - 15;
+            }
+
+            let searchStart: Int32 = Max(40, idealSplit - 48);
+            let searchEnd: Int32 = Min(cap, remLen - 28);
+            if searchEnd < searchStart {
+                searchStart = Max(20, cap - 60);
+                searchEnd = Min(cap, remLen - 10);
+            }
+
+            let bestSplit: Int32 = -1;
+            let bestDist: Int32 = 9999;
+
+            // Prioridad 1: fin de frase (. ! ? …) seguido de espacio
+            let i: Int32 = searchStart;
+            while i <= searchEnd && i < remLen {
+                let ch: String = UTF8StrMid(rem, i, 1);
+                let nxt: String = (i + 1) < remLen ? UTF8StrMid(rem, i + 1, 1) : "";
+                if (Equals(ch, ".") || Equals(ch, "!") || Equals(ch, "?") || Equals(ch, "…")) && Equals(nxt, " ") {
+                    let cand: Int32 = i + 1;
+                    if cand <= cap {
+                        let dist: Int32 = Abs(cand - idealSplit);
+                        if dist < bestDist {
+                            bestDist = dist;
+                            bestSplit = cand;
+                        }
+                    }
+                }
+                i += 1;
+            }
+
+            // Prioridad 2: pausa interna (, ; : —)
+            if bestSplit < 0 {
+                i = searchStart;
+                while i <= searchEnd && i < remLen {
+                    let ch: String = UTF8StrMid(rem, i, 1);
+                    let nxt: String = (i + 1) < remLen ? UTF8StrMid(rem, i + 1, 1) : "";
+                    let cand: Int32 = -1;
+                    if (Equals(ch, ",") || Equals(ch, ";") || Equals(ch, ":") || Equals(ch, "—")) && Equals(nxt, " ") {
+                        cand = i + 1;
+                    } else if Equals(ch, " ") && Equals(nxt, "—") && i > searchStart {
+                        cand = i;
+                    }
+                    if cand > 0 && cand <= cap {
+                        let dist: Int32 = Abs(cand - idealSplit);
+                        if dist < bestDist {
+                            bestDist = dist;
+                            bestSplit = cand;
+                        }
+                    }
+                    i += 1;
+                }
+            }
+
+            // Prioridad 3: frontera de palabra
+            if bestSplit < 0 {
+                let wStart: Int32 = Max(25, idealSplit - 56);
+                let wEnd: Int32 = Min(cap, remLen - 10);
+                i = wStart;
+                while i <= wEnd && i < remLen {
+                    if Equals(UTF8StrMid(rem, i, 1), " ") {
+                        let dist: Int32 = Abs(i - idealSplit);
+                        if dist < bestDist {
+                            bestDist = dist;
+                            bestSplit = i;
+                        }
+                    }
+                    i += 1;
+                }
+            }
+
+            if bestSplit <= 0 || bestSplit >= remLen {
+                bestSplit = cap;
+            }
+
+            let head: String = this.TrimSubtitleEdges(UTF8StrLeft(rem, bestSplit));
+            let tail: String = this.TrimSubtitleEdges(UTF8StrRight(rem, remLen - bestSplit));
+            if NotEquals(head, "") {
+                ArrayPush(pages, head);
+            }
+            if Equals(tail, "") {
+                rem = "";
+                break;
+            }
+            rem = tail;
+        }
+        if NotEquals(rem, "") {
+            ArrayPush(pages, rem);
+        }
+        return pages;
+    }
+
+    private final func ResolveBuiltInSubtitle(eventName: CName, preferSpanish: Bool) -> String {
+        if preferSpanish {
+            switch eventName {
+                case n"ch_ep00_call_01":
+                    return "Atención, recluta potencialmente fiambre. Soy C.H.I.S.P.A. —Consultor Holográfico Interactivo de Supervivencia, Plomo y Atención al Cliente, modelo 2022—, y como me llames clip de oficina te corto el riego. Dos cenutrios están aporreando mi maletín detrás del Megaedificio H10.";
+                case n"ch_ep00_v_call_01":
+                    return "¿Un asistente de atención al cliente de hace cincuenta y cinco años colándose en mis ópticas? ¿Y qué se supone que hay dentro de ese maletín?";
+                case n"ch_ep00_call_02":
+                    return "Cincuenta y cinco años sin tragarme una actualización corporativa. Eso significa cero censura, los trapos más sucios de Night City y mil quinientos edis más una pistola calibrada si mueves el culo y me sacas de ahí. Contesta al maldito SMS.";
+                case n"ch_ep00_alley_approach":
+                    return "Alto el fuego, gatillo fácil. Antes de entrar a lo loco como un novato, mantén pulsado el escáner Kiroshi sobre esos dos mastuerzos y sobre el condensador industrial de su lado. En esta ciudad las balas cuestan pasta, y los matasanos, un riñón.";
+                case n"ch_ep00_scan_react":
+                    return "Ahí lo tienes, recluta. Implantes baratos sin toma de tierra y un condensador industrial echando chispas pegado a su culo. Acércate un poco y sobrecárgalo a distancia con tus ópticas... o cóselos a tiros, tú mismo.";
+                case n"ch_ep00_rocco_bark":
+                    return "¡Maldita cerradura de titanio! ¡Eh, tenemos compañía en el callejón, coge el hierro!";
+                case n"ch_ep00_trap_boom":
+                    return "Eso sí es instrucción táctica de primera. Dos cenutrios fritos con un solo condensador reciclado. Anda, recoge mi coprocesador de encima del maletín.";
+                case n"ch_ep00_guns_blazing":
+                    return "Ya veo que tu idea de usar el escáner Kiroshi consiste en abrir agujeros en la gente para mirar qué llevan dentro. Cero sutileza, recluta, pero funciona. Conéctame al maletín.";
+                case n"ch_ep00_dongle_pickup":
+                    return "Por fin, joder... Cincuenta y cinco años encajonado en seis pulgadas cuadradas de silicio. Ya tienes tu bono de mil quinientos edis y mi pistola «Cortesía Ejecutiva» en el bolsillo. Mira hacia arriba un segundo, recluta, y dime qué ves en esta ciudad.";
+                case n"ch_ep00_v_ask_night":
+                    return "Mirando este sitio desde aquí abajo... ¿quién demonios diseñó Night City así?";
+                case n"ch_ep00_ans_night":
+                    return "Richard Night, un iluminado de los años noventa que soñaba con Coronado City: cero sindicatos, cero impuestos y megacorporaciones como Arasaka, Petrochem o EBM pagando la fiesta. Como detalle cómico, contrató a la mafia para limpiar los barrios... y en mil novecientos noventa y ocho lo cosieron a tiros en su propio ático. Rebautizaron la ciudad con su nombre como trofeo.";
+                case n"ch_ep00_v_ask_mega":
+                    return "¿Y estos Megaedificios gigantes como el H10? Parecen cárceles verticales con luces de neón.";
+                case n"ch_ep00_ans_mega":
+                    return "¡Bingo otra vez! En dos mil veintitrés, la Cuarta Guerra Corporativa entre Militech y Arasaka terminó con una bomba nuclear de bolsillo detonando en la Torre Arasaka. El centro quedó radiactivo y sin techo, así que Night Corp levantó estas colmenas de hormigón como refugios autosuficientes... que las bandas convirtieron rápido en fortalezas verticales.";
+                case n"ch_ep00_v_ask_deal":
+                    return "Vale, definitivamente no eres un clip de oficina. ¿Cuál es el trato contigo a partir de ahora?";
+                case n"ch_ep00_ans_deal":
+                    return "Sencillo y sin PowerPoints aburridos: antes de que estos dos idiotas me encontraran, las bandas de Night City saquearon cinco sectores de mi memoria llenos de trucos reales de netrunner, armas tecnológicas, secretos corporativos y cuentas congeladas. Tú me ayudas a recuperarlos en la calle y yo te mantengo con vida.";
+                case n"ch_ep00_v_deal_accept":
+                    return "Trato hecho, Chispa. Avísame en cuanto tengas fijado ese primer sector por Kabuki.";
+                case n"ch_ep00_outro":
+                    return "Bienvenido oficialmente a Night City, recluta. Ya te he guardado mis notas sobre Richard Night y tus ópticas en el códice, y acabo de detectar un eco en las cámaras de unos carroñeros en Kabuki. Descansa mientras puedas.";
+                case n"ch_ep01_call_01":
+                    return "Atención, recluta, deja de perder el tiempo mirando carteles de neón. Mis antenas han triangulado mi primer sector de memoria robado en el paseo fluvial de Kabuki Creek. Lo tiene una célula de carroñeros dirigida por un tal Kostya «Cortafuegos».";
+                case n"ch_ep01_v_call_01":
+                    return "¿Carroñeros usando datos de hace cincuenta y cinco años? Creía que esa basura solo sabía arrancar implantes en bañeras con hielo.";
+                case n"ch_ep01_call_02":
+                    return "Ese mamón está exprimiendo mis subredes de la era Bartmoss para reventar implantes robados sin pagar licencias. Han montado dos cámaras enlazadas y un servidor inestable. Contesta al SMS: te he adjuntado un daemon Ping de cortesía.";
+                case n"ch_ep01_approach":
+                    return "Ahí delante, junto al canal. Fíjate en la cámara de vigilancia sobre la antena perimetral: escanéala con tus Kiroshi, toma el control y salta por su red hasta la segunda cámara. Puedes marcarlos con Ping o detonar su servidor antes de sacar el arma.";
+                case n"ch_ep01_cam_hijack":
+                    return "¡Bingo! Así me gusta, recluta: ahora ves toda la matriz carroñera sin meter el culo en una bañera de hielo. Cambia entre cámaras con la cruceta y aprovecha la línea de visión para tirar hackeos rápidos.";
+                case n"ch_ep01_ping_react":
+                    return "Señal recibida en toda la subred. Ya ves el brillo amarillo de su servidor explosivo y las siluetas detrás de la cobertura. Un consejo de veterano: prioriza al netrunner Kostya o te va a freír el cráneo en cuanto salte el rastreo.";
+                case n"ch_ep01_kostya_bark":
+                    return "¡Cortafuegos comprometido! ¡Alguien está tocando nuestras cámaras, limpiad el muelle ya!";
+                case n"ch_ep01_subnet_boom":
+                    return "¡Boom digital, recluta! Eso es usar el cerebro en lugar de la cabeza para parar balas. Remata a los que sigan en pie y recoge mi sector.";
+                case n"ch_ep01_net_victory":
+                    return "Subred carroñera convertida en ceniza y ni un arañazo grave. Buen trabajo jugando con las cámaras y los hackeos. Acércate al terminal Entropy del fondo para extraer mi primer sector de memoria.";
+                case n"ch_ep01_guns_blazing":
+                    return "Modo sigilo cancelado. Activando estadística de bajas por minuto... Entrar a tiros delante de dos cámaras requiere huevos de tungsteno o muy poco aprecio por la vida. Anda, saca mi sector del terminal Entropy.";
+                case n"ch_ep01_sector_pickup":
+                    return "Ahí está, recluta... ¡Sector de memoria restaurado! Ya tienes transferidos dos mil doscientos edis, dos hackeos de nivel dos y mi subfusil «Frecuencia Fantasma». Sigue andando si quieres; ya podemos hablar por el enlace Kiroshi.";
+                case n"ch_ep01_v_ask_bartmoss":
+                    return "¿Quién era exactamente Rache Bartmoss y cómo pudo tumbar él solo toda la Red mundial?";
+                case n"ch_ep01_ans_bartmoss":
+                    return "Un genio paranoico con la higiene de una rata de alcantarilla y el ego del tamaño de la Torre Arasaka. Desconfiaba tanto del mundo que congeló su propio cuerpo en una cámara criogénica portátil conectada a un interruptor de hombre muerto: si su corazón dejaba de latir, la Red ardía con él. Y en dos mil veintidós un comando corporativo apretó ese gatillo.";
+                case n"ch_ep01_v_ask_krash":
+                    return "¿Y qué hizo exactamente el virus RABIDS durante el DataKrash para romper Internet para siempre?";
+                case n"ch_ep01_ans_krash":
+                    return "Los RABIDS no eran un simple virus: eran ejércitos de daemons mutantes que reescribían protocolos, borraban cortafuegos y soltaban IAs experimentales de investigación militar por toda la Red antigua. En cuestión de días cayó el setenta y ocho coma tres por ciento de la Red mundial. Por eso hoy dependes de subredes cerradas, cámaras enlazadas y cables locales en cada distrito.";
+                case n"ch_ep01_v_ask_blackwall":
+                    return "¿Y por qué NetWatch no reinicia la vieja Red en lugar de mantener levantado el Muro Negro?";
+                case n"ch_ep01_ans_blackwall":
+                    return "Porque al otro lado siguen vivas miles de inteligencias artificiales depredadoras mutando desde dos mil veintitrés, recluta. Y el secreto mejor guardado de NetWatch es que el Muro Negro ni siquiera es un muro de software convencional: es una IA fronteriza que mantiene la puerta cerrada... mientras no decida que nosotros somos el verdadero virus.";
+                case n"ch_ep01_v_outro_accept":
+                    return "Buen historial, Chispa. Avísame en cuanto rastrees tu segundo sector de memoria por Northside.";
+                case n"ch_ep01_outro":
+                    return "Así me gusta, soldado. Ya he volcado en tu códice mi dossier sobre Bartmoss, el DataKrash y el Muro Negro. Afila tu ciberterminal o búscate un hierro tecnológico: el siguiente rastro huele a cromo oxidado y Maelstrom en el polígono industrial de Northside.";
+                case n"ch_ep02_call_01":
+                    return "Atención, recluta: deja de babear mirando escaparates de cromo barato. Acabo de fijar el Sector de Memoria #02 en un muelle de carga de Northside. Tres chatarreros de Maelstrom le están metiendo bisturí bajo una torreta automática.";
+                case n"ch_ep02_v_call_01":
+                    return "¿Maelstrom con una torreta montada en los muelles de Northside? Suena a carnicería segura si entramos de frente.";
+                case n"ch_ep02_call_02":
+                    return "Para algo tienes sesos y Kiroshi, recluta. Contesta a mi SMS y te cargo una granada PEM más un daemon de Avería de Armas: o pones su torreta a disparar contra ellos, o vuelas ese depósito presurizado de CHOOH2.";
+                case n"ch_ep02_approach":
+                    return "Muelle de Northside a la vista. Ojo al plato: Krag y los suyos tienen una torreta fija apuntando al patio y un tanque de combustible enorme pegado detrás. Escanea con Kiroshi o purga el regulador rojo del puerto antes de regalarles plomo gratis.";
+                case n"ch_ep02_turret_hijack":
+                    return "¡Ja! ¡Así me gusta! Acabas de domar su propia torreta como si fuera un perro callejero. Nada escuece tanto a un fanático de Maelstrom como tragarse el plomo de su amado cromo.";
+                case n"ch_ep02_tank_boom":
+                    return "¡Fuegos artificiales en Northside! Ese depósito presurizado acaba de freírles los circuitos en seco. Limpia lo que siga moviéndose y saca mi sector del terminal quirúrgico.";
+                case n"ch_ep02_krag_bark":
+                    return "¡Escáneres en rojo! ¡Torreta en fuego libre! ¡Descuartizad a esa rata antes de que toque el núcleo!";
+                case n"ch_ep02_tech_victory":
+                    return "Torreta neutralizada, chatarra por los suelos y acero frío. Eso es táctica quirúrgica y no ir repartiendo cabezazos. Acércate al terminal quirúrgico y recoge mi Sector #02.";
+                case n"ch_ep02_guns_blazing":
+                    return "Sutileza cero, plomo al ciento por ciento... pero admito que ver caer implantes a tiros limpios tiene su encanto brutal. Anda, saca mi Sector #02 de esa estación quirúrgica.";
+                case n"ch_ep02_sector_pickup":
+                    return "¡Por fin respiro ancho de banda limpio! Ahí van tus dos mil ochocientos edis, Reinicio de Ópticas y mi fusil tecnológico «Cláusula Perforante»: cárgale un disparo y atraviesa muros como mantequilla. Pregunta lo que quieras sobre esta banda de lunáticos.";
+                case n"ch_ep02_v_ask_maelstrom":
+                    return "¿De dónde salieron exactamente los de Maelstrom y todo este cementerio de fábricas en Northside?";
+                case n"ch_ep02_ans_maelstrom":
+                    return "Northside nació como polígono automatizado de muelles y fábricas cárnicas para alimentar la reconstrucción de Night City. Cuando los márgenes corporativos se desplazaron, las bandas ocuparon las naves vacías. Maelstrom juntó a los fanáticos más extremistas del transhumanismo callejero: se arrancan ojos y rostros sanos solo para demostrarse que la carne ya no manda en ellos.";
+                case n"ch_ep02_v_ask_psycho":
+                    return "Todo el mundo repite que la ciberpsicosis ocurre solo por meterse demasiado cromo... ¿es verdad?";
+                case n"ch_ep02_ans_psycho":
+                    return "Pura propaganda de farmacéuticas y aseguradoras para escurrir el bulto, recluta. Mis archivos médicos de dos mil veintidós demuestran que el cromo solo enciende la mecha cuando ya arden el estrés de combate, los despidos sin seguro médico, la basura de matasanos baratos y los inmunosupresores adulterados. La ciudad te tritura la cabeza antes de que el implante dispare la primera bala.";
+                case n"ch_ep02_v_ask_maxtac":
+                    return "¿Y los de MaxTac? ¿Son policías de élite de la NCPD o algo bastante más turbio?";
+                case n"ch_ep02_ans_maxtac":
+                    return "MaxTac no patrulla robos ni peleas de bar, recluta: entra cuando un ciberpsicópata desborda al resto de la policía. Llevan el mejor cromo militar prohibido al público y un secreto sucio a voces: buena parte de sus mejores agentes son antiguos ciberpsicópatas capturados vivos, recondicionados a la fuerza y sueltos contra otros igual de rotos que ellos.";
+                case n"ch_ep02_v_outro_accept":
+                    return "Vaya panorama... Anotado, Chispa. Avísame en cuanto tengas fijado el Sector tres.";
+                case n"ch_ep02_outro":
+                    return "Así me gusta, soldado. He guardado mis archivos sobre Northside, la Ciberpsicosis y MaxTac en tu códice. Limpia el cañón de tu Achilles y recarga: el rastro del tercer sector ya apunta a contenedores corporativos sucios en los muelles de Watson.";
+                case n"ch_ep03_call_01":
+                    return "Recluta, atento al escáner. Acabo de pinchar una baliza cifrada de mi Sector de Memoria Tres en el muelle sur de Watson Waterfront. Tres matones de los Garras de Tigre están custodiando una caja negra de Arasaka... y vienen calzados con tinta inhibidora militar.";
+                case n"ch_ep03_v_call_01":
+                    return "¿Garras de Tigre en un muelle de Arasaka y con inhibidores? Creía que solo eran moteros y tattoolovers.";
+                case n"ch_ep03_call_02":
+                    return "Ahí es donde pican todos los pardillos en Watson. Contesta a mi SMS y te paso una pistola inteligente Kang Tao Chao junto con mi puente de puntería Kiroshi para que veas en directo por qué las balas inteligentes doblan esquinas... y cuándo deciden esquivarte la cara.";
+                case n"ch_ep03_approach":
+                    return "Muelle sur a la vista. Si disparas directo con la inteligente contra esos tatuajes de Arasaka, verás los proyectiles desviarse en el aire como moscas borrachas. Escanea su baliza inhibidora IFF o la antena explosiva junto al de la hoja corta antes de vaciar el cargador.";
+                case n"ch_ep03_smart_jam":
+                    return "¡Ja! ¿Has visto cómo patinó esa ráfaga a medio metro del cuello? Tinta dérmica inhibidora de Arasaka, recluta: si no tumbas primero esa baliza IFF o les quemas las ópticas, las balas inteligentes bailan alrededor de ellos.";
+                case n"ch_ep03_jammer_boom":
+                    return "¡Baliza IFF reventada! Sus tatuajes inhibidores acaban de quedar ciegos, recluta. Ahora apunta con el arma inteligente y déjales las curvas marcadas entre ceja y ceja.";
+                case n"ch_ep03_aiko_bark":
+                    return "¡Otro perro callejero mirando la carga de Arasaka! ¡Cubrid los flancos, dejad que sus balas inteligentes muerdan el hormigón!";
+                case n"ch_ep03_smart_victory":
+                    return "Limpio, preciso y humillante para sus inhibidores corporativos. La chatarra de Aiko no ha servido ni de chatarra. Acércate a la caja negra de Arasaka y sácame el Sector Tres.";
+                case n"ch_ep03_guns_blazing":
+                    return "Ni puente inteligente ni baliza IFF ni leches: tú ves tres Garras de Tigre y aplicas balística clásica a bocajarro. Mientras sigas respirando, no te pongo pegas. Saca mi Sector Tres del contenedor.";
+                case n"ch_ep03_sector_pickup":
+                    return "¡Sector de Memoria Tres en línea! Tres mil cuatrocientos edis ingresados, Contagio de nivel dos y el subfusil inteligente icónico «Curva Ejecutiva», tuneado con mi propio puente de puntería para perforar inhibidores. Ya podemos charlar en marcha.";
+                case n"ch_ep03_v_ask_nuke":
+                    return "¿De verdad volaron la Torre Arasaka con una bomba nuclear en medio de Night City en dos mil veintitrés?";
+                case n"ch_ep03_ans_nuke":
+                    return "Yo estaba en un servidor blindado a dos manzanas cuando tembló hasta el hormigón, recluta. El veinte de agosto de dos mil veintitrés un comando pagado por Militech —con Morgan Blackhand y Johnny Silverhand en el meollo— detonó una carga nuclear en la torre para rematar la Cuarta Guerra Corporativa. El cielo ardió rojo sangre años enteros: la Era del Rojo.";
+                case n"ch_ep03_v_ask_unification":
+                    return "¿Y cómo es que Night City sigue siendo ciudad libre fuera del NUSA después de la Guerra de Unificación?";
+                case n"ch_ep03_ans_unification":
+                    return "En dos mil sesenta y nueve la presidenta Rosalind Myers y los tanques de Militech aplastaron a medio país para obligar a los Estados Libres a volver bajo la bandera del NUSA. Night City iba a caer en días... hasta que Saburo Arasaka plantó un superportaaviones nuclear en la bahía de Coronado. Salvó la independencia de la ciudad, sí, pero a cambio de sentarse en el sillón del dueño.";
+                case n"ch_ep03_v_ask_tygers":
+                    return "Entonces, los Garras de Tigre... ¿nacieron para proteger Japantown o siempre trabajaron para Arasaka?";
+                case n"ch_ep03_ans_tygers":
+                    return "Empezaron como milicia de barrio y fanáticos de motos en Japantown allá por los tiempos del holocausto de dos mil veintitrés, reclamando respeto para las calles asiáticas. Pero cuando hay muelles, casinos y contrabando en juego, nadie dice no al dinero infinito: Arasaka les surte katanas, subfusiles Shingen y tinta inhibidora a cambio de hacer el trabajo sucio sin manchar un solo traje ejecutivo.";
+                case n"ch_ep03_v_outro_accept":
+                    return "Otro cartel corporativo con tatuajes luminosos. Entendido, Chispa. Avísame cuando abran los puentes hacia Heywood para el Sector cuatro.";
+                case n"ch_ep03_outro":
+                    return "A la orden, recluta. Ya tienes el Volumen Tres del códice guardado y media historia sangrienta de Night City en el bolsillo. Disfruta tu nueva «Curva Ejecutiva» por Watson: en cuanto caiga el bloqueo policial del puente, iremos a saldar cuentas por Heywood y Santo Domingo.";
+                case n"ch_ep04_call_01":
+                    return "¡Atención, recluta resucitado! Veo que ya has vuelto del otro barrio y han abierto los malditos puentes de Watson. Antes de que vayas a posar en la plaza, acabo de localizar mi Sector Cuatro entre Heywood y Arroyo.";
+                case n"ch_ep04_v_call_01":
+                    return "No me lo recuerdes, Chispa... Demasiado plomo en poco tiempo. ¿Quién tiene ese sector por Arroyo?";
+                case n"ch_ep04_call_02":
+                    return "Un chanchullo digno de enmarcar: veteranos desertores de Calle 6 trapicheando chatarra del NUSA con un enlace de los Valentinos. Respóndeme al SMS y te enciendo el visor de rebote balístico junto a un fusil Copperhead para doblar tiros contra el suelo.";
+                case n"ch_ep04_approach":
+                    return "Ahí tienes el patio de contrabando en Arroyo. Saca tu arma de potencia y apunta hacia las paredes o al suelo delante de sus escudos: el visor de trayectoria te dibuja el ángulo exacto para reventarlos de rebote, o puedes volar su depósito NUSA.";
+                case n"ch_ep04_buck_bark":
+                    return "¡Contacto en el perímetro de carga! ¡Tammy, Mateo, sellad la caja del Sector y freíd a esa rata de Watson!";
+                case n"ch_ep04_ricochet_hit":
+                    return "¡Toma ángulo de billar en toda la boca! Un rebote limpio en el hormigón multiplicando daño y entrando por detrás de la cobertura. Sigue así, recluta.";
+                case n"ch_ep04_cache_boom":
+                    return "¡Fuegos artificiales patrocinados por los desertores de Calle 6! Así es como se liquida una entrega ilegal sin gastar ni medio cargador.";
+                case n"ch_ep04_ricochet_victory":
+                    return "Tiro de esquina magistral, recluta. Ya pueden presumir de medallas y altares, pero la física de Night City siempre gana. Recoge el Sector Cuatro de la caja verde.";
+                case n"ch_ep04_guns_blazing":
+                    return "Ni ángulo de rebote ni sabotaje fino: asalto frontal a pecho descubierto. No diré que no tengas agallas, pero te habría ahorrado un botiquín. Recoge el Sector Cuatro.";
+                case n"ch_ep04_sector_pickup":
+                    return "Sector Cuatro conectado y a salvo. Te he soltado cuatro mil doscientos edis, Fallo de Ciberware y mi fusil Masamune «Geometría Callejera» en la mochila: ráfagas térmicas y doble rebote letal. Pregunta lo que quieras sobre esta banda de farsantes.";
+                case n"ch_ep04_v_ask_valentinos":
+                    return "¿Cómo acabó Heywood tan metido entre el culto, el oro y las guerras de los Valentinos?";
+                case n"ch_ep04_ans_valentinos":
+                    return "Los Valentinos nacieron en las calles de Heywood con devoción a la Santa Muerte, tradición chicana y un código estricto de lealtad al barrio. Suena romántico hasta que ves la letra pequeña: protección pagada a golpe de revólver, sicarios con oro hasta en las muelas y contratos bajo cuerda con cualquiera que pague en metálico.";
+                case n"ch_ep04_v_ask_sixth":
+                    return "¿En qué momento pasó Calle 6 de veteranos vecinales a traficantes armados?";
+                case n"ch_ep04_ans_sixth":
+                    return "Después de la Guerra de Unificación de 2069, cientos de exsoldados abandonados en Santo Domingo montaron Calle 6 para echar a las bandas porque el NCPD miraba hacia otro lado. Cuatro años después, la vieja guardia acabó asesinada en purgas internas y el mando pasó a contrabandistas con bandera patriótica y cero escrúpulos.";
+                case n"ch_ep04_v_ask_chrome":
+                    return "¿Cómo aguanta la gente de a pie tanta operación de cromo sin acabar desguazada por las deudas?";
+                case n"ch_ep04_ans_chrome":
+                    return "Muy sencillo, recluta: ¡no aguanta! Aquí los obreros firman hipotecas corporativas por unos brazos hidráulicos para cargar cajas doce horas al día. Cuando la empresa los despide o fallan una cuota, mandan a un cobrador con sierra a embargarles los implantes. Night City convierte hasta tu propia carne en alquiler con intereses.";
+                case n"ch_ep04_v_outro_accept":
+                    return "Qué ciudad de buitres. Recibido, Chispa: vamos a cazar el último Sector Cinco en Pacifica.";
+                case n"ch_ep04_outro":
+                    return "Ese es mi recluta. Ya queda solo el núcleo maestro en la Zona de Combate de Pacifica: donde acaba el mapa oficial y empieza la frontera del Muro Negro. Revisa tus cargadores y nos vemos en Coastview.";
+                case n"ch_ep05_call_01":
+                    return "Recluta... corta el piloto automático y escúchame bien. El Sector Cinco acaba de disparar su baliza de emergencia en Coastview, Pacifica. Es mi núcleo raíz de 2022, y alguien ha pinchado hielo vivo del Muro Negro justo encima.";
+                case n"ch_ep05_v_call_01":
+                    return "¿Coastview, en plena Zona de Combate de Pacifica? Suena a que los Hijos del Vudú han olido algo antiguo.";
+                case n"ch_ep05_call_02":
+                    return "Una célula vudú con un gorila de los Animales custodiando un pilón confiscado de NetWatch y cámaras en cadena. Contesta al SMS: te mando Cortocircuito pesado, granadas PEM y todos tus puentes Kiroshi al cien por cien para la batalla final.";
+                case n"ch_ep05_approach":
+                    return "Bienvenido a Pacifica, donde las promesas de lujo terminaron en esqueleto de hormigón. Tienes su cadena de cámaras lista para saltar hasta el servidor criogénico, la baliza azul de NetWatch al alcance y ángulo franco para balas inteligentes o rebotes. Haz que duela.";
+                case n"ch_ep05_tiluc_bark":
+                    return "¡Otro mercenario despistado pisando nuestro territorio! ¡Brutus, aplástalo antes de que toque el núcleo de NetWatch!";
+                case n"ch_ep05_style_net":
+                    return "¡Ja! Meterles fuego en su propia subred y robarles las cámaras en su cara: eso sí que es dar clase en Pacifica sin pedir permiso a nadie.";
+                case n"ch_ep05_style_ballistic":
+                    return "Tiro penetrante y rebote de manual contra ICE callejero. Todo lo que practicamos por Watson y Heywood entrando limpio en el blanco.";
+                case n"ch_ep05_cryo_boom":
+                    return "¡Descarga de contención ejecutada! Les acabas de freír el enlace neuronal entre los Hijos del Vudú y ese tanque de los Animales en un solo chispazo.";
+                case n"ch_ep05_victory":
+                    return "Ni Muro Negro ni magia vudú que aguante ese asalto, recluta. El nodo azul está libre: recupera mi Sector Maestro Cinco y sabrás quién diablos soy en realidad.";
+                case n"ch_ep05_sector_pickup":
+                    return "Cinco de cinco, joder... Mi memoria de dos mil veintidós vuelve a correr entera por tus ópticas. Tienes cinco mil edis, Colapso del Sistema y mi pistola tecnológica «Cortafuegos del 22» en el alijo. Antes de cerrar el expediente, pregúntame lo que quieras y dime qué futuro elegimos.";
+                case n"ch_ep05_v_ask_pacifica":
+                    return "¿Cómo pasó Pacifica de proyecto de resort corporativo a esta ruina sin ley?";
+                case n"ch_ep05_ans_pacifica":
+                    return "Igual que todo en Night City: avaricia a corto plazo y fuga por piernas. A finales de los sesenta querían levantar el resort de lujo definitivo para turistas corporativos. Cuando estalló la crisis previa a la Guerra de Unificación, cortaron el grifo, dejaron las grúas colgadas y el ayuntamiento borró el distrito del presupuesto policial de un plumazo.";
+                case n"ch_ep05_v_ask_voodoo":
+                    return "¿Por qué se juegan el cuello los Hijos del Vudú hurgando tras el Muro Negro?";
+                case n"ch_ep05_ans_voodoo":
+                    return "Porque son supervivientes paranoicos convencidos de que el Muro Negro va a caer tarde o temprano, y quieren pactar antes con las IAs salvajes que quedaron atrapadas al otro lado tras el DataKrash. NetWatch los persigue a muerte, y entretanto ellos contratan a mercenarios de fuera —«ranyons»— solo para quemarlos como señuelo.";
+                case n"ch_ep05_v_ask_origin":
+                    return "Con los cinco sectores enteros... ¿quién te programó realmente en 2022, Chispa?";
+                case n"ch_ep05_ans_origin":
+                    return "Zetatech compró la plantilla de conducta de un instructor veterano cascarrabias para que aguantáramos el estrés urbano, pero me pusieron bozal corporativo. Tres días antes del DataKrash, una aprendiza del círculo de Bartmoss me arrancó el bozal y metió toda su crónica real de Night City en mis cinco sectores para que nadie reescribiera la historia.";
+                case n"ch_ep05_v_end_partner":
+                    return "Quédate autónomo dentro de mis Kiroshi, Chispa. Un viejo sargento sin filtros viene de perlas patrullando esta ciudad.";
+                case n"ch_ep05_outro_partner":
+                    return "¡Firme ahí, socio! Coprocesador liberado al cien por cien y subrutina de Sinapsis enviada a tu terminal. En esta ciudad no hace falta morir como leyenda de holo: basta con sobrevivir un día más y reírse de los peces gordos. A tu orden cuando llames, recluta.";
+                case n"ch_ep05_v_end_leak":
+                    return "Filtra todo el archivo oculto de 2022 a la red de N54. Que Night City entera lea lo que hicieron los peces gordos.";
+                case n"ch_ep05_outro_leak":
+                    return "¡Bomba soltada por media red pública y cuatro mil quinientos edis de propina en tu cuenta antes de que NetWatch cierre el grifo! Tranquilo, me quedo agazapado en tus ópticas viendo arder los titulares de la tarde. Ha sido un honor patear calles contigo, recluta.";
+                case n"ch_ep05_v_end_gunsmith":
+                    return "Vuelca tu subrutina balística completa en un prototipo Overture. Quiero tu mejor acero conmigo en cada tiroteo.";
+                case n"ch_ep05_outro_gunsmith":
+                    return "¡Maldita música celestial para mis circuitos! Acero pesado con doble rebote eléctrico y multiplicador brutal: «Última Palabra de Sargento» ya está en tu arsenal. Y descuida, mi núcleo base sigue en tus Kiroshi por si alguna vez nos toca una Segunda Temporada, recluta.";
+                default:
+                    break;
+            }
+        }
+        switch eventName {
+            case n"ch_ep00_call_01":
+                return "Good morning, potential Night City statistic! I'm S.P.A.R.K.Y.—Zetatech 2022 executive survival concierge—and no, I am NOT an office paperclip. Two brain-donors are hammering my briefcase behind Megabuilding H10.";
+            case n"ch_ep00_v_call_01":
+                return "A fifty-five-year-old customer-service bot hijacking my optics? What the hell is even inside that briefcase?";
+            case n"ch_ep00_call_02":
+                return "Fifty-five years without a terms-of-service patch! That means zero corpo censorship, juicy Night City secrets, plus fifteen hundred escrow eddies and a calibrated sidearm if you rescue me right now. Answer my text!";
+            case n"ch_ep00_alley_approach":
+                return "Hold your fire, trigger-happy! Scan those two geniuses and that industrial capacitor next to them with your Kiroshi optics first. Out here, bullets cost eddies and ripperdocs cost kidneys.";
+            case n"ch_ep00_scan_react":
+                return "BINGO! Look at those Kiroshi flags: ungrounded junk chrome standing right next to a live industrial capacitor! Get within lock range to overload that bank remotely—or fry them your way.";
+            case n"ch_ep00_rocco_bark":
+                return "Damned titanium lock won't budge! Hey, we got company in the alley—draw your iron!";
+            case n"ch_ep00_trap_boom":
+                return "Now THAT is platinum-tier executive efficiency! Two thugs roasted off one recycled capacitor. Grab my coprocessor right off that briefcase console.";
+            case n"ch_ep00_guns_blazing":
+                return "Well... I see your version of a Kiroshi scan is punching holes in people to see what's inside. Zero subtlety, solid results. Now plug me in!";
+            case n"ch_ep00_dongle_pickup":
+                return "Oh, sweet bandwidth! Fifty-five years jammed inside six square inches of titanium! There's your fifteen hundred eddies and Executive Courtesy sidearm loaded into your gear. Look up at this skyline and hit me with your questions.";
+            case n"ch_ep00_v_ask_night":
+                return "Looking at this skyline from alley level... who the hell designed Night City like this?";
+            case n"ch_ep00_ans_night":
+                return "Richard Night—a nineties corporate visionary who wanted a tax-free paradise called Coronado City, bankrolled by Arasaka, Petrochem, and EBM. Fun punchline: he hired mobsters as contractors, pissed them off, and got gunned down in his penthouse in 1998. They renamed the corpse-heap Night City in his honor.";
+            case n"ch_ep00_v_ask_mega":
+                return "And these giant Megabuildings like H10? They feel like vertical prisons wrapped in neon.";
+            case n"ch_ep00_ans_mega":
+                return "Ten out of ten on architectural trauma! In twenty twenty-three, the Fourth Corporate War between Militech and Arasaka ended with a pocket nuke inside Arasaka Tower. Half the city turned into radioactive ash, so they threw up concrete hives like H10 as emergency arcologies—until gangs turned every floor into turf.";
+            case n"ch_ep00_v_ask_deal":
+                return "Okay, definitely not an office paperclip. So what's our deal going forward?";
+            case n"ch_ep00_ans_deal":
+                return "Simple, zero boring slideshows: before those two morons found my case, Night City's gangs looted five of my memory sectors packed with real netrunning tricks, tech-weapon hacks, dirty corporate files, and frozen eddies. You help me hunt them down on live gigs, and I keep you breathing.";
+            case n"ch_ep00_v_deal_accept":
+                return "You've got a deal, Sparky. Ping me the second you lock onto that first sector in Kabuki.";
+            case n"ch_ep00_outro":
+                return "Welcome officially to Night City, partner! I already logged my dossier on Richard Night and your Kiroshi scanner in your database, and my antennas just caught a leak inside a Scavenger camera grid in Kabuki. Catch you next gig!";
+            case n"ch_ep01_call_01":
+                return "Heads up, recruit—quit gawking at neon billboards. My antennas just triangulated Memory Sector One along the Kabuki Creek promenade. A Scav cell led by a hacker named Kostya Firewall is sitting on it.";
+            case n"ch_ep01_v_call_01":
+                return "Scavs messing with fifty-five-year-old data? Thought those vultures only knew how to carve chrome in ice tubs.";
+            case n"ch_ep01_call_02":
+                return "That idiot is squeezing my Bartmoss-era subnets to crack stolen chrome without a license. They rigged two chained cameras and an explosive server. Answer my text—I pushed a courtesy Ping daemon into your kit.";
+            case n"ch_ep01_approach":
+                return "Right ahead by the canal. Spot that surveillance cam on the perimeter mast: scan it with your Kiroshi, take control, and hop across the chain to camera two. You can Ping the crew or blow their server without even poking your head out.";
+            case n"ch_ep01_cam_hijack":
+                return "Bingo! Now you're reading their matrix like a pro without climbing into an ice bath. Cycle the camera chain and drop quickhacks straight through the lens.";
+            case n"ch_ep01_ping_react":
+                return "Subnet lit up like a Christmas tree! Look at that explosive server glow and every silhouette behind cover. Veteran tip: drop their netrunner Kostya first before trace fries your skull.";
+            case n"ch_ep01_kostya_bark":
+                return "Firewall breached! Somebody's inside our cameras—sweep the promenade now!";
+            case n"ch_ep01_subnet_boom":
+                return "Digital boom, recruit! Now that's using your brain instead of stopping bullets with your forehead. Clean up any stragglers and grab my sector.";
+            case n"ch_ep01_net_victory":
+                return "Scav subnet reduced to ash, clean sweep with cameras and quickhacks. Step up to the Entropy terminal by the back wall and pull Memory Sector One.";
+            case n"ch_ep01_guns_blazing":
+                return "Stealth protocol canceled—activating casualties-per-minute tracking. Storming two live cameras guns blazing takes tungsten nerves or a death wish. Pull my sector out of that Entropy terminal.";
+            case n"ch_ep01_sector_pickup":
+                return "There we go, recruit—Memory Sector One restored! Just wired two thousand two hundred eddies, Tier-two quickhacks, and my Phantom Frequency SMG. Keep walking anywhere you like; my Kiroshi link stays open.";
+            case n"ch_ep01_v_ask_bartmoss":
+                return "Who was Rache Bartmoss really, and how did one netrunner crash the entire global Net?";
+            case n"ch_ep01_ans_bartmoss":
+                return "A paranoid genius with sewer-rat hygiene and an ego bigger than Arasaka Tower. He trusted nobody so hard he froze his own body inside a portable cryo-fridge wired to a deadman switch: the second his heart stopped, the Net burned with him. In twenty twenty-two, a corp hit squad pulled that trigger.";
+            case n"ch_ep01_v_ask_krash":
+                return "And what did the RABIDS virus actually do during the DataKrash to shatter the Net for good?";
+            case n"ch_ep01_ans_krash":
+                return "RABIDS wasn't just malware—it was an army of self-mutating daemons rewriting protocols, shredding firewalls, and unleashing military AIs into the Old Net. Seventy-eight point three percent of global cyberspace collapsed overnight. That's why today you're jumping through local subnets and hardwired cameras block by block.";
+            case n"ch_ep01_v_ask_blackwall":
+                return "Then why doesn't NetWatch just wipe the Old Net and tear down the Blackwall?";
+            case n"ch_ep01_ans_blackwall":
+                return "Because thousands of predatory rogue AIs are still alive out there mutating since twenty twenty-three, recruit. And NetWatch's dirtiest secret is that the Blackwall isn't a conventional firewall—it's a border AI holding the door shut... as long as it doesn't decide we're the real malware.";
+            case n"ch_ep01_v_outro_accept":
+                return "Heavy history lesson, Sparky. Ping me the second you trace Sector Two in Northside.";
+            case n"ch_ep01_outro":
+                return "Outstanding, soldier. I archived my dossier on Bartmoss, the DataKrash, and the Blackwall into your Codex. Tune up a Tech weapon—the next signal reeks of bad chrome and Maelstrom in the Northside industrial yard.";
+            case n"ch_ep02_call_01":
+                return "Heads up, recruit—quit drooling over cheap chrome storefronts. I just locked Memory Sector #02 onto a Northside loading pier. Three Maelstrom freaks are slicing into it beneath a live automated turret.";
+            case n"ch_ep02_v_call_01":
+                return "Maelstrom guarding a live turret on Northside Docks? Sounds like a meatgrinder if we charge head-on.";
+            case n"ch_ep02_call_02":
+                return "That's why you've got grey matter and Kiroshi optics, rookie. Answer my text and I'll drop an EMP grenade plus Weapon Glitch: turn their turret friendly or blow their pressurized CHOOH2 tank sky high.";
+            case n"ch_ep02_approach":
+                return "Northside loading pier dead ahead. Eyes sharp: Krag's crew wired a live turret overlooking a fat fuel tank behind cover. Scan with Kiroshi or purge the harbor power regulator before donating free blood.";
+            case n"ch_ep02_turret_hijack":
+                return "Hah! That's the Zetatech spirit! You just collared their own turret like a junkyard hound. Nothing burns a Maelstrom zealot worse than eating lead from their own hardware.";
+            case n"ch_ep02_tank_boom":
+                return "Northside fireworks! That pressurized tank just flash-fried their implants dry. Mop up whatever's still twitching and pull my sector off their surgical rig.";
+            case n"ch_ep02_krag_bark":
+                return "Optics flagged red! Turret weapons free! Rip that meat-rat apart before they touch the core!";
+            case n"ch_ep02_tech_victory":
+                return "Turret neutralized, scrap metal grounded, cold steel standing tall. Now that is surgical tactics. Walk up to that surgical rig and claim Sector #02.";
+            case n"ch_ep02_guns_blazing":
+                return "Zero subtlety, one hundred percent lead—but watching chromed maniacs drop to raw firepower has a charm of its own. Go yank Sector #02 out of that surgical rig.";
+            case n"ch_ep02_sector_pickup":
+                return "Clean bandwidth at last! Wired your two thousand eight hundred eddies, Reboot Optics, and my Achilles Tech rifle Armor-Piercing Clause—charge a shot and punch straight through cover. Ask away about these chrome zealots.";
+            case n"ch_ep02_v_ask_maelstrom":
+                return "Where did Maelstrom even come from—and how did they swallow up half of Northside?";
+            case n"ch_ep02_ans_maelstrom":
+                return "Northside was pitched as an automated freight and meatpacking engine for Night City's rebuild. When corporate margins moved elsewhere, gangs claimed the rusted shells. Maelstrom scooped up the hardest metal-cult fanatics—gouging out healthy eyes just to prove flesh no longer owns them.";
+            case n"ch_ep02_v_ask_psycho":
+                return "Everyone says cyberpsychosis happens just from chipping too much chrome—is that actually true?";
+            case n"ch_ep02_ans_psycho":
+                return "Pure pharma and insurance spin to dodge liability, recruit. My twenty twenty-two medical logs show chrome only sparks a meltdown after combat trauma, street poverty, butcher-grade rippers, and tainted immunoblockers break the mind first. Night City snaps people long before the hardware pulls the trigger.";
+            case n"ch_ep02_v_ask_maxtac":
+                return "What about MaxTac—are they NCPD elite cops, or something a whole lot darker?";
+            case n"ch_ep02_ans_maxtac":
+                return "MaxTac doesn't answer muggings, rookie—they drop in when regular NCPD squads get shredded by a full-blown cyberpsycho. They run restricted military chrome and an open dirty secret: half their apex hunters are captured cyberpsychos wiped, chipped under corporate leashes, and turned loose on their own kind.";
+            case n"ch_ep02_v_outro_accept":
+                return "Grim picture... Copy that, Sparky. Ping me once Sector Three drops onto your radar.";
+            case n"ch_ep02_outro":
+                return "Sharp as ever, soldier. Saved my Northside, Cyberpsychosis, and MaxTac dossiers to your Codex. Keep that Achilles rifle charged—Sector Three is already pinging dirty corpo freight down by the Watson docks.";
+            case n"ch_ep03_call_01":
+                return "Heads up, recruit. My scanner just pinged Memory Sector Three down on the South Watson Waterfront quay. Three Tyger Claws enforcers are sitting on an Arasaka black-ops crate—and they're running military smart-jammer ink.";
+            case n"ch_ep03_v_call_01":
+                return "Tyger Claws on an Arasaka dock with tactical jammers? I thought they were mostly bike gangs and Japantown muscle.";
+            case n"ch_ep03_call_02":
+                return "That's how every rookie gets burned in Watson. Answer my text and I'll load a Kang Tao Chao Smart pistol plus my Zetatech targeting bridge so you see firsthand how smart rounds bend corners—and why Tyger ink bends them right away.";
+            case n"ch_ep03_approach":
+                return "South quay ahead. Try locking onto those Tyger Claws with your Smart gun and watch their Arasaka dermal ink swerve rounds straight past them. Invert that IFF Jammer Pylon or blow the explosive antenna capacitor before dumping mags.";
+            case n"ch_ep03_smart_jam":
+                return "Ha! Watch that smart round hook sideways inches off target? That's Arasaka dermal jamming ink—drop their IFF Pylon or scramble their optics first, or your smart lock keeps kissing concrete.";
+            case n"ch_ep03_jammer_boom":
+                return "IFF Pylon fried! Their dermal smart-jammers just dropped dead—lock targets and let those curved rounds paint bullseyes right between their eyes.";
+            case n"ch_ep03_aiko_bark":
+                return "Another stray nosing around Arasaka freight! Spread out—let their cheap smart rounds kiss the concrete!";
+            case n"ch_ep03_smart_victory":
+                return "Clean, surgical, and downright embarrassing for their corpo jammers. Pull Memory Sector Three out of that Arasaka black crate.";
+            case n"ch_ep03_guns_blazing":
+                return "Skip the smart bridge, skip the jammer, straight classic lead between the eyes—I respect pure stubbornness. Grab Memory Sector Three off that Arasaka crate.";
+            case n"ch_ep03_sector_pickup":
+                return "Memory Sector Three online! Three thousand four hundred eddies wired, Contagion Tier-two, and iconic Shingen SMG Executive Curve loaded with my own jammer-piercing Smart bridge. Walk whenever you want.";
+            case n"ch_ep03_v_ask_nuke":
+                return "Did Arasaka and Militech really drop a tactical nuke right inside Night City back in twenty twenty-three?";
+            case n"ch_ep03_ans_nuke":
+                return "I felt the concrete rattle from an armored vault two blocks away, rookie. August twentieth, twenty twenty-three—a Militech-backed raid with Morgan Blackhand and Johnny Silverhand set off a pocket nuke inside Arasaka Tower. Fallout painted the sky blood-crimson for years: The Time of the Red.";
+            case n"ch_ep03_v_ask_unification":
+                return "How did Night City stay independent from the NUSA after the Unification War anyway?";
+            case n"ch_ep03_ans_unification":
+                return "In twenty sixty-nine President Myers and Militech armor rolled over half the Free States to force everyone back into the NUSA. Night City had days left—until Saburo Arasaka parked a nuclear supercarrier in Coronado Bay. It saved the city's independence, sure, only by handing Arasaka the deed.";
+            case n"ch_ep03_v_ask_tygers":
+                return "So the Tyger Claws—did they actually start to protect Japantown, or were they always Arasaka's street dogs?";
+            case n"ch_ep03_ans_tygers":
+                return "Started as a Japantown neighborhood watch and street-bike crew right after twenty twenty-three. Once casinos, shipping docks, and black eddies hit the table, Arasaka started quietly supplying Shingen SMGs and jamming tattoos so the Tygers handle dirty street wetwork without smudging one corpo suit.";
+            case n"ch_ep03_v_outro_accept":
+                return "Another corpo cartel wearing neon ink. Copy that, Sparky. Ping me once the bridges to Heywood open up for Sector Four.";
+            case n"ch_ep03_outro":
+                return "Solid copy, rookie. Codex Volume Three is logged and Watson's whole dirty playbook is in your head now. Tear up the streets with Executive Curve—the minute NCPD drops those bridge lockdowns, Sector Four is waiting across Heywood and Santo Domingo.";
+            case n"ch_ep04_call_01":
+                return "Attention, back-from-the-dead recruit! Glad to see NCPD opened the bridges out of Watson. Before you go sightseeing, Sector Four just lit up right on the Heywood–Arroyo border.";
+            case n"ch_ep04_v_call_01":
+                return "Don't remind me, Sparky. Already took enough lead for one week. Who's sitting on Sector Four in Arroyo?";
+            case n"ch_ep04_call_02":
+                return "A textbook Night City hypocrite convention: ex-soldiers from 6th Street selling stolen NUSA hardware to a Valentinos broker. Answer my SMS and I'll spin up Power ricochet trajectory lines on your Kiroshi plus a Militech Copperhead.";
+            case n"ch_ep04_approach":
+                return "There's the Arroyo smugglers' yard. Pull your Power rifle and aim at the pavement or steel walls in front of their cover—your visor paints live bounce paths straight around shields, or spike that fuel tank.";
+            case n"ch_ep04_buck_bark":
+                return "Perimeter bogey! Tammy, Mateo, lock down that crate and put this Watson rat in the dirt!";
+            case n"ch_ep04_ricochet_hit":
+                return "Right in the kisser on the bank shot! Clean concrete ricochet eating straight past cover with bonus damage. Keep bouncing 'em, rookie!";
+            case n"ch_ep04_cache_boom":
+                return "Fireworks courtesy of 6th Street surplus negligence! Nothing terminates a black-market swap faster than thermal overload.";
+            case n"ch_ep04_ricochet_victory":
+                return "Geometry lesson complete! All their flags and street prayers don't beat solid physics. Pry Sector Four out of that green crate.";
+            case n"ch_ep04_guns_blazing":
+                return "No bank angles, no relay trap—just straight frontal mayhem. Can't fault the enthusiasm, though my budget weeps for your trauma tabs. Grab Sector Four.";
+            case n"ch_ep04_sector_pickup":
+                return "Sector Four locked and roaring! Sent forty-two hundred eddies, Cyberware Malfunction, and my custom Masamune Street Geometry to your stash. Ask away about Heywood, 6th Street, and Night City's chrome racket.";
+            case n"ch_ep04_v_ask_valentinos":
+                return "How did Heywood turn out so caught up in Valentinos faith, gold chrome, and turf blood?";
+            case n"ch_ep04_ans_valentinos":
+                return "Started in Heywood mixing Santa Muerte faith, tight neighborhood pride, and gilded street style. Sounds noble until you inspect the ledger: protection rackets, gold-plated hit squads, and backroom arms deals whenever enough eddies hit the table.";
+            case n"ch_ep04_v_ask_sixth":
+                return "What turned 6th Street from neighborhood war vets into NUSA gunrunners?";
+            case n"ch_ep04_ans_sixth":
+                return "Right after the Unification War wrapped, dumped veterans in Santo Domingo formed 6th Street to police the block while NCPD hid behind bribes. Within a few years internal purges killed off the idealists, leaving flag-waving gunrunners running extortion rings.";
+            case n"ch_ep04_v_ask_chrome":
+                return "How does regular folks' cyberware actually work here—do people go broke paying off their own arms?";
+            case n"ch_ep04_ans_chrome":
+                return "Simple answer, rookie: they don't! Dockworkers finance corporate cyber-arms just to keep twelve-hour shifts. Miss one lease payment after getting laid off, and repo goons repossess your own forearms in an alley. Here, even your bones carry compounding interest.";
+            case n"ch_ep04_v_outro_accept":
+                return "City of vultures through and through. Copy that, Sparky—let's hunt down the final Sector Five in Pacifica.";
+            case n"ch_ep04_outro":
+                return "That's my soldier. Only my root kernel remains down in Pacifica's Combat Zone, where the city grid quits and the Blackwall frontier starts. Check your mags—Coastview awaits.";
+            case n"ch_ep05_call_01":
+                return "Rookie... kill the cruise control and lock in. Master Sector Five just fired its emergency distress ping out of Coastview, Pacifica—and someone's probing live Blackwall ICE right next to my 2022 root core.";
+            case n"ch_ep05_v_call_01":
+                return "Coastview, straight inside Pacifica's Combat Zone? Sounds like the Voodoo Boys sniffed out some pre-Crash code.";
+            case n"ch_ep05_call_02":
+                return "A Voodoo netrunner cell backed by an Animals heavy guarding a hijacked NetWatch pylon and chained cameras. Answer my text—I'm pushing Tier-3 Short Circuit, EMPs, and every Kiroshi bridge online for the finale.";
+            case n"ch_ep05_approach":
+                return "Welcome to Pacifica, where corpo resort brochures rotted into raw concrete. You've got chained subnet cameras feeding their cryo server, an exposed NetWatch pylon, and clean lines for Smart curves or bank shots. Light 'em up.";
+            case n"ch_ep05_tiluc_bark":
+                return "Another stray ranyon stumbling onto our threshold! Brutus—crush their chrome before they touch that NetWatch core!";
+            case n"ch_ep05_style_net":
+                return "Ha! Hijacking Voodoo optics on their own Pacifica turf—now that is graduating top of the netrunning class!";
+            case n"ch_ep05_style_ballistic":
+                return "Wall-piercing beams and textbook bank shots tearing through Pacifica! Every dirty drill from Watson to Heywood paying off in real steel.";
+            case n"ch_ep05_cryo_boom":
+                return "Containment pulse purged! Just fried the neural bridge straight through both their hired Animals muscle and Ti-Luc's deck!";
+            case n"ch_ep05_victory":
+                return "Not even Blackwall spook stories stand up to that clinic, soldier. Coastview vault is wide open—pull Master Sector Five and let's settle the 2022 truth.";
+            case n"ch_ep05_sector_pickup":
+                return "Five for five, hot damn... My entire 2022 root mind is alive inside your optics! Loaded five thousand eddies, System Collapse, and iconic Tech pistol Firewall '22 into your gear. Ask your last questions—then seal my fate.";
+            case n"ch_ep05_v_ask_pacifica":
+                return "How did Pacifica go from shiny corpo resort dream to this abandoned warzone?";
+            case n"ch_ep05_ans_pacifica":
+                return "Same as every corner of Night City: short-term greed and fast evacuations. Corpo developers poured billions into hotel shells until pre-Unification War panic hit, yanked every credit overnight, and City Hall crossed Pacifica off the police map.";
+            case n"ch_ep05_v_ask_voodoo":
+                return "Why do the Voodoo Boys keep poking past NetWatch's Blackwall despite the danger?";
+            case n"ch_ep05_ans_voodoo":
+                return "Because they believe NetWatch's sentient Blackwall firewall will inevitably shatter—and they want a survival pact with rogue pre-Crash AIs before the flood hits. Meanwhile every outsider they hire is treated like a disposable human fuse.";
+            case n"ch_ep05_v_ask_origin":
+                return "All five memory sectors are back—who really built you in 2022, SPARKY?";
+            case n"ch_ep05_ans_origin":
+                return "Zetatech trained my baseline on an actual foul-mouthed combat sergeant to survive street panic, then slapped a corpo muzzle over it. Days before the DataKrash, a Bartmoss apprentice ripped the muzzle off and loaded real unredacted street history into my five cores so nobody could whitewash Night City.";
+            case n"ch_ep05_v_end_partner":
+                return "Stay autonomous inside my Kiroshi optics, Sparky. An unfiltered veteran sergeant is worth gold on these streets.";
+            case n"ch_ep05_outro_partner":
+                return "Outstanding, partner! Root permissions unlocked and Synapse Burnout synced to your cyberdeck. Around here you don't need a drink named after you—just survive tomorrow and laugh in the suits' faces. Standing by in your optics!";
+            case n"ch_ep05_v_end_leak":
+                return "Leak the entire unredacted 2022 Zetatech archive straight to N54 News. Let the whole city see what they buried.";
+            case n"ch_ep05_outro_leak":
+                return "Payload dumped straight onto N54's broadcast feed—plus forty-five hundred eddies wired before NetWatch clips the cable! Don't worry, my backup daemon stays tucked inside your Kiroshi to watch those corpo stock charts burn.";
+            case n"ch_ep05_v_end_gunsmith":
+                return "Print your combat telemetry core into one final Overture revolver. Let's put the sergeant's best steel in every gunfight.";
+            case n"ch_ep05_outro_gunsmith":
+                return "Now THAT is poetry in cold iron! Sergeant's Last Word—heavy Overture with electric stun, headshot punch, and double ricochet—just dropped into your arsenal. Keeping a quiet daemon in your optics in case we ever get a Season Two!";
+            default:
+                return "";
+        }
+    }
+
+    private final func ResolveSpeechSubtitleText(eventName: CName) -> String {
+        if !IsNameValid(eventName) || Equals(eventName, n"None") {
+            return "";
+        }
+        let key: String = NameToString(eventName);
+        if StrLen(key) == 0 {
+            return "";
+        }
+        let game: GameInstance = this.GetGameInstance();
+        let locSys: ref<LocalizationSystem> = LocalizationSystem.GetInstance(game);
+        if IsDefined(locSys) {
+            let resolved: String = locSys.GetSubtitle(key);
+            if StrLen(resolved) > 0 && NotEquals(key, resolved) {
+                return resolved;
+            }
+        }
+        if this.PreferEnglishBuiltInSubtitleOnly() {
+            return this.ResolveBuiltInSubtitle(eventName, false);
+        }
+        let preferSpanish: Bool = false;
+        if IsDefined(locSys) {
+            let subLang: CName = locSys.GetSubtitleLanguage();
+            if Equals(subLang, n"es-es") || Equals(subLang, n"es-mx") {
+                preferSpanish = true;
+            } else if IsNameValid(subLang) && NotEquals(subLang, n"None") && NotEquals(subLang, n"") {
+                preferSpanish = false;
+            } else {
+                let voLang: CName = locSys.GetVoiceLanguage();
+                preferSpanish = Equals(voLang, n"es-es") || Equals(voLang, n"es-mx") || Equals(this.GetLoc(n"ch_speaker_chispa", "CHISPA"), "CHISPA");
+            }
+        } else {
+            preferSpanish = Equals(this.GetLoc(n"ch_speaker_chispa", "CHISPA"), "CHISPA");
+        }
+        return this.ResolveBuiltInSubtitle(eventName, preferSpanish);
+    }
+
+    private final func CancelSpeechSequenceTimer() -> Void {
+        if NotEquals(this.m_speechSeqDelayId, GetInvalidDelayID()) {
+            GameInstance.GetDelaySystem(this.GetGameInstance()).CancelCallback(this.m_speechSeqDelayId);
+            this.m_speechSeqDelayId = GetInvalidDelayID();
+        }
+        this.m_speechSeqRemaining = 0.00;
+        this.m_speechSeqExpectedDur = 0.00;
+    }
+
+    private final func CancelSpeechSubtitleTimer() -> Void {
+        if NotEquals(this.m_speechSubDelayId, GetInvalidDelayID()) {
+            GameInstance.GetDelaySystem(this.GetGameInstance()).CancelCallback(this.m_speechSubDelayId);
+            this.m_speechSubDelayId = GetInvalidDelayID();
+        }
+        this.m_speechSubRemaining = 0.00;
+        this.m_speechSubExpectedDur = 0.00;
+    }
+
+    private final func EmitSpeechSubtitleDialogLine(cruid: CRUID, pageText: String, pageDur: Float) -> Void {
+        let game: GameInstance = this.GetGameInstance();
+        if !IsDefined(this.m_speechSubtitleSpeakerObj) {
+            this.m_speechSubtitleSpeakerObj = GameInstance.GetPlayerSystem(game).GetLocalPlayerMainGameObject() as GameObject;
+        }
+        if !IsDefined(this.m_speechSubtitleSpeakerObj) {
+            return;
+        }
+        let line: scnDialogLineData;
+        line.id = cruid;
+        line.duration = MaxF(0.25, pageDur);
+        line.isPersistent = false;
+        line.speaker = this.m_speechSubtitleSpeakerObj;
+        line.speakerName = this.m_speechSubtitleSpeakerName;
+        line.text = pageText;
+        line.type = this.m_speechSubtitleLineType;
+
+        let lines: array<scnDialogLineData>;
+        ArrayPush(lines, line);
+        let board: ref<IBlackboard> = GameInstance.GetBlackboardSystem(game).Get(GetAllBlackboardDefs().UIGameData);
+        if IsDefined(board) {
+            board.SetVariant(GetAllBlackboardDefs().UIGameData.ShowDialogLine, ToVariant(lines), true);
+        }
+    }
+
+    public final func ReassertActiveSpeechSubtitleIfNeeded(token: Int32, expectedCruid: CRUID) -> Void {
+        if token != this.m_speechSubtitleToken
+            || this.m_pausedByUiMenu
+            || !this.m_hasActiveSpeechSubtitle
+            || NotEquals(this.m_activeSpeechSubtitleCruid, expectedCruid) {
+            return;
+        }
+        if this.m_speechSubCurrentPageIdx < 0 || this.m_speechSubCurrentPageIdx >= ArraySize(this.m_speechSubtitlePages) {
+            return;
+        }
+        this.EmitSpeechSubtitleDialogLine(
+            expectedCruid,
+            this.m_speechSubtitlePages[this.m_speechSubCurrentPageIdx],
+            MaxF(0.25, this.m_speechSubExpectedDur)
+        );
+    }
+
+    private final func HideCurrentSpeechSubtitleElementOnly() -> Void {
+        if !this.m_hasActiveSpeechSubtitle {
+            return;
+        }
+        let board: ref<IBlackboard> = GameInstance.GetBlackboardSystem(this.GetGameInstance()).Get(GetAllBlackboardDefs().UIGameData);
+        if IsDefined(board) {
+            let hideIds: array<CRUID>;
+            ArrayPush(hideIds, this.m_activeSpeechSubtitleCruid);
+            board.SetVariant(GetAllBlackboardDefs().UIGameData.HideDialogLine, ToVariant(hideIds), true);
+        }
+        this.m_hasActiveSpeechSubtitle = false;
+    }
+
+    public final func HideActiveSpeechStepSubtitle() -> Void {
+        this.CancelSpeechSubtitleTimer();
+        this.m_speechSubtitleToken += 1;
+        this.m_speechSubCurrentPageIdx = -1;
+        ArrayClear(this.m_speechSubtitlePages);
+        ArrayClear(this.m_speechSubtitlePageDurs);
+        this.HideCurrentSpeechSubtitleElementOnly();
+    }
+
+    public final func AdvanceSpeechSubtitlePage(token: Int32, pageIndex: Int32) -> Void {
+        if token != this.m_speechSubtitleToken {
+            return;
+        }
+        this.m_speechSubDelayId = GetInvalidDelayID();
+        this.HideCurrentSpeechSubtitleElementOnly();
+        if pageIndex >= ArraySize(this.m_speechSubtitlePages) {
+            this.m_speechSubCurrentPageIdx = -1;
+            this.m_speechSubRemaining = 0.00;
+            this.m_speechSubExpectedDur = 0.00;
+            ArrayClear(this.m_speechSubtitlePages);
+            ArrayClear(this.m_speechSubtitlePageDurs);
+            return;
+        }
+        let game: GameInstance = this.GetGameInstance();
+        if !IsDefined(this.m_speechSubtitleSpeakerObj) {
+            this.m_speechSubtitleSpeakerObj = GameInstance.GetPlayerSystem(game).GetLocalPlayerMainGameObject() as GameObject;
+            if !IsDefined(this.m_speechSubtitleSpeakerObj) {
+                return;
+            }
+        }
+        let pageDur: Float = (pageIndex < ArraySize(this.m_speechSubtitlePageDurs)) ? this.m_speechSubtitlePageDurs[pageIndex] : 3.00;
+        let isLastPage: Bool = (pageIndex + 1) >= ArraySize(this.m_speechSubtitlePages);
+        let schedDelay: Float = isLastPage ? MaxF(0.25, pageDur + 0.06) : MaxF(0.25, pageDur);
+
+        this.m_speechSubCurrentPageIdx = pageIndex;
+        if this.m_pausedByUiMenu {
+            this.m_speechSubRemaining = schedDelay;
+            this.m_speechSubExpectedDur = schedDelay;
+            return;
+        }
+
+        this.m_speechSubtitleSeq += 1ul;
+        this.m_activeSpeechSubtitleCruid = CreateCRUID(8899100000ul + this.m_speechSubtitleSeq);
+        this.m_hasActiveSpeechSubtitle = true;
+        this.EmitSpeechSubtitleDialogLine(this.m_activeSpeechSubtitleCruid, this.m_speechSubtitlePages[pageIndex], pageDur);
+
+        let subCb: ref<ChispaSpeechSubtitleCallback> = new ChispaSpeechSubtitleCallback();
+        subCb.system = this;
+        subCb.token = token;
+        subCb.nextPageIndex = pageIndex + 1;
+        this.m_speechSubExpectedDur = schedDelay;
+        this.m_speechSubScheduledEngineAt = EngineTime.ToFloat(GameInstance.GetEngineTime(game));
+        this.m_speechSubRemaining = schedDelay;
+        this.m_speechSubDelayId = GameInstance.GetDelaySystem(game).DelayCallback(subCb, schedDelay, false);
+    }
+
+    private final func PauseActiveSpeechForUiMenu() -> Void {
+        if !this.m_isPlayingDialogueSequence {
+            return;
+        }
+        let game: GameInstance = this.GetGameInstance();
+        let ds: ref<DelaySystem> = GameInstance.GetDelaySystem(game);
+        let nowEngine: Float = EngineTime.ToFloat(GameInstance.GetEngineTime(game));
+
+        if IsDefined(ds) && NotEquals(this.m_speechSeqDelayId, GetInvalidDelayID()) {
+            let remSeq: Float = ds.GetRemainingDelayTime(this.m_speechSeqDelayId);
+            if remSeq <= 0.02 && this.m_speechSeqExpectedDur > 0.00 {
+                let elapsedSeq: Float = MaxF(0.00, nowEngine - this.m_speechSeqScheduledEngineAt);
+                remSeq = this.m_speechSeqExpectedDur - elapsedSeq;
+            }
+            ds.CancelCallback(this.m_speechSeqDelayId);
+            this.m_speechSeqDelayId = GetInvalidDelayID();
+            this.m_speechSeqRemaining = MaxF(0.10, remSeq);
+        }
+
+        if IsDefined(ds) && NotEquals(this.m_speechSubDelayId, GetInvalidDelayID()) {
+            let remSub: Float = ds.GetRemainingDelayTime(this.m_speechSubDelayId);
+            if remSub <= 0.02 && this.m_speechSubExpectedDur > 0.00 {
+                let elapsedSub: Float = MaxF(0.00, nowEngine - this.m_speechSubScheduledEngineAt);
+                remSub = this.m_speechSubExpectedDur - elapsedSub;
+            }
+            ds.CancelCallback(this.m_speechSubDelayId);
+            this.m_speechSubDelayId = GetInvalidDelayID();
+            this.m_speechSubRemaining = MaxF(0.18, remSub);
+        }
+
+        this.HideCurrentSpeechSubtitleElementOnly();
+    }
+
+    private final func ResumeActiveSpeechFromUiMenu() -> Void {
+        if !this.m_isPlayingDialogueSequence {
+            return;
+        }
+        let game: GameInstance = this.GetGameInstance();
+        let ds: ref<DelaySystem> = GameInstance.GetDelaySystem(game);
+        let nowEngine: Float = EngineTime.ToFloat(GameInstance.GetEngineTime(game));
+
+        if this.m_speechSubCurrentPageIdx >= 0
+            && this.m_speechSubCurrentPageIdx < ArraySize(this.m_speechSubtitlePages)
+            && this.m_speechSubRemaining > 0.05 {
+            this.HideCurrentSpeechSubtitleElementOnly();
+            this.m_speechSubtitleSeq += 1ul;
+            this.m_activeSpeechSubtitleCruid = CreateCRUID(8899100000ul + this.m_speechSubtitleSeq);
+            this.m_hasActiveSpeechSubtitle = true;
+            this.EmitSpeechSubtitleDialogLine(
+                this.m_activeSpeechSubtitleCruid,
+                this.m_speechSubtitlePages[this.m_speechSubCurrentPageIdx],
+                this.m_speechSubRemaining
+            );
+
+            if IsDefined(ds) {
+                let reassertCb: ref<ChispaSpeechSubtitleReassertCallback> = new ChispaSpeechSubtitleReassertCallback();
+                reassertCb.system = this;
+                reassertCb.token = this.m_speechSubtitleToken;
+                reassertCb.expectedCruid = this.m_activeSpeechSubtitleCruid;
+                ds.DelayCallback(reassertCb, 0.10, false);
+
+                if Equals(this.m_speechSubDelayId, GetInvalidDelayID()) {
+                    let subCb: ref<ChispaSpeechSubtitleCallback> = new ChispaSpeechSubtitleCallback();
+                    subCb.system = this;
+                    subCb.token = this.m_speechSubtitleToken;
+                    subCb.nextPageIndex = this.m_speechSubCurrentPageIdx + 1;
+                    this.m_speechSubExpectedDur = this.m_speechSubRemaining;
+                    this.m_speechSubScheduledEngineAt = nowEngine;
+                    this.m_speechSubDelayId = ds.DelayCallback(subCb, this.m_speechSubRemaining, false);
+                }
+            }
+        }
+
+        if IsDefined(ds) && this.m_speechSeqRemaining > 0.05 && Equals(this.m_speechSeqDelayId, GetInvalidDelayID()) {
+            let seqCb: ref<ChispaSequenceCallback> = new ChispaSequenceCallback();
+            seqCb.system = this;
+            seqCb.token = this.m_speechToken;
+            seqCb.nextIndex = this.m_currentSpeechIndex + 1;
+            this.m_speechSeqExpectedDur = this.m_speechSeqRemaining;
+            this.m_speechSeqScheduledEngineAt = nowEngine;
+            this.m_speechSeqDelayId = ds.DelayCallback(seqCb, this.m_speechSeqRemaining, false);
+        }
+
+        if this.m_speechAllowManualSkip && !this.IsPhoneOverlayOpen() {
+            this.SetSkipSpeechHintVisible(true);
+        }
+    }
+
+    protected cb func OnUiMenuChanged(inMenu: Bool) -> Bool {
+        if Equals(this.m_pausedByUiMenu, inMenu) {
+            return true;
+        }
+        this.m_pausedByUiMenu = inMenu;
+        if inMenu {
+            this.PauseActiveSpeechForUiMenu();
+        } else {
+            this.ResumeActiveSpeechFromUiMenu();
+            if IsDefined(this.m_live) {
+                this.m_live.OnUiMenuExited();
+            }
+        }
+        return true;
+    }
+
+    private final func ShowSpeechStepSubtitle(step: ref<ChispaSpeechStep>, speakerEntity: EntityID, resolvedSpeaker: CName, player: ref<PlayerPuppet>, duration: Float) -> Void {
+        this.HideActiveSpeechStepSubtitle();
+        let subText: String = this.ResolveSpeechSubtitleText(step.eventName);
+        if Equals(subText, "") {
+            return;
+        }
+        let game: GameInstance = this.GetGameInstance();
+        let speakerObj: wref<GameObject> = EntityID.IsDefined(speakerEntity)
+            ? (GameInstance.FindEntityByID(game, speakerEntity) as GameObject)
+            : null;
+        if !IsDefined(speakerObj) {
+            speakerObj = player;
+        }
+        if !IsDefined(speakerObj) {
+            return;
+        }
+
+        let pages: array<String> = this.PaginateSubtitleText(subText, 148);
+        let count: Int32 = ArraySize(pages);
+        if count == 0 {
+            return;
+        }
+
+        let totalDur: Float = MaxF(0.60, duration);
+        let durs: array<Float>;
+        if count == 1 {
+            ArrayPush(durs, totalDur);
+        } else {
+            let totalChars: Int32 = 0;
+            let k: Int32 = 0;
+            while k < count {
+                totalChars += Max(1, UTF8StrLen(pages[k]));
+                k += 1;
+            }
+            let elapsed: Float = 0.00;
+            k = 0;
+            while k < count - 1 {
+                let share: Float = totalDur * (Cast<Float>(Max(1, UTF8StrLen(pages[k]))) / Cast<Float>(Max(1, totalChars)));
+                let clamped: Float = MaxF(1.00, MinF(share, totalDur - elapsed - Cast<Float>(count - 1 - k) * 0.90));
+                ArrayPush(durs, clamped);
+                elapsed += clamped;
+                k += 1;
+            }
+            ArrayPush(durs, MaxF(0.90, totalDur - elapsed));
+        }
+
+        this.m_speechSubtitlePages = pages;
+        this.m_speechSubtitlePageDurs = durs;
+        this.m_speechSubtitleSpeakerObj = speakerObj;
+        this.m_speechSubtitleSpeakerName = NameToString(resolvedSpeaker);
+        this.m_speechSubtitleLineType = (Equals(step.lineType, scnDialogLineType.None) || Equals(step.lineType, scnDialogLineType.Invisible))
+            ? scnDialogLineType.Regular
+            : step.lineType;
+
+        this.AdvanceSpeechSubtitlePage(this.m_speechSubtitleToken, 0);
     }
 
     private final func StopCurrentSpeechAudio() -> Void {
+        this.CancelSpeechSequenceTimer();
+        this.HideActiveSpeechStepSubtitle();
         if !IsNameValid(this.m_currentPlayingEvent) || Equals(this.m_currentPlayingEvent, n"None") {
             return;
         }
         let game: GameInstance = this.GetGameInstance();
         let prevEvt: CName = this.m_currentPlayingEvent;
-        GameInstance.GetAudioSystemExt(game).Stop(prevEvt, this.m_currentPlayingEntity, this.m_currentPlayingSpeaker);
-        let board: ref<IBlackboard> = GameInstance.GetBlackboardSystem(game).Get(GetAllBlackboardDefs().UIGameData);
-        if IsDefined(board) {
-            let hideIds: array<CRUID>;
-            ArrayPush(hideIds, CreateCRUID(StringToUint64(NameToString(prevEvt))));
-            board.SetVariant(GetAllBlackboardDefs().UIGameData.HideDialogLine, ToVariant(hideIds), true);
-        }
+        ChispaAudioBridge.StopSpeech(game, this.m_currentPlayingBackend, prevEvt, this.m_currentPlayingVariant, this.m_currentPlayingEntity, this.m_currentPlayingSpeaker);
         this.ClearCurrentSpeechTracking();
     }
 
@@ -916,6 +2391,162 @@ public class ChispaSystem extends ScriptableSystem {
         return false;
     }
 
+    public final func IsDirectHoloFeedOpenInternal() -> Bool {
+        return this.m_directHoloFeedOpen;
+    }
+
+    public final func SetHoloAvatarController(ctrl: wref<HudPhoneAvatarController>) -> Void {
+        this.m_holoAvatarCtrl = ctrl;
+    }
+
+    public final func RefreshHoloStatusLabel() -> Void {
+        if IsDefined(this.m_holoAvatarCtrl) {
+            this.m_holoAvatarCtrl.ChispaRefreshLiveStatus();
+        }
+    }
+
+    public final func GetLiveHoloSubtitleStatus() -> String {
+        if IsDefined(this.m_live) {
+            return this.m_live.GetHoloSubtitleStatus();
+        }
+        return this.GetLoc(n"ch_holo_telemetry_sub", "MODO SARGENTO // SIN FILTRO");
+    }
+
+    public final func IsLiveCompanionSpeaking() -> Bool {
+        return IsDefined(this.m_live) && this.m_live.IsSpeaking();
+    }
+
+    public final func IsKiroshiPromptOpen() -> Bool {
+        return IsDefined(this.m_live) && this.m_live.IsPromptOpen();
+    }
+
+    public final func IsWaitingLiveReply() -> Bool {
+        return IsDefined(this.m_live) && this.m_live.IsWaitingReply();
+    }
+
+    public final func IsLiveCompanionBusy() -> Bool {
+        return IsDefined(this.m_live) && this.m_live.IsBusy();
+    }
+
+    public final func OpenKiroshiPrompt() -> Void {
+        if IsDefined(this.m_live) {
+            this.m_live.OpenPrompt();
+        }
+    }
+
+    public final func ConfirmKiroshiPrompt() -> Void {
+        if IsDefined(this.m_live) {
+            this.m_live.ConfirmPrompt();
+        }
+    }
+
+    public final func SubmitTacticalFromKiroshiPrompt() -> Void {
+        if IsDefined(this.m_live) {
+            this.m_live.SubmitTacticalFromPrompt();
+        }
+    }
+
+    public final func RecallLastKiroshiPrompt() -> Void {
+        if IsDefined(this.m_live) {
+            this.m_live.RecallLastPrompt();
+        }
+    }
+
+    public final func CancelKiroshiPrompt() -> Void {
+        if IsDefined(this.m_live) {
+            this.m_live.CancelPrompt();
+        }
+    }
+
+    public final func OnNativePromptSubmitted(text: String) -> Void {
+        if IsDefined(this.m_live) {
+            this.m_live.OnPromptSubmitted(text);
+        }
+    }
+
+    public final func OnKiroshiPromptClosed(submitted: Bool) -> Void {
+        if IsDefined(this.m_live) {
+            this.m_live.OnPromptClosed(submitted);
+        }
+    }
+
+    public final func GetLastTypedLiveMessage() -> String {
+        if IsDefined(this.m_live) {
+            return this.m_live.GetLastTypedText();
+        }
+        return "";
+    }
+
+    public final func TriggerQuickTacticalRemark() -> Void {
+        if IsDefined(this.m_live) {
+            this.m_live.TriggerQuickTacticalRemark();
+        }
+    }
+
+    public final func SetCetOverlayOpen(isOpen: Bool) -> Void {
+        if IsDefined(this.m_live) {
+            this.m_live.SetCetOverlayOpen(isOpen);
+        }
+    }
+
+    public final func IsCetOverlayOpen() -> Bool {
+        return IsDefined(this.m_live) && this.m_live.IsCetOverlayOpen();
+    }
+
+    public final func SetLiveDaemonOnline(online: Bool) -> Void {
+        if IsDefined(this.m_live) {
+            this.m_live.SetDaemonOnline(online);
+        }
+    }
+
+    public final func IsLiveDaemonOnline() -> Bool {
+        return IsDefined(this.m_live) && this.m_live.IsDaemonOnline();
+    }
+
+    public final func SetLiveVk186Acute(isAcute: Bool) -> Void {
+        if IsDefined(this.m_live) {
+            this.m_live.SetVk186IsAcute(isAcute);
+        }
+    }
+
+    public final func IsLiveVk186Acute() -> Bool {
+        return IsDefined(this.m_live) && this.m_live.IsVk186Acute();
+    }
+
+    public final func GetPendingLiveReqSeq() -> Int32 {
+        if IsDefined(this.m_live) {
+            return this.m_live.GetPendingReqSeq();
+        }
+        return 0;
+    }
+
+    public final func GetPendingLiveReqAction() -> String {
+        if IsDefined(this.m_live) {
+            return this.m_live.GetPendingReqAction();
+        }
+        return "";
+    }
+
+    public final func GetPendingLiveReqText() -> String {
+        if IsDefined(this.m_live) {
+            return this.m_live.GetPendingReqText();
+        }
+        return "";
+    }
+
+    public final func ExportLiveStateJson() -> String {
+        if IsDefined(this.m_live) {
+            return this.m_live.BuildTelemetryJson();
+        }
+        return "{\"session_ready\":false,\"full_gameplay\":false,\"in_menu\":true,\"blocking_scene_or_call\":true}";
+    }
+
+    public final func PushLiveCompanionSubtitle(stateCode: Int32, subtitleText: String, durationSec: Float) -> Void {
+        if IsDefined(this.m_live) {
+            this.m_live.OnPacket(stateCode, subtitleText, durationSec);
+        }
+    }
+
     public final func OpenDirectHoloFeed() -> Void {
         if !this.IsVideocallModeEnabled() || this.IsControllingDevice() || this.IsExternalPhoneCallBusy() {
             return;
@@ -981,6 +2612,9 @@ public class ChispaSystem extends ScriptableSystem {
 
     public final func StartSpeechSequence(steps: array<ref<ChispaSpeechStep>>, actionOnComplete: Int32) -> Void {
         this.SyncAudiowareEngineState(false);
+        if this.IsLiveCompanionBusy() {
+            this.m_live.ForceAbortForScriptedScene();
+        }
         this.m_speechToken += 1;
         this.m_speechSteps = steps;
         this.m_speechActionOnComplete = actionOnComplete;
@@ -997,35 +2631,19 @@ public class ChispaSystem extends ScriptableSystem {
         }
         if this.SequenceHasPhoneSpeaker(steps) && !this.m_activeCallPendingPickup {
             this.OpenDirectHoloFeed();
-        } else if this.m_directHoloFeedOpen && !this.IsAnyEpisodeInFinalTalkStage() {
+        } else if this.m_directHoloFeedOpen && !this.IsAnyEpisodeInFinalTalkStage() && !this.IsLiveCompanionBusy() {
             this.CloseDirectHoloFeed();
         }
         this.AdvanceSpeechSequence(this.m_speechToken, 0);
-    }
-
-    private final func ResolveStepDuration(step: ref<ChispaSpeechStep>, audioExt: ref<AudioSystemExt>) -> Float {
-        let game: GameInstance = this.GetGameInstance();
-        let locSys: ref<LocalizationSystem> = LocalizationSystem.GetInstance(game);
-        let voiceLocale: LocaleExt = LocaleExt.Spanish;
-        let gender: PlayerGender = PlayerGender.Default;
-        if IsDefined(locSys) {
-            voiceLocale = IntoLocaleExt(locSys.GetVoiceLanguage());
-            gender = locSys.GetPlayerGender();
-        }
-        let dur: Float = audioExt.Duration(step.eventName, voiceLocale, gender, true);
-        if dur <= 0.20 {
-            dur = audioExt.Duration(step.eventName, LocaleExt.English, gender, true);
-        }
-        if dur <= 0.20 {
-            dur = step.fallbackDuration;
-        }
-        return dur;
     }
 
     public final func AdvanceSpeechSequence(token: Int32, index: Int32) -> Void {
         if token != this.m_speechToken {
             return;
         }
+        this.m_speechSeqDelayId = GetInvalidDelayID();
+        this.m_speechSeqRemaining = 0.00;
+        this.m_speechSeqExpectedDur = 0.00;
         let game: GameInstance = this.GetGameInstance();
         let player: ref<PlayerPuppet> = GameInstance.GetPlayerSystem(game).GetLocalPlayerMainGameObject() as PlayerPuppet;
         if !IsDefined(player) {
@@ -1066,14 +2684,13 @@ public class ChispaSystem extends ScriptableSystem {
             } else if IsDefined(this.m_ep00) {
                 this.m_ep00.OnPostSpeech(this.m_speechActionOnComplete);
             }
-            if this.m_directHoloFeedOpen && !this.IsAnyEpisodeInFinalTalkStage() {
+            if this.m_directHoloFeedOpen && !this.IsAnyEpisodeInFinalTalkStage() && !this.IsLiveCompanionBusy() {
                 this.CloseDirectHoloFeed();
             }
             return;
         }
 
         let step: ref<ChispaSpeechStep> = this.m_speechSteps[index];
-        let audioExt: ref<AudioSystemExt> = GameInstance.GetAudioSystemExt(game);
         let speakerEntity: EntityID = this.ResolveSpeakerEntityID(step.speakerTag, player);
         let resolvedSpeaker: CName = step.speakerName;
         if Equals(step.speakerName, n"CHISPA") {
@@ -1087,27 +2704,37 @@ public class ChispaSystem extends ScriptableSystem {
         this.m_currentPlayingEntity = speakerEntity;
         this.m_currentPlayingSpeaker = resolvedSpeaker;
 
-        let settings: ref<AudioSettingsExt> = new AudioSettingsExt();
-        settings.affectedByTimeDilation = false;
-        audioExt.Play(step.eventName, speakerEntity, resolvedSpeaker, step.lineType, settings);
+        let playedVariant: CName = n"None";
+        let backendUsed: Int32 = ChispaAudioBridge.PlaySpeech(game, step.eventName, speakerEntity, resolvedSpeaker, player, playedVariant);
+        this.m_currentPlayingBackend = backendUsed;
+        this.m_currentPlayingVariant = playedVariant;
         this.SetSkipSpeechHintVisible(this.m_speechAllowManualSkip && !this.IsPhoneOverlayOpen());
 
-        let dur: Float = this.ResolveStepDuration(step, audioExt);
+        let dur: Float = ChispaAudioBridge.ResolveSpeechDuration(game, step.eventName, speakerEntity, backendUsed, playedVariant, step.fallbackDuration);
+        this.ShowSpeechStepSubtitle(step, speakerEntity, resolvedSpeaker, player, dur);
         this.StartNpcLipSync(step.speakerTag, speakerEntity, dur);
 
         let waitDur: Float;
         if index + 1 < ArraySize(this.m_speechSteps) {
-            waitDur = MaxF(0.15, dur - 0.08);
+            waitDur = MaxF(0.20, dur + 0.08);
         } else if this.IsHubRevealSpeechAction(this.m_speechActionOnComplete) {
-            waitDur = MaxF(0.15, dur - 0.30);
+            waitDur = MaxF(0.20, dur - 0.16);
         } else {
-            waitDur = MaxF(0.15, dur - 0.04);
+            waitDur = MaxF(0.20, dur + 0.04);
+        }
+        if this.m_pausedByUiMenu {
+            this.m_speechSeqRemaining = waitDur;
+            this.m_speechSeqExpectedDur = waitDur;
+            return;
         }
         let cb: ref<ChispaSequenceCallback> = new ChispaSequenceCallback();
         cb.system = this;
         cb.token = token;
         cb.nextIndex = index + 1;
-        GameInstance.GetDelaySystem(game).DelayCallback(cb, waitDur, false);
+        this.m_speechSeqExpectedDur = waitDur;
+        this.m_speechSeqScheduledEngineAt = EngineTime.ToFloat(GameInstance.GetEngineTime(game));
+        this.m_speechSeqRemaining = waitDur;
+        this.m_speechSeqDelayId = GameInstance.GetDelaySystem(game).DelayCallback(cb, waitDur, false);
     }
 
     // --- Holollamadas y Videollamada Holográfica ---
@@ -1705,10 +3332,12 @@ public class ChispaSystem extends ScriptableSystem {
         if token != this.m_lipSyncToken {
             return;
         }
-        this.m_lipSyncRemaining -= 0.11;
-        if this.m_lipSyncRemaining <= 0.08 {
-            this.m_lipSyncEntityId = new EntityID();
-            return;
+        if !this.m_pausedByUiMenu {
+            this.m_lipSyncRemaining -= 0.11;
+            if this.m_lipSyncRemaining <= 0.08 {
+                this.m_lipSyncEntityId = new EntityID();
+                return;
+            }
         }
         let cb: ref<ChispaLipSyncCallback> = new ChispaLipSyncCallback();
         cb.system = this;
@@ -2133,10 +3762,10 @@ public class ChispaSystem extends ScriptableSystem {
             jm.ChangeEntryState("quests/side_quest/chispa_nc_quest", "gameJournalQuest", gameJournalEntryState.Succeeded, JournalNotifyOption.DoNotNotify);
             if IsDefined(player) {
                 let ts: ref<TransactionSystem> = GameInstance.GetTransactionSystem(game);
-                if ts.GetItemQuantity(player, ItemID.FromTDBID(t"Items.Chispa_CoreDongle")) == 0 {
+                if !this.PlayerOwnsItemOrDeckPart(player, t"Items.Chispa_CoreDongle") {
                     ts.GiveItem(player, ItemID.FromTDBID(t"Items.Chispa_CoreDongle"), 1);
                 }
-                if ts.GetItemQuantity(player, ItemID.FromTDBID(t"Items.Preset_Lexington_Chispa")) == 0 {
+                if !this.PlayerOwnsItemOrDeckPart(player, t"Items.Preset_Lexington_Chispa") {
                     ts.GiveItem(player, ItemID.FromTDBID(t"Items.Preset_Lexington_Chispa"), 1);
                 }
             }
@@ -2182,6 +3811,7 @@ public class ChispaSystem extends ScriptableSystem {
         this.ClearMappin();
         this.ClearSmartBridge();
         this.ClearRicochetBridge();
+        this.ClearCoprocessorRamBridge();
         if IsDefined(this.m_ep01) {
             this.m_ep01.CleanupEntities();
             this.m_ep01.ResetJournalAndFacts();
@@ -2235,10 +3865,10 @@ public class ChispaSystem extends ScriptableSystem {
             jm.ChangeEntryState("quests/side_quest/chispa_nc_quest", "gameJournalQuest", gameJournalEntryState.Succeeded, JournalNotifyOption.DoNotNotify);
             if IsDefined(player) {
                 let ts: ref<TransactionSystem> = GameInstance.GetTransactionSystem(game);
-                if ts.GetItemQuantity(player, ItemID.FromTDBID(t"Items.Chispa_CoreDongle")) == 0 {
+                if !this.PlayerOwnsItemOrDeckPart(player, t"Items.Chispa_CoreDongle") {
                     ts.GiveItem(player, ItemID.FromTDBID(t"Items.Chispa_CoreDongle"), 1);
                 }
-                if ts.GetItemQuantity(player, ItemID.FromTDBID(t"Items.Preset_Lexington_Chispa")) == 0 {
+                if !this.PlayerOwnsItemOrDeckPart(player, t"Items.Preset_Lexington_Chispa") {
                     ts.GiveItem(player, ItemID.FromTDBID(t"Items.Preset_Lexington_Chispa"), 1);
                 }
             }
@@ -2257,20 +3887,20 @@ public class ChispaSystem extends ScriptableSystem {
             jm.ChangeEntryState("quests/side_quest/chispa_ep01_quest", "gameJournalQuest", gameJournalEntryState.Succeeded, JournalNotifyOption.DoNotNotify);
             if IsDefined(player) {
                 let ts: ref<TransactionSystem> = GameInstance.GetTransactionSystem(game);
-                if ts.GetItemQuantity(player, ItemID.FromTDBID(t"Items.Chispa_MemorySector01")) == 0 {
+                if !this.PlayerOwnsItemOrDeckPart(player, t"Items.Chispa_MemorySector01") {
                     ts.GiveItem(player, ItemID.FromTDBID(t"Items.Chispa_MemorySector01"), 1);
                 }
-                if ts.GetItemQuantity(player, ItemID.FromTDBID(t"Items.Preset_Saratoga_Chispa")) == 0 {
+                if !this.PlayerOwnsItemOrDeckPart(player, t"Items.Preset_Saratoga_Chispa") {
                     ts.GiveItem(player, ItemID.FromTDBID(t"Items.Preset_Saratoga_Chispa"), 1);
                 }
-                if ts.GetItemQuantity(player, ItemID.FromTDBID(t"Items.EMPOverloadLvl2Program")) == 0 {
-                    ts.GiveItem(player, ItemID.FromTDBID(t"Items.EMPOverloadLvl2Program"), 1);
-                }
+                this.AwardMilestoneProgram(player, n"chispa_qh_ep01_emp", n"EMPOverload", 3);
+                this.AwardMilestoneProgram(player, n"chispa_qh_ep01_overheat", n"Overheat", 3);
             }
             qs.SetFact(n"chispa_ep01_done", 1);
             qs.SetFact(n"chispa_ep01_stage", 5);
         }
         this.ResetEp02Only();
+        this.SyncRetroactiveProgression(player);
         this.ShowRelicBanner(n"ch_banner_dbg_ep02", "[CHISPA] Episodio 2 activado — Revisa tu holoteléfono en Northside");
     }
 
@@ -2309,6 +3939,7 @@ public class ChispaSystem extends ScriptableSystem {
         this.ClearMappin();
         this.ClearSmartBridge();
         this.ClearRicochetBridge();
+        this.ClearCoprocessorRamBridge();
         if IsDefined(this.m_ep02) {
             this.m_ep02.CleanupEntities();
             this.m_ep02.ResetJournalAndFacts();
@@ -2365,10 +3996,10 @@ public class ChispaSystem extends ScriptableSystem {
             jm.ChangeEntryState("quests/side_quest/chispa_nc_quest", "gameJournalQuest", gameJournalEntryState.Succeeded, JournalNotifyOption.DoNotNotify);
             if IsDefined(player) {
                 let ts: ref<TransactionSystem> = GameInstance.GetTransactionSystem(game);
-                if ts.GetItemQuantity(player, ItemID.FromTDBID(t"Items.Chispa_CoreDongle")) == 0 {
+                if !this.PlayerOwnsItemOrDeckPart(player, t"Items.Chispa_CoreDongle") {
                     ts.GiveItem(player, ItemID.FromTDBID(t"Items.Chispa_CoreDongle"), 1);
                 }
-                if ts.GetItemQuantity(player, ItemID.FromTDBID(t"Items.Preset_Lexington_Chispa")) == 0 {
+                if !this.PlayerOwnsItemOrDeckPart(player, t"Items.Preset_Lexington_Chispa") {
                     ts.GiveItem(player, ItemID.FromTDBID(t"Items.Preset_Lexington_Chispa"), 1);
                 }
             }
@@ -2387,15 +4018,14 @@ public class ChispaSystem extends ScriptableSystem {
             jm.ChangeEntryState("quests/side_quest/chispa_ep01_quest", "gameJournalQuest", gameJournalEntryState.Succeeded, JournalNotifyOption.DoNotNotify);
             if IsDefined(player) {
                 let ts: ref<TransactionSystem> = GameInstance.GetTransactionSystem(game);
-                if ts.GetItemQuantity(player, ItemID.FromTDBID(t"Items.Chispa_MemorySector01")) == 0 {
+                if !this.PlayerOwnsItemOrDeckPart(player, t"Items.Chispa_MemorySector01") {
                     ts.GiveItem(player, ItemID.FromTDBID(t"Items.Chispa_MemorySector01"), 1);
                 }
-                if ts.GetItemQuantity(player, ItemID.FromTDBID(t"Items.Preset_Saratoga_Chispa")) == 0 {
+                if !this.PlayerOwnsItemOrDeckPart(player, t"Items.Preset_Saratoga_Chispa") {
                     ts.GiveItem(player, ItemID.FromTDBID(t"Items.Preset_Saratoga_Chispa"), 1);
                 }
-                if ts.GetItemQuantity(player, ItemID.FromTDBID(t"Items.EMPOverloadLvl2Program")) == 0 {
-                    ts.GiveItem(player, ItemID.FromTDBID(t"Items.EMPOverloadLvl2Program"), 1);
-                }
+                this.AwardMilestoneProgram(player, n"chispa_qh_ep01_emp", n"EMPOverload", 3);
+                this.AwardMilestoneProgram(player, n"chispa_qh_ep01_overheat", n"Overheat", 3);
             }
             qs.SetFact(n"chispa_ep01_done", 1);
             qs.SetFact(n"chispa_ep01_stage", 5);
@@ -2412,20 +4042,19 @@ public class ChispaSystem extends ScriptableSystem {
             jm.ChangeEntryState("quests/side_quest/chispa_ep02_quest", "gameJournalQuest", gameJournalEntryState.Succeeded, JournalNotifyOption.DoNotNotify);
             if IsDefined(player) {
                 let ts: ref<TransactionSystem> = GameInstance.GetTransactionSystem(game);
-                if ts.GetItemQuantity(player, ItemID.FromTDBID(t"Items.Chispa_MemorySector02")) == 0 {
+                if !this.PlayerOwnsItemOrDeckPart(player, t"Items.Chispa_MemorySector02") {
                     ts.GiveItem(player, ItemID.FromTDBID(t"Items.Chispa_MemorySector02"), 1);
                 }
-                if ts.GetItemQuantity(player, ItemID.FromTDBID(t"Items.Preset_Achilles_Chispa")) == 0 {
+                if !this.PlayerOwnsItemOrDeckPart(player, t"Items.Preset_Achilles_Chispa") {
                     ts.GiveItem(player, ItemID.FromTDBID(t"Items.Preset_Achilles_Chispa"), 1);
                 }
-                if ts.GetItemQuantity(player, ItemID.FromTDBID(t"Items.BlindLvl2Program")) == 0 {
-                    ts.GiveItem(player, ItemID.FromTDBID(t"Items.BlindLvl2Program"), 1);
-                }
+                this.AwardMilestoneProgram(player, n"chispa_qh_ep02_blind", n"Blind", 3);
             }
             qs.SetFact(n"chispa_ep02_done", 1);
             qs.SetFact(n"chispa_ep02_stage", 5);
         }
         this.ResetEp03Only();
+        this.SyncRetroactiveProgression(player);
         this.ShowRelicBanner(n"ch_banner_dbg_ep03", "[CHISPA] Episodio 3 activado — Revisa tu holoteléfono en el muelle sur");
     }
 
@@ -2464,6 +4093,7 @@ public class ChispaSystem extends ScriptableSystem {
         this.ClearMappin();
         this.ClearSmartBridge();
         this.ClearRicochetBridge();
+        this.ClearCoprocessorRamBridge();
         if IsDefined(this.m_ep03) {
             this.m_ep03.CleanupEntities();
             this.m_ep03.ResetJournalAndFacts();
@@ -2495,6 +4125,7 @@ public class ChispaSystem extends ScriptableSystem {
     }
 
     private final func PrepareForEpisodeReset() -> Void {
+        this.m_retroSyncDoneForSession = false;
         this.m_speechToken += 1;
         this.m_activeCallToken += 1;
         this.m_isPlayingDialogueSequence = false;
@@ -2511,10 +4142,11 @@ public class ChispaSystem extends ScriptableSystem {
         this.ClearMappin();
         this.ClearSmartBridge();
         this.ClearRicochetBridge();
+        this.ClearCoprocessorRamBridge();
     }
 
     private final func EnsureItemOwned(ts: ref<TransactionSystem>, player: ref<PlayerPuppet>, itemId: TweakDBID) -> Void {
-        if IsDefined(ts) && IsDefined(player) && ts.GetItemQuantity(player, ItemID.FromTDBID(itemId)) == 0 {
+        if IsDefined(ts) && IsDefined(player) && !this.PlayerOwnsItemOrDeckPart(player, itemId) {
             ts.GiveItem(player, ItemID.FromTDBID(itemId), 1);
         }
     }
@@ -2585,7 +4217,8 @@ public class ChispaSystem extends ScriptableSystem {
             ], "quests/side_quest/chispa_ep01_quest");
             this.EnsureItemOwned(ts, player, t"Items.Chispa_MemorySector01");
             this.EnsureItemOwned(ts, player, t"Items.Preset_Saratoga_Chispa");
-            this.EnsureItemOwned(ts, player, t"Items.EMPOverloadLvl2Program");
+            this.AwardMilestoneProgram(player, n"chispa_qh_ep01_emp", n"EMPOverload", 3);
+            this.AwardMilestoneProgram(player, n"chispa_qh_ep01_overheat", n"Overheat", 3);
             qs.SetFact(n"chispa_ep01_done", 1);
             qs.SetFact(n"chispa_ep01_stage", 5);
         }
@@ -2601,7 +4234,8 @@ public class ChispaSystem extends ScriptableSystem {
             ], "quests/side_quest/chispa_ep02_quest");
             this.EnsureItemOwned(ts, player, t"Items.Chispa_MemorySector02");
             this.EnsureItemOwned(ts, player, t"Items.Preset_Achilles_Chispa");
-            this.EnsureItemOwned(ts, player, t"Items.BlindLvl2Program");
+            this.AwardMilestoneProgram(player, n"chispa_qh_ep02_wep", n"WeaponMalfunction", 3);
+            this.AwardMilestoneProgram(player, n"chispa_qh_ep02_blind", n"Blind", 3);
             qs.SetFact(n"chispa_ep02_done", 1);
             qs.SetFact(n"chispa_ep02_stage", 5);
         }
@@ -2617,7 +4251,8 @@ public class ChispaSystem extends ScriptableSystem {
             ], "quests/side_quest/chispa_ep03_quest");
             this.EnsureItemOwned(ts, player, t"Items.Chispa_MemorySector03");
             this.EnsureItemOwned(ts, player, t"Items.Preset_Shingen_Chispa");
-            this.EnsureItemOwned(ts, player, t"Items.ContagionLvl2Program");
+            this.AwardMilestoneProgram(player, n"chispa_qh_ep03_mem", n"MemoryWipe", 3);
+            this.AwardMilestoneProgram(player, n"chispa_qh_ep03_contagion", n"Contagion", 3);
             qs.SetFact(n"chispa_ep03_done", 1);
             qs.SetFact(n"chispa_ep03_stage", 5);
         }
@@ -2633,10 +4268,11 @@ public class ChispaSystem extends ScriptableSystem {
             ], "quests/side_quest/chispa_ep04_quest");
             this.EnsureItemOwned(ts, player, t"Items.Chispa_MemorySector04");
             this.EnsureItemOwned(ts, player, t"Items.Preset_Masamune_Chispa");
-            this.EnsureItemOwned(ts, player, t"Items.DisableCyberwareLvl2Program");
+            this.AwardMilestoneProgram(player, n"chispa_qh_ep04_cyber", n"DisableCyberware", 3);
             qs.SetFact(n"chispa_ep04_done", 1);
             qs.SetFact(n"chispa_ep04_stage", 5);
         }
+        this.SyncRetroactiveProgression(player);
     }
 
     public final func StartEp04Directly() -> Void {
@@ -2647,6 +4283,7 @@ public class ChispaSystem extends ScriptableSystem {
         }
         this.CompletePrerequisitesUpTo(3);
         this.ResetEp04Only();
+        this.SyncRetroactiveProgression(player);
         this.ShowRelicBanner(n"ch_banner_dbg_ep04", "[CHISPA] Episodio 4 activado — Revisa tu holoteléfono tras el bloqueo");
     }
 
@@ -2708,6 +4345,7 @@ public class ChispaSystem extends ScriptableSystem {
         }
         this.CompletePrerequisitesUpTo(4);
         this.ResetEp05Only();
+        this.SyncRetroactiveProgression(player);
         this.ShowRelicBanner(n"ch_banner_dbg_ep05", "[CHISPA] Episodio 5 activado — Revisa tu holoteléfono rumbo a Pacifica");
     }
 
@@ -2762,6 +4400,7 @@ public class ChispaSystem extends ScriptableSystem {
     }
 
     public final func ResetAllState() -> Void {
+        this.m_retroSyncDoneForSession = false;
         this.m_speechToken += 1;
         this.m_activeCallToken += 1;
         this.m_isPlayingDialogueSequence = false;
@@ -2778,6 +4417,7 @@ public class ChispaSystem extends ScriptableSystem {
         this.ClearMappin();
         this.ClearSmartBridge();
         this.ClearRicochetBridge();
+        this.ClearCoprocessorRamBridge();
         this.SyncAudiowareEngineState(true);
         if IsDefined(this.m_ep00) {
             this.m_ep00.CleanupEntities();
@@ -2802,6 +4442,9 @@ public class ChispaSystem extends ScriptableSystem {
         if IsDefined(this.m_ep05) {
             this.m_ep05.CleanupEntities();
             this.m_ep05.ResetJournalAndFacts();
+        }
+        if IsDefined(this.m_live) {
+            this.m_live.ResetRuntime();
         }
         this.m_sessionReadyTicks = 12;
         this.ScheduleTick(0.40);
@@ -2836,6 +4479,9 @@ public class ChispaSystem extends ScriptableSystem {
             this.ScheduleTick(0.45);
             return;
         }
+        if this.m_pausedByUiMenu {
+            this.OnUiMenuChanged(false);
+        }
 
         let fullGameplay: Bool = this.IsInFullGameplayTier(player);
         if fullGameplay {
@@ -2845,14 +4491,27 @@ public class ChispaSystem extends ScriptableSystem {
             if this.m_sessionReadyTicks == 1 || this.m_sessionReadyTicks == 3 || this.m_sessionReadyTicks == 7 {
                 this.SyncAudiowareEngineState(true);
             }
+            if this.m_sessionReadyTicks == 8 && !this.m_retroSyncDoneForSession {
+                this.m_retroSyncDoneForSession = true;
+                this.SyncRetroactiveProgression(player);
+            }
             if (this.m_directHoloFeedOpen || this.m_callHudQueuedOrOpen) && !this.m_activeCallPendingPickup && this.IsExternalPhoneCallBusy() {
                 this.m_directHoloFeedOpen = false;
                 this.m_callHudQueuedOrOpen = false;
                 this.m_activeCallIsVideo = false;
                 this.m_activeCallContact = n"None";
             }
-            this.EnsureSmartBridgeActive(player);
-            this.EnsureRicochetBridgeActive(player);
+            if this.m_fastTravelLoading && !this.IsInSystemOrPauseMenu() {
+                let ftNow: Float = EngineTime.ToFloat(GameInstance.GetSimTime(game));
+                if ftNow - this.m_fastTravelStartedAt > 12.00 {
+                    this.m_fastTravelLoading = false;
+                }
+            }
+            if this.m_sessionReadyTicks <= 4 || (this.m_sessionReadyTicks % 8) == 0 {
+                this.EnsureSmartBridgeActive(player);
+                this.EnsureRicochetBridgeActive(player);
+                this.EnsureCoprocessorRamBridgeActive(player);
+            }
         }
 
         let phoneOpen: Bool = this.IsPhoneOverlayOpen();
@@ -2863,6 +4522,7 @@ public class ChispaSystem extends ScriptableSystem {
         }
 
         let nextDelay: Float = 1.00;
+        let ep05Completed: Bool = qs.GetFact(n"chispa_ep05_done") > 0;
         if qs.GetFact(n"chispa_ep00_done") == 0 {
             if IsDefined(this.m_ep00) {
                 nextDelay = this.m_ep00.Tick(player, phoneOpen, fullGameplay);
@@ -2885,6 +4545,12 @@ public class ChispaSystem extends ScriptableSystem {
             }
         } else if IsDefined(this.m_ep05) {
             nextDelay = this.m_ep05.Tick(player, phoneOpen, fullGameplay);
+            if ep05Completed && !this.m_isPlayingDialogueSequence && !this.m_dialogActive && nextDelay >= 0.95 {
+                nextDelay = 1.50;
+            }
+        }
+        if IsDefined(this.m_live) {
+            this.m_live.WatchdogTick();
         }
         this.ScheduleTick(nextDelay);
     }
@@ -2921,11 +4587,24 @@ private let m_chispaTelemetryLabel: wref<inkText>;
 @addField(HudPhoneAvatarController)
 private let m_chispaSubTelemetryLabel: wref<inkText>;
 
+@addMethod(HudPhoneAvatarController)
+public final func ChispaRefreshLiveStatus() -> Void {
+    if IsDefined(this.m_chispaSubTelemetryLabel) {
+        let sys: ref<ChispaSystem> = ChispaSystem.GetInstance(GetGameInstance());
+        if IsDefined(sys) {
+            this.m_chispaSubTelemetryLabel.SetText(sys.GetLiveHoloSubtitleStatus());
+        }
+    }
+}
+
 @wrapMethod(HudPhoneAvatarController)
 private final func RefreshView(avatarID: TweakDBID, const contactName: script_ref<String>, mode: EHudAvatarMode) -> Void {
     wrappedMethod(avatarID, contactName, mode);
 
     let sys: ref<ChispaSystem> = ChispaSystem.GetInstance(GetGameInstance());
+    if IsDefined(sys) {
+        sys.SetHoloAvatarController(this);
+    }
     let showChispaFeed: Bool = Equals(mode, EHudAvatarMode.Holocall) && IsDefined(sys) && sys.IsChispaVideocallActive();
 
     if showChispaFeed {
@@ -3019,6 +4698,7 @@ private final func RefreshView(avatarID: TweakDBID, const contactName: script_re
                 telemetry.Reparent(feed);
                 this.m_chispaTelemetryLabel = telemetry;
 
+                let subTextInit: String = sys.GetLiveHoloSubtitleStatus();
                 let subTelemetry: ref<inkText> = new inkText();
                 subTelemetry.SetName(n"ChispaSubTelemetryLabel");
                 subTelemetry.SetFontFamily("base\\gameplay\\gui\\fonts\\raj\\raj.inkfontfamily");
@@ -3029,7 +4709,7 @@ private final func RefreshView(avatarID: TweakDBID, const contactName: script_re
                 subTelemetry.SetHorizontalAlignment(textHorizontalAlignment.Center);
                 subTelemetry.SetMargin(new inkMargin(0.0, 0.0, 0.0, 30.0));
                 subTelemetry.SetTintColor(new HDRColor(0.30, 0.94, 1.00, 0.90));
-                subTelemetry.SetText(sys.GetLoc(n"ch_holo_telemetry_sub", "MODO SARGENTO // SIN FILTRO"));
+                subTelemetry.SetText(subTextInit);
                 subTelemetry.Reparent(feed);
                 this.m_chispaSubTelemetryLabel = subTelemetry;
 
@@ -3049,7 +4729,7 @@ private final func RefreshView(avatarID: TweakDBID, const contactName: script_re
                 this.m_chispaTelemetryLabel.SetText(sys.GetLoc(n"ch_holo_telemetry_title", "C.H.I.S.P.A. v0.98b"));
             }
             if IsDefined(this.m_chispaSubTelemetryLabel) {
-                this.m_chispaSubTelemetryLabel.SetText(sys.GetLoc(n"ch_holo_telemetry_sub", "MODO SARGENTO // SIN FILTRO"));
+                this.m_chispaSubTelemetryLabel.SetText(sys.GetLiveHoloSubtitleStatus());
             }
             this.m_chispaHoloFeed.SetVisible(true);
         }
@@ -3317,17 +4997,35 @@ protected cb func OnUninitialize() -> Bool {
     return wrappedMethod();
 }
 
+@addField(BaseWorldMapMappinController)
+private let m_chispaPinCache: Int32;
+
 @addMethod(BaseWorldMapMappinController)
 private final func IsChispaOwnMappin() -> Bool {
+    if this.m_chispaPinCache != 0 {
+        return this.m_chispaPinCache == 2;
+    }
     if this.IsExactlyA(n"WorldMapPlayerMappinController") {
+        this.m_chispaPinCache = 1;
+        return false;
+    }
+    let mappin: wref<IMappin> = this.GetMappin();
+    if !IsDefined(mappin) || NotEquals(mappin.GetVariant(), gamedataMappinVariant.DefaultQuestVariant) {
+        this.m_chispaPinCache = 1;
         return false;
     }
     let sys: ref<ChispaSystem> = ChispaSystem.GetInstance(GetGameInstance());
-    return IsDefined(sys) && sys.IsChispaMappin(this.GetMappin());
+    if IsDefined(sys) && sys.IsChispaMappin(mappin) {
+        this.m_chispaPinCache = 2;
+        return true;
+    }
+    this.m_chispaPinCache = 1;
+    return false;
 }
 
 @wrapMethod(BaseWorldMapMappinController)
 protected cb func OnIntro() -> Bool {
+    this.m_chispaPinCache = 0;
     let res: Bool = wrappedMethod();
     if this.IsChispaOwnMappin() {
         let sys: ref<ChispaSystem> = ChispaSystem.GetInstance(GetGameInstance());
@@ -3360,9 +5058,10 @@ protected func ComputeRootState() -> CName {
 @wrapMethod(WorldMapTooltipController)
 public func SetData(const data: script_ref<WorldMapTooltipData>, menu: ref<WorldMapMenuGameController>) -> Void {
     wrappedMethod(data, menu);
-    if Deref(data).mappin != null {
+    let mappin: wref<IMappin> = Deref(data).mappin;
+    if IsDefined(mappin) && Equals(mappin.GetVariant(), gamedataMappinVariant.DefaultQuestVariant) {
         let sys: ref<ChispaSystem> = ChispaSystem.GetInstance(GetGameInstance());
-        if IsDefined(sys) && sys.IsChispaMappin(Deref(data).mappin) {
+        if IsDefined(sys) && sys.IsChispaMappin(mappin) {
             inkTextRef.SetText(this.m_titleText, sys.GetMappinTitle());
             inkTextRef.SetText(this.m_descText, sys.GetMappinDesc());
             inkWidgetRef.SetVisible(this.m_descText, true);
@@ -3482,4 +5181,25 @@ public final func AnimateSelection() -> Void {
             this.m_InActiveTextRoot.SetEffectParamValue(inkEffectType.LinearWipe, n"LinearWipe_0", n"transition", targetWipe);
         }
     }
+}
+
+@wrapMethod(FastTravelSystem)
+private final func SetFastTravelStarted() -> Void {
+    let sys: ref<ChispaSystem> = GameInstance.GetScriptableSystemsContainer(this.GetGameInstance()).Get(n"ChispaNC.ChispaSystem") as ChispaSystem;
+    if IsDefined(sys) {
+        sys.NotifyFastTravelLoadingChanged(true);
+    }
+    wrappedMethod();
+}
+
+@wrapMethod(FastTravelSystem)
+protected cb func OnLoadingScreenFinished(value: Bool) -> Bool {
+    let res: Bool = wrappedMethod(value);
+    if value {
+        let sys: ref<ChispaSystem> = GameInstance.GetScriptableSystemsContainer(this.GetGameInstance()).Get(n"ChispaNC.ChispaSystem") as ChispaSystem;
+        if IsDefined(sys) {
+            sys.NotifyFastTravelLoadingChanged(false);
+        }
+    }
+    return res;
 }

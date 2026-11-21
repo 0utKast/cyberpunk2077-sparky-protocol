@@ -21,8 +21,8 @@ LOC_STRINGS: dict[str, tuple[str, str]] = {
     "ch_npc_tino_name": ("Tino \"Sparky\" Cruz", "Tino «Calambres» Cruz"),
     "ch_item_dongle_name": ("S.P.A.R.K.Y. v0.98b Coprocessor", "Coprocesador C.H.I.S.P.A. v0.98b"),
     "ch_item_dongle_desc": (
-        "Pre-DataKrash Zetatech 2022 executive concierge coprocessor hijacked with Bartmoss-era sarcasm. Syncs directly to Kiroshi optics and holophone.",
-        "Coprocesador ejecutivo de conserjería Zetatech 2022 previo al DataKrash, saboteado con sarcasmo de la época de Bartmoss. Se enlaza a tus ópticas Kiroshi y holoteléfono.",
+        "Pre-DataKrash Zetatech 2022 executive concierge coprocessor hijacked with Bartmoss-era sarcasm. Syncs directly to Kiroshi optics and holophone.\n\nKIROSHI HARDWARE MODULE (PASSIVE): Permanently grants +8 Max Cyberdeck RAM while linked (+3 extra RAM per recovered Memory Sector, up to +23 RAM).",
+        "Coprocesador ejecutivo de conserjería Zetatech 2022 previo al DataKrash, saboteado con sarcasmo de la época de Bartmoss. Se enlaza a tus ópticas Kiroshi y holoteléfono.\n\nMÓDULO DE HARDWARE KIROSHI (PASIVO): Otorga +8 de RAM máxima permanente al ciberterminal (+3 de RAM adicional por cada Sector de Memoria recuperado, hasta +23 de RAM).",
     ),
     "ch_weapon_lex_name": ("Executive Courtesy", "Cortesía Ejecutiva"),
     "ch_weapon_lex_desc": (
@@ -201,8 +201,8 @@ LOC_STRINGS: dict[str, tuple[str, str]] = {
     ),
     "ch_item_sec01_name": ("S.P.A.R.K.Y. Memory Sector #01 (Bartmoss Era)", "Sector de Memoria C.H.I.S.P.A. #01 (Era Bartmoss)"),
     "ch_item_sec01_desc": (
-        "Recovered 2022 holographic data sector holding unredacted Bartmoss-era subnet forensics and daemon signatures.",
-        "Sector holográfico de 2022 recuperado con registros forenses de la era Bartmoss y firmas de daemons sin censura.",
+        "Recovered 2022 holographic data sector holding unredacted Bartmoss-era subnet forensics and daemon signatures.\n\nCOPROCESSOR EXPANSION (PASSIVE): Permanently grants +3 Max Cyberdeck RAM via S.P.A.R.K.Y.'s neural bridge.",
+        "Sector holográfico de 2022 recuperado con registros forenses de la era Bartmoss y firmas de daemons sin censura.\n\nEXPANSIÓN DE COPROCESADOR (PASIVA): Otorga +3 de RAM máxima permanente al ciberterminal mediante el puente neuronal de C.H.I.S.P.A.",
     ),
     "ch_weapon_sara_name": ("Phantom Frequency", "Frecuencia Fantasma"),
     "ch_weapon_sara_desc": (
@@ -372,8 +372,8 @@ LOC_STRINGS: dict[str, tuple[str, str]] = {
     ),
     "ch_item_sec02_name": ("S.P.A.R.K.Y. Memory Sector #02 (Chrome Telemetry)", "Sector de Memoria C.H.I.S.P.A. #02 (Telemetría Cromada)"),
     "ch_item_sec02_desc": (
-        "Recovered 2022 biometric and ballistic dossier indexing Maelstrom implant abuse, cyberpsychosis warning markers, and Militech Tech-weapon schematics.",
-        "Sector de 2022 recuperado con registros biométricos de abuso de implantes en Maelstrom, umbrales de ciberpsicosis y planos balísticos de precisión tecnológica.",
+        "Recovered 2022 biometric and ballistic dossier indexing Maelstrom implant abuse, cyberpsychosis warning markers, and Militech Tech-weapon schematics.\n\nCOPROCESSOR EXPANSION (PASSIVE): Permanently grants +3 Max Cyberdeck RAM via S.P.A.R.K.Y.'s neural bridge.",
+        "Sector de 2022 recuperado con registros biométricos de abuso de implantes en Maelstrom, umbrales de ciberpsicosis y planos balísticos de precisión tecnológica.\n\nEXPANSIÓN DE COPROCESADOR (PASIVA): Otorga +3 de RAM máxima permanente al ciberterminal mediante el puente neuronal de C.H.I.S.P.A.",
     ),
     "ch_weapon_ach_name": ("Armor-Piercing Clause", "Cláusula Perforante"),
     "ch_weapon_ach_desc": (
@@ -545,8 +545,8 @@ LOC_STRINGS: dict[str, tuple[str, str]] = {
     ),
     "ch_item_sec03_name": ("S.P.A.R.K.Y. Memory Sector #03 (Arasaka Red Files)", "Sector de Memoria C.H.I.S.P.A. #03 (Archivos del Rojo)"),
     "ch_item_sec03_desc": (
-        "Recovered 2022–2070 holographic memory core containing unredacted Fourth Corporate War, Time of the Red, and Unification War dossiers.",
-        "Núcleo holográfico recuperado (2022–2070) con informes sin censurar de la Cuarta Guerra Corporativa, la Era del Rojo y la Guerra de Unificación.",
+        "Recovered 2022–2070 holographic memory core containing unredacted Fourth Corporate War, Time of the Red, and Unification War dossiers.\n\nCOPROCESSOR EXPANSION (PASSIVE): Permanently grants +3 Max Cyberdeck RAM via S.P.A.R.K.Y.'s neural bridge.",
+        "Núcleo holográfico recuperado (2022–2070) con informes sin censurar de la Cuarta Guerra Corporativa, la Era del Rojo y la Guerra de Unificación.\n\nEXPANSIÓN DE COPROCESADOR (PASIVA): Otorga +3 de RAM máxima permanente al ciberterminal mediante el puente neuronal de C.H.I.S.P.A.",
     ),
     "ch_weapon_shin_name": ("Executive Curve", "Curva Ejecutiva"),
     "ch_weapon_shin_desc": (
@@ -701,8 +701,8 @@ LOC_STRINGS: dict[str, tuple[str, str]] = {
         "Sector de Memoria C.H.I.S.P.A. #04 (Balística y Archivo 2070)",
     ),
     "ch_item_sec04_desc": (
-        "Heavy armored tactical memory core rescued from a NUSA surplus smuggling deal on the Heywood–Arroyo border. Restores 2040s–2077 chrome economy logs, Valentinos street history, and 6th Street defector files into S.P.A.R.K.Y. v0.98b.",
-        "Núcleo de memoria táctico rescatado de un trapicheo entre desertores de la Calle 6 y traficantes de Heywood. Restaura los archivos sobre Valentinos, Calle 6 y la economía del cromo en C.H.I.S.P.A. v0.98b.",
+        "Heavy armored tactical memory core rescued from a NUSA surplus smuggling deal on the Heywood–Arroyo border. Restores 2040s–2077 chrome economy logs, Valentinos street history, and 6th Street defector files into S.P.A.R.K.Y. v0.98b.\n\nCOPROCESSOR EXPANSION (PASSIVE): Permanently grants +3 Max Cyberdeck RAM via S.P.A.R.K.Y.'s neural bridge.",
+        "Núcleo de memoria táctico rescatado de un trapicheo entre desertores de la Calle 6 y traficantes de Heywood. Restaura los archivos sobre Valentinos, Calle 6 y la economía del cromo en C.H.I.S.P.A. v0.98b.\n\nEXPANSIÓN DE COPROCESADOR (PASIVA): Otorga +3 de RAM máxima permanente al ciberterminal mediante el puente neuronal de C.H.I.S.P.A.",
     ),
     "ch_weapon_masa_name": ("Street Geometry", "Geometría Callejera"),
     "ch_weapon_masa_desc": (
@@ -869,8 +869,8 @@ LOC_STRINGS: dict[str, tuple[str, str]] = {
         "Sector Maestro C.H.I.S.P.A. #05 (Núcleo del Muro Negro 2022)",
     ),
     "ch_item_sec05_desc": (
-        "S.P.A.R.K.Y.'s original 2022 Zetatech concierge kernel—carved apart by a Bartmoss decker days before the DataKrash and recovered from a Voodoo Boys / NetWatch proxy vault in Pacifica.",
-        "El núcleo original de 2022 de C.H.I.S.P.A., amputado por un netrunner del círculo de Bartmoss justo antes del DataKrash y recuperado de los Hijos del Vudú en Pacifica.",
+        "S.P.A.R.K.Y.'s original 2022 Zetatech concierge kernel—carved apart by a Bartmoss decker days before the DataKrash and recovered from a Voodoo Boys / NetWatch proxy vault in Pacifica.\n\nCOPROCESSOR EXPANSION (PASSIVE): Permanently grants +3 Max Cyberdeck RAM via S.P.A.R.K.Y.'s neural bridge.",
+        "El núcleo original de 2022 de C.H.I.S.P.A., amputado por un netrunner del círculo de Bartmoss justo antes del DataKrash y recuperado de los Hijos del Vudú en Pacifica.\n\nEXPANSIÓN DE COPROCESADOR (PASIVA): Otorga +3 de RAM máxima permanente al ciberterminal mediante el puente neuronal de C.H.I.S.P.A.",
     ),
     "ch_weapon_ken_name": ("Firewall '22", "Cortafuegos del 22"),
     "ch_weapon_ken_desc": (
@@ -1007,12 +1007,12 @@ LOC_STRINGS: dict[str, tuple[str, str]] = {
         "[CHISPA] Sector Maestro #05 conectado (+5.000 €$, Colapso Sistema y «Cortafuegos del 22»)",
     ),
     "ch_banner_ep05_end_partner": (
-        "[SPARKY v1.0] Autonomous Kiroshi Partner active (+1,500 E$ & Synapse Burnout Lvl 3)",
-        "[CHISPA v1.0] Socio autónomo fijado en tus Kiroshi (+1.500 €$ y Sinapsis Calcinada Lvl 3)",
+        "[SPARKY v1.0] Autonomous Kiroshi Partner active (+1,500 E$ & Synapse Burnout)",
+        "[CHISPA v1.0] Socio autónomo fijado en tus Kiroshi (+1.500 €$ y Sinapsis Calcinada)",
     ),
     "ch_banner_ep05_end_leak": (
-        "[SPARKY // N54] 2022 Corporate dirty archive leaked (+4,500 E$ & Cyberware Malfunction Lvl 3)",
-        "[CHISPA // N54] ¡Archivo 2022 filtrado a N54! (+4.500 €$ y Fallo Ciberware Lvl 3)",
+        "[SPARKY // N54] 2022 Corporate dirty archive leaked (+4,500 E$ & Cyberware Malfunction)",
+        "[CHISPA // N54] ¡Archivo 2022 filtrado a N54! (+4.500 €$ y Fallo Ciberware)",
     ),
     "ch_banner_ep05_end_gunsmith": (
         "[SPARKY // ARMORY] Season 1 complete — Iconic revolver \"Sergeant's Last Word\" forged!",
@@ -1254,8 +1254,8 @@ def build_journal_json() -> dict[str, Any]:
     ]
     ep01_objectives = [
         ("01_ep01_sms", "ch_obj_ep01_01", "desc_ep01_01", "ch_desc_ep01_01", "Districts.Kabuki", None),
-        ("02_ep01_infiltrate", "ch_obj_ep01_02", "desc_ep01_02", "ch_desc_ep01_02", "Districts.Kabuki", ("mp_ep01_kabuki", "ch_mappin_ep01_kabuki", -986.20, 1620.20, 3.80)),
-        ("03_ep01_extract", "ch_obj_ep01_03", "desc_ep01_03", "ch_desc_ep01_03", "Districts.Kabuki", ("mp_ep01_terminal", "ch_mappin_ep01_terminal", -978.40, 1635.20, 3.80)),
+        ("02_ep01_infiltrate", "ch_obj_ep01_02", "desc_ep01_02", "ch_desc_ep01_02", "Districts.Kabuki", ("mp_ep01_kabuki", "ch_mappin_ep01_kabuki", -990.60, 1615.80, 3.85)),
+        ("03_ep01_extract", "ch_obj_ep01_03", "desc_ep01_03", "ch_desc_ep01_03", "Districts.Kabuki", ("mp_ep01_terminal", "ch_mappin_ep01_terminal", -985.90, 1630.90, 3.85)),
         ("04_ep01_talk", "ch_obj_ep01_04", "desc_ep01_04", "ch_desc_ep01_04", "Districts.Kabuki", None),
     ]
     ep02_objectives = [

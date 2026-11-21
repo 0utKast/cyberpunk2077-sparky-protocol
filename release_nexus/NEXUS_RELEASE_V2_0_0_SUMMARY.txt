@@ -1,0 +1,41 @@
+# NEXUS MODS v2.0.0 RELEASE METADATA (MOD ID: 38982)
+# Pending explicit user approval before running publish_nexus_cp2077.py
+
+[NEXUS_SUMMARY_MAX_250]
+Voiced Kiroshi AI companion & 6-episode Season 1 campaign. v2.0 adds Live Local AI (Ollama + F5-TTS/Kokoro), 162-card offline RAG, isolated per-save memory, [Y]/[U] HUD telemetry & spontaneous callouts. Base Game 2.x, AudioXL/Audioware, MIT.
+
+[NEXUS_FILE_TARGETS]
+- file_id 8418366 (Main - UPDATE): SPARKY Protocol - English Edition -> releases/chispa_nc_en/SparkyProtocol_EN_v2.0.0.zip
+- file_id 8418369 (Main - UPDATE): Protocolo CHISPA - Spanish Edition -> releases/chispa_nc/ChispaNC_v2.0.0.zip
+- file_id 8426244 (Optional - EXISTING / SYNC v2.0.0): SPARKY - Classic Female Voice (EN) -> releases/optional/SparkyProtocol_EN_FemaleVoicePack_v2.0.0.zip
+- NEW Optional File: SPARKY v2.0.0 Local AI Bridge (English) -> releases/optional/SPARKY_v2.0.0_LocalAI_Service_EN.zip
+- NEW Optional File: CHISPA v2.0.0 Local AI Bridge (Spanish) -> releases/optional/CHISPA_v2.0.0_LocalAI_Service_ES.zip
+- NEW Optional File: CHISPA - Female Local AI Voice Pack (ES) -> releases/optional/Chispa_LocalAI_FemaleVoicePack_ES_v2.0.0.zip
+- NEW Optional File: Protocolo CHISPA - Classic Season 1 Voices (ES) -> releases/optional/ChispaNC_ClassicCampaignVoices_v2.0.0.zip
+
+[YOUTUBE_SHOWCASE_URL]
+https://youtu.be/oh9oSNnJVh0
+
+[CHANGELOG_BBCODE_V2_0_0_EN_MAIN]
+v2.0.0 — Live Local AI Companion Update + Full Season 1 (English Edition):
+- Added native HUD Kiroshi Neural Link bar ([Y]) & Instant Tactical Telemetry Read ([U] / [Tab]) with clean CET keybind toggle support.
+- Added standalone Local AI Companion Bridge (Optional File: SPARKY_v2.0.0_LocalAI_Service_EN.zip) running 100% locally via Ollama (gemma3:12b / gemma3:4b) + clause-by-clause streaming voice synthesis (F5-TTS GPU or 0 MB VRAM CPU Kokoro-82M), zero cloud APIs.
+- Added 162-card Offline Hybrid Lore RAG engine (SQLite FTS5 + CPU ONNX vectors, <5 ms CPU search, 0 MB extra GPU VRAM) with 2022 vs. 2077 framing & Act 1 spoiler gate.
+- Added Isolated Per-Playthrough Episodic Memory (persistent chispa_mem_uid fact per save, timeline filtering on save reload, automatic Shard indexing, async background recap).
+- Added live Spontaneous Reactions (Tactical / Active Companion / Off in SPARKY Studio), immersion priority guards (vanilla calls/cutscenes/menus/shards), and opt-in Cyberpunk Wiki lookup (disabled by default).
+- Includes all v1.6.1 fixes: Kabuki Creek off-road relocation, deterministic quickhack sync, hardware RAM bridge (+8 base / up to +23 RAM), and dual AudioXL + Audioware support.
+
+[CHANGELOG_BBCODE_V2_0_0_ES_MAIN]
+v2.0.0 — Gran Actualización Compañero IA Local en Directo + Temporada 1 Completa (Edición Española):
+- Añadida Barra Neural Kiroshi en el HUD ([Y]) y análisis táctico instantáneo en vivo ([U] / [Tab]), con atajos personalizables desde CET Bindings.
+- Añadido Puente de IA Local autónomo (Archivo Opcional: CHISPA_v2.0.0_LocalAI_Service_ES.zip) 100 % offline con Ollama (gemma3:12b / gemma3:4b) y voz streaming por cláusulas (F5-Spanish GPU o Kokoro-82M CPU sin VRAM extra).
+- Motor RAG Híbrido de 162 fichas de lore (SQLite FTS5 + ONNX CPU <5 ms, 0 MB VRAM extra) con perspectiva temporal 2022 vs. 2077 y escudo anti-spoilers en Acto 1.
+- Memoria episódica aislada por partida (sello persistente chispa_mem_uid, filtrado temporal al recargar guardados, indexado de pinchos/Shards y resumen asíncrono en segundo plano).
+- Reacciones espontáneas configurables en Chispa Studio (Tácticas / Compañero Activo / Desactivadas), silenciado automático en llamadas/menús/cinemáticas y consulta a Wiki opcional desactivada por defecto.
+- Incluye todas las mejoras de v1.6.1: Episodio 1 fuera de la calzada en Kabuki, entrega determinista de hackeos, bono RAM de hardware (+8 a +23 RAM) y soporte dual AudioXL + Audioware.
+
+[CHANGELOG_BBCODE_V2_0_0_LOCAL_AI]
+Standalone v2.0.0 Local AI Service Bridge (100% Offline by Default):
+- Includes one-click .bat installer (auto Python venv, CUDA/CPU PyTorch detection, pip install, Ollama model pull) & Studio GUI launcher.
+- Standalone Steam / GOG / Epic Cyberpunk 2077 IPC auto-discovery (plus game_path.txt and --ipc-dir override; zero hardcoded developer paths).
+- 162 modular Night City lore cards + CPU ONNX + FTS5 search + isolated per-save episodic memory + F5-TTS / Kokoro-82M WASAPI voice streaming.

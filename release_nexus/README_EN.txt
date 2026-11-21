@@ -1,53 +1,54 @@
-SPARKY Protocol - Night City Survival Guide (v1.4.1 — Complete Season 1: Episodes 0–5)
+SPARKY Protocol - Night City Survival Guide (v2.0.0 — Live Local AI Companion + Complete Season 1)
 Author: 0utKast
-Compatibility: Cyberpunk 2077 2.x — Base Game Compatible (No Phantom Liberty required)
-Required Core Frameworks: RED4ext, ArchiveXL, TweakXL, Codeware, redscript, Audioware, Cyber Engine Tweaks
-Official Trailer (YouTube): https://youtu.be/9MXEEu3NCcc
+Compatibility: Cyberpunk 2077 2.x — Base Game Compatible (No Phantom Liberty required; Season 1 ready on Windows / Linux / Proton / Steam Deck; v2.0 Live Local AI Bridge for Windows)
+Required Core Frameworks: RED4ext, ArchiveXL, TweakXL, Codeware, redscript, Cyber Engine Tweaks, plus AudioXL (recommended on Linux / Steam Deck & Windows) OR Audioware (Windows)
+v2.0.0 4K Live AI Showcase (YouTube): https://youtu.be/oh9oSNnJVh0
+Season 1 Campaign Trailer (YouTube): https://youtu.be/9MXEEu3NCcc
 Open-Source Repository & Releases (GitHub): https://github.com/0utKast/cyberpunk2077-sparky-protocol
 
-OVERVIEW ("NIGHT CITY'S ANTI-TUTORIAL CAMPAIGN"):
-A 2022 Zetatech tactical concierge AI—sabotaged right before the DataKrash into a foul-mouthed veteran drill sergeant with zero corporate filters—links into your Kiroshi optics and holophone. Across a 6-episode street campaign from Watson out to Arroyo and Pacifica, SPARKY ("CHISPA" in Spanish) teaches deep Night City lore and combat mechanics through street action, telemetry banter, and iconic gear—never sterile VR rooms.
+OVERVIEW ("NIGHT CITY'S ANTI-TUTORIAL + LIVE LOCAL AI COMPANION"):
+A 2022 Zetatech tactical concierge AI—sabotaged right before the DataKrash into a foul-mouthed veteran drill sergeant with zero corporate censorship—links into your Kiroshi optics and holophone.
+- Play the complete 6-episode voiced Season 1 campaign (Episodes 0–5 across Watson, Arroyo & Pacifica) with 7 custom Iconic weapons and 3 RPG endings—no boring VR rooms, only live street combat, optical telemetry, CR2W hazards, and deep lore.
+- Pair it with the optional standalone v2.0.0 Local AI Bridge (`SPARKY_v2.0.0_LocalAI_Service_EN.zip`) to chat live from gameplay (`[Y]`), request instant spoken tactical scans (`[U]`), build isolated per-playthrough episodic memory, search 162 offline lore cards (`0 MB` extra VRAM), and hear zero-input spontaneous callouts without cloud APIs or external accounts.
 
-INCLUDED IN v1.4.0 (COMPLETE SEASON 1):
-- EPISODE 0 — "NOT YOUR OFFICE PAPERCLIP" (Little China, behind Megabuilding H10):
-  - Rescue S.P.A.R.K.Y. v0.98b, scan targets with Kiroshi [TAB] for live tactical reactions, remotely overload an industrial generator bank or clear the alley guns blazing, extract the cyberdeck core from the Zetatech terminal, and claim 1,500 E$, iconic Lexington "Executive Courtesy", and portable Kiroshi-link lore about Richard Night and Megabuildings.
-- EPISODE 1 — "GHOSTS IN THE CAMERA" (Kabuki Creek South Promenade, Watson):
-  - Picks up seamlessly right after Episode 0: SPARKY locks onto Memory Sector #01 held by a Scavenger cell led by netrunner Kostya "Firewall" Morozov.
-  - Syncs a starter Ping daemon via SMS, spawns a live two-camera surveillance chain (`CAM-01` -> `CAM-02`) plus an explosive Entropy server—or a Kiroshi-overloadable red RABIDS relay bank for Sandevistan/Berserk builds, plus guns-blazing reactive dialogue.
-  - Extract Sector #01 from the Entropy terminal to claim 2,200 E$, Tier-2 quickhacks, iconic M221 Saratoga SMG "Phantom Frequency", Codex Vol. 1, and portable Kiroshi dialogue covering Rache Bartmoss, the 2022 RABIDS DataKrash, and NetWatch's Blackwall.
-- EPISODE 2 — "MORE CHROME THAN MEAT" (Northside Industrial Docks, Watson):
-  - Continues straight after Episode 1: SPARKY locates Memory Sector #02 inside a dockside Maelstrom ripper rig held by Krag "Rust", Vex, and Tuerca.
-  - Syncs a starter EMP Grenade and Tier-2 Weapon Glitch quickhack via SMS; subvert, hijack, or rip off the perimeter security turret, blow the pressurized CHOOH2 tank (gunfire, quickhack, or manual pressure regulator purge via [F]), or go guns blazing.
-  - Extract Sector #02 from the chrome rig to earn 2,800 E$, Tier-2 Reboot Optics quickhack, iconic Tech precision rifle "Piercing Clause" (`M-179e Achilles`), Codex Vol. 2, and portable Kiroshi lore on Maelstrom / Brick & Royce, Cyberpsychosis, and MaxTac.
-- EPISODE 3 — "BULLETS THAT BEND CORNERS" (South Watson Waterfront Quay):
-  - Follows Episode 2: SPARKY pins Memory Sector #03 to an Arasaka black-ops crate guarded by Aiko "Kitsune" Mori, Kenji "Ink" Sato, and Ren "Mirror" Takahashi running military smart-jamming dermal tattoos.
-  - Syncs a starter Kang Tao Chao Smart pistol, Tier-2 Memory Wipe quickhack, and a live Kiroshi Smart-Link targeting bridge (`HasSmartLink`), reacting live to Smart bullet deflection until you invert their IFF Jammer Pylon with [F], blow the Arasaka antenna capacitor, or blind their optics.
-  - Extract Sector #03 to claim 3,400 E$, Tier-2 Contagion quickhack, iconic Shingen Smart SMG "Executive Curve", Codex Vol. 3, and portable lore covering the 2023 Arasaka Nuke, Time of the Red, the Unification War, and the Arasaka–Tyger Claws alliance.
-- EPISODE 4 — "HONOR, SCRAP & CARDBOARD PATRIOTS" (Arroyo / Heywood Border — Post-Watson Lockdown):
-  - Activates automatically once Episode 3 is completed AND Watson's police lockdown is lifted in main story progression (after *The Heist* and V's recovery / Takemura diner trigger).
-  - SPARKY tracks a smuggling exchange between 6th Street veterans (Sgt. Buck Callahan & Tammy) and Valentinos liaison Mateo. Syncs a starter Copperhead Power assault rifle, frag grenades, healing stims, and a live Power ballistic ricochet preview bridge (`CanSeeRicochetVisuals`).
-  - Rewards banked ricochet shots (`GetNumRicochetBounces()` telemetry), ballistic relay overload via [F] detonating an NUSA munitions cache, and extracting Sector #04 yields 4,200 E$, Tier-2 Cyberware Malfunction, iconic Masamune assault rifle "Street Geometry", Codex Vol. 4, and portable lore covering Valentinos, 6th Street, and predatory cyberware debt.
-- EPISODE 5 — "BEYOND THE BLACKWALL" (Coastview, Pacifica — Season 1 Finale):
-  - Continues straight after Episode 4: SPARKY traces Master Sector #05 deep into Coastview's Combat Zone guarded by Voodoo Boys netrunners (Ti-Luc & Mireille) and Animals enforcer Brutus.
-  - Syncs starter EMP grenades, Tier-3 Short Circuit, and full Smart + Ricochet Kiroshi telemetry bridges; chain-hijack Pacifica surveillance cams, deploy quickhacks or Tech/Power/Smart fire, purge the NetWatch containment pylon into the cryo-server via [F], and extract Master Sector #05 for 5,000 E$, Tier-3 System Collapse, and iconic Tech pistol "Firewall '22" (`JKE-X2 Kenshin`).
-  - Concludes with SPARKY's full 2022 truth dialogue and **3 yellow RPG endings**:
-    1. [Autonomous Partner v1.0] (+1,500 E$, Tier-3 Synapse Burnout, and permanent Kiroshi Smart Link + Ricochet visual bridges).
-    2. [N54 Data Leak] (+4,500 E$ and Tier-3 Cyberware Malfunction exposing Zetatech's 2022 secrets).
-    3. [Gunsmith Protocol] (+1,500 E$ and forging the iconic heavy revolver "Sergeant's Last Word" — electrified ricochet Overture prototype).
-  - All 3 endings keep SPARKY's base daemon linked in V's Kiroshi and all 5 Codex volumes unlocked cleanly for future follow-ups.
+LORE & WORLD-BUILDING "SPOILER" NOTE:
+While v2.0's Hybrid RAG shields Act 2+ main-story endings/Relic revelations in Act 1, S.P.A.R.K.Y. carries extensive 2022–2077 Night City intelligence, so optional lore conversations may still discuss deep background mysteries early in a run.
 
-WHAT'S NEW IN v1.4.1:
-- Universal 19-language Audioware voice & subtitle locale mapping (en-us, es-es, es-mx, de-de, fr-fr, pl-pl, pt-br, it-it, ru-ru, jp-jp, kr-kr, zh-cn, zh-tw, cz-cz, hu-hu, tr-tr, ar-ar, th-th, ua-ua) plus automatic Redscript subtitle fallback so spoken dialogue subtitles appear out-of-the-box on every game subtitle language setup and make custom translations plug-and-play inside SparkyProtocol_EN.yaml.
+WHAT'S NEW IN v2.0.0 (LIVE LOCAL AI COMPANION BRIDGE):
+- HUD Kiroshi Neural Link (`[Y]`) & Live Tactical Read (`[U]`):
+  - Press `[Y]` anytime in free roam or stealth to type freely to S.P.A.R.K.Y. (press `[Tab]` inside the bar for a no-typing situation read, `[Up]` to recall your last prompt, or `[Esc]` to cancel).
+  - Press `[U]` directly in gameplay to trigger a real-time spoken telemetry breakdown (district, active quest, scanned target, weapon, HP, NCPD wanted level). Keys can be disabled/rebound cleanly via CET Bindings.
+- 100% Local Ollama LLM (`gemma3:12b` default, `gemma3:4b` lighter option) + Streaming Voice (`F5-TTS` / `Kokoro-82M`):
+  - Streams clause-by-clause replies straight to low-latency voice cloning on GPU (`F5-TTS`) or zero-VRAM CPU `Kokoro Sergeant` blended voices, with automatic NVML VRAM layer splitting on GPUs <=16 GB.
+- 162-Card Offline Hybrid RAG Lore Engine (`0 MB` Extra VRAM, `<5 ms` CPU Search):
+  - Combines Kiroshi state pinning + `SQLite FTS5` + CPU ONNX multilingual dense vectors across 162 modular Night City lore cards (`custom_lore_en.json` supported), keeping 2022 vs. 2077 framing distinct and gating Act 2+ spoilers during Act 1.
+- Isolated Per-Playthrough Episodic Memory (`chispa_mem_uid`):
+  - Every save stamps a unique persistent `chispa_mem_uid` and `playthrough_sec` timestamp so different characters/runs never mix memories, reloading earlier saves hides future timeline events, read Shards index automatically, and an async Ollama recap maintains a 15-item 1st-person journal.
+- Spontaneous Reactions & Immersion Guards:
+  - Toggle live in `SPARKY Studio` between `Tactical` (<=28% HP, NCPD/MaxTac 5-star, cyberpsycho/boss scans, long firefights, district arrivals, quest progress), `Active Companion` (adds Shard comments & ambient road banter), or `Off`. Automatically holds/mutes over vanilla calls, cutscenes, dialogue hubs, menus, and Shard readers.
+- Opt-In Cyberpunk Wiki Lookup (Disabled by Default):
+  - Opens zero external sockets unless you explicitly check the opt-in toggle inside `SPARKY Studio`.
+- One-Click Standalone Installer (`install_sparky_ai.bat`) & Auto Steam / GOG / Epic Detection:
+  - Automatically discovers Cyberpunk 2077 across Steam, GOG, and Epic Games (or `--ipc-dir` / `game_path.txt` override) without any hardcoded paths.
+- Optional v2.0.0 Female Voice Packs:
+  - `SparkyProtocol_EN_FemaleVoicePack_v2.0.0.zip` restores the classic `v1.4` female S.P.A.R.K.Y. voice across both Season 1 and Local AI F5-TTS cloning while preserving all v2.0 upgrades.
 
-TECHNICAL HIGHLIGHTS:
-- Persistent top-left holographic video projection (`ZETATECH 2022 // KIROSHI`) across all Kiroshi-link final dialogues and tactical field interventions in Episodes 0–5—without restricting movement, cyberware, scanning, or weapon usage.
-- Full English and Spanish voice acting for all of Season 1 (Episodes 0–5) featuring raspy veteran drill sergeant + DSP filtering, V fem/male, and unique squad bosses, with complete EN/ES subtitles across Episodes 0–5.
-- Staggered iconic weapon delivery (`1.15 s` after extraction or ending choice) so every weapon reward card pops cleanly onto the HUD loot feed.
-- 100% Base Game 2.x compatible, Prologue/Character-Creation safe, and clean CET panel (`chispa_toggle_panel`, hidden by default).
+INCLUDED SEASON 1 CAMPAIGN (EPISODES 0–5):
+- EPISODE 0 — "NOT YOUR OFFICE PAPERCLIP" (Little China, behind Megabuilding H10): 1,500 E$, Iconic pistol "Executive Courtesy", Richard Night & Megabuildings lore.
+- EPISODE 1 — "GHOSTS IN THE CAMERA" (Kabuki Creek Pedestrian Promenade, Watson): Chained surveillance cameras (`CAM-01` -> `CAM-02`), Entropy server / RABIDS relay, 2,200 E$, adaptive quickhacks, Iconic SMG "Phantom Frequency", Codex Vol. 1.
+- EPISODE 2 — "MORE CHROME THAN MEAT" (Northside Industrial Docks, Watson): Turret subversion, pressurized CHOOH2 tank purge (`[F]`), 2,800 E$, adaptive Reboot Optics, Iconic Tech precision rifle "Piercing Clause" (`M-179e Achilles`), Codex Vol. 2.
+- EPISODE 3 — "BULLETS THAT BEND CORNERS" (South Watson Waterfront Quay): Kang Tao Chao Smart pistol + `HasSmartLink` optical bridge, Tyger Claws smart-jammer IFF pylon (`[F]`), 3,400 E$, Iconic Smart SMG "Executive Curve" (Shingen), Codex Vol. 3.
+- EPISODE 4 — "HONOR, SCRAP & CARDBOARD PATRIOTS" (Arroyo / Heywood Border — Post-Watson Lockdown): Copperhead rifle + `CanSeeRicochetVisuals` ricochet trajectory bridge, NUSA depot surge (`[F]`), 4,200 E$, Iconic Masamune "Street Geometry", Codex Vol. 4.
+- EPISODE 5 — "BEYOND THE BLACKWALL" (Coastview, Pacifica — Season 1 Finale): Voodoo Boys & Animals stronghold, dual Smart + Ricochet bridges, NetWatch cryo purge (`[F]`), 5,000 E$, Iconic Kenshin "Firewall '22", plus 3 Quest-Yellow RPG endings (Autonomous Partner v1.0, N54 Data Leak, or Gunsmith Protocol forging Iconic Overture "Sergeant's Last Word").
 
 INSTALLATION:
-Install the required open-source frameworks (RED4ext, ArchiveXL, TweakXL, Codeware, redscript, Audioware, and Cyber Engine Tweaks), then extract this package into your Cyberpunk 2077 root directory (or install via Vortex / Mod Organizer 2).
+1. Main Game Mod (Required): Install the required open-source frameworks (RED4ext, ArchiveXL, TweakXL, Codeware, redscript, Cyber Engine Tweaks, plus AudioXL [recommended on Linux / Steam Deck & Windows] OR Audioware [Windows]), then install ONLY ONE Main ZIP (`SparkyProtocol_EN_v2.0.0.zip` for English, or `ChispaNC_v2.0.0.zip` for Spanish) via Vortex, MO2, or extracting into your Cyberpunk 2077 root folder.
+2. Live Local AI Bridge (Optional for v2.0 `[Y]`/`[U]` AI Features): Install Python 3.11/3.12 + Ollama, extract `SPARKY_v2.0.0_LocalAI_Service_EN.zip` anywhere on your PC, run `install_sparky_ai.bat`, pick your audio device in `test_sparky_studio_en.bat`, and run `start_sparky_service.bat` while playing.
+
+PRIOR CHANGELOG SUMMARY (v1.5.1 – v1.6.1 INCLUDED):
+- v1.6.1: Fixed menu-close quickhack repeat grant via deterministic `ItemID.CreateQuery` + Cyberdeck slot checks; moved Ep. 1 onto Kabuki Creek pedestrian promenade off roadway traffic; clean non-program quest hardware records for RAM (+8 base, +3/sector up to +23 RAM).
+- v1.6.0: Dual optional AudioXL + Audioware conditional compilation backend (100% Linux / Proton / Steam Deck ready).
+- v1.5.1–v1.5.3: Adaptive Level-2 / Tier-1 Cyberdeck quickhacks, real XP/Street Cred/Skill rewards, pause/menu subtitle sync, redesigned drill-sergeant voices, 2-line UTF-8 subtitle pagination across 19 locales.
 
 PERMISSIONS & CREDITS:
-100% Open Permissions: You are free to modify, reuse assets, translate, and redistribute this mod freely while keeping credits.
-Built with open-source Cyberpunk 2077 tools (WolvenKit, RED4ext, ArchiveXL, TweakXL, Codeware, redscript, Audioware, Cyber Engine Tweaks), ElevenLabs voice/SFX synthesis, and FFmpeg mastering.
+100% Open Permissions (MIT): Free to modify, reuse assets, translate, and redistribute with credit to 0utKast (https://github.com/0utKast/cyberpunk2077-sparky-protocol). Built with open-source WolvenKit, RED4ext, ArchiveXL, TweakXL, Codeware, redscript, AudioXL (DigitalVixen), Audioware (cyb3rpsych0s1s), Cyber Engine Tweaks, Ollama, F5-TTS, Kokoro-82M, ONNX Runtime, ElevenLabs, and FFmpeg.

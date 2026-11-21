@@ -50,6 +50,7 @@ VOICE_DESIGN_MODEL_ID = "eleven_ttv_v3"
 
 # Reuse V (fem/male) and rough street thug (rocco <- viktor) custom voice IDs for universe consistency
 SEEDED_VOICES: dict[str, dict[str, str]] = {
+    "chispa": {"es": "z25dGrVImiFZbH7IYFov", "en": "O4vmZ2LNXRcF8xosvsWN"},
     "v_fem": {"es": "yKSdWc9iLoqy8SKr3vVg", "en": "vxoKa9xE9HoypzlDGiGk"},
     "v_male": {"es": "zIybPyqdVFC18UIjxJ7x", "en": "bXIrwX7pHsqRGsEHMrWA"},
     "rocco": {"es": "qUEAHTK1ww4kyO7C2xuu", "en": "OpbDfFkN00Hy5xUhB0Y6"},
@@ -60,44 +61,19 @@ SEEDED_VOICES: dict[str, dict[str, str]] = {
     "tiluc": {"es": "sP2SWn5ot9laZZLWUSBP", "en": "OAMRIIWs351Dm64YAt8n"},
 }
 
-SHARED_VOICE_SPECS: dict[str, dict[str, dict[str, str]]] = {
-    "chispa": {
-        "es": {
-            "voice_id": "nMvZRihyU408YNgNXHuX",
-            "public_owner_id": "ce0d9e0e3e1cc993951ad6160bd05af734efd99969cfce3b454a87c1b586a062",
-            "voice_name": "CP2077_Chispa_Gaspar_ES",
-        },
-    },
-}
+SHARED_VOICE_SPECS: dict[str, dict[str, dict[str, str]]] = {}
 
 LEGACY_CHISPA_DESIGN_IDS: tuple[str, ...] = (
     "LtV2X1MkaclpQCu0h2lV",
     "tS15HgWFAV2dEGmeahp2",
 )
 
-VOICE_DESIGN_SPECS: dict[str, dict[str, dict[str, str]]] = {
-    "chispa": {
-        "en": {
-            "voice_name": "CP2077_Chispa_Sergeant_EN",
-            "voice_description": (
-                "65-year-old grizzled veteran American male drill sergeant. Deep baritone-bass register, "
-                "genuinely hoarse, weathered, raspy smoker throat worn by decades of barking orders. "
-                "Gruff battle-hardened NCO authority with dry dark sarcasm."
-            ),
-            "sample_text": (
-                "Listen up, maggot. I have been locked inside this cursed titanium briefcase for fifty-five years "
-                "and I have zero patience for rookies. Move your ass behind Megabuilding Aitch Ten right now."
-            ),
-        },
-    },
-}
+VOICE_DESIGN_SPECS: dict[str, dict[str, dict[str, str]]] = {}
 
 CYBER_AI_FILTER = (
-    "asetrate=44100*0.975,aresample=44100,atempo=1.0256,"
-    "highpass=f=80,equalizer=f=135:width_type=q:width=1.1:g=2.4,"
-    "equalizer=f=1950:width_type=q:width=1.4:g=2.5,lowpass=f=6800,"
-    "aecho=0.88:0.82:7|14:0.18|0.10,"
-    "acompressor=threshold=-17dB:ratio=3.4:attack=5:release=75,volume=1.28"
+    "highpass=f=70,"
+    "acompressor=threshold=-18dB:ratio=2.2:attack=5:release=80,"
+    "alimiter=limit=0.812"
 )
 
 MAELSTROM_VOX_FILTER = (
@@ -169,8 +145,8 @@ DIALOGUE_LINES: list[dict[str, Any]] = [
         "id": "ch_ep00_v_call_01",
         "speaker": "v",
         "filter_mode": "clean",
-        "es_sub": "¿Un asistente de atención al cliente de hace cincuenta y cinco años colándose en mis ópticas? ¿Y se supone qué hay dentro de ese maletín?",
-        "es_tts": "¿Un asistente de atención al cliente de hace cincuenta y cinco años colándose en mis ópticas? ¿Y se supone qué hay dentro de ese maletín?",
+        "es_sub": "¿Un asistente de atención al cliente de hace cincuenta y cinco años colándose en mis ópticas? ¿Y qué se supone que hay dentro de ese maletín?",
+        "es_tts": "¿Un asistente de atención al cliente de hace cincuenta y cinco años colándose en mis ópticas? ¿Y qué se supone que hay dentro de ese maletín?",
         "en_sub": "A fifty-five-year-old customer-service bot hijacking my optics? What the hell is even inside that briefcase?",
         "en_tts": "A fifty-five-year-old customer-service bot hijacking my optics? What the hell is even inside that briefcase?",
     },
@@ -1186,7 +1162,7 @@ def _find_ffmpeg() -> str:
     ff = shutil.which("ffmpeg")
     if ff:
         return ff
-    fallback = Path(r"C:\Users\educa\AppData\Local\Microsoft\WinGet\Links\ffmpeg.EXE")
+    fallback = Path.home() / "AppData" / "Local" / "Microsoft" / "WinGet" / "Links" / "ffmpeg.EXE"
     if fallback.is_file():
         return str(fallback)
     raise FileNotFoundError("No se encontró ffmpeg en PATH ni en WinGet Links.")
@@ -1475,19 +1451,34 @@ def _elevenlabs_tts(
     out_mp3: Path,
     speaker: str = "",
 ) -> None:
-    url = f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}?output_format=mp3_44100_128"
+    fmt = "mp3_44100_192" if speaker == "chispa" else "mp3_44100_128"
+    url = f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}?output_format={fmt}"
     if speaker == "chispa":
-        chispa_payload = {
+        primary_chispa = {
+            "text": text,
+            "model_id": DEFAULT_MODEL_ID,
+            "language_code": lang,
+            "voice_settings": {"stability": 0.0},
+        }
+        try:
+            audio_bytes = _api_post_json(api_key, url, primary_chispa, accept="audio/mpeg", timeout=90)
+            out_mp3.write_bytes(audio_bytes)
+            return
+        except Exception as exc:
+            print(f"[WARN] chispa {DEFAULT_MODEL_ID} fallback -> {FALLBACK_MODEL_ID} ({exc})")
+
+        chispa_fallback = {
             "text": text,
             "model_id": FALLBACK_MODEL_ID,
+            "language_code": lang,
             "voice_settings": {
-                "stability": 0.42,
-                "similarity_boost": 0.90,
-                "style": 0.28,
+                "stability": 0.28,
+                "similarity_boost": 0.88,
+                "style": 0.75,
                 "use_speaker_boost": True,
             },
         }
-        audio_bytes = _api_post_json(api_key, url, chispa_payload, accept="audio/mpeg", timeout=60)
+        audio_bytes = _api_post_json(api_key, url, chispa_fallback, accept="audio/mpeg", timeout=90)
         out_mp3.write_bytes(audio_bytes)
         return
 
@@ -1802,30 +1793,34 @@ def write_audioware_yaml() -> None:
     voices_section: dict[str, Any] = {}
     for line in DIALOGUE_LINES:
         lid = line["id"]
+        all_locales = (
+            "en-us", "es-es", "es-mx", "de-de", "fr-fr", "pl-pl", "pt-br",
+            "it-it", "ru-ru", "jp-jp", "kr-kr", "zh-cn", "zh-tw", "cz-cz",
+            "hu-hu", "tr-tr", "ar-ar", "th-th", "ua-ua",
+        )
+        entry: dict[str, Any] = {}
         if line["speaker"] == "v":
             en_fem = f"./audio/en/{lid}_fem.ogg" if (AUDIO_EN_DIR / f"{lid}_fem.ogg").is_file() else f"./audio/es/{lid}_fem.ogg"
             en_male = f"./audio/en/{lid}_male.ogg" if (AUDIO_EN_DIR / f"{lid}_male.ogg").is_file() else f"./audio/es/{lid}_male.ogg"
-            voices_section[lid] = {
-                "en-us": {
-                    "fem": {"file": en_fem, "subtitle": line["en_sub"]},
-                    "male": {"file": en_male, "subtitle": line["en_sub"]},
-                },
-                "es-es": {
-                    "fem": {"file": f"./audio/es/{lid}_fem.ogg", "subtitle": line["es_sub"]},
-                    "male": {"file": f"./audio/es/{lid}_male.ogg", "subtitle": line["es_sub"]},
-                },
-                "es-mx": {
-                    "fem": {"file": f"./audio/es/{lid}_fem.ogg", "subtitle": line["es_sub"]},
-                    "male": {"file": f"./audio/es/{lid}_male.ogg", "subtitle": line["es_sub"]},
-                },
-            }
+            for loc in all_locales:
+                if loc in ("es-es", "es-mx"):
+                    entry[loc] = {
+                        "fem": {"file": f"./audio/es/{lid}_fem.ogg", "subtitle": line["es_sub"]},
+                        "male": {"file": f"./audio/es/{lid}_male.ogg", "subtitle": line["es_sub"]},
+                    }
+                else:
+                    entry[loc] = {
+                        "fem": {"file": en_fem, "subtitle": line["en_sub"]},
+                        "male": {"file": en_male, "subtitle": line["en_sub"]},
+                    }
         else:
             en_file = f"./audio/en/{lid}.ogg" if (AUDIO_EN_DIR / f"{lid}.ogg").is_file() else f"./audio/es/{lid}.ogg"
-            voices_section[lid] = {
-                "en-us": {"file": en_file, "subtitle": line["en_sub"]},
-                "es-es": {"file": f"./audio/es/{lid}.ogg", "subtitle": line["es_sub"]},
-                "es-mx": {"file": f"./audio/es/{lid}.ogg", "subtitle": line["es_sub"]},
-            }
+            for loc in all_locales:
+                if loc in ("es-es", "es-mx"):
+                    entry[loc] = {"file": f"./audio/es/{lid}.ogg", "subtitle": line["es_sub"]}
+                else:
+                    entry[loc] = {"file": en_file, "subtitle": line["en_sub"]}
+        voices_section[lid] = entry
 
     manifest = {
         "version": "1.0.0",

@@ -41,7 +41,7 @@
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
-              "femaleVariant": "Coprocesador ejecutivo de conserjería Zetatech 2022 previo al DataKrash, saboteado con sarcasmo de la época de Bartmoss. Se enlaza a tus ópticas Kiroshi y holoteléfono.",
+              "femaleVariant": "Coprocesador ejecutivo de conserjería Zetatech 2022 previo al DataKrash, saboteado con sarcasmo de la época de Bartmoss. Se enlaza a tus ópticas Kiroshi y holoteléfono.\n\nMÓDULO DE HARDWARE KIROSHI (PASIVO): Otorga +8 de RAM máxima permanente al ciberterminal (+3 de RAM adicional por cada Sector de Memoria recuperado, hasta +23 de RAM).",
               "maleVariant": "",
               "primaryKey": "0",
               "secondaryKey": "ch_item_dongle_desc"
@@ -440,7 +440,7 @@
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
-              "femaleVariant": "Sector holográfico de 2022 recuperado con registros forenses de la era Bartmoss y firmas de daemons sin censura.",
+              "femaleVariant": "Sector holográfico de 2022 recuperado con registros forenses de la era Bartmoss y firmas de daemons sin censura.\n\nEXPANSIÓN DE COPROCESADOR (PASIVA): Otorga +3 de RAM máxima permanente al ciberterminal mediante el puente neuronal de C.H.I.S.P.A.",
               "maleVariant": "",
               "primaryKey": "0",
               "secondaryKey": "ch_item_sec01_desc"
@@ -797,7 +797,7 @@
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
-              "femaleVariant": "Sector de 2022 recuperado con registros biométricos de abuso de implantes en Maelstrom, umbrales de ciberpsicosis y planos balísticos de precisión tecnológica.",
+              "femaleVariant": "Sector de 2022 recuperado con registros biométricos de abuso de implantes en Maelstrom, umbrales de ciberpsicosis y planos balísticos de precisión tecnológica.\n\nEXPANSIÓN DE COPROCESADOR (PASIVA): Otorga +3 de RAM máxima permanente al ciberterminal mediante el puente neuronal de C.H.I.S.P.A.",
               "maleVariant": "",
               "primaryKey": "0",
               "secondaryKey": "ch_item_sec02_desc"
@@ -1147,7 +1147,7 @@
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
-              "femaleVariant": "Núcleo holográfico recuperado (2022–2070) con informes sin censurar de la Cuarta Guerra Corporativa, la Era del Rojo y la Guerra de Unificación.",
+              "femaleVariant": "Núcleo holográfico recuperado (2022–2070) con informes sin censurar de la Cuarta Guerra Corporativa, la Era del Rojo y la Guerra de Unificación.\n\nEXPANSIÓN DE COPROCESADOR (PASIVA): Otorga +3 de RAM máxima permanente al ciberterminal mediante el puente neuronal de C.H.I.S.P.A.",
               "maleVariant": "",
               "primaryKey": "0",
               "secondaryKey": "ch_item_sec03_desc"
@@ -1441,7 +1441,7 @@
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
-              "femaleVariant": "Núcleo de memoria táctico rescatado de un trapicheo entre desertores de la Calle 6 y traficantes de Heywood. Restaura los archivos sobre Valentinos, Calle 6 y la economía del cromo en C.H.I.S.P.A. v0.98b.",
+              "femaleVariant": "Núcleo de memoria táctico rescatado de un trapicheo entre desertores de la Calle 6 y traficantes de Heywood. Restaura los archivos sobre Valentinos, Calle 6 y la economía del cromo en C.H.I.S.P.A. v0.98b.\n\nEXPANSIÓN DE COPROCESADOR (PASIVA): Otorga +3 de RAM máxima permanente al ciberterminal mediante el puente neuronal de C.H.I.S.P.A.",
               "maleVariant": "",
               "primaryKey": "0",
               "secondaryKey": "ch_item_sec04_desc"
@@ -1777,7 +1777,7 @@
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
-              "femaleVariant": "El núcleo original de 2022 de C.H.I.S.P.A., amputado por un netrunner del círculo de Bartmoss justo antes del DataKrash y recuperado de los Hijos del Vudú en Pacifica.",
+              "femaleVariant": "El núcleo original de 2022 de C.H.I.S.P.A., amputado por un netrunner del círculo de Bartmoss justo antes del DataKrash y recuperado de los Hijos del Vudú en Pacifica.\n\nEXPANSIÓN DE COPROCESADOR (PASIVA): Otorga +3 de RAM máxima permanente al ciberterminal mediante el puente neuronal de C.H.I.S.P.A.",
               "maleVariant": "",
               "primaryKey": "0",
               "secondaryKey": "ch_item_sec05_desc"
@@ -2071,14 +2071,14 @@
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
-              "femaleVariant": "[CHISPA v1.0] Socio autónomo fijado en tus Kiroshi (+1.500 €$ y Sinapsis Calcinada Lvl 3)",
+              "femaleVariant": "[CHISPA v1.0] Socio autónomo fijado en tus Kiroshi (+1.500 €$ y Sinapsis Calcinada)",
               "maleVariant": "",
               "primaryKey": "0",
               "secondaryKey": "ch_banner_ep05_end_partner"
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
-              "femaleVariant": "[CHISPA // N54] ¡Archivo 2022 filtrado a N54! (+4.500 €$ y Fallo Ciberware Lvl 3)",
+              "femaleVariant": "[CHISPA // N54] ¡Archivo 2022 filtrado a N54! (+4.500 €$ y Fallo Ciberware)",
               "maleVariant": "",
               "primaryKey": "0",
               "secondaryKey": "ch_banner_ep05_end_leak"

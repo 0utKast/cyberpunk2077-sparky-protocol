@@ -18,10 +18,12 @@ Mappins.ChispaQuestMappin:
 # ---------------------------------------------------------------------------
 
 Items.Chispa_CoreDongle:
-  $base: Items.q001_netrunner_software_shard
+  $base: Items.mq016_bartmoss_cyberdeck_decrypted
   displayName: LocKey#ch_item_dongle_name
   localizedDescription: LocKey#ch_item_dongle_desc
   quality: Quality.Legendary
+  placementSlots: []
+  objectActions: []
   tags:
     - !append-once Quest
 
@@ -76,10 +78,12 @@ Items.Preset_Lexington_Chispa:
 # ---------------------------------------------------------------------------
 
 Items.Chispa_MemorySector01:
-  $base: Items.q001_netrunner_software_shard
+  $base: Items.q005_saburo_data_carrier_cracked
   displayName: LocKey#ch_item_sec01_name
   localizedDescription: LocKey#ch_item_sec01_desc
   quality: Quality.Legendary
+  placementSlots: []
+  objectActions: []
   tags:
     - !append-once Quest
 
@@ -134,10 +138,12 @@ Items.Preset_Saratoga_Chispa:
 # ---------------------------------------------------------------------------
 
 Items.Chispa_MemorySector02:
-  $base: Items.q001_netrunner_software_shard
+  $base: Items.q005_saburo_data_carrier_cracked
   displayName: LocKey#ch_item_sec02_name
   localizedDescription: LocKey#ch_item_sec02_desc
   quality: Quality.Legendary
+  placementSlots: []
+  objectActions: []
   tags:
     - !append-once Quest
 
@@ -197,10 +203,12 @@ Items.Preset_Achilles_Chispa:
 # ---------------------------------------------------------------------------
 
 Items.Chispa_MemorySector03:
-  $base: Items.q001_netrunner_software_shard
+  $base: Items.q005_saburo_data_carrier_cracked
   displayName: LocKey#ch_item_sec03_name
   localizedDescription: LocKey#ch_item_sec03_desc
   quality: Quality.Legendary
+  placementSlots: []
+  objectActions: []
   tags:
     - !append-once Quest
 
@@ -275,10 +283,12 @@ Items.Preset_Shingen_Chispa:
 # ---------------------------------------------------------------------------
 
 Items.Chispa_MemorySector04:
-  $base: Items.q001_netrunner_software_shard
+  $base: Items.q005_saburo_data_carrier_cracked
   displayName: LocKey#ch_item_sec04_name
   localizedDescription: LocKey#ch_item_sec04_desc
   quality: Quality.Legendary
+  placementSlots: []
+  objectActions: []
   tags:
     - !append-once Quest
 
@@ -353,10 +363,12 @@ Items.Preset_Masamune_Chispa:
 # ---------------------------------------------------------------------------
 
 Items.Chispa_MemorySector05:
-  $base: Items.q001_netrunner_software_shard
+  $base: Items.q005_saburo_data_carrier_cracked
   displayName: LocKey#ch_item_sec05_name
   localizedDescription: LocKey#ch_item_sec05_desc
   quality: Quality.Legendary
+  placementSlots: []
+  objectActions: []
   tags:
     - !append-once Quest
 
@@ -481,3 +493,47 @@ Items.Preset_Overture_Chispa:
       $type: gamedataSlotItemPartPreset_Record
       slot: AttachmentSlots.IconicWeaponModLegendary
       itemPartPreset: Items.ChispaOvertureIconicMod
+
+# ---------------------------------------------------------------------------
+# Variantes Adaptativas de Hackeos Rápidos (compatibles Ciberterminal Nivel 1 / Nivel 2)
+# ---------------------------------------------------------------------------
+
+Items.Chispa_WeaponMalfunction_T1:
+  $base: Items.WeaponMalfunctionProgram
+  quality: Quality.Common
+
+Items.Chispa_MemoryWipe_T1:
+  $base: Items.MemoryWipeLvl2Program
+  quality: Quality.Common
+
+Items.Chispa_MemoryWipe_T2:
+  $base: Items.MemoryWipeLvl2Program
+  quality: Quality.Uncommon
+
+Items.Chispa_Contagion_T1:
+  $base: Items.ContagionProgram
+  quality: Quality.Common
+
+Items.Chispa_DisableCyberware_T1:
+  $base: Items.DisableCyberwareProgram
+  quality: Quality.Common
+
+Items.Chispa_SystemCollapse_T1:
+  $base: Items.SystemCollapseLvl3Program
+  quality: Quality.Common
+
+Items.Chispa_SystemCollapse_T2:
+  $base: Items.SystemCollapseLvl3Program
+  quality: Quality.Uncommon
+
+Items.Chispa_SystemCollapse_T3:
+  $base: Items.SystemCollapseLvl3Program
+  quality: Quality.Rare
+
+Items.Chispa_BrainMelt_T1:
+  $base: Items.BrainMeltLvl2Program
+  quality: Quality.Common
+
+Items.Chispa_BrainMelt_T2:
+  $base: Items.BrainMeltLvl2Program
+  quality: Quality.Uncommon

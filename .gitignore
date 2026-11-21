@@ -1,9 +1,19 @@
-# Compiled / binary archives, audio binaries, & distribution ZIPs (published in GitHub Releases)
+# Compiled / binary archives, audio binaries, AI weights, & distribution ZIPs (published in GitHub Releases)
 *.archive
 *.ogg
 *.wav
 *.mp3
 *.zip
+*.onnx
+*.bin
+*.sqlite
+*.db
+*.safetensors
+
+# Local AI virtual environments & runtime outputs
+.venv/
+audio_out/
+models_cache/
 
 # Python / OS / Env artifacts
 __pycache__/

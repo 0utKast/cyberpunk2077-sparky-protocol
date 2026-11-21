@@ -4,7 +4,7 @@
   "name_en": "SPARKY Protocol - Night City Survival Guide",
   "name_es": "Protocolo CHISPA - Guia Callejera de Night City",
   "author": "0utKast",
-  "version": "1.4.0",
+  "version": "2.0.0",
   "game": "cyberpunk2077",
   "requires_phantom_liberty": false,
   "license": "Open Permissions (Free to modify, reuse assets, translate, and redistribute with credit)",
@@ -13,14 +13,15 @@
     "redscript": true,
     "cet": true,
     "archive": true,
-    "audioware": true
+    "audioware": true,
+    "audioxl": true
   },
   "frameworks_required": [
     "ArchiveXL",
     "TweakXL",
     "Codeware",
     "redscript",
-    "Audioware",
+    "AudioXL or Audioware (Dual Optional Audio Backend)",
     "Cyber Engine Tweaks"
   ],
   "nexus": {

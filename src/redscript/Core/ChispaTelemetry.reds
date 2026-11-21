@@ -8,6 +8,10 @@ module ChispaNC
 @wrapMethod(NPCPuppet)
 public const func CompileScannerChunks() -> Bool {
     let ok: Bool = wrappedMethod();
+    let liveSys: ref<ChispaSystem> = ChispaSystem.GetInstance(this.GetGame());
+    if IsDefined(liveSys) && IsDefined(liveSys.m_live) {
+        liveSys.m_live.RecordScannedPuppet(this);
+    }
     let recID: TweakDBID = this.GetRecordID();
     let isRocco: Bool = Equals(recID, t"Character.Chispa_Ep00_Rocco");
     let isTino: Bool = Equals(recID, t"Character.Chispa_Ep00_Tino");
@@ -401,4 +405,46 @@ protected cb func OnSmartBulletDeflectedEvent(evt: ref<SmartBulletDeflectedEvent
         }
     }
     return handled;
+}
+
+// ---------------------------------------------------------------------------
+// 6. Lectura de Pinchos (Shards) en Vivo para Enlace Kiroshi
+// ---------------------------------------------------------------------------
+
+@wrapMethod(PopupsManager)
+protected cb func OnShardRead(evt: ref<NotifyShardRead>) -> Bool {
+    let res: Bool = wrappedMethod(evt);
+    let pc: wref<GameObject> = this.GetPlayerControlledObject();
+    if IsDefined(pc) && IsDefined(evt) {
+        let liveSys: ref<ChispaSystem> = ChispaSystem.GetInstance(pc.GetGame());
+        if IsDefined(liveSys) && IsDefined(liveSys.m_live) {
+            if evt.isCrypted {
+                liveSys.m_live.OnShardPopupOpened("", "");
+            } else {
+                let titleStr: String = CodexUtils.GetShardTitleString(false, evt.title);
+                let bodyStr: String = CodexUtils.GetShardTextString(false, evt.text);
+                if Equals(titleStr, "") && IsDefined(evt.entry) {
+                    titleStr = GetLocalizedText(evt.entry.GetTitle());
+                }
+                if Equals(bodyStr, "") && IsDefined(evt.entry) {
+                    bodyStr = GetLocalizedText(evt.entry.GetDescription());
+                }
+                liveSys.m_live.OnShardPopupOpened(titleStr, bodyStr);
+            }
+        }
+    }
+    return res;
+}
+
+@wrapMethod(PopupsManager)
+protected cb func OnShardReadClosed(data: ref<inkGameNotificationData>) -> Bool {
+    let res: Bool = wrappedMethod(data);
+    let pc: wref<GameObject> = this.GetPlayerControlledObject();
+    if IsDefined(pc) {
+        let liveSys: ref<ChispaSystem> = ChispaSystem.GetInstance(pc.GetGame());
+        if IsDefined(liveSys) && IsDefined(liveSys.m_live) {
+            liveSys.m_live.OnShardPopupClosed();
+        }
+    }
+    return res;
 }

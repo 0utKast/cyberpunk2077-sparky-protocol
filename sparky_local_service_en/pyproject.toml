@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sparky-local-service-en"
+version = "2.0.0"
+description = "S.P.A.R.K.Y. v2.0 local real-time AI companion runtime (English Edition: Ollama + SWivid F5-TTS / Kokoro-82M + Hybrid RAG + Isolated Episodic Memory)"
+readme = "SPARKY_LOCAL_AI_GUIDE_EN.md"
+requires-python = ">=3.11,<3.13"
+license = { text = "MIT" }
+dependencies = [
+    "f5-tts",
+    "kokoro-onnx",
+    "faster-whisper",
+    "sounddevice",
+    "soundfile",
+    "scipy",
+    "numpy",
+    "nvidia-ml-py",
+    "httpx",
+    "onnxruntime",
+    "tokenizers",
+    "huggingface_hub",
+]
+
+[project.optional-dependencies]
+qwen = ["qwen-tts"]
+
+[tool.setuptools.packages.find]
+include = ["sparky_rt*"]

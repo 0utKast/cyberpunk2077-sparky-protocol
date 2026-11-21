@@ -1,0 +1,200 @@
+[
+  {
+    "id": "hist_richard_night_coronado",
+    "pack": "02_historia_y_red_1990_2077",
+    "category": "historia",
+    "era": "memoria_2022",
+    "min_act": 1,
+    "title": "Richard Night y el nacimiento de Coronado City (1992–1998)",
+    "keywords_es": ["richard night", "coronado city", "fundacion", "fundador", "morro bay", "1998", "asesinato richard night"],
+    "keywords_en": ["richard night", "coronado city", "founder", "morro bay", "1998"],
+    "content": "El empresario constructor Richard Night compró terrenos en la bahía del Morro en California en 1992 para fundar Coronado City: una urbe corporativa moderna libre de impuestos y sindicatos, respaldada por Arasaka, Petrochem y EBM. Tras oponerse a las mafias locales, fue asesinado en su ático en 1998 y el ayuntamiento renombró la metrópoli como Night City."
+  },
+  {
+    "id": "hist_el_colapso_1994",
+    "pack": "02_historia_y_red_1990_2077",
+    "category": "historia",
+    "era": "memoria_2022",
+    "min_act": 1,
+    "title": "El Colapso de EE. UU. y la Banda de los Cuatro (1994–2000)",
+    "keywords_es": ["el colapso", "banda de los cuatro", "estados libres", "crisis economica", "anos noventa", "oriente medio"],
+    "keywords_en": ["the collapse", "gang of four", "free states", "1994"],
+    "content": "Entre 1994 y 2000 Estados Unidos colapsó por la crisis bursátil y el gobierno oculto de la «Banda de los Cuatro» (CIA, NSA, FBI y DEA), que desencadenó guerras sucias, una pandemia agrícola artificial y un intercambio nuclear en Oriente Medio. Varios estados se declararon Estados Libres independientes y las megacorporaciones asumieron el control."
+  },
+  {
+    "id": "hist_mob_war_night_city",
+    "pack": "02_historia_y_red_1990_2077",
+    "category": "historia",
+    "era": "memoria_2022",
+    "min_act": 1,
+    "title": "La Guerra de la Mafia en Night City (2005–2011)",
+    "keywords_es": ["guerra mafia", "mob war", "zona de combate", "purga corporativa", "miriam night", "años 2000"],
+    "keywords_en": ["mob war", "combat zone", "2005", "night city early history"],
+    "content": "Tras la muerte de Richard Night, mafias y yakuzas se repartieron Night City a tiros durante años convirtiendo barrios enteros en zonas de guerra. Entre 2009 y 2011 las megacorporaciones expulsaron a los capos tradicionales mediante escuadrones paramilitares, estableciendo la primera Plaza Corporativa sobre un mar de sangre."
+  },
+  {
+    "id": "hist_primera_tercera_guerra_corp",
+    "pack": "02_historia_y_red_1990_2077",
+    "category": "historia",
+    "era": "memoria_2022",
+    "min_act": 1,
+    "title": "Las tres primeras Guerras Corporativas (2004–2016)",
+    "keywords_es": ["primera guerra corporativa", "segunda guerra corporativa", "tercera guerra corporativa", "ebm", "orbital air", "petrochem", "sovoil"],
+    "keywords_en": ["first corporate war", "second corporate war", "third corporate war", "petrochem", "sovoil"],
+    "content": "Antes del desastre de 2023 estallaron tres guerras privadas globales: la Primera (2004–2006) enfrentó a EBM y Orbital Air por aerolíneas transcontinentales; la Segunda (2008–2010) enfrentó a Petrochem y SovOil en el Mar de China por crudo para refinar CHOOH2; y la Tercera (2016) fue una ciberguerra secreta entre financieras globales."
+  },
+  {
+    "id": "hist_cuarta_guerra_corporativa",
+    "pack": "02_historia_y_red_1990_2077",
+    "category": "historia",
+    "era": "memoria_2022",
+    "min_act": 1,
+    "title": "La Cuarta Guerra Corporativa: CINO, OTEC, Arasaka y Militech",
+    "keywords_es": ["cuarta guerra corporativa", "cino", "otec", "ihag", "arasaka contra militech", "2021", "2022", "2023"],
+    "keywords_en": ["fourth corporate war", "cino", "otec", "arasaka vs militech", "ocean war"],
+    "content": "Iniciada en 2021 entre dos consorcios oceánicos (CINO respaldado por Arasaka y OTEC por Militech), la Cuarta Guerra Corporativa escaló hasta una guerra total planetaria entre Arasaka y Militech. Yo mismo fui ensamblado en 2022 bajo contrato defensivo de Zetatech mientras ciudades enteras ardían bajo fuego militar privado."
+  },
+  {
+    "id": "hist_rache_bartmoss_datakrash",
+    "pack": "02_historia_y_red_1990_2077",
+    "category": "historia",
+    "era": "memoria_2022",
+    "min_act": 1,
+    "title": "Rache Bartmoss, los R.A.B.I.D.S. y el DataKrash (2022)",
+    "keywords_es": ["rache bartmoss", "bartmoss", "datakrash", "rabids", "antigua red", "2022", "virus", "nevera", "vertero"],
+    "keywords_en": ["rache bartmoss", "datakrash", "rabids", "old net", "2022", "fridge"],
+    "content": "El genio anarquista Rache Bartmoss permaneció oculto conectado en criogenia clandestina hasta que un bombardeo cortó su soporte vital. Su interruptor de hombre muerto liberó los demonios mutantes R.A.B.I.D.S. en junio de 2022, corrompiendo casi el 80 % de la Antigua Red e incomunicando al planeta. Su cuerpo acabó años después en un congelador olvidado en un vertedero."
+  },
+  {
+    "id": "hist_ihag_antigua_red_ihs",
+    "pack": "02_historia_y_red_1990_2077",
+    "category": "historia",
+    "era": "memoria_2022",
+    "min_act": 1,
+    "title": "IHAG, la Arquitectura Ignota y la caída de la Antigua Red",
+    "keywords_es": ["antigua red", "old net", "ihag", "protocolo ig", "cortafuegos mundial", "caida internet", "ciberespacio 2020"],
+    "keywords_en": ["old net", "ihag", "ig protocol", "global net collapse", "cyberspace 2020"],
+    "content": "Antes de 2022 la humanidad compartía una única Red interconectada global diseñada sobre los algoritmos IHAG de Rache Bartmoss. Cuando el DataKrash liberó sus gusanos polimórficos y las corporaciones soltaron IA militares autónomas unas contra otras, el ciberespacio global se volvió mortal para cualquier humano conectado y tuvo que fragmentarse en redes ciudadanas aisladas."
+  },
+  {
+    "id": "hist_torre_arasaka_2023",
+    "pack": "02_historia_y_red_1990_2077",
+    "category": "historia",
+    "era": "memoria_2022",
+    "min_act": 1,
+    "title": "El asalto nuclear a la Torre Arasaka (20 de agosto de 2023)",
+    "keywords_es": ["torre arasaka", "bomba nuclear", "2023", "20 de agosto", "morgan blackhand", "johnny silverhand", "spider murphy", "rogue", "holocausto night city"],
+    "keywords_en": ["arasaka tower", "nuclear bomb", "2023", "night city holocaust", "morgan blackhand", "spider murphy"],
+    "content": "El 20 de agosto de 2023 un comando financiado por Militech con Morgan Blackhand, Johnny Silverhand, Rogue, Spider Murphy y Shaitan irrumpió en las Torres Arasaka de Night City para destruir la matriz de Soulkiller. La detonación de una carga nuclear táctica en la base arrasó el distrito centro causando más de 500.000 muertos y envenenando el centro durante décadas."
+  },
+  {
+    "id": "hist_era_del_rojo",
+    "pack": "02_historia_y_red_1990_2077",
+    "category": "historia",
+    "era": "intel_kiroshi_2077",
+    "min_act": 1,
+    "title": "La Era del Rojo (2023–2045) y la reconstrucción de Night City",
+    "keywords_es": ["era del rojo", "time of the red", "cielo rojo", "2045", "mercados nocturnos", "reconstruccion", "posguerra"],
+    "keywords_en": ["time of the red", "red sky", "2045", "night markets", "reconstruction"],
+    "content": "Entre 2023 y mediados de los años cuarenta, la ceniza en suspensión procedente de bombas atómicas, incendios orbitales y bombardeos tiñó el cielo mundial de rojo sangre: la Era del Rojo (Cyberpunk RED). Con el transporte marítimo roto y Arasaka expulsada de EE. UU., Night City sobrevivió gracias a convoyes nómadas y Mercados Nocturnos clandestinos."
+  },
+  {
+    "id": "hist_megaedificios_historia",
+    "pack": "02_historia_y_red_1990_2077",
+    "category": "historia",
+    "era": "intel_kiroshi_2077",
+    "min_act": 1,
+    "title": "Origen de los Megaedificios (Años 2050–2060)",
+    "keywords_es": ["megaedificios", "megabuildings", "h10", "h4", "h8", "h11", "vivienda vertical", "superpoblacion"],
+    "keywords_en": ["megabuildings", "h10", "h8", "h4", "vertical cities", "overpopulation"],
+    "content": "Al dispararse los refugiados tras la Era del Rojo, la ciudad apostó por arcologías de hormigón gigantes: los doce Megaedificios numerados (como H10 en Little China, H8 en Japantown o H4 en Santo Domingo). Cada torre alberga miles de cápsulas habitacionales, clínicas, gimnasios y bazares propios, y casi todos acaban parasitados por bandas."
+  },
+  {
+    "id": "hist_muro_negro_blackwall",
+    "pack": "02_historia_y_red_1990_2077",
+    "category": "historia",
+    "era": "intel_kiroshi_2077",
+    "min_act": 1,
+    "title": "El Muro Negro (Blackwall) y las IA rebeldes de la Antigua Red",
+    "keywords_es": ["muro negro", "blackwall", "ia rebeldes", "rogue ai", "demonios", "ciberespacio profundo", "cortafuegos"],
+    "keywords_en": ["blackwall", "rogue ai", "old net", "deep net", "firewall"],
+    "content": "Al no poder limpiar los R.A.B.I.D.S. ni las IA asesinas de la Antigua Red, NetWatch pactó y levantó en los años 2040 el Muro Negro: una barrera criptográfica activa —en realidad una poderosa IA fronteriza— que aísla el internet urbano de 2077 de las entidades salvajes del ciberespacio profundo. Quien intenta perforarlo rara vez conserva sus sinapsis intactas."
+  },
+  {
+    "id": "hist_soulkiller_mikoshi",
+    "pack": "02_historia_y_red_1990_2077",
+    "category": "historia",
+    "era": "memoria_2022",
+    "min_act": 1,
+    "title": "Soulkiller y Mikoshi — El programa «Protege tu Alma»",
+    "keywords_es": ["soulkiller", "devoraalmas", "mikoshi", "engrama", "secure your soul", "protege tu alma", "inmortalidad"],
+    "keywords_en": ["soulkiller", "mikoshi", "engram", "secure your soul", "digital immortality"],
+    "content": "Inventado por Alt Cunningham en 2013 y confiscado a sangre y fuego por Arasaka, Soulkiller extrae y digitaliza toda la memoria y personalidad humana en un engrama mientras mata el cuerpo físico. En 2077 Arasaka vende esta tecnología a multimillonarios bajo «Protege tu Alma» y encierra copias prisioneras en la cámara digital Mikoshi."
+  },
+  {
+    "id": "hist_guerra_unificacion_2069",
+    "pack": "02_historia_y_red_1990_2077",
+    "category": "historia",
+    "era": "intel_kiroshi_2077",
+    "min_act": 1,
+    "title": "Guerra de Unificación (2069–2070), NUSA y Tratado de Arvin",
+    "keywords_es": ["guerra de unificacion", "metal wars", "nusa", "rosalind myers", "lucius rhyne", "arvin", "2069", "2070"],
+    "keywords_en": ["unification war", "metal wars", "nusa", "arvin accord", "lucius rhyne"],
+    "content": "La presidenta Rosalind Myers de los NUSA lanzó en 2069 a las fuerzas de Militech para anexar a la fuerza los Estados Libres. Cuando los blindados federales se acercaron a Night City en 2070, el concejal Lucius Rhyne pidió ayuda a Arasaka, cuyo superportaaviones detuvo la invasión. El Tratado de Arvin preservó a Night City como ciudad libre neutral."
+  },
+  {
+    "id": "hist_edgerunners_david_martinez",
+    "pack": "02_historia_y_red_1990_2077",
+    "category": "historia",
+    "era": "intel_kiroshi_2077",
+    "min_act": 1,
+    "title": "David Martinez y el equipo de Edgerunners (2076)",
+    "keywords_es": ["edgerunners", "david martinez", "maine", "dorio", "kiwi", "pilar", "falco", "ciberesqueleto", "bebida david"],
+    "keywords_en": ["edgerunners", "david martinez", "maine", "dorio", "kiwi", "falco", "cyberskeleton"],
+    "content": "En 2076 un estudiante expulsado de la Academia Arasaka de Santo Domingo, David Martinez, heredó el Sandevistan militar de un ciberpsicópata, se unió al equipo de Maine, Dorio, Kiwi, Pilar, Rebecca, Lucy y Falco, y acabó atrapado en un experimento de Arasaka con el Ciberesqueleto antigravitatorio hasta caer peleando en Corpo Plaza."
+  },
+  {
+    "id": "hist_edgerunners_lucy_rebecca",
+    "pack": "02_historia_y_red_1990_2077",
+    "category": "historia",
+    "era": "intel_kiroshi_2077",
+    "min_act": 1,
+    "title": "Lucy Kushinada, Rebecca y el sueño lunar (2076)",
+    "keywords_es": ["lucy", "kushinada", "rebecca", "escopeta guts", "luna", "tycho", "chica luna", "falco chaqueta"],
+    "keywords_en": ["lucy kushinada", "rebecca", "guts shotgun", "moon", "tycho", "david's jacket"],
+    "content": "La netrunner Lucy escapó de un laboratorio secreto de Arasaka donde obligaban a niños a sumergirse más allá del Muro Negro; su gran sueño era viajar a la colonia lunar de Tycho, meta que logró tras el sacrificio de David y Rebecca (cuya brutal escopeta Guts aún yace en Corpo Plaza), mientras Falco le confía tiempo después la chaqueta amarilla de David a V."
+  },
+  {
+    "id": "hist_guerra_orbital_luna_2077",
+    "pack": "02_historia_y_red_1990_2077",
+    "category": "historia",
+    "era": "intel_kiroshi_2077",
+    "min_act": 1,
+    "title": "La frontera espacial en 2077: Tycho, Copernicus y Crystal Palace",
+    "keywords_es": ["luna", "tycho", "copernicus", "espacio", "crystal palace", "colonia lunar", "gran piramide", "highriders"],
+    "keywords_en": ["moon", "tycho", "copernicus", "highriders", "orbital colonies"],
+    "content": "Aunque en Night City la gente sobrevive entre basura y lluvias ácidas, las corporaciones y la ESA mantienen ciudades lunares prósperas como Tycho y Copernicus, además de orbitales de élite como Crystal Palace. En 2077 las tensiones entre Highriders orbitales y las corporaciones terrestres crecen por el control del helio-3 y los laboratorios espaciales libres de vigilancia."
+  },
+  {
+    "id": "hist_saburo_yorinobu_facciones",
+    "pack": "02_historia_y_red_1990_2077",
+    "category": "historia",
+    "era": "intel_kiroshi_2077",
+    "min_act": 1,
+    "title": "Las tres facciones internas de Arasaka: Taka, Kiji y Hato",
+    "keywords_es": ["taka", "kiji", "hato", "kujira", "facciones arasaka", "michiko", "kei arasaka", "crisis sucesoria"],
+    "keywords_en": ["taka", "kiji", "hato", "kujira", "arasaka factions", "michiko"],
+    "content": "En 2077 Arasaka sufre una guerra fría interna bajo la apariencia de unidad familiar: la facción Taka sigue fielmente el imperio tradicionalista del anciano Saburo; la facción Kiji sigue la línea pragmática y diplomática de Hanako; y la facción Hato agrupa a los partidarios del rebelde Yorinobu, que antaño lideró la banda callejera anti-corporativa Steel Dragons en Tokio."
+  },
+  {
+    "id": "hist_elecciones_alcaldia_2077",
+    "pack": "02_historia_y_red_1990_2077",
+    "category": "historia",
+    "era": "intel_kiroshi_2077",
+    "min_act": 1,
+    "title": "Crisis política en Night City: Lucius Rhyne, Weldon Holt y Jefferson Peralez",
+    "keywords_es": ["alcalde", "lucius rhyne", "weldon holt", "jefferson peralez", "elecciones", "red queen's race", "elizabeth peralez"],
+    "keywords_en": ["mayor", "lucius rhyne", "weldon holt", "jefferson peralez", "elections", "red queen's race"],
+    "content": "La alcaldía de Night City está partida entre la vieja guardia vendida a Arasaka —encabezada por Lucius Rhyne y su teniente Weldon Holt, salpicados por secretos como el club Red Queen's Race— y el aspirante reformista Jefferson Peralez, un candidato independiente que promete independencia frente a las megacorporaciones sin sospechar fuerzas invisibles en su propia casa."
+  }
+]

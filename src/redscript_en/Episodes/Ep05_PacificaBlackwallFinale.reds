@@ -173,6 +173,11 @@ public class ChispaEp05Handler {
         qs.SetFact(n"chispa_permanent_partner", 0);
         qs.SetFact(n"chispa_ep05_done", 0);
         qs.SetFact(n"chispa_ep05_stage", 0);
+        qs.SetFact(n"chispa_ep05_xp_sector", 0);
+        qs.SetFact(n"chispa_ep05_xp_done", 0);
+        qs.SetFact(n"chispa_qh_ep05_emp", 0);
+        qs.SetFact(n"chispa_qh_ep05_collapse", 0);
+        qs.SetFact(n"chispa_qh_ep05_ending", 0);
     }
 
     // --- Holollamada e Hilo de SMS Inicial ---
@@ -182,9 +187,9 @@ public class ChispaEp05Handler {
         if !IsDefined(this.m_sys) || stageTag != 51 {
             return steps;
         }
-        ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_call_01", n"phone", n"SPARKY", scnDialogLineType.Holocall, 11.88));
+        ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_call_01", n"phone", n"SPARKY", scnDialogLineType.Holocall, 11.00));
         ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_v_call_01", n"player", n"V", scnDialogLineType.Regular, 8.01));
-        ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_call_02", n"phone", n"SPARKY", scnDialogLineType.Holocall, 12.58));
+        ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_call_02", n"phone", n"SPARKY", scnDialogLineType.Holocall, 11.18));
         completeAction = 601;
         return steps;
     }
@@ -309,16 +314,12 @@ public class ChispaEp05Handler {
             return;
         }
         let granted: Bool = false;
-        let empQty: Int32 = ts.GetItemQuantity(player, ItemID.FromTDBID(t"Items.GrenadeEMPRegular"));
+        let empQty: Int32 = ts.GetItemQuantity(player, ItemID.CreateQuery(t"Items.GrenadeEMPRegular"));
         if empQty < 2 {
             ts.GiveItem(player, ItemID.FromTDBID(t"Items.GrenadeEMPRegular"), 2 - empQty);
             granted = true;
         }
-        let hasEmp3: Bool = ts.GetItemQuantity(player, ItemID.FromTDBID(t"Items.EMPOverloadLvl3Program")) > 0
-            || ts.GetItemQuantity(player, ItemID.FromTDBID(t"Items.EMPOverloadLvl4Program")) > 0
-            || ts.GetItemQuantity(player, ItemID.FromTDBID(t"Items.EMPOverloadLvl4PlusPlusProgram")) > 0;
-        if !hasEmp3 {
-            ts.GiveItem(player, ItemID.FromTDBID(t"Items.EMPOverloadLvl3Program"), 1);
+        if this.m_sys.AwardMilestoneProgram(player, n"chispa_qh_ep05_emp", n"EMPOverload", 4) {
             granted = true;
         }
         this.m_sys.EnsureSmartBridgeActive(player);
@@ -615,7 +616,7 @@ public class ChispaEp05Handler {
             } else {
                 this.m_pendingStyleNet = false;
                 let steps: array<ref<ChispaSpeechStep>>;
-                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_style_net", n"phone", n"SPARKY", scnDialogLineType.Holocall, 6.49));
+                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_style_net", n"phone", n"SPARKY", scnDialogLineType.Holocall, 5.58));
                 this.m_sys.StartSpeechSequence(steps, 0);
             }
         }
@@ -638,7 +639,7 @@ public class ChispaEp05Handler {
             } else {
                 this.m_pendingStyleBallistic = false;
                 let steps: array<ref<ChispaSpeechStep>>;
-                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_style_ballistic", n"phone", n"SPARKY", scnDialogLineType.Holocall, 7.59));
+                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_style_ballistic", n"phone", n"SPARKY", scnDialogLineType.Holocall, 6.53));
                 this.m_sys.StartSpeechSequence(steps, 0);
             }
         }
@@ -734,7 +735,7 @@ public class ChispaEp05Handler {
         } else {
             this.m_pendingCryoBoom = false;
             let steps: array<ref<ChispaSpeechStep>>;
-            ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_cryo_boom", n"phone", n"SPARKY", scnDialogLineType.Holocall, 6.06));
+            ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_cryo_boom", n"phone", n"SPARKY", scnDialogLineType.Holocall, 5.20));
             this.m_sys.StartSpeechSequence(steps, 0);
         }
     }
@@ -774,7 +775,7 @@ public class ChispaEp05Handler {
         } else {
             this.m_pendingCryoBoom = false;
             let steps: array<ref<ChispaSpeechStep>>;
-            ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_cryo_boom", n"phone", n"SPARKY", scnDialogLineType.Holocall, 6.06));
+            ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_cryo_boom", n"phone", n"SPARKY", scnDialogLineType.Holocall, 5.20));
             this.m_sys.StartSpeechSequence(steps, 0);
         }
     }
@@ -868,7 +869,7 @@ public class ChispaEp05Handler {
             let ts: ref<TransactionSystem> = GameInstance.GetTransactionSystem(game);
             ts.GiveItem(player, ItemID.FromTDBID(t"Items.Chispa_MemorySector05"), 1);
             ts.GiveMoney(player, 5000, n"money");
-            ts.GiveItem(player, ItemID.FromTDBID(t"Items.SystemCollapseLvl3Program"), 1);
+            this.m_sys.AwardMilestoneProgram(player, n"chispa_qh_ep05_collapse", n"SystemCollapse", 4);
             this.m_sys.GiveItemDelayed(t"Items.Preset_Kenshin_Chispa", 1, 1.15);
             GameObject.PlaySoundEvent(player, n"ui_loot_cash");
             this.m_sys.PlaySfx(n"ch_sfx_dongle_sync");
@@ -881,9 +882,11 @@ public class ChispaEp05Handler {
             jm.ChangeEntryState("quests/side_quest/chispa_ep05_quest/phase_ep05/04_ep05_talk", "gameJournalQuestObjective", gameJournalEntryState.Active, JournalNotifyOption.Notify);
             this.m_sys.TrackQuestObjective("quests/side_quest/chispa_ep05_quest/phase_ep05/04_ep05_talk");
             qs.SetFact(n"chispa_ep05_stage", 4);
+            this.m_sys.EnsureCoprocessorRamBridgeActive(player);
+            this.m_sys.AwardMilestoneXP(n"chispa_ep05_xp_sector", 1000, 1250, gamedataProficiencyType.IntelligenceSkill, 500);
 
             let steps: array<ref<ChispaSpeechStep>>;
-            ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_sector_pickup", n"phone", n"SPARKY", scnDialogLineType.Holocall, 13.06));
+            ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_sector_pickup", n"phone", n"SPARKY", scnDialogLineType.Holocall, 12.32));
             this.m_sys.StartSpeechSequence(steps, 609);
             return true;
         }
@@ -930,39 +933,39 @@ public class ChispaEp05Handler {
         if optionId == 60 {
             qs.SetFact(n"chispa_ep05_asked_pacifica", 1);
             ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_v_ask_pacifica", n"player", n"V", scnDialogLineType.Regular, 5.59));
-            ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_ans_pacifica", n"phone", n"SPARKY", scnDialogLineType.Holocall, 14.18));
+            ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_ans_pacifica", n"phone", n"SPARKY", scnDialogLineType.Holocall, 12.14));
             this.m_sys.StartSpeechSequence(steps, 610);
             return true;
         }
         if optionId == 61 {
             qs.SetFact(n"chispa_ep05_asked_voodoo", 1);
             ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_v_ask_voodoo", n"player", n"V", scnDialogLineType.Regular, 5.28));
-            ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_ans_voodoo", n"phone", n"SPARKY", scnDialogLineType.Holocall, 13.77));
+            ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_ans_voodoo", n"phone", n"SPARKY", scnDialogLineType.Holocall, 12.00));
             this.m_sys.StartSpeechSequence(steps, 611);
             return true;
         }
         if optionId == 62 {
             qs.SetFact(n"chispa_ep05_asked_origin", 1);
             ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_v_ask_origin", n"player", n"V", scnDialogLineType.Regular, 5.11));
-            ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_ans_origin", n"phone", n"SPARKY", scnDialogLineType.Holocall, 16.55));
+            ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_ans_origin", n"phone", n"SPARKY", scnDialogLineType.Holocall, 15.13));
             this.m_sys.StartSpeechSequence(steps, 612);
             return true;
         }
         if optionId == 63 {
             ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_v_end_partner", n"player", n"V", scnDialogLineType.Regular, 7.04));
-            ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_outro_partner", n"phone", n"SPARKY", scnDialogLineType.Holocall, 11.75));
+            ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_outro_partner", n"phone", n"SPARKY", scnDialogLineType.Holocall, 10.16));
             this.m_sys.StartSpeechSequence(steps, 621);
             return true;
         }
         if optionId == 64 {
             ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_v_end_leak", n"player", n"V", scnDialogLineType.Regular, 10.56));
-            ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_outro_leak", n"phone", n"SPARKY", scnDialogLineType.Holocall, 12.76));
+            ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_outro_leak", n"phone", n"SPARKY", scnDialogLineType.Holocall, 10.84));
             this.m_sys.StartSpeechSequence(steps, 622);
             return true;
         }
         if optionId == 65 {
             ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_v_end_gunsmith", n"player", n"V", scnDialogLineType.Regular, 8.19));
-            ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_outro_gunsmith", n"phone", n"SPARKY", scnDialogLineType.Holocall, 11.83));
+            ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_outro_gunsmith", n"phone", n"SPARKY", scnDialogLineType.Holocall, 11.16));
             this.m_sys.StartSpeechSequence(steps, 623);
             return true;
         }
@@ -994,19 +997,19 @@ public class ChispaEp05Handler {
             qs.SetFact(n"chispa_permanent_partner", 1);
             if IsDefined(player) && IsDefined(ts) {
                 ts.GiveMoney(player, 1500, n"money");
-                ts.GiveItem(player, ItemID.FromTDBID(t"Items.BrainMeltLvl3Program"), 1);
+                this.m_sys.AwardMilestoneProgram(player, n"chispa_qh_ep05_ending", n"BrainMelt", 4);
                 GameObject.PlaySoundEvent(player, n"ui_loot_cash");
                 this.m_sys.EnsureSmartBridgeActive(player);
                 this.m_sys.EnsureRicochetBridgeActive(player);
             }
-            this.m_sys.ShowRelicBanner(n"ch_banner_ep05_end_partner", "[SPARKY v1.0] Autonomous Kiroshi Partner active (+1,500 E$ & Synapse Burnout Lvl 3)");
+            this.m_sys.ShowRelicBanner(n"ch_banner_ep05_end_partner", "[SPARKY v1.0] Autonomous Kiroshi Partner active (+1,500 E$ & Synapse Burnout)");
         } else if endingId == 2 {
             if IsDefined(player) && IsDefined(ts) {
                 ts.GiveMoney(player, 4500, n"money");
-                ts.GiveItem(player, ItemID.FromTDBID(t"Items.DisableCyberwareLvl3Program"), 1);
+                this.m_sys.AwardMilestoneProgram(player, n"chispa_qh_ep05_ending", n"DisableCyberware", 4);
                 GameObject.PlaySoundEvent(player, n"ui_loot_cash");
             }
-            this.m_sys.ShowRelicBanner(n"ch_banner_ep05_end_leak", "[SPARKY // N54] 2022 Corporate dirty archive leaked (+4,500 E$ & Cyberware Malfunction Lvl 3)");
+            this.m_sys.ShowRelicBanner(n"ch_banner_ep05_end_leak", "[SPARKY // N54] 2022 Corporate dirty archive leaked (+4,500 E$ & Cyberware Malfunction)");
         } else {
             if IsDefined(player) && IsDefined(ts) {
                 ts.GiveMoney(player, 1500, n"money");
@@ -1016,6 +1019,7 @@ public class ChispaEp05Handler {
             }
             this.m_sys.ShowRelicBanner(n"ch_banner_ep05_end_gunsmith", "[SPARKY // ARMORY] Season 1 complete — Iconic revolver \"Sergeant's Last Word\" forged!");
         }
+        this.m_sys.AwardMilestoneXP(n"chispa_ep05_xp_done", 1400, 1500, gamedataProficiencyType.Level, 0);
     }
 
     public final func Tick(player: ref<PlayerPuppet>, phoneOpen: Bool, fullGameplay: Bool) -> Float {
@@ -1086,24 +1090,24 @@ public class ChispaEp05Handler {
             if distRigSq <= 1024.00 && qs.GetFact(n"chispa_ep05_approach_played") == 0 && !this.m_sys.m_isPlayingDialogueSequence {
                 qs.SetFact(n"chispa_ep05_approach_played", 1);
                 let steps: array<ref<ChispaSpeechStep>>;
-                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_approach", n"phone", n"SPARKY", scnDialogLineType.Holocall, 12.48));
+                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_approach", n"phone", n"SPARKY", scnDialogLineType.Holocall, 11.60));
                 this.m_sys.StartSpeechSequence(steps, 0);
             }
 
             if this.m_pendingStyleNet && !this.m_sys.m_isPlayingDialogueSequence {
                 this.m_pendingStyleNet = false;
                 let steps: array<ref<ChispaSpeechStep>>;
-                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_style_net", n"phone", n"SPARKY", scnDialogLineType.Holocall, 6.49));
+                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_style_net", n"phone", n"SPARKY", scnDialogLineType.Holocall, 5.58));
                 this.m_sys.StartSpeechSequence(steps, 0);
             } else if this.m_pendingStyleBallistic && !this.m_sys.m_isPlayingDialogueSequence {
                 this.m_pendingStyleBallistic = false;
                 let steps: array<ref<ChispaSpeechStep>>;
-                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_style_ballistic", n"phone", n"SPARKY", scnDialogLineType.Holocall, 7.59));
+                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_style_ballistic", n"phone", n"SPARKY", scnDialogLineType.Holocall, 6.53));
                 this.m_sys.StartSpeechSequence(steps, 0);
             } else if this.m_pendingCryoBoom && !this.m_sys.m_isPlayingDialogueSequence {
                 this.m_pendingCryoBoom = false;
                 let steps: array<ref<ChispaSpeechStep>>;
-                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_cryo_boom", n"phone", n"SPARKY", scnDialogLineType.Holocall, 6.06));
+                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_cryo_boom", n"phone", n"SPARKY", scnDialogLineType.Holocall, 5.20));
                 this.m_sys.StartSpeechSequence(steps, 0);
             }
 
@@ -1141,7 +1145,7 @@ public class ChispaEp05Handler {
                 } else {
                     this.m_pendingVictory = false;
                     let steps: array<ref<ChispaSpeechStep>>;
-                    ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_victory", n"phone", n"SPARKY", scnDialogLineType.Holocall, 8.41));
+                    ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_victory", n"phone", n"SPARKY", scnDialogLineType.Holocall, 8.01));
                     this.m_sys.StartSpeechSequence(steps, 0);
                 }
             }
@@ -1153,22 +1157,22 @@ public class ChispaEp05Handler {
             if this.m_pendingStyleNet && !this.m_sys.m_isPlayingDialogueSequence {
                 this.m_pendingStyleNet = false;
                 let steps: array<ref<ChispaSpeechStep>>;
-                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_style_net", n"phone", n"SPARKY", scnDialogLineType.Holocall, 6.49));
+                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_style_net", n"phone", n"SPARKY", scnDialogLineType.Holocall, 5.58));
                 this.m_sys.StartSpeechSequence(steps, 0);
             } else if this.m_pendingStyleBallistic && !this.m_sys.m_isPlayingDialogueSequence {
                 this.m_pendingStyleBallistic = false;
                 let steps: array<ref<ChispaSpeechStep>>;
-                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_style_ballistic", n"phone", n"SPARKY", scnDialogLineType.Holocall, 7.59));
+                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_style_ballistic", n"phone", n"SPARKY", scnDialogLineType.Holocall, 6.53));
                 this.m_sys.StartSpeechSequence(steps, 0);
             } else if this.m_pendingCryoBoom && !this.m_sys.m_isPlayingDialogueSequence {
                 this.m_pendingCryoBoom = false;
                 let steps: array<ref<ChispaSpeechStep>>;
-                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_cryo_boom", n"phone", n"SPARKY", scnDialogLineType.Holocall, 6.06));
+                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_cryo_boom", n"phone", n"SPARKY", scnDialogLineType.Holocall, 5.20));
                 this.m_sys.StartSpeechSequence(steps, 0);
             } else if this.m_pendingVictory && !this.m_sys.m_isPlayingDialogueSequence {
                 this.m_pendingVictory = false;
                 let steps: array<ref<ChispaSpeechStep>>;
-                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_victory", n"phone", n"SPARKY", scnDialogLineType.Holocall, 8.41));
+                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep05_victory", n"phone", n"SPARKY", scnDialogLineType.Holocall, 8.01));
                 this.m_sys.StartSpeechSequence(steps, 0);
             }
             this.m_sys.SyncObjectivePinLoop(

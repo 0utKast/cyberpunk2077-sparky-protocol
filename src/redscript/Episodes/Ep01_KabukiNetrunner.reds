@@ -43,12 +43,12 @@ public class ChispaEp01Handler {
         this.ResetRuntimeFlags();
     }
 
-    public final func GetArrivalPos() -> Vector4 = new Vector4(-994.50, 1622.50, 2.52, 1.00);
-    public final func GetMast01Pos() -> Vector4 = new Vector4(-986.20, 1620.20, 2.50, 1.00);
-    public final func GetMast02Pos() -> Vector4 = new Vector4(-977.20, 1633.80, 2.50, 1.00);
-    public final func GetRelayPos() -> Vector4 = new Vector4(-983.80, 1625.60, 2.50, 1.00);
-    public final func GetServerPos() -> Vector4 = new Vector4(-980.40, 1629.40, 2.50, 1.00);
-    public final func GetTerminalPos() -> Vector4 = new Vector4(-978.40, 1635.20, 2.50, 1.00);
+    public final func GetArrivalPos() -> Vector4 = new Vector4(-994.80, 1610.80, 2.65, 1.00);
+    public final func GetMast01Pos() -> Vector4 = new Vector4(-990.60, 1615.80, 2.65, 1.00);
+    public final func GetMast02Pos() -> Vector4 = new Vector4(-985.50, 1629.80, 2.65, 1.00);
+    public final func GetRelayPos() -> Vector4 = new Vector4(-987.40, 1622.20, 2.65, 1.00);
+    public final func GetServerPos() -> Vector4 = new Vector4(-986.20, 1626.40, 2.65, 1.00);
+    public final func GetTerminalPos() -> Vector4 = new Vector4(-985.90, 1630.90, 2.65, 1.00);
 
     public final func ResetRuntimeFlags() -> Void {
         this.m_spawned = false;
@@ -173,6 +173,11 @@ public class ChispaEp01Handler {
         qs.SetFact(n"chispa_ep01_asked_blackwall", 0);
         qs.SetFact(n"chispa_ep01_done", 0);
         qs.SetFact(n"chispa_ep01_stage", 0);
+        qs.SetFact(n"chispa_ep01_xp_sector", 0);
+        qs.SetFact(n"chispa_ep01_xp_done", 0);
+        qs.SetFact(n"chispa_qh_ep01_ping", 0);
+        qs.SetFact(n"chispa_qh_ep01_emp", 0);
+        qs.SetFact(n"chispa_qh_ep01_overheat", 0);
     }
 
     // --- Callbacks de Audio, Llamadas y SMS ---
@@ -182,9 +187,9 @@ public class ChispaEp01Handler {
         if !IsDefined(this.m_sys) || stageTag != 11 {
             return steps;
         }
-        ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_call_01", n"phone", n"CHISPA", scnDialogLineType.Holocall, 14.19));
+        ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_call_01", n"phone", n"CHISPA", scnDialogLineType.Holocall, 12.00));
         ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_v_call_01", n"player", n"V", scnDialogLineType.Regular, 6.90));
-        ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_call_02", n"phone", n"CHISPA", scnDialogLineType.Holocall, 15.61));
+        ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_call_02", n"phone", n"CHISPA", scnDialogLineType.Holocall, 11.58));
         completeAction = 201;
         return steps;
     }
@@ -300,13 +305,7 @@ public class ChispaEp01Handler {
         if !IsDefined(ts) || !IsDefined(player) {
             return;
         }
-        let hasPing: Bool = ts.GetItemQuantity(player, ItemID.FromTDBID(t"Items.PingProgram")) > 0
-            || ts.GetItemQuantity(player, ItemID.FromTDBID(t"Items.PingLvl2Program")) > 0
-            || ts.GetItemQuantity(player, ItemID.FromTDBID(t"Items.PingLvl3Program")) > 0
-            || ts.GetItemQuantity(player, ItemID.FromTDBID(t"Items.PingLvl4Program")) > 0
-            || ts.GetItemQuantity(player, ItemID.FromTDBID(t"Items.PingLvl4PlusPlusProgram")) > 0;
-        if !hasPing {
-            ts.GiveItem(player, ItemID.FromTDBID(t"Items.PingProgram"), 1);
+        if this.m_sys.AwardMilestoneProgram(player, n"chispa_qh_ep01_ping", n"Ping", 1) {
             this.m_sys.ShowRelicBanner(n"ch_banner_ep01_ping_gift", "[CHISPA] ¡Daemon Ping instalado! Ruta a Kabuki Creek activa");
         }
     }
@@ -358,21 +357,21 @@ public class ChispaEp01Handler {
                 ses.DespawnTagged(n"ChispaEp01Mast01");
                 let zM1: Float = this.m_sys.FindGroundZ(mast01Base);
                 let pM1: Vector4 = new Vector4(mast01Base.X, mast01Base.Y, zM1, 1.00);
-                this.m_mast01Id = this.m_sys.SpawnStaticPropEx(r"chispa_nc\\entities\\chispa_ep01_cam_mast.ent", n"", pM1, 0.00, 35.00, n"ChispaEp01Mast01");
+                this.m_mast01Id = this.m_sys.SpawnStaticPropEx(r"chispa_nc\\entities\\chispa_ep01_cam_mast.ent", n"", pM1, 0.00, 25.00, n"ChispaEp01Mast01");
             }
             if !this.m_sys.IsStaticPropAliveOrSpawning(this.m_cam01Id) {
                 ses.DespawnTagged(n"ChispaEp01Cam01");
                 this.m_cam01Configured = false;
                 let zC1: Float = this.m_sys.FindGroundZ(mast01Base);
                 let pC1: Vector4 = new Vector4(mast01Base.X, mast01Base.Y, zC1 + 2.75, 1.00);
-                this.m_cam01Id = this.m_sys.SpawnStaticPropEx(r"base\\gameplay\\devices\\security_systems\\surveillance_cameras\\surveillance_camera.ent", n"appearances_camera_wall_old", pC1, -18.00, 35.00, n"ChispaEp01Cam01");
+                this.m_cam01Id = this.m_sys.SpawnStaticPropEx(r"base\\gameplay\\devices\\security_systems\\surveillance_cameras\\surveillance_camera.ent", n"appearances_camera_wall_old", pC1, -18.00, 25.00, n"ChispaEp01Cam01");
             }
             if !this.m_sys.IsStaticPropAliveOrSpawning(this.m_mast02Id) {
                 ses.DespawnTagged(n"ChispaEp01Mast02");
                 let m2Base: Vector4 = this.GetMast02Pos();
                 let zM2: Float = this.m_sys.FindGroundZ(m2Base);
                 let pM2: Vector4 = new Vector4(m2Base.X, m2Base.Y, zM2, 1.00);
-                this.m_mast02Id = this.m_sys.SpawnStaticPropEx(r"chispa_nc\\entities\\chispa_ep01_cam_mast.ent", n"", pM2, 0.00, -145.00, n"ChispaEp01Mast02");
+                this.m_mast02Id = this.m_sys.SpawnStaticPropEx(r"chispa_nc\\entities\\chispa_ep01_cam_mast.ent", n"", pM2, 0.00, -155.00, n"ChispaEp01Mast02");
             }
             if !this.m_sys.IsStaticPropAliveOrSpawning(this.m_cam02Id) {
                 ses.DespawnTagged(n"ChispaEp01Cam02");
@@ -380,28 +379,28 @@ public class ChispaEp01Handler {
                 let m2Base: Vector4 = this.GetMast02Pos();
                 let zC2: Float = this.m_sys.FindGroundZ(m2Base);
                 let pC2: Vector4 = new Vector4(m2Base.X, m2Base.Y, zC2 + 2.75, 1.00);
-                this.m_cam02Id = this.m_sys.SpawnStaticPropEx(r"base\\gameplay\\devices\\security_systems\\surveillance_cameras\\surveillance_camera.ent", n"appearances_camera_wall_old", pC2, -20.00, -145.00, n"ChispaEp01Cam02");
+                this.m_cam02Id = this.m_sys.SpawnStaticPropEx(r"base\\gameplay\\devices\\security_systems\\surveillance_cameras\\surveillance_camera.ent", n"appearances_camera_wall_old", pC2, -20.00, -155.00, n"ChispaEp01Cam02");
             }
             if !this.m_sys.IsStaticPropAliveOrSpawning(this.m_terminalId) {
                 ses.DespawnTagged(n"ChispaEp01Terminal");
                 let termBase: Vector4 = this.GetTerminalPos();
                 let zTerm: Float = this.m_sys.FindGroundZ(termBase);
                 this.m_terminalPos = new Vector4(termBase.X, termBase.Y, zTerm, 1.00);
-                this.m_terminalId = this.m_sys.SpawnStaticPropEx(r"chispa_nc\\entities\\chispa_ep01_entropy_terminal.ent", n"", this.m_terminalPos, 0.00, -140.00, n"ChispaEp01Terminal");
+                this.m_terminalId = this.m_sys.SpawnStaticPropEx(r"chispa_nc\\entities\\chispa_ep01_entropy_terminal.ent", n"", this.m_terminalPos, 0.00, -155.00, n"ChispaEp01Terminal");
             }
             if (stage == 2 || stage == 3) && !this.m_sys.IsStaticPropAliveOrSpawning(this.m_sectorId) {
                 ses.DespawnTagged(n"ChispaEp01Sector");
                 let termBase: Vector4 = this.GetTerminalPos();
                 let zTerm: Float = this.m_sys.FindGroundZ(termBase);
                 this.m_terminalPos = new Vector4(termBase.X, termBase.Y, zTerm, 1.00);
-                this.m_sectorId = this.m_sys.SpawnStaticPropEx(r"chispa_nc\\entities\\chispa_ep01_sector_module.ent", n"", this.m_terminalPos, 0.00, -140.00, n"ChispaEp01Sector");
+                this.m_sectorId = this.m_sys.SpawnStaticPropEx(r"chispa_nc\\entities\\chispa_ep01_sector_module.ent", n"", this.m_terminalPos, 0.00, -155.00, n"ChispaEp01Sector");
             }
             if qs.GetFact(n"chispa_ep01_relay_surged") == 0 && !this.m_sys.IsStaticPropAliveOrSpawning(this.m_relayId) {
                 ses.DespawnTagged(n"ChispaEp01Relay");
                 let relBase: Vector4 = this.GetRelayPos();
                 let zRel: Float = this.m_sys.FindGroundZ(relBase);
                 this.m_relayPos = new Vector4(relBase.X, relBase.Y, zRel, 1.00);
-                this.m_relayId = this.m_sys.SpawnStaticPropEx(r"chispa_nc\\entities\\chispa_ep01_relay_node.ent", n"", this.m_relayPos, 0.00, -135.00, n"ChispaEp01Relay");
+                this.m_relayId = this.m_sys.SpawnStaticPropEx(r"chispa_nc\\entities\\chispa_ep01_relay_node.ent", n"", this.m_relayPos, 0.00, -150.00, n"ChispaEp01Relay");
             }
             if qs.GetFact(n"chispa_ep01_server_blown") == 0 && !this.m_sys.IsStaticPropAliveOrSpawning(this.m_serverId) {
                 ses.DespawnTagged(n"ChispaEp01Server");
@@ -409,7 +408,7 @@ public class ChispaEp01Handler {
                 let srvBase: Vector4 = this.GetServerPos();
                 let zSrv: Float = this.m_sys.FindGroundZ(srvBase);
                 this.m_serverPos = new Vector4(srvBase.X, srvBase.Y, zSrv, 1.00);
-                this.m_serverId = this.m_sys.SpawnStaticPropEx(r"base\\gameplay\\devices\\explosives\\explosive_server.ent", n"explosive_server_appearance_entropy", this.m_serverPos, 0.00, -120.00, n"ChispaEp01Server");
+                this.m_serverId = this.m_sys.SpawnStaticPropEx(r"base\\gameplay\\devices\\explosives\\explosive_server.ent", n"explosive_server_appearance_entropy", this.m_serverPos, 0.00, -145.00, n"ChispaEp01Server");
             }
 
             if !this.m_cam01Configured && EntityID.IsDefined(this.m_cam01Id) && ses.IsSpawned(this.m_cam01Id) {
@@ -443,9 +442,9 @@ public class ChispaEp01Handler {
                     des.DeleteTagged(n"ChispaEp01Vadik");
                     des.DeleteTagged(n"ChispaEp01Zina");
 
-                    let kXY: Vector4 = new Vector4(-980.90, 1630.60, mast01Base.Z, 1.00);
-                    let vXY: Vector4 = new Vector4(-982.80, 1627.40, mast01Base.Z, 1.00);
-                    let zXY: Vector4 = new Vector4(-979.20, 1626.80, mast01Base.Z, 1.00);
+                    let kXY: Vector4 = new Vector4(-986.50, 1628.20, mast01Base.Z, 1.00);
+                    let vXY: Vector4 = new Vector4(-987.10, 1624.40, mast01Base.Z, 1.00);
+                    let zXY: Vector4 = new Vector4(-985.40, 1625.80, mast01Base.Z, 1.00);
                     let zK: Float = this.m_sys.FindGroundZ(kXY);
                     let zV: Float = this.m_sys.FindGroundZ(vXY);
                     let zZ: Float = this.m_sys.FindGroundZ(zXY);
@@ -453,9 +452,9 @@ public class ChispaEp01Handler {
                     this.m_kostyaReady = false;
                     this.m_vadikReady = false;
                     this.m_zinaReady = false;
-                    this.m_kostyaId = this.m_sys.SpawnDynamicNpc(t"Character.Chispa_Ep01_Kostya", new Vector4(kXY.X, kXY.Y, zK, 1.00), -135.00, n"ChispaEp01Kostya");
-                    this.m_vadikId = this.m_sys.SpawnDynamicNpc(t"Character.Chispa_Ep01_Vadik", new Vector4(vXY.X, vXY.Y, zV, 1.00), -150.00, n"ChispaEp01Vadik");
-                    this.m_zinaId = this.m_sys.SpawnDynamicNpc(t"Character.Chispa_Ep01_Zina", new Vector4(zXY.X, zXY.Y, zZ, 1.00), 175.00, n"ChispaEp01Zina");
+                    this.m_kostyaId = this.m_sys.SpawnDynamicNpc(t"Character.Chispa_Ep01_Kostya", new Vector4(kXY.X, kXY.Y, zK, 1.00), -155.00, n"ChispaEp01Kostya");
+                    this.m_vadikId = this.m_sys.SpawnDynamicNpc(t"Character.Chispa_Ep01_Vadik", new Vector4(vXY.X, vXY.Y, zV, 1.00), -165.00, n"ChispaEp01Vadik");
+                    this.m_zinaId = this.m_sys.SpawnDynamicNpc(t"Character.Chispa_Ep01_Zina", new Vector4(zXY.X, zXY.Y, zZ, 1.00), 165.00, n"ChispaEp01Zina");
                 }
                 if !this.m_kostyaReady && EntityID.IsDefined(this.m_kostyaId) && des.IsSpawned(this.m_kostyaId) {
                     let kNpc: ref<NPCPuppet> = des.GetEntity(this.m_kostyaId) as NPCPuppet;
@@ -598,7 +597,7 @@ public class ChispaEp01Handler {
             } else {
                 this.m_pendingCamBark = false;
                 let steps: array<ref<ChispaSpeechStep>>;
-                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_cam_hijack", n"phone", n"CHISPA", scnDialogLineType.Holocall, 11.53));
+                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_cam_hijack", n"phone", n"CHISPA", scnDialogLineType.Holocall, 8.96));
                 this.m_sys.StartSpeechSequence(steps, 0);
             }
         }
@@ -637,7 +636,7 @@ public class ChispaEp01Handler {
             } else {
                 this.m_pendingPingBark = false;
                 let steps: array<ref<ChispaSpeechStep>>;
-                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_ping_react", n"phone", n"CHISPA", scnDialogLineType.Holocall, 15.36));
+                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_ping_react", n"phone", n"CHISPA", scnDialogLineType.Holocall, 11.10));
                 this.m_sys.StartSpeechSequence(steps, 0);
             }
         }
@@ -710,7 +709,7 @@ public class ChispaEp01Handler {
             } else {
                 this.m_pendingSubnetBoom = false;
                 let steps: array<ref<ChispaSpeechStep>>;
-                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_subnet_boom", n"phone", n"CHISPA", scnDialogLineType.Holocall, 8.34));
+                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_subnet_boom", n"phone", n"CHISPA", scnDialogLineType.Holocall, 6.28));
                 this.m_sys.StartSpeechSequence(steps, 0);
             }
         }
@@ -832,8 +831,8 @@ public class ChispaEp01Handler {
             let ts: ref<TransactionSystem> = GameInstance.GetTransactionSystem(game);
             ts.GiveItem(player, ItemID.FromTDBID(t"Items.Chispa_MemorySector01"), 1);
             ts.GiveMoney(player, 2200, n"money");
-            ts.GiveItem(player, ItemID.FromTDBID(t"Items.EMPOverloadLvl2Program"), 1);
-            ts.GiveItem(player, ItemID.FromTDBID(t"Items.OverheatLvl2Program"), 1);
+            this.m_sys.AwardMilestoneProgram(player, n"chispa_qh_ep01_emp", n"EMPOverload", 3);
+            this.m_sys.AwardMilestoneProgram(player, n"chispa_qh_ep01_overheat", n"Overheat", 3);
             this.m_sys.GiveItemDelayed(t"Items.Preset_Saratoga_Chispa", 1, 1.15);
             GameObject.PlaySoundEvent(player, n"ui_loot_cash");
             this.m_sys.PlaySfx(n"ch_sfx_dongle_sync");
@@ -846,9 +845,11 @@ public class ChispaEp01Handler {
             jm.ChangeEntryState("quests/side_quest/chispa_ep01_quest/phase_ep01/04_ep01_talk", "gameJournalQuestObjective", gameJournalEntryState.Active, JournalNotifyOption.Notify);
             this.m_sys.TrackQuestObjective("quests/side_quest/chispa_ep01_quest/phase_ep01/04_ep01_talk");
             qs.SetFact(n"chispa_ep01_stage", 4);
+            this.m_sys.EnsureCoprocessorRamBridgeActive(player);
+            this.m_sys.AwardMilestoneXP(n"chispa_ep01_xp_sector", 500, 550, gamedataProficiencyType.IntelligenceSkill, 250);
 
             let steps: array<ref<ChispaSpeechStep>>;
-            ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_sector_pickup", n"phone", n"CHISPA", scnDialogLineType.Holocall, 14.68));
+            ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_sector_pickup", n"phone", n"CHISPA", scnDialogLineType.Holocall, 11.42));
             this.m_sys.StartSpeechSequence(steps, 209);
             return true;
         }
@@ -891,27 +892,27 @@ public class ChispaEp01Handler {
         if optionId == 20 {
             qs.SetFact(n"chispa_ep01_asked_bartmoss", 1);
             ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_v_ask_bartmoss", n"player", n"V", scnDialogLineType.Regular, 5.47));
-            ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_ans_bartmoss", n"phone", n"CHISPA", scnDialogLineType.Holocall, 25.00));
+            ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_ans_bartmoss", n"phone", n"CHISPA", scnDialogLineType.Holocall, 17.92));
             this.m_sys.StartSpeechSequence(steps, 210);
             return true;
         }
         if optionId == 21 {
             qs.SetFact(n"chispa_ep01_asked_krash", 1);
             ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_v_ask_krash", n"player", n"V", scnDialogLineType.Regular, 5.42));
-            ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_ans_krash", n"phone", n"CHISPA", scnDialogLineType.Holocall, 26.93));
+            ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_ans_krash", n"phone", n"CHISPA", scnDialogLineType.Holocall, 20.89));
             this.m_sys.StartSpeechSequence(steps, 211);
             return true;
         }
         if optionId == 22 {
             qs.SetFact(n"chispa_ep01_asked_blackwall", 1);
             ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_v_ask_blackwall", n"player", n"V", scnDialogLineType.Regular, 5.27));
-            ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_ans_blackwall", n"phone", n"CHISPA", scnDialogLineType.Holocall, 23.53));
+            ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_ans_blackwall", n"phone", n"CHISPA", scnDialogLineType.Holocall, 17.08));
             this.m_sys.StartSpeechSequence(steps, 212);
             return true;
         }
         if optionId == 23 {
             ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_v_outro_accept", n"player", n"V", scnDialogLineType.Regular, 5.19));
-            ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_outro", n"phone", n"CHISPA", scnDialogLineType.Holocall, 16.96));
+            ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_outro", n"phone", n"CHISPA", scnDialogLineType.Holocall, 13.60));
             this.m_sys.StartSpeechSequence(steps, 220);
             return true;
         }
@@ -936,6 +937,7 @@ public class ChispaEp01Handler {
         qs.SetFact(n"chispa_ep01_done", 1);
         qs.SetFact(n"chispa_season_stage", 200);
         qs.SetFact(n"chispa_ep01_stage", 5);
+        this.m_sys.AwardMilestoneXP(n"chispa_ep01_xp_done", 600, 600, gamedataProficiencyType.Level, 0);
     }
 
     public final func Tick(player: ref<PlayerPuppet>, phoneOpen: Bool, fullGameplay: Bool) -> Float {
@@ -1001,24 +1003,24 @@ public class ChispaEp01Handler {
             if distAreaSq <= 900.00 && qs.GetFact(n"chispa_ep01_approach_played") == 0 && !this.m_sys.m_isPlayingDialogueSequence {
                 qs.SetFact(n"chispa_ep01_approach_played", 1);
                 let steps: array<ref<ChispaSpeechStep>>;
-                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_approach", n"phone", n"CHISPA", scnDialogLineType.Holocall, 15.43));
+                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_approach", n"phone", n"CHISPA", scnDialogLineType.Holocall, 12.16));
                 this.m_sys.StartSpeechSequence(steps, 0);
             }
 
             if this.m_pendingCamBark && !this.m_sys.m_isPlayingDialogueSequence {
                 this.m_pendingCamBark = false;
                 let steps: array<ref<ChispaSpeechStep>>;
-                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_cam_hijack", n"phone", n"CHISPA", scnDialogLineType.Holocall, 11.53));
+                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_cam_hijack", n"phone", n"CHISPA", scnDialogLineType.Holocall, 8.96));
                 this.m_sys.StartSpeechSequence(steps, 0);
             } else if this.m_pendingPingBark && !this.m_sys.m_isPlayingDialogueSequence {
                 this.m_pendingPingBark = false;
                 let steps: array<ref<ChispaSpeechStep>>;
-                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_ping_react", n"phone", n"CHISPA", scnDialogLineType.Holocall, 15.36));
+                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_ping_react", n"phone", n"CHISPA", scnDialogLineType.Holocall, 11.10));
                 this.m_sys.StartSpeechSequence(steps, 0);
             } else if this.m_pendingSubnetBoom && !this.m_sys.m_isPlayingDialogueSequence {
                 this.m_pendingSubnetBoom = false;
                 let steps: array<ref<ChispaSpeechStep>>;
-                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_subnet_boom", n"phone", n"CHISPA", scnDialogLineType.Holocall, 8.34));
+                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_subnet_boom", n"phone", n"CHISPA", scnDialogLineType.Holocall, 6.28));
                 this.m_sys.StartSpeechSequence(steps, 0);
             }
 
@@ -1058,7 +1060,7 @@ public class ChispaEp01Handler {
                     } else {
                         this.m_pendingNetVictory = false;
                         let steps: array<ref<ChispaSpeechStep>>;
-                        ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_net_victory", n"phone", n"CHISPA", scnDialogLineType.Holocall, 11.88));
+                        ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_net_victory", n"phone", n"CHISPA", scnDialogLineType.Holocall, 9.12));
                         this.m_sys.StartSpeechSequence(steps, 0);
                     }
                 } else {
@@ -1067,7 +1069,7 @@ public class ChispaEp01Handler {
                     } else {
                         this.m_pendingGunsBlazing = false;
                         let steps: array<ref<ChispaSpeechStep>>;
-                        ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_guns_blazing", n"phone", n"CHISPA", scnDialogLineType.Holocall, 13.63));
+                        ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_guns_blazing", n"phone", n"CHISPA", scnDialogLineType.Holocall, 10.45));
                         this.m_sys.StartSpeechSequence(steps, 0);
                     }
                 }
@@ -1080,17 +1082,17 @@ public class ChispaEp01Handler {
             if this.m_pendingSubnetBoom && !this.m_sys.m_isPlayingDialogueSequence {
                 this.m_pendingSubnetBoom = false;
                 let steps: array<ref<ChispaSpeechStep>>;
-                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_subnet_boom", n"phone", n"CHISPA", scnDialogLineType.Holocall, 8.34));
+                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_subnet_boom", n"phone", n"CHISPA", scnDialogLineType.Holocall, 6.28));
                 this.m_sys.StartSpeechSequence(steps, 0);
             } else if this.m_pendingNetVictory && !this.m_sys.m_isPlayingDialogueSequence {
                 this.m_pendingNetVictory = false;
                 let steps: array<ref<ChispaSpeechStep>>;
-                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_net_victory", n"phone", n"CHISPA", scnDialogLineType.Holocall, 11.88));
+                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_net_victory", n"phone", n"CHISPA", scnDialogLineType.Holocall, 9.12));
                 this.m_sys.StartSpeechSequence(steps, 0);
             } else if this.m_pendingGunsBlazing && !this.m_sys.m_isPlayingDialogueSequence {
                 this.m_pendingGunsBlazing = false;
                 let steps: array<ref<ChispaSpeechStep>>;
-                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_guns_blazing", n"phone", n"CHISPA", scnDialogLineType.Holocall, 13.63));
+                ArrayPush(steps, this.m_sys.MakeSpeechStep(n"ch_ep01_guns_blazing", n"phone", n"CHISPA", scnDialogLineType.Holocall, 10.45));
                 this.m_sys.StartSpeechSequence(steps, 0);
             }
 
@@ -1183,7 +1185,7 @@ public class ChispaEp01Handler {
         }
         let dest: Vector4 = this.GetArrivalPos();
         let ang: EulerAngles;
-        ang.Yaw = -75.00;
+        ang.Yaw = -22.00;
         GameInstance.GetTeleportationFacility(game).Teleport(player, dest, ang);
         this.EnsureSpawned(player);
     }

@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chispa-local-service"
+version = "2.0.0"
+description = "C.H.I.S.P.A. / S.P.A.R.K.Y. v2.0 local real-time AI companion runtime (Ollama + F5-Spanish / Kokoro-82M + Hybrid RAG + Isolated Episodic Memory)"
+readme = "GUIA_CHISPA_IA_LOCAL_ES.md"
+requires-python = ">=3.11,<3.13"
+license = { text = "MIT" }
+dependencies = [
+    "f5-tts",
+    "kokoro-onnx",
+    "faster-whisper",
+    "sounddevice",
+    "soundfile",
+    "scipy",
+    "numpy",
+    "nvidia-ml-py",
+    "httpx",
+    "onnxruntime",
+    "tokenizers",
+    "huggingface_hub",
+]
+
+[project.optional-dependencies]
+qwen = ["qwen-tts"]
+
+[tool.setuptools.packages.find]
+include = ["chispa_rt*"]

@@ -1,50 +1,53 @@
-Protocolo CHISPA - Guía Callejera de Night City (v1.4.0 — Temporada 1 Completa: Episodios 0–5)
+Protocolo CHISPA - Guía Callejera de Night City (v2.0.0 — Compañero IA Local en Directo + Temporada 1 Completa)
 Autor: 0utKast
-Compatibilidad: Cyberpunk 2077 2.x — Compatible con el Juego Base (no requiere Phantom Liberty)
-Frameworks base requeridos: RED4ext, ArchiveXL, TweakXL, Codeware, redscript, Audioware, Cyber Engine Tweaks
-Tráiler Oficial (YouTube): https://youtu.be/9MXEEu3NCcc
+Compatibilidad: Cyberpunk 2077 2.x — Compatible con Juego Base (sin Phantom Liberty; campaña Temporada 1 lista en Windows / Linux / Proton / Steam Deck; Servicio IA Local v2.0 en Windows)
+Frameworks base requeridos: RED4ext, ArchiveXL, TweakXL, Codeware, redscript, Cyber Engine Tweaks, y AudioXL (recomendado en Linux / Steam Deck y Windows) O Audioware (Windows)
+Tráiler Showcase 4K v2.0.0 (YouTube): https://youtu.be/oh9oSNnJVh0
+Tráiler Temporada 1 (YouTube): https://youtu.be/9MXEEu3NCcc
 Repositorio Open-Source y Releases (GitHub): https://github.com/0utKast/cyberpunk2077-sparky-protocol
 
-DESCRIPCION GENERAL («EL ANTI-TUTORIAL DE NIGHT CITY»):
-Una IA holográfica de conserjería táctica fabricada en 2022 por Zetatech —pirateada antes del DataKrash con carácter de sargento chusquero veterano y cero censura corporativa— se acopla a tus ópticas Kiroshi y holoteléfono. A lo largo de una campaña episódica de 6 misiones (de Watson hasta Arroyo y Pacifica), te guía por la historia real y las mecánicas de Cyberpunk 2077 a base de acción en calle, telemetría en directo, humor ácido y equipo icónico propio.
+DESCRIPCIÓN GENERAL («EL ANTI-TUTORIAL DE NIGHT CITY + COMPAÑERO IA LOCAL EN VIVO»):
+Una IA táctica fabricada en 2022 por Zetatech —pirateada antes del DataKrash con carácter de sargento chusquero veterano y cero censura corporativa— se enlaza con tus ópticas Kiroshi y holoteléfono.
+- Incluye la campaña completa doblada de la Temporada 1 (6 episodios de Watson hasta Arroyo y Pacifica, 7 armas icónicas únicas y 3 finales RPG) sin salas virtuales aburridas.
+- Añádele el paquete opcional autónomo `CHISPA_v2.0.0_LocalAI_Service_ES.zip` para conversar por teclado en directo desde el HUD (`[Y]`), lanzar escaneos tácticos hablados (`[U]`), construir memoria episódica aislada por partida y consultar 162 fichas de lore offline en tu propio equipo (sin nube, sin suscripciones y sin cuotas de API).
 
-CONTENIDO INCLUIDO EN v1.4.0 (TEMPORADA 1 COMPLETA):
-- EPISODIO 0 — «NO SOY UN CLIP DE OFICINA» (Little China, tras Megaedificio H10):
-  - Rescata a C.H.I.S.P.A. v0.98b, usa el escáner Kiroshi [TAB] con telemetría en vivo, sobrecarga un generador industrial o despeja la zona a tiros, recoge su módulo sobre un terminal táctico Zetatech y obtén 1.500 €$, la pistola icónica «Cortesía Ejecutiva» y charla libre por enlace Kiroshi sobre Richard Night y los Megaedificios tras el ataque de 2023.
-- EPISODIO 1 — «FANTASMAS EN LA CÁMARA» (Paseo Fluvial de Kabuki Creek, Watson):
-  - Tras completar el Episodio 0, CHISPA triangula su Sector de Memoria #01 en manos de una célula carroñera dirigida por el netrunner Kostya «Cortafuegos».
-  - Recibe un daemon Ping de arranque, secuestra una cámara perimetral y salta en cadena hasta la segunda cámara de la subred para marcar objetivos y detonar su servidor Entropy explosivo a distancia —o sobrecarga su repetidor RABIDS con [F] si no usas ciberterminal, o entra a tiros para réplicas alternativas—.
-  - Extrae el Sector #01 del terminal Entropy para conseguir 2.200 €$, hackeos rápidos de nivel 2 («Cortocircuito / Sobrecarga PEM» y «Sobrecalentar»), el subfusil icónico «Frecuencia Fantasma», la Vol. 1 del códice y charla libre sobre Rache Bartmoss, los RABIDS del DataKrash (2022) y el Muro Negro.
-- EPISODIO 2 — «MÁS HIERRO QUE CARNE» (Muelles de Northside, Watson):
-  - Enlaza justo tras completar el Episodio 1: CHISPA detecta el Sector de Memoria #02 en un puesto quirúrgico Maelstrom capitaneado por Krag «Óxido», Vex y Tuerca.
-  - Recibe una granada PEM de arranque y el hackeo «Avería de Armas» por SMS; sabotea o arranca la torreta automática perimetral, haz estallar el depósito presurizado de CHOOH2 (por disparo, hackeo rápido o purgando el regulador de presión industrial con [F]), o entra a plomo limpio.
-  - Conecta el Sector #02 del banco quirúrgico para obtener 2.800 €$, el hackeo «Reinicio de Óptica» (niv. 2), el fusil técnico de precisión icónico «Cláusula Perforante» (M-179e Achilles), el Vol. 2 del códice y charla sobre Maelstrom/Brick/Royce, la ciberpsicosis y MaxTac.
-- EPISODIO 3 — «BALAS QUE DOBLAN ESQUINAS» (Muelle Sur de Watson Waterfront):
-  - Continúa tras el Episodio 2: CHISPA intercepta una caja negra de Arasaka custodiada por los Garras de Tigre de Aiko «Kitsune» Mori, Kenji «Tinta» Sato y Ren «Espejo» Takahashi con tinta inhibidora militar.
-  - Recibe la pistola inteligente Kang Tao Chao, «Borrado de Memoria» (niv. 2) y un puente óptico inteligente Kiroshi en vivo (`HasSmartLink`), experimenta el desvío de balas inteligentes hasta invertir su baliza IFF con [F], detonar la antena explosiva de Arasaka o cegar sus ópticas.
-  - Extrae el Sector #03 para cobrar 3.400 €$, el hackeo «Contagio» (niv. 2), el subfusil inteligente icónico «Curva Ejecutiva» (Shingen), el Vol. 3 del códice y charla sobre la Torre Arasaka (2023), la Era del Rojo, la Guerra de Unificación y la alianza Arasaka–Garras de Tigre.
-- EPISODIO 4 — «HONOR, CHATARRA Y PATRIOTAS DE CARTÓN» (Frontera de Arroyo / Santo Domingo — Post-Bloqueo de Watson):
-  - Se activa automáticamente al completar el Episodio 3 Y levantar el bloqueo policial de Watson en la historia principal (tras «El Golpe» y la recuperación de V / encuentro con Takemura).
-  - CHISPA detecta un intercambio fronterizo entre veteranos de la Calle 6 (el sargento Buck Callahan y Tammy) y un enlace de los Valentinos (Mateo). Recibe por SMS el fusil Copperhead, granadas de fragmentación, curativos y el puente de trayectoria de rebote balístico (`CanSeeRicochetVisuals`) en tus Kiroshi.
-  - Practica bajas y telemetría por rebotes (`GetNumRicochetBounces()`), sobrecarga el relé balístico con [F] para volar el depósito de munición NUSA, y extrae el Sector #04 para cobrar 4.200 €$, el hackeo «Fallo Ciberware» (niv. 2), el fusil de asalto por ráfagas icónico «Geometría Callejera» (HJSH-18 Masamune recalibrado para rebotes letales), el Vol. 4 del códice y charla sobre Valentinos, Calle 6 y las deudas de implantes militares.
-- EPISODIO 5 — «MÁS ALLÁ DEL MURO NEGRO» (Coastview, Pacifica — Final Temporada 1):
-  - Enlaza automáticamente al terminar el Episodio 4: CHISPA sigue la pista de su Sector Maestro #05 hasta la Zona de Combate de Coastview, custodiada por netrunners de los Hijos del Vudú (Ti-Luc y Mireille) y un matón de los Animales (Brutus).
-  - Recibe granadas PEM, «Cortocircuito» niv. 3 y ambos puentes Kiroshi (Smart + Ricochet); encadena las 2 cámaras vudús, usa hackeos rápidos o disparos perforantes Tech / de rebote, purga el pilón de contención de NetWatch con [F] sobre el servidor criogénico y recupera el Sector Maestro #05 para ganar 5.000 €$, «Colapso Sistema» (niv. 3) y la pistola tecnológica icónica «Cortafuegos del 22» (JKE-X2 Kenshin).
-  - Incluye charla final completa (Pacifica/NetWatch, los Hijos del Vudú y el origen real de CHISPA en 2022) y **3 finales RPG en amarillo** elegibles por V:
-    1. [Socio Autónomo v1.0] (+1.500 €$, «Sinapsis Calcinada» niv. 3 y puentes permanentes de Smart Link + Ricochet en tus Kiroshi).
-    2. [Filtrar Archivo a N54] (+4.500 €$ y «Fallo Ciberware» niv. 3 destapando las operaciones ocultas de Zetatech en 2022).
-    3. [Protocolo Armero] (+1.500 €$ y forja del revólver pesado icónico «Última Palabra de Sargento» — Overture con descarga eléctrica y doble rebote letal).
-  - Los 3 finales preservan el daemon base de CHISPA y los 5 volúmenes del códice en tu diario para dejar abierta cualquier continuación futura.
+NOTA SOBRE LORE PROFUNDO Y «SPOILERS»:
+Aunque el motor RAG de la v2.0 oculta spoilers de historia principal (Acto 2+, Relic, Dogtown y finales) cuando V sigue en el Acto 1, C.H.I.S.P.A. conserva archivos históricos profundos de Night City (2022–2077) que en charlas opcionales pueden desvelar secretos del mundo de forma temprana.
 
-CARACTERISTICAS TECNICAS:
-- Proyección holográfica superior izquierda persistente (ZETATECH 2022 // KIROSHI) durante todas las conversaciones finales por enlace Kiroshi e intervenciones tácticas de campo en los episodios 0–5, sin restringir movimiento, escáner, armas ni ciberware.
-- Doblaje completo en español e inglés para toda la Temporada 1 (Ep. 0–5) con voz masculina rota de sargento veterano (+ filtrado DSP), voces V femenina/masculina y enemigos únicos (Kostya, Krag, Aiko, Buck, Ti-Luc), con subtítulos completos ES/EN para Ep. 0–5.
-- Entrega diferida de las armas icónicas (`1.15 s` tras cada extracción o final) para evitar colas saturadas en el HUD de botín.
-- 100 % compatible con Juego Base 2.x, seguro durante el Prólogo / Creación de Personaje y sin ventanas flotantes de CET por defecto (`chispa_toggle_panel` asignable bajo demanda).
+NOVEDADES EN v2.0.0 (SERVICIO DE IA LOCAL EN TIEMPO REAL):
+- Barra Neural Kiroshi en el HUD (`[Y]`) y Réplica Táctica Instantánea (`[U]`):
+  - Pulsa `[Y]` en cualquier momento para hablar libremente con C.H.I.S.P.A. (`[Tab]` lee la situación sin escribir, `[Flecha Arriba]` repite el último mensaje, `[Esc]` cancela).
+  - Pulsa `[U]` en juego para recibir al instante por voz un parte táctico de tu distrito, misión seguida, enemigo escaneado, arma, salud y búsqueda NCPD. Las teclas se pueden desactivar/reasignar desde CET Bindings.
+- Cerebro Ollama 100 % Local (`gemma3:12b` por defecto, `gemma3:4b` en GPU ligera) + Voz Streaming (`F5-Spanish` / `Kokoro-82M`):
+  - Genera y locuta frase a frase mediante clonado `F5-Spanish` en GPU o mezcla `Kokoro Sargento` por CPU (`0 MB` de VRAM extra), con reparto automático NVML de capas en gráficas <=16 GB VRAM.
+- Enciclopedia Híbrida Offline de 162 Fichas (`0 MB` VRAM extra, `<5 ms` en CPU):
+  - Combina telemetría Kiroshi en vivo + `SQLite FTS5` + vectores semánticos ONNX multilingües sobre 162 fichas modulares de lore (soporta `custom_lore_es.json` del jugador), separando recuerdos de 2022 y escaneos de 2077.
+- Memoria Episódica Aislada por Partida (`chispa_mem_uid`):
+  - Cada partida genera un sello persistente `chispa_mem_uid` y marca temporal `playthrough_sec` para aislar completamente distintos personajes/guardados, filtrar sucesos futuros al recargar partidas anteriores, indexar pinchos (*Shards*) leídos y condensar un diario en segundo plano.
+- Reacciones Espontáneas y Protecciones de Inmersión:
+  - Configura al vuelo desde `Chispa Studio` entre `Tácticas` (salud <=28 %, NCPD / MaxTac 5 estrellas, escaneo de jefes/ciberpsicópatas, tiroteos largos, cambios de barrio y avances de misión), `Compañero Activo` (añade comentarios sobre pinchos y rutas) o `Desactivadas`. Pausa o silencia automáticamente si hay llamadas vanilla, escenas, diálogos o menús.
+- Consulta Opcional a Cyberpunk Wiki (Desactivada por Defecto):
+  - Cero conexiones externas de serie; solo consulta Fandom Wiki si activas explícitamente la casilla en `Chispa Studio`.
+- Instalador Automático en Un Clic (`instalar_chispa_ia.bat`) y Autodetección Steam / GOG / Epic:
+  - Detecta automáticamente Cyberpunk 2077 en Steam, GOG o Epic Games (o mediante `--ipc-dir` / `game_path.txt`) sin rutas fijas de desarrollador.
+- Pack Opcional de Voz Femenina Local (`Chispa_LocalAI_FemaleVoicePack_ES_v2.0.0.zip`) y Voces Clásicas (`ChispaNC_ClassicCampaignVoices_v2.0.0.zip`) disponibles aparte.
 
-INSTALACION:
-Instala los frameworks open-source requeridos (RED4ext, ArchiveXL, TweakXL, Codeware, redscript, Audioware y Cyber Engine Tweaks) y extrae el contenido de este paquete en la carpeta raíz de Cyberpunk 2077 (o instálalo con Vortex / Mod Organizer 2).
+CONTENIDO TEMPORADA 1 INCLUIDO (EPISODIOS 0–5):
+- EPISODIO 0 — «NO SOY UN CLIP DE OFICINA» (Little China, tras Megaedificio H10): 1.500 €$, pistola icónica «Cortesía Ejecutiva», charla Richard Night y Megaedificios.
+- EPISODIO 1 — «FANTASMAS EN LA CÁMARA» (Paseo Peatonal de Kabuki Creek, Watson): Cadena de cámaras, servidor Entropy / repetidor RABIDS, 2.200 €$, subfusil icónico «Frecuencia Fantasma», Códice Vol. 1.
+- EPISODIO 2 — «MÁS HIERRO QUE CARNE» (Muelles de Northside, Watson): Torreta saboteable, depósito CHOOH2 con purgador [F], 2.800 €$, fusil técnico icónico «Cláusula Perforante», Códice Vol. 2.
+- EPISODIO 3 — «BALAS QUE DOBLAN ESQUINAS» (Muelle Sur de Watson Waterfront): Pistola Smart + puente `HasSmartLink`, baliza IFF con [F], 3.400 €$, subfusil Smart icónico «Curva Ejecutiva», Códice Vol. 3.
+- EPISODIO 4 — «HONOR, CHATARRA Y PATRIOTAS DE CARTÓN» (Frontera Arroyo / Santo Domingo — Post-Bloqueo): Puente balístico `CanSeeRicochetVisuals`, alijo NUSA con [F], 4.200 €$, fusil icónico «Geometría Callejera», Códice Vol. 4.
+- EPISODIO 5 — «MÁS ALLÁ DEL MURO NEGRO» (Coastview, Pacifica — Final Temporada 1): Hijos del Vudú y Animales, purga NetWatch [F], 5.000 €$, pistola Tech icónica «Cortafuegos del 22» y 3 finales RPG en amarillo (Socio Autónomo v1.0, Filtrar Archivo a N54 o Protocolo Armero con revólver Overture icónico «Última Palabra de Sargento»).
 
-PERMISOS Y CREDITOS:
-Permisos 100 % Abiertos (Open Permissions): Puedes modificar, reutilizar activos, traducir y redistribuir este mod libremente manteniendo los créditos.
-Desarrollado con herramientas open-source de la comunidad (WolvenKit, RED4ext, ArchiveXL, TweakXL, Codeware, redscript, Audioware, Cyber Engine Tweaks), síntesis de voz/SFX mediante ElevenLabs y masterización de audio con FFmpeg.
+INSTALACIÓN:
+1. Mod Principal (Obligatorio): Instala los frameworks open-source (RED4ext, ArchiveXL, TweakXL, Codeware, redscript, Cyber Engine Tweaks y AudioXL [recomendado en Linux/Steam Deck y Windows] O Audioware [Windows]) y extrae ÚNICAMENTE `ChispaNC_v2.0.0.zip` (Español) o `SparkyProtocol_EN_v2.0.0.zip` (Inglés) en la carpeta raíz de Cyberpunk 2077 (nunca ambos a la vez).
+2. Puente IA Local v2.0 (Opcional para chat `[Y]` / análisis `[U]` / memoria viva): Instala Python 3.11/3.12 + Ollama, descomprime `CHISPA_v2.0.0_LocalAI_Service_ES.zip` en cualquier carpeta de tu PC, ejecuta `instalar_chispa_ia.bat`, ajusta altavoces en `probar_chispa_es.bat` y mantén abierto `iniciar_servicio_chispa.bat` mientras juegas.
+
+HISTORIAL INCLUIDO (v1.5.1 – v1.6.1):
+- v1.6.1: Corrección de entrega repetida de hackeos rápidos (`ItemID.CreateQuery`), reubicación del Ep. 1 fuera de la calzada en Kabuki Creek y reclasificación limpia del bono de RAM (+8 base +3 por sector, hasta +23 RAM).
+- v1.6.0: Soporte dual AudioXL + Audioware (100 % compatible Linux / Proton / Steam Deck).
+- v1.5.1–v1.5.3: Hackeos adaptativos Nivel 2 / Ciberterminal Nivel 1, XP real de misiones, sincronización de subtítulos con pausa, renovación completa de voces militares y paginación UTF-8 en 19 idiomas.
+
+PERMISOS Y CRÉDITOS:
+Permisos 100 % Abiertos (MIT): libre para modificar, reutilizar activos, traducir y redistribuir manteniendo créditos a 0utKast (https://github.com/0utKast/cyberpunk2077-sparky-protocol), WolvenKit, RED4ext, ArchiveXL, TweakXL, Codeware, redscript, AudioXL (DigitalVixen), Audioware (cyb3rpsych0s1s), Cyber Engine Tweaks, Ollama, F5-TTS, Kokoro-82M, ONNX Runtime, ElevenLabs y FFmpeg.

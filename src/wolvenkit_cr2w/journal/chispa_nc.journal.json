@@ -499,9 +499,9 @@
                                               },
                                               "offset": {
                                                 "$type": "Vector3",
-                                                "X": 416.183,
-                                                "Y": 330.713,
-                                                "Z": -116.177
+                                                "X": 411.783,
+                                                "Y": 326.313,
+                                                "Z": -116.127
                                               },
                                               "reference": {
                                                 "$type": "gameEntityReference",
@@ -606,9 +606,9 @@
                                               },
                                               "offset": {
                                                 "$type": "Vector3",
-                                                "X": 423.983,
-                                                "Y": 345.713,
-                                                "Z": -116.177
+                                                "X": 416.483,
+                                                "Y": 341.413,
+                                                "Z": -116.127
                                               },
                                               "reference": {
                                                 "$type": "gameEntityReference",

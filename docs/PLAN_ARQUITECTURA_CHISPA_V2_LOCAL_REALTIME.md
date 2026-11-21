@@ -7,7 +7,7 @@
 
 ## 1. Estrategia de Ramas Git y Mantenimiento Dual
 
-Con la publicación de la **Temporada 1 Completa (`v1.4.0`)** en Nexus Mods (`#38982`) y GitHub, el proyecto queda estructurado en tres ramas claras tanto en el workspace local (`Mods_cyberpunk2077`) como en el repositorio público (`sparky_protocol` -> `0utKast/cyberpunk2077-sparky-protocol`):
+Con la publicación de la **Temporada 1 Completa (`v1.4.0`)** en Nexus Mods (`#38982`) y GitHub, el proyecto queda estructurado en tres ramas claras tanto en el workspace local como en el repositorio público (`0utKast/cyberpunk2077-sparky-protocol`):
 
 ```mermaid
 flowchart LR

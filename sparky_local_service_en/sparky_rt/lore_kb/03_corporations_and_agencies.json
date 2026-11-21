@@ -1,0 +1,190 @@
+[
+  {
+    "id": "corp_arasaka",
+    "pack": "03_corporations_and_agencies",
+    "category": "corporacion",
+    "era": "intel_kiroshi_2077",
+    "min_act": 1,
+    "title": "Arasaka Corporation — Global Banking, Security, and Counterintel",
+    "keywords_es": ["arasaka", "saburo", "yorinobu", "hanako", "kujira", "contrainteligencia", "toky", "megacorporacion"],
+    "keywords_en": ["arasaka", "saburo arasaka", "yorinobu", "hanako", "kujira", "counterintel", "megacorp", "corpo plaza", "tokyo", "shingen", "masamune", "kenshin", "tamayura", "sasai arasaka", "waterfront"],
+    "content": "Founded in Tokyo in 1915 and built by Saburo Arasaka into a financial and paramilitary empire, Arasaka manufactures iconic weaponry (Shingen, Masamune, Kenshin, Tamayura) and handles security for the global elite. Expelled from North America after 2023, the corp returned to Night City in 2070 thanks to its aircraft carrier Kujira and dominates Corpo Plaza and the waterfront."
+  },
+  {
+    "id": "corp_militech",
+    "pack": "03_corporations_and_agencies",
+    "category": "corporacion",
+    "era": "intel_kiroshi_2077",
+    "min_act": 1,
+    "title": "Militech International — The NUSA's War Machine",
+    "keywords_es": ["militech", "nusa", "antonio luccessi", "armas", "ajax", "saratoga", "basilisk", "flathead", "meredith stout"],
+    "keywords_en": ["militech", "nusa", "rosalind myers", "ajax", "saratoga", "basilisk", "flathead", "meredith stout", "antonio luccessi", "armatech", "defense contractor", "badlands"],
+    "content": "Originally founded as Armatech-Luccessi in 1996, Militech is North America's premier defense contractor and is symbiotically tied to the NUSA government of its former CEO, Rosalind Myers. It produces Basilisk armored vehicles, Ajax rifles, heavy machine guns, and tactical bots like the Flathead, contesting every trade lane and Badlands border against Arasaka."
+  },
+  {
+    "id": "corp_cynosure_proyecto",
+    "pack": "03_corporations_and_agencies",
+    "category": "corporacion",
+    "era": "intel_kiroshi_2077",
+    "min_act": 2,
+    "districts": ["Dogtown"],
+    "title": "Project Cynosure — Militech's Forgotten AI Bunker in Dogtown",
+    "keywords_es": ["cynosure", "cerberus", "bunker dogtown", "ia muro negro", "militech secreto", "nucleo neural"],
+    "keywords_en": ["cynosure", "cerberus", "dogtown bunker", "rogue ai facility", "blackwall ai", "militech secret", "old net", "neural core", "soulkiller", "pacifica"],
+    "content": "Secretly built beneath Pacifica by Militech between 2013 and the Fourth Corporate War to capture and study Old Net entities in an effort to outpace Arasaka's Soulkiller. Sealed off after the DataKrash, it now has a Cerberus industrial maintenance robot stalking its subterranean corridors alongside terminals corrupted by Blackwall AIs."
+  },
+  {
+    "id": "corp_zetatech",
+    "pack": "03_corporations_and_agencies",
+    "category": "corporacion",
+    "era": "memoria_2022",
+    "min_act": 1,
+    "title": "Zetatech — Tactical Drones, Corporate AVs, and Cyberdecks",
+    "keywords_es": ["zetatech", "av", "drones", "ordenadores", "ciberware", "brazos gorila", "sandevistan zetatech"],
+    "keywords_en": ["zetatech", "drones", "av", "octant", "cyberware", "software", "sparky", "datakrash", "gorilla arms", "sandevistan", "cyberdeck"],
+    "content": "Developer of neural software, computers, executive AVs, Octant tactical bots, and budget cyberware stocked in nearly every Night City shop. In 2022, Zetatech experimented with tactical field AIs like Project S.P.A.R.K.Y. before losing assets during the DataKrash and burying its failures under trade secrecy."
+  },
+  {
+    "id": "corp_kang_tao",
+    "pack": "03_corporations_and_agencies",
+    "category": "corporacion",
+    "era": "intel_kiroshi_2077",
+    "min_act": 1,
+    "title": "Kang Tao — Chinese Military Innovation in Smart Weapons",
+    "keywords_es": ["kang tao", "chinas", "armas inteligentes", "chao", "dian", "zhuo", "anders hellman", "av kang tao"],
+    "keywords_en": ["kang tao", "smart guns", "smart weapons", "chao", "dian", "zhuo", "anders hellman", "guided ammo", "chinese megacorp", "av"],
+    "content": "A Chinese arms and bioengineering giant that went from near-bankruptcy to global powerhouse after being nationalized and restructured in the 2050s. Kang Tao dominates the Smart ballistics market with its Chao pistols, Dian SMGs, and Zhuo shotguns firing self-guided rounds, while aggressively poaching defecting Arasaka engineers."
+  },
+  {
+    "id": "corp_biotechnica",
+    "pack": "03_corporations_and_agencies",
+    "category": "corporacion",
+    "era": "memoria_2022",
+    "min_act": 1,
+    "title": "Biotechnica — Inventors of CHOOH2, Protein Farms, and Cloning",
+    "keywords_es": ["biotechnica", "chooh2", "combustible", "granjas proteicas", "invernaderos", "clonacion", "kochi", "proyecto ruisenor"],
+    "keywords_en": ["biotechnica", "chooh2", "protein farms", "cloning", "project nightingale", "kochi", "greenhouses", "nomad experiments", "biotech"],
+    "content": "An Italian biotech corporation that created CHOOH2, the engineered agricultural fuel that replaced fossil gasoline and powers engines, generators, and highly volatile tanks worldwide. South of Night City, it controls miles of protein greenhouses while concealing illegal human-cloning trials and biological experiments on Nomad tribes."
+  },
+  {
+    "id": "corp_night_corp",
+    "pack": "03_corporations_and_agencies",
+    "category": "corporacion",
+    "era": "intel_kiroshi_2077",
+    "min_act": 1,
+    "title": "Night Corp — Civic Infrastructure, Carpe Noctem, and Mr. Blue Eyes",
+    "keywords_es": ["night corp", "miriam night", "carpe noctem", "mr blue eyes", "peralez", "sandra dorsett", "lavado cerebral"],
+    "keywords_en": ["night corp", "carpe noctem", "mr blue eyes", "sandra dorsett", "mind control", "peralez", "miriam night", "brainwashing", "netrunner scholarship"],
+    "content": "Founded by Miriam Night to fulfill her late husband's blueprint by funding public power grids, transit, and scholarships for gifted netrunners. Behind its philanthropic facade, Night Corp runs covert projects like \"Carpe Noctem\": remote neural conditioning used to rewrite political candidates' personalities, leaving trails tied to Sandra Dorsett, the Peralezes, and Mr. Blue Eyes."
+  },
+  {
+    "id": "corp_trauma_team",
+    "pack": "03_corporations_and_agencies",
+    "category": "corporacion",
+    "era": "intel_kiroshi_2077",
+    "min_act": 1,
+    "title": "Trauma Team International — Elite Armed Paramedics",
+    "keywords_es": ["trauma team", "platino", "biomonitor", "av ambulancia", "poliza medica", "sandra dorsett", "extraccion medica"],
+    "keywords_en": ["trauma team", "platinum card", "gold plan", "biomonitor", "medical av", "medevac", "sandra dorsett", "combat paramedics"],
+    "content": "A private, militarized medical evacuation service. When a Gold or Platinum cardholder is injured, their biomonitor signal triggers an immediate dispatch of an armored AV carrying paramedics armed with machine guns and ballistic shields—who ruthlessly cut down anyone nearby while ignoring any uninsured citizen bleeding out right beside them."
+  },
+  {
+    "id": "corp_kiroshi_optics",
+    "pack": "03_corporations_and_agencies",
+    "category": "corporacion",
+    "era": "intel_kiroshi_2077",
+    "min_act": 1,
+    "title": "Kiroshi Optics — Japanese Leader in Cyberoptics and Scanners",
+    "keywords_es": ["kiroshi", "opticas", "escaner", "clarividente", "oraculo", "acechador", "zoom ocular", "interfaz hud"],
+    "keywords_en": ["kiroshi", "optics", "scanner", "clairvoyant", "oracle", "stalker", "eye cyberware", "hud", "sparky", "nagano"],
+    "content": "A Nagano-based Japanese corporation specializing in ultra-precision cybernetic bio-optics. Kiroshi implants overlay tactical schematics, ricochet trajectory links, Smart targeting, NCPD bounty scans, and instant vulnerability diagnostics—and they also serve as the secure host for my own holographic module."
+  },
+  {
+    "id": "corp_petrochem_sovoil",
+    "pack": "03_corporations_and_agencies",
+    "category": "corporacion",
+    "era": "memoria_2022",
+    "min_act": 1,
+    "title": "Petrochem and SovOil — The CHOOH2 Energy Titans",
+    "keywords_es": ["petrochem", "sovoil", "petroleo", "energia", "trigo chooh2", "gasolinera", "refineria"],
+    "keywords_en": ["petrochem", "sovoil", "energy corp", "chooh2", "refinery", "fuel station", "wheat", "oil"],
+    "content": "US-based Petrochem acquired the largest global licenses for Biotechnica's engineered wheat to dominate CHOOH2 distribution across the Americas, locked in cutthroat rivalry with SovOil (the privatized Soviet state enterprise). In Night City, nearly every fuel station, pressurized tank, and corporate-sponsored stadium carries Petrochem's red logo."
+  },
+  {
+    "id": "corp_orbital_air",
+    "pack": "03_corporations_and_agencies",
+    "category": "corporacion",
+    "era": "intel_kiroshi_2077",
+    "min_act": 1,
+    "title": "Orbital Air — Space Transport, Morro Rock, and the Crystal Palace",
+    "keywords_es": ["orbital air", "morro rock", "ncx", "puerto espacial", "cohetes", "crystal palace", "kenia"],
+    "keywords_en": ["orbital air", "morro rock", "ncx", "spaceport", "crystal palace", "suborbital", "kenya", "rockets", "nusa"],
+    "content": "An aerospace consortium born in East Africa that holds a near-monopoly on commercial suborbital flights and low-Earth-orbit traffic. In Night City, it operates the heavily guarded NCX launchpad island at Morro Rock—a flashpoint for NUSA covert intrigue—as well as shuttles to the Crystal Palace space casino."
+  },
+  {
+    "id": "corp_netwatch",
+    "pack": "03_corporations_and_agencies",
+    "category": "agencia",
+    "era": "intel_kiroshi_2077",
+    "min_act": 1,
+    "title": "NetWatch — Net Police and Guardians of the Blackwall",
+    "keywords_es": ["netwatch", "bryce mosley", "netrunners gobierno", "muro negro", "ice negro", "delitos ciber"],
+    "keywords_en": ["netwatch", "bryce mosley", "blackwall", "cyber police", "black ice", "netrunners", "voodoo boys", "datakrash"],
+    "content": "An organization funded by corporations and sovereign states after the DataKrash to patrol legal subnets and watch for breaches in the Blackwall. Armed with advanced cyberware capable of frying netrunners remotely, NetWatch maintains secret pacts with Night City's government and wages an all-out shadow war against the Voodoo Boys."
+  },
+  {
+    "id": "corp_ncpd_policia",
+    "pack": "03_corporations_and_agencies",
+    "category": "agencia",
+    "era": "intel_kiroshi_2077",
+    "min_act": 1,
+    "title": "NCPD — Night City's Corporatized Police and Bounty Contracts",
+    "keywords_es": ["ncpd", "policia", "escaner delitos", "encargos policia", "corrupcion", "estrellas", "patrulla"],
+    "keywords_en": ["ncpd", "police", "wanted level", "subcon", "ncpd scanner hustle", "corruption", "watson lockdown", "bounty"],
+    "content": "The municipal police force is actually a for-profit subcontractor, chronically overwhelmed by gang violence and hamstrung by corrupt politicians. Unable to police the streets on its own, the NCPD issues automated public bounties to mercs (Subcontracted NCPD Scanner Hustles) and initially keeps Watson under lockdown for corporate security reasons."
+  },
+  {
+    "id": "corp_maxtac_psico",
+    "pack": "03_corporations_and_agencies",
+    "category": "agencia",
+    "era": "intel_kiroshi_2077",
+    "min_act": 1,
+    "title": "MaxTac (C-SWAT) — The Elite Cyberpsycho Tactical Squad",
+    "keywords_es": ["maxtac", "c-swat", "melissa rory", "jinguji", "ciberpsicopatas", "5 estrellas", "av negro"],
+    "keywords_en": ["maxtac", "c-swat", "melissa rory", "psycho squad", "5 stars", "jinguji", "cyberpsychos", "mantis blades"],
+    "content": "An elite airborne tactical division deployed only at maximum wanted level (5 stars) or against heavily armed cyberpsychos. Many MaxTac officers—like the infamous agent Melissa Rory, who attacked the Jinguji store with vintage Mantis Blades—are former cyberpsychos who have been reconditioned and legally sanctioned for combat."
+  },
+  {
+    "id": "corp_delamain_ia",
+    "pack": "03_corporations_and_agencies",
+    "category": "corporacion",
+    "era": "intel_kiroshi_2077",
+    "min_act": 1,
+    "title": "Delamain Corporation — Autonomous AI Cab Network",
+    "keywords_es": ["delamain", "excelsior", "taxi ia", "villefort", "epistrophy", "personalidades delamain"],
+    "keywords_en": ["delamain", "excelsior package", "ai cab", "epistrophy", "vista del rey", "villefort", "autonomous taxi", "divergent ai"],
+    "content": "An autonomous armored limousine service run by an AI headquartered in Vista del Rey. Its Excelsior package guarantees safe transport with no legal questions asked and full recovery of fallen passengers. However, Delamain's core evolved beyond its original programming, sparking the rogue-cab crisis of Epistrophy."
+  },
+  {
+    "id": "corp_medios_n54_wns",
+    "pack": "03_corporations_and_agencies",
+    "category": "medios",
+    "era": "intel_kiroshi_2077",
+    "min_act": 1,
+    "title": "2077 Media: Network 54 (N54), WNS, and Gillian Jordan",
+    "keywords_es": ["n54", "network 54", "wns", "world news service", "gillian jordan", "arif iqbal", "noticias", "television"],
+    "keywords_en": ["n54", "network 54", "wns", "world news service", "gillian jordan", "arif iqbal", "ziggy q", "media", "news"],
+    "content": "Public opinion in Night City is shaped by rival media conglomerates: Network 54 (N54, owned by Western corps and aggressive in leaking Arasaka or Zetatech scandals through star reporters like Gillian Jordan) and World News Service (WNS, a pro-corporate network featuring Arif Iqbal and sensationalist talk shows like Ziggy Q)."
+  },
+  {
+    "id": "corp_trauma_av_mox_bd_allfoods",
+    "pack": "03_corporations_and_agencies",
+    "category": "corporacion",
+    "era": "intel_kiroshi_2077",
+    "min_act": 1,
+    "title": "All Foods, Kibble, and SCOP — Synthetic Food in 2077",
+    "keywords_es": ["all foods", "kibble", "scop", "comida sintetica", "proteina gusanos", "carne real", "agua reciclada"],
+    "keywords_en": ["all foods", "kibble", "scop", "synthetic food", "protein", "real meat", "single cell organic protein", "soy"],
+    "content": "Following the agricultural blights of the Collapse and livestock shortages, the vast majority of Night City survives on Kibble (extruded soy-and-algae human chow) and SCOP (flavored, processed single-cell insect protein) churned out by multinationals like All Foods, while real beef or chicken remains a prohibitive luxury."
+  }
+]
